@@ -1,24 +1,40 @@
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE    1
 
 ************ OBJECT LISTING ************
 
-FILE NAME: C:\Users\Administrator\Desktop\2015-06-6���㷨ת��Ԫ������\2015-06-4���㷨ת��Ԫ������\JS.c
+FILE NAME: F:\ProgramOfUniversity\C-KXO\C-KXO\JS.c
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
             JS.c     1    #include "headfile.h"
-P   00000000              _ZS:                             ; function: ZS
-                                                           ; frame size=268
-                                                           ; used runtime library name:
-                                                           ; __addd, __subdr, __muld, __divdr, __itod, __eqd, __ned, __gtd, __ltd, _
-                        +                                  _ged, __led
-    00000000 2FE6                   MOV.L       R14,@-R15
 
 
 
 
 
 
+
+
+
+
+
+
+            JS.c     2    
+            JS.c     3    int ZS()
+P   00000000              _ZS:                             ; function: ZS
+                                                           ; frame size=268
+                                                           ; used runtime library name:
+                                                           ; __addd, __subdr, __muld, __divdr, __itod, __eqd, __ned, __gtd, __ltd, _
+                        +                                  _ged, __led
+    00000000 2FE6                   MOV.L       R14,@-R15
+            JS.c     4    {
+            JS.c     5            double Ca,DKa,DKb,Xa,Ya;
+            JS.c     6            double Ra,Rb,Pa,Pb;
+            JS.c     7            double pi,h,W,z,v;
+            JS.c     8            double U,dk,p,c,J_out;
+            JS.c     9            int k;
+            JS.c    10            int n=10;
+            JS.c    11            int i=0;
     00000002 E600                   MOV         #0,R6
     00000004 D51D                   MOV.L       L606+6,R5  ; _qxys
     00000006 2FD6                   MOV.L       R13,@-R15
@@ -45,6 +61,8 @@ P   00000000              _ZS:                             ; function: ZS
     00000030 2F26                   MOV.L       R2,@-R15
     00000032 8800                   CMP/EQ      #0,R0
     00000034 8905                   BT          L560
+            JS.c    12            
+            JS.c    13            if (yscs.k<qxys[0].p_qdk)       yscs.k=qxys[0].p_qdk;
     00000036 6243                   MOV         R4,R2
     00000038 6322                   MOV.L       @R2,R3
     0000003A 61E3                   MOV         R14,R1
@@ -54,6 +72,15 @@ P   00000000              _ZS:                             ; function: ZS
     00000042              L560:                             
     00000042 E438                   MOV         #56,R4
     00000044 D30F                   MOV.L       L606+14,R3 ; H'00000004+_setup
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE    2
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000046 6732                   MOV.L       @R3,R7
     00000048 52E1                   MOV.L       @(4,R14),R2
     0000004A 0747                   MUL.L       R4,R7
@@ -66,25 +93,18 @@ P   00000000              _ZS:                             ; function: ZS
     00000058 D20B                   MOV.L       L606+18,R2 ; __gtd
     0000005A 2F16                   MOV.L       R1,@-R15
     0000005C 517C                   MOV.L       @(48,R7),R1
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE    2
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000005E 420B                   JSR         @R2
     00000060 2F16                   MOV.L       R1,@-R15
     00000062 8800                   CMP/EQ      #0,R0
     00000064 8913                   BT          L562
+            JS.c    14            if (yscs.k>qxys[setup.db_num].p_zdk)    yscs.k=qxys[setup.db_num].p_zdk;
     00000066 6173                   MOV         R7,R1
     00000068 7130                   ADD         #48,R1
     0000006A 62E3                   MOV         R14,R2
     0000006C 6012                   MOV.L       @R1,R0
     0000006E 2202                   MOV.L       R0,@R2
     00000070 5011                   MOV.L       @(4,R1),R0
+            JS.c    15            while(yscs.k<qxys[i].p_qdk || yscs.k>qxys[i].p_zdk){
     00000072 A00C                   BRA         L562
     00000074 1201                   MOV.L       R0,@(4,R2)
     00000076              L606:                             
@@ -95,6 +115,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000084 <00000004>             .DATA.L     H'00000004+_setup
     00000088 <00000000>             .DATA.L     __gtd
     0000008C              L563:                             
+            JS.c    16                    i++;
     0000008C 7601                   ADD         #1,R6
     0000008E              L562:                             
     0000008E 52E1                   MOV.L       @(4,R14),R2
@@ -117,6 +138,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000B0 63E2                   MOV.L       @R14,R3
     000000B2 2F36                   MOV.L       R3,@-R15
     000000B4 527D                   MOV.L       @(52,R7),R2
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE    3
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000000B6 2F26                   MOV.L       R2,@-R15
     000000B8 527C                   MOV.L       @(48,R7),R2
     000000BA D33D                   MOV.L       L607+10,R3 ; __gtd
@@ -132,15 +162,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000CE 63E2                   MOV.L       @R14,R3
     000000D0 2F36                   MOV.L       R3,@-R15
     000000D2 52D1                   MOV.L       @(4,R13),R2
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE    3
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000000D4 D337                   MOV.L       L607+14,R3 ; __ged
     000000D6 2F26                   MOV.L       R2,@-R15
     000000D8 62D2                   MOV.L       @R13,R2
@@ -160,8 +181,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000F4 2F36                   MOV.L       R3,@-R15
     000000F6 8800                   CMP/EQ      #0,R0
     000000F8 8935                   BT          L564
+            JS.c    17            }
+            JS.c    18            if (yscs.k>=qxys[i].p_qdk       &&      yscs.k<=qxys[i].p_zdk){
+            JS.c    19                    Ca=qxys[i].p_qda;
     000000FA 63D3                   MOV         R13,R3
     000000FC 9153                   MOV.W       L607,R1    ; H'0090
+            JS.c    20                    DKa=qxys[i].p_qdk;
     000000FE 60D3                   MOV         R13,R0
     00000100 7308                   ADD         #8,R3
     00000102 31FC                   ADD         R15,R1
@@ -170,13 +195,24 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000108 5231                   MOV.L       @(4,R3),R2
     0000010A 1121                   MOV.L       R2,@(4,R1)
     0000010C 934C                   MOV.W       L607+2,R3  ; H'0088
+            JS.c    21                    DKb=qxys[i].p_zdk;
     0000010E 6103                   MOV         R0,R1
     00000110 6202                   MOV.L       @R0,R2
     00000112 33FC                   ADD         R15,R3
     00000114 2322                   MOV.L       R2,@R3
     00000116 7130                   ADD         #48,R1
     00000118 5201                   MOV.L       @(4,R0),R2
+            JS.c    22                    Xa=qxys[i].p_qdx;
     0000011A 7010                   ADD         #16,R0
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE    4
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000011C 1321                   MOV.L       R2,@(4,R3)
     0000011E 9344                   MOV.W       L607+4,R3  ; H'0080
     00000120 6212                   MOV.L       @R1,R2
@@ -186,6 +222,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000128 1321                   MOV.L       R2,@(4,R3)
     0000012A 63F3                   MOV         R15,R3
     0000012C 6202                   MOV.L       @R0,R2
+            JS.c    23                    Ya=qxys[i].p_qdy;
     0000012E 61D3                   MOV         R13,R1
     00000130 7378                   ADD         #120,R3
     00000132 7118                   ADD         #24,R1
@@ -194,23 +231,16 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000138 1321                   MOV.L       R2,@(4,R3)
     0000013A 63F3                   MOV         R15,R3
     0000013C 6212                   MOV.L       @R1,R2
+            JS.c    24                    Ra=qxys[i].p_qdr;
     0000013E 60D3                   MOV         R13,R0
     00000140 7370                   ADD         #112,R3
     00000142 7020                   ADD         #32,R0
     00000144 2322                   MOV.L       R2,@R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE    4
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000146 5211                   MOV.L       @(4,R1),R2
     00000148 1321                   MOV.L       R2,@(4,R3)
     0000014A 63F3                   MOV         R15,R3
     0000014C 6202                   MOV.L       @R0,R2
+            JS.c    25                    Rb=qxys[i].p_zdr;
     0000014E 61D3                   MOV         R13,R1
     00000150 7368                   ADD         #104,R3
     00000152 7128                   ADD         #40,R1
@@ -224,7 +254,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000162 5211                   MOV.L       @(4,R1),R2
     00000164 1321                   MOV.L       R2,@(4,R3)
     00000166              L564:                             
-
+            JS.c    26            }
+            JS.c    27        
+            JS.c    28            if (Ra==0 && Rb!=0){
     00000166 E06C                   MOV         #108,R0
     00000168 D214                   MOV.L       L607+22,R2 ; __ned
     0000016A E300                   MOV         #0,R3
@@ -238,6 +270,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000017A 2F36                   MOV.L       R3,@-R15
     0000017C 8800                   CMP/EQ      #0,R0
     0000017E 8B21                   BF          L565
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE    5
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000180 E064                   MOV         #100,R0
     00000182 E200                   MOV         #0,R2
     00000184 03FE                   MOV.L       @(R0,R15),R3
@@ -251,6 +292,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000194 2F26                   MOV.L       R2,@-R15
     00000196 8800                   CMP/EQ      #0,R0
     00000198 8B14                   BF          L565
+            JS.c    29            Pa=0;
     0000019A 62F3                   MOV         R15,R2
     0000019C 7258                   ADD         #88,R2
     0000019E E100                   MOV         #0,R1
@@ -265,18 +307,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001B0 <00000000>             .DATA.L     __gtd
     000001B4 <00000000>             .DATA.L     __ged
     000001B8 <00000000>             .DATA.L     __led
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE    5
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000001BC <00000000>             .DATA.L     __ned
     000001C0 <00000000>             .DATA.L     __eqd
     000001C4              L565:                             
+            JS.c    30            Pb=1/Rb;
+            JS.c    31            }
+            JS.c    32            else if (Rb==0 && Ra!=0){
     000001C4 E064                   MOV         #100,R0
     000001C6 E200                   MOV         #0,R2
     000001C8 03FE                   MOV.L       @(R0,R15),R3
@@ -300,12 +336,23 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001EC 2F36                   MOV.L       R3,@-R15
     000001EE D221                   MOV.L       L608+4,R2  ; __eqd
     000001F0 420B                   JSR         @R2
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE    6
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000001F2 2F36                   MOV.L       R3,@-R15
     000001F4 8800                   CMP/EQ      #0,R0
     000001F6 8B15                   BF          L567
+            JS.c    33            Pb=0;
     000001F8 63F3                   MOV         R15,R3
     000001FA 7350                   ADD         #80,R3
     000001FC E100                   MOV         #0,R1
+            JS.c    34            Pa=1/Ra;
     000001FE 6213                   MOV         R1,R2
     00000200 2312                   MOV.L       R1,@R3
     00000202 E074                   MOV         #116,R0
@@ -326,20 +373,13 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000220 A066                   BRA         L566
     00000222 0009                   NOP
     00000224              L567:                             
+            JS.c    35            }
+            JS.c    36            else if (Ra==0 && Rb==0){
     00000224 D212                   MOV.L       L608,R2    ; __ned
     00000226 E06C                   MOV         #108,R0
     00000228 00FE                   MOV.L       @(R0,R15),R0
     0000022A E300                   MOV         #0,R3
     0000022C 2F06                   MOV.L       R0,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE    6
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000022E E06C                   MOV         #108,R0
     00000230 00FE                   MOV.L       @(R0,R15),R0
     00000232 2F06                   MOV.L       R0,@-R15
@@ -361,9 +401,20 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000252 2F26                   MOV.L       R2,@-R15
     00000254 8800                   CMP/EQ      #0,R0
     00000256 8B13                   BF          L569
+            JS.c    37            Pa=0;
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE    7
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000258 62F3                   MOV         R15,R2
     0000025A 7258                   ADD         #88,R2
     0000025C E100                   MOV         #0,R1
+            JS.c    38            Pb=0;
     0000025E 63F3                   MOV         R15,R3
     00000260 2212                   MOV.L       R1,@R2
     00000262 6013                   MOV         R1,R0
@@ -371,6 +422,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000266 7350                   ADD         #80,R3
     00000268 2312                   MOV.L       R1,@R3
     0000026A 1301                   MOV.L       R0,@(4,R3)
+            JS.c    39            n=1;
     0000026C A040                   BRA         L566
     0000026E EB01                   MOV         #1,R11
     00000270              L608:                             
@@ -379,6 +431,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000278 3FF00000               .DATA.L     H'3FF00000
     0000027C <00000000>             .DATA.L     __divdr
     00000280              L569:                             
+            JS.c    40            }
+            JS.c    41            else if (Ra!=0 && Rb!=0){
     00000280 E06C                   MOV         #108,R0
     00000282 E300                   MOV         #0,R3
     00000284 02FE                   MOV.L       @(R0,R15),R2
@@ -397,15 +451,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000029E E200                   MOV         #0,R2
     000002A0 2F36                   MOV.L       R3,@-R15
     000002A2 E064                   MOV         #100,R0
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE    7
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000002A4 03FE                   MOV.L       @(R0,R15),R3
     000002A6 2F36                   MOV.L       R3,@-R15
     000002A8 2F26                   MOV.L       R2,@-R15
@@ -414,6 +459,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002AE 2F26                   MOV.L       R2,@-R15
     000002B0 8800                   CMP/EQ      #0,R0
     000002B2 8B1D                   BF          L566
+            JS.c    42            Pa=1/Ra; 
     000002B4 E200                   MOV         #0,R2
     000002B6 E074                   MOV         #116,R0
     000002B8 2F26                   MOV.L       R2,@-R15
@@ -422,6 +468,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002BE 03FE                   MOV.L       @(R0,R15),R3
     000002C0 D257                   MOV.L       L609+20,R2 ; __divdr
     000002C2 E074                   MOV         #116,R0
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE    8
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000002C4 2F36                   MOV.L       R3,@-R15
     000002C6 03FE                   MOV.L       @(R0,R15),R3
     000002C8 2F36                   MOV.L       R3,@-R15
@@ -430,6 +485,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002CE 420B                   JSR         @R2
     000002D0 2F16                   MOV.L       R1,@-R15
     000002D2              L558:
+            JS.c    43            Pb=1/Rb;
     000002D2 E300                   MOV         #0,R3
     000002D4 2F36                   MOV.L       R3,@-R15
     000002D6 E06C                   MOV         #108,R0
@@ -446,6 +502,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002EC 430B                   JSR         @R3
     000002EE 2F16                   MOV.L       R1,@-R15
     000002F0              L566:                             
+            JS.c    44            }
+            JS.c    45            pi=Pa+(Pb-Pa)*fabs(yscs.k-DKa)/fabs(DKb-DKa);  //计算里程处曲率
     000002F0 DD4C                   MOV.L       L609+24,R13; _fabs
     000002F2 E05C                   MOV         #92,R0
     000002F4 D14C                   MOV.L       L609+28,R1 ; __subdr
@@ -463,15 +521,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000030C 907E                   MOV.W       L609,R0    ; H'0084
     0000030E 2F26                   MOV.L       R2,@-R15
     00000310 03FE                   MOV.L       @(R0,R15),R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE    8
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000312 2F36                   MOV.L       R3,@-R15
     00000314 907A                   MOV.W       L609,R0    ; H'0084
     00000316 03FE                   MOV.L       @(R0,R15),R3
@@ -485,6 +534,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000326 53E1                   MOV.L       @(4,R14),R3
     00000328 D13F                   MOV.L       L609+28,R1 ; __subdr
     0000032A 2F36                   MOV.L       R3,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE    9
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000032C 63E2                   MOV.L       @R14,R3
     0000032E 2F36                   MOV.L       R3,@-R15
     00000330 02FE                   MOV.L       @(R0,R15),R2
@@ -529,15 +587,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000037E 4D0B                   JSR         @R13
     00000380 2F26                   MOV.L       R2,@-R15
     00000382 7F0C                   ADD         #12,R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE    9
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000384 D226                   MOV.L       L609+20,R2 ; __divdr
     00000386 60F3                   MOV         R15,R0
     00000388 7010                   ADD         #16,R0
@@ -548,9 +597,19 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000392 7158                   ADD         #88,R1
     00000394 430B                   JSR         @R3
     00000396 2F16                   MOV.L       R1,@-R15
+
     00000398 903C                   MOV.W       L609+8,R0  ; H'0094
     0000039A 02FE                   MOV.L       @(R0,R15),R2
     0000039C 903A                   MOV.W       L609+8,R0  ; H'0094
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   10
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000039E 2F26                   MOV.L       R2,@-R15
     000003A0 02FE                   MOV.L       @(R0,R15),R2
     000003A2 E07C                   MOV         #124,R0
@@ -595,15 +654,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003F0 D30E                   MOV.L       L609+32,R3 ; __muld
     000003F2 7F0C                   ADD         #12,R15
     000003F4 60F3                   MOV         R15,R0
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   10
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000003F6 7010                   ADD         #16,R0
     000003F8 430B                   JSR         @R3
     000003FA 2F06                   MOV.L       R0,@-R15
@@ -617,6 +667,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000040A 2F36                   MOV.L       R3,@-R15
     0000040C              L609:                             
     0000040C 0084                   .DATA.W     H'0084
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   11
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000040E 00C4                   .DATA.W     H'00C4
     00000410 00AC                   .DATA.W     H'00AC
     00000412 00BC                   .DATA.W     H'00BC
@@ -639,6 +698,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000442 7010                   ADD         #16,R0
     00000444 420B                   JSR         @R2
     00000446 2F06                   MOV.L       R0,@-R15
+            JS.c    47            h=fabs(yscs.k-DKa)/n;
     00000448 90C3                   MOV.W       L610,R0    ; H'00A4
     0000044A 7FF0                   ADD         #-16,R15
     0000044C D166                   MOV.L       L610+22,R1 ; __subdr
@@ -661,15 +721,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000046E 2F26                   MOV.L       R2,@-R15
     00000470 D35E                   MOV.L       L610+26,R3 ; __itod
     00000472 60B3                   MOV         R11,R0
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   11
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000474 7F04                   ADD         #4,R15
     00000476 430B                   JSR         @R3
     00000478 2FF6                   MOV.L       R15,@-R15
@@ -678,6 +729,20 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000047E 7150                   ADD         #80,R1
     00000480 420B                   JSR         @R2
     00000482 2F16                   MOV.L       R1,@-R15
+            JS.c    48        W==0;
+            JS.c    49            z==0;
+            JS.c    50            U==0;
+            JS.c    51            v==0;
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   12
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+            JS.c    52            for(k=1;k<=2*n-1;k++)
     00000484 DA5B                   MOV.L       L610+34,R10; _cos
     00000486 EC01                   MOV         #1,R12
     00000488 69B3                   MOV         R11,R9
@@ -690,6 +755,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000496 0009                   NOP
     00000498              L611:                             
     00000498              L573:                             
+            JS.c    53    {
+            JS.c    54            dk=DKa+k*h/2;
     00000498 D254                   MOV.L       L610+26,R2 ; __itod
     0000049A 60C3                   MOV         R12,R0
     0000049C 7FE8                   ADD         #-24,R15
@@ -726,20 +793,21 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000004DA 7128                   ADD         #40,R1
     000004DC 420B                   JSR         @R2
     000004DE 2F16                   MOV.L       R1,@-R15
+            JS.c    55            p=Pa+(Pb-Pa)*fabs(dk-DKa)/fabs(DKb-DKa);
     000004E0 D141                   MOV.L       L610+22,R1 ; __subdr
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   12
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000004E2 E05C                   MOV         #92,R0
     000004E4 03FE                   MOV.L       @(R0,R15),R3
     000004E6 E05C                   MOV         #92,R0
     000004E8 2F36                   MOV.L       R3,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   13
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000004EA 03FE                   MOV.L       @(R0,R15),R3
     000004EC 2F36                   MOV.L       R3,@-R15
     000004EE 7FE8                   ADD         #-24,R15
@@ -793,19 +861,19 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000054E 03FE                   MOV.L       @(R0,R15),R3
     00000550 9043                   MOV.W       L610+8,R0  ; H'00AC
     00000552 2F36                   MOV.L       R3,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   13
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000554 03FE                   MOV.L       @(R0,R15),R3
     00000556 2F36                   MOV.L       R3,@-R15
     00000558 9040                   MOV.W       L610+10,R0 ; H'00BC
     0000055A 02FE                   MOV.L       @(R0,R15),R2
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   14
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000055C 903E                   MOV.W       L610+10,R0 ; H'00BC
     0000055E 2F26                   MOV.L       R2,@-R15
     00000560 02FE                   MOV.L       @(R0,R15),R2
@@ -829,6 +897,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000584 7120                   ADD         #32,R1
     00000586 430B                   JSR         @R3
     00000588 2F16                   MOV.L       R1,@-R15
+            JS.c    56            c=Ca+0.5*(Pa+p)*fabs(dk-DKa);
     0000058A 9023                   MOV.W       L610+2,R0  ; H'0094
     0000058C D115                   MOV.L       L610+18,R1 ; __addd
     0000058E 02FE                   MOV.L       @(R0,R15),R2
@@ -859,18 +928,18 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000005C0 02FE                   MOV.L       @(R0,R15),R2
     000005C2 2F26                   MOV.L       R2,@-R15
     000005C4 9008                   MOV.W       L610+6,R0  ; H'00C4
+    000005C6 03FE                   MOV.L       @(R0,R15),R3
+    000005C8 9006                   MOV.W       L610+6,R0  ; H'00C4
+    000005CA 2F36                   MOV.L       R3,@-R15
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   14
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   15
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    000005C6 03FE                   MOV.L       @(R0,R15),R3
-    000005C8 9006                   MOV.W       L610+6,R0  ; H'00C4
-    000005CA 2F36                   MOV.L       R3,@-R15
     000005CC 03FE                   MOV.L       @(R0,R15),R3
     000005CE A017                   BRA         L604
     000005D0 0009                   NOP
@@ -921,21 +990,22 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000636 7018                   ADD         #24,R0
     00000638 420B                   JSR         @R2
     0000063A 2F06                   MOV.L       R0,@-R15
+            JS.c    57            if (k%2==0){
     0000063C 60C3                   MOV         R12,R0
     0000063E 4011                   CMP/PZ      R0
     00000640 8B01                   BF          L575
     00000642 A005                   BRA         L576
+    00000644 C901                   AND         #1,R0
+    00000646              L575:                             
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   15
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   16
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    00000644 C901                   AND         #1,R0
-    00000646              L575:                             
     00000646 6007                   NOT         R0,R0
     00000648 7001                   ADD         #1,R0
     0000064A C901                   AND         #1,R0
@@ -944,6 +1014,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000650              L576:                             
     00000650 2008                   TST         R0,R0
     00000652 8B27                   BF          L574
+            JS.c    58            W=W+cos(c);
     00000654 51FF                   MOV.L       @(60,R15),R1
     00000656 E208                   MOV         #8,R2
     00000658 2F16                   MOV.L       R1,@-R15
@@ -963,6 +1034,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000674 7248                   ADD         #72,R2
     00000676 410B                   JSR         @R1
     00000678 2F26                   MOV.L       R2,@-R15
+            JS.c    59            z=z+sin(c);
     0000067A 53FD                   MOV.L       @(52,R15),R3
     0000067C 2F36                   MOV.L       R3,@-R15
     0000067E 53FD                   MOV.L       @(52,R15),R3
@@ -985,21 +1057,23 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000006A0 A03B                   BRA         L577
     000006A2 0009                   NOP
     000006A4              L574:                             
+            JS.c    60            }
+            JS.c    61            else if (k%2==1){
     000006A4 60C3                   MOV         R12,R0
     000006A6 4011                   CMP/PZ      R0
     000006A8 8B0A                   BF          L579
     000006AA A00E                   BRA         L580
-    000006AC C901                   AND         #1,R0
-    000006AE              L612:                             
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   16
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   17
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    000006AC C901                   AND         #1,R0
+    000006AE              L612:                             
     000006AE 0000                   .DATA.W     0
     000006B0 <00000000>             .DATA.L     __subdr
     000006B4 <00000000>             .DATA.L     __muld
@@ -1014,6 +1088,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000006CA              L580:                             
     000006CA 8801                   CMP/EQ      #1,R0
     000006CC 8B25                   BF          L577
+            JS.c    62            U=U+cos(c);
     000006CE 53F9                   MOV.L       @(36,R15),R3
     000006D0 2F36                   MOV.L       R3,@-R15
     000006D2 53F9                   MOV.L       @(36,R15),R3
@@ -1033,6 +1108,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000006EE 7330                   ADD         #48,R3
     000006F0 410B                   JSR         @R1
     000006F2 2F36                   MOV.L       R3,@-R15
+            JS.c    63            v=v+sin(c);
     000006F4 52FB                   MOV.L       @(44,R15),R2
     000006F6 2F26                   MOV.L       R2,@-R15
     000006F8 52FB                   MOV.L       @(44,R15),R2
@@ -1053,22 +1129,25 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000716 410B                   JSR         @R1
     00000718 2F26                   MOV.L       R2,@-R15
     0000071A              L577:                             
-    0000071A 7C01                   ADD         #1,R12
-    0000071C 3C97                   CMP/GT      R9,R12
-    0000071E 8901                   BT          L614
-    00000720 AEBA                   BRA         L573
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   17
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   18
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    0000071A 7C01                   ADD         #1,R12
+    0000071C 3C97                   CMP/GT      R9,R12
+    0000071E 8901                   BT          L614
+    00000720 AEBA                   BRA         L573
     00000722 0009                   NOP
     00000724              L614:                             
     00000724              L572:                             
+            JS.c    64            }
+            JS.c    65    }
+            JS.c    66            yscs.xn = Xa+h/6.0*(cos(Ca)+4.0*U+2.0*W+cos(J_out)); 
     00000724 D151                   MOV.L       L613+10,R1 ; __divdr
     00000726 E07C                   MOV         #124,R0
     00000728 02FE                   MOV.L       @(R0,R15),R2
@@ -1116,6 +1195,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000077C D13D                   MOV.L       L613+18,R1 ; __muld
     0000077E 62F3                   MOV         R15,R2
     00000780 7210                   ADD         #16,R2
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   19
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000782 410B                   JSR         @R1
     00000784 2F26                   MOV.L       R2,@-R15
     00000786 63F3                   MOV         R15,R3
@@ -1123,15 +1211,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000078A 7310                   ADD         #16,R3
     0000078C 400B                   JSR         @R0
     0000078E 2F36                   MOV.L       R3,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   18
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000790 D138                   MOV.L       L613+18,R1 ; __muld
     00000792 7FF8                   ADD         #-8,R15
     00000794 E074                   MOV         #116,R0
@@ -1178,9 +1257,19 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000007E6 31EC                   ADD         R14,R1
     000007E8 430B                   JSR         @R3
     000007EA 2F16                   MOV.L       R1,@-R15
+            JS.c    67            yscs.ye = Ya+h/6.0*(sin(Ca)+4.0*v+2.0*z+sin(J_out)); 
     000007EC D11F                   MOV.L       L613+10,R1 ; __divdr
     000007EE E074                   MOV         #116,R0
     000007F0 02FE                   MOV.L       @(R0,R15),R2
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   20
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000007F2 E074                   MOV         #116,R0
     000007F4 2F26                   MOV.L       R2,@-R15
     000007F6 02FE                   MOV.L       @(R0,R15),R2
@@ -1189,15 +1278,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000007FC E05C                   MOV         #92,R0
     000007FE E200                   MOV         #0,R2
     00000800 03FE                   MOV.L       @(R0,R15),R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   19
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000802 E05C                   MOV         #92,R0
     00000804 2F36                   MOV.L       R3,@-R15
     00000806 03FE                   MOV.L       @(R0,R15),R3
@@ -1247,6 +1327,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000085E A00D                   BRA         L605
     00000860 0009                   NOP
     00000862              L613:                             
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   21
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000862 00CC                   .DATA.W     H'00CC
     00000864 <00000000>             .DATA.L     __addd
     00000868 40180000               .DATA.L     H'40180000
@@ -1255,15 +1344,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000874 <00000000>             .DATA.L     __muld
     00000878 40000000               .DATA.L     H'40000000
     0000087C              L605:                             
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   20
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000087C 2F26                   MOV.L       R2,@-R15
     0000087E E06C                   MOV         #108,R0
     00000880 D12A                   MOV.L       L615+8,R1  ; __muld
@@ -1307,10 +1387,21 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000008CC 31EC                   ADD         R14,R1
     000008CE 430B                   JSR         @R3
     000008D0 2F16                   MOV.L       R1,@-R15
+            JS.c    68            yscs.fn=J_out/PI*180;  //将弧度转换角度      弧度=角度乘以π后再除以180   角度=
+                         +弧度除以π再乘以180
     000008D2 7FF8                   ADD         #-8,R15
     000008D4 D317                   MOV.L       L615+16,R3 ; H'53C8D4F1
     000008D6 52F3                   MOV.L       @(12,R15),R2
     000008D8 D118                   MOV.L       L615+24,R1 ; __divdr
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   22
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000008DA 2F26                   MOV.L       R2,@-R15
     000008DC 52F3                   MOV.L       @(12,R15),R2
     000008DE 2F26                   MOV.L       R2,@-R15
@@ -1321,15 +1412,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000008E8 7210                   ADD         #16,R2
     000008EA 410B                   JSR         @R1
     000008EC 2F26                   MOV.L       R2,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   21
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000008EE E300                   MOV         #0,R3
     000008F0 D20E                   MOV.L       L615+8,R2  ; __muld
     000008F2 E118                   MOV         #24,R1
@@ -1339,8 +1421,11 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000008FA 2F36                   MOV.L       R3,@-R15
     000008FC 420B                   JSR         @R2
     000008FE 2F16                   MOV.L       R1,@-R15
+            JS.c    69            zfset.ks=yscs.k;
     00000900 D010                   MOV.L       L615+32,R0 ; _zfset
     00000902 63E3                   MOV         R14,R3
+            JS.c    70            return 1;       
+            JS.c    71    }
     00000904 910E                   MOV.W       L615,R1    ; H'0098
     00000906 6232                   MOV.L       @R3,R2
     00000908 2022                   MOV.L       R2,@R0
@@ -1368,11 +1453,27 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000093C <00000000>             .DATA.L     __divdr
     00000940 40668000               .DATA.L     H'40668000
     00000944 <00000000>             .DATA.L     _zfset
+            JS.c    72    
+            JS.c    73    int FS()
     00000948              _FS:                             ; function: FS
                                                            ; frame size=124
                                                            ; used runtime library name:
                                                            ; __addd, __subdr, __muld, __divdr, __gtd, __ltd
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   23
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000948 2FE6                   MOV.L       R14,@-R15
+            JS.c    74    {
+            JS.c    75            double fi,fj,fw;
+            JS.c    76            int cc;
+            JS.c    77            
+            JS.c    78            yscs.d=0.0;     cc=0;   
     0000094A E200                   MOV         #0,R2
     0000094C 2FD6                   MOV.L       R13,@-R15
     0000094E 6D23                   MOV         R2,R13
@@ -1387,24 +1488,18 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000960 DEBD                   MOV.L       L616,R14   ; _yscs
     00000962 7FE8                   ADD         #-24,R15
     00000964 D8BD                   MOV.L       L616+4,R8  ; _atan
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   22
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000966 63E3                   MOV         R14,R3
     00000968 D9BD                   MOV.L       L616+8,R9  ; _fabs
     0000096A 7320                   ADD         #32,R3
     0000096C DABD                   MOV.L       L616+12,R10; _sqrt
     0000096E 2322                   MOV.L       R2,@R3
     00000970 1321                   MOV.L       R2,@(4,R3)
+            JS.c    79            do{
     00000972              L582:                             
+            JS.c    80                    ZS(); 
     00000972 BB45                   BSR         _ZS
     00000974 0009                   NOP
+            JS.c    81                    fi = sqrt((yscs.xn-yscs.x1)*(yscs.xn-yscs.x1)+(yscs.ye-yscs.y1)*(yscs.ye-yscs.y1));
     00000976 7FE8                   ADD         #-24,R15
     00000978 D1BC                   MOV.L       L616+20,R1 ; __subdr
     0000097A 52E3                   MOV.L       @(12,R14),R2
@@ -1430,6 +1525,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000009A2 52EA                   MOV.L       @(40,R14),R2
     000009A4 2F26                   MOV.L       R2,@-R15
     000009A6 63F3                   MOV         R15,R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   24
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000009A8 7310                   ADD         #16,R3
     000009AA 410B                   JSR         @R1
     000009AC 2F36                   MOV.L       R3,@-R15
@@ -1453,15 +1557,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000009D0 410B                   JSR         @R1
     000009D2 2F36                   MOV.L       R3,@-R15
     000009D4 D1A5                   MOV.L       L616+20,R1 ; __subdr
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   23
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000009D6 7FF8                   ADD         #-8,R15
     000009D8 52E5                   MOV.L       @(20,R14),R2
     000009DA 2F26                   MOV.L       R2,@-R15
@@ -1489,12 +1584,22 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A06 7318                   ADD         #24,R3
     00000A08 4A0B                   JSR         @R10
     00000A0A 2F36                   MOV.L       R3,@-R15
+            JS.c    82                    fj = atan((yscs.ye-yscs.y1)/(yscs.xn-yscs.x1+1e-12));
     00000A0C D197                   MOV.L       L616+20,R1 ; __subdr
     00000A0E 7FFC                   ADD         #-4,R15
     00000A10 50E5                   MOV.L       @(20,R14),R0
     00000A12 2F06                   MOV.L       R0,@-R15
     00000A14 50E4                   MOV.L       @(16,R14),R0
     00000A16 2F06                   MOV.L       R0,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   25
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000A18 53ED                   MOV.L       @(52,R14),R3
     00000A1A 2F36                   MOV.L       R3,@-R15
     00000A1C 53EC                   MOV.L       @(48,R14),R3
@@ -1519,15 +1624,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A42 2F36                   MOV.L       R3,@-R15
     00000A44 D28C                   MOV.L       L616+32,R2 ; H'812DEA11
     00000A46 2F26                   MOV.L       R2,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   24
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000A48 D28C                   MOV.L       L616+36,R2 ; H'3D719799
     00000A4A 2F26                   MOV.L       R2,@-R15
     00000A4C D189                   MOV.L       L616+28,R1 ; __addd
@@ -1544,6 +1640,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A62 7310                   ADD         #16,R3
     00000A64 480B                   JSR         @R8
     00000A66 2F36                   MOV.L       R3,@-R15
+            JS.c    83                    fj = fj/ PI * 180.0;  //将弧度转换角度
     00000A68 D386                   MOV.L       L616+44,R3 ; H'53C8D4F1
     00000A6A 7F04                   ADD         #4,R15
     00000A6C 51F5                   MOV.L       @(20,R15),R1
@@ -1560,6 +1657,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A82 2F26                   MOV.L       R2,@-R15
     00000A84 D27A                   MOV.L       L616+24,R2 ; __muld
     00000A86 E300                   MOV         #0,R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   26
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000A88 2F36                   MOV.L       R3,@-R15
     00000A8A D380                   MOV.L       L616+52,R3 ; H'40668000
     00000A8C 2F36                   MOV.L       R3,@-R15
@@ -1567,7 +1673,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A90 7118                   ADD         #24,R1
     00000A92 420B                   JSR         @R2
     00000A94 2F16                   MOV.L       R1,@-R15
-
+            JS.c    84                    if (yscs.xn -yscs.x1< 0.0)      fj += 180.0;  //fj=fj+180
     00000A96 7FF8                   ADD         #-8,R15
     00000A98 D174                   MOV.L       L616+20,R1 ; __subdr
     00000A9A 53E3                   MOV.L       @(12,R14),R3
@@ -1586,15 +1692,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000AB4 D376                   MOV.L       L616+56,R3 ; __ltd
     00000AB6 2F26                   MOV.L       R2,@-R15
     00000AB8 430B                   JSR         @R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   25
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000ABA 2F26                   MOV.L       R2,@-R15
     00000ABC 8800                   CMP/EQ      #0,R0
     00000ABE 890D                   BT          L583
@@ -1613,6 +1710,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000AD8 420B                   JSR         @R2
     00000ADA 0009                   NOP
     00000ADC              L583:                             
+            JS.c    85                    if (fj<0.0)     fj += 360.0;                 //fj=fj+360
     00000ADC 53F3                   MOV.L       @(12,R15),R3
     00000ADE E200                   MOV         #0,R2
     00000AE0 2F36                   MOV.L       R3,@-R15
@@ -1625,6 +1723,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000AEE 8800                   CMP/EQ      #0,R0
     00000AF0 890D                   BT          L584
     00000AF2 E300                   MOV         #0,R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   27
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000AF4 52F3                   MOV.L       @(12,R15),R2
     00000AF6 2F26                   MOV.L       R2,@-R15
     00000AF8 52F3                   MOV.L       @(12,R15),R2
@@ -1639,6 +1746,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000B0A 420B                   JSR         @R2
     00000B0C 0009                   NOP
     00000B0E              L584:                             
+            JS.c    86                    fw=fi*sin((yscs.fn-fj-90.0)*PI/180.0);  //将角度转换弧度
     00000B0E E044                   MOV         #68,R0
     00000B10 D156                   MOV.L       L616+20,R1 ; __subdr
     00000B12 53F5                   MOV.L       @(20,R15),R3
@@ -1652,15 +1760,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000B22 2F26                   MOV.L       R2,@-R15
     00000B24 03FE                   MOV.L       @(R0,R15),R3
     00000B26 E044                   MOV         #68,R0
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   26
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000B28 2F36                   MOV.L       R3,@-R15
     00000B2A 03FE                   MOV.L       @(R0,R15),R3
     00000B2C 2F36                   MOV.L       R3,@-R15
@@ -1690,6 +1789,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000B5C D148                   MOV.L       L616+40,R1 ; __divdr
     00000B5E 2F36                   MOV.L       R3,@-R15
     00000B60 D34A                   MOV.L       L616+52,R3 ; H'40668000
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   28
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000B62 2F36                   MOV.L       R3,@-R15
     00000B64 62F3                   MOV         R15,R2
     00000B66 7210                   ADD         #16,R2
@@ -1705,6 +1813,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000B7A 7310                   ADD         #16,R3
     00000B7C 400B                   JSR         @R0
     00000B7E 2F36                   MOV.L       R3,@-R15
+            JS.c    87                    yscs.k=yscs.k+fw;
     00000B80 52E1                   MOV.L       @(4,R14),R2
     00000B82 2F26                   MOV.L       R2,@-R15
     00000B84 62E2                   MOV.L       @R14,R2
@@ -1716,18 +1825,10 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000B90 D238                   MOV.L       L616+28,R2 ; __addd
     00000B92 420B                   JSR         @R2
     00000B94 2FE6                   MOV.L       R14,@-R15
+            JS.c    88                    ++cc;
     00000B96 7D01                   ADD         #1,R13
-
+            JS.c    89                    if (cc>=80)     fw=0.00001;
     00000B98 3DB3                   CMP/GE      R11,R13
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   27
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000B9A 8B04                   BF          L585
     00000B9C D33F                   MOV.L       L616+68,R3 ; H'3EE4F8B5
     00000B9E 62F3                   MOV         R15,R2
@@ -1735,6 +1836,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000BA2 D33F                   MOV.L       L616+72,R3 ; H'88E368F1
     00000BA4 1231                   MOV.L       R3,@(4,R2)
     00000BA6              L585:                             
+            JS.c    90    
+            JS.c    91            }while(fabs(fw)>0.0001);
     00000BA6 7FF8                   ADD         #-8,R15
     00000BA8 51F3                   MOV.L       @(12,R15),R1
     00000BAA E308                   MOV         #8,R3
@@ -1752,13 +1855,23 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000BC2 430B                   JSR         @R3
     00000BC4 2F26                   MOV.L       R2,@-R15
     00000BC6 8800                   CMP/EQ      #0,R0
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   29
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000BC8 8901                   BT          L617
     00000BCA AED2                   BRA         L582
     00000BCC 0009                   NOP
     00000BCE              L617:                             
-
+            JS.c    92                    ZS();
     00000BCE BA17                   BSR         _ZS
     00000BD0 0009                   NOP
+            JS.c    93                    yscs.d=(yscs.y1-yscs.ye)/sin((yscs.fn+90.0)*PI/180.0);
     00000BD2 7FF8                   ADD         #-8,R15
     00000BD4 51ED                   MOV.L       @(52,R14),R1
     00000BD6 2F16                   MOV.L       R1,@-R15
@@ -1786,15 +1899,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C02 63F3                   MOV         R15,R3
     00000C04 7310                   ADD         #16,R3
     00000C06 410B                   JSR         @R1
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   28
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000C08 2F36                   MOV.L       R3,@-R15
     00000C0A D21E                   MOV.L       L616+44,R2 ; H'53C8D4F1
     00000C0C D118                   MOV.L       L616+24,R1 ; __muld
@@ -1817,6 +1921,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C2E E208                   MOV         #8,R2
     00000C30 32FC                   ADD         R15,R2
     00000C32 4C0B                   JSR         @R12
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   30
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000C34 2F26                   MOV.L       R2,@-R15
     00000C36 7F0C                   ADD         #12,R15
     00000C38 D011                   MOV.L       L616+40,R0 ; __divdr
@@ -1824,7 +1937,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C3C 32EC                   ADD         R14,R2
     00000C3E 400B                   JSR         @R0
     00000C40 2F26                   MOV.L       R2,@-R15
+            JS.c    94                    return 1;
     00000C42 E001                   MOV         #1,R0
+            JS.c    95    }
     00000C44 7F18                   ADD         #24,R15
     00000C46 4F26                   LDS.L       @R15+,PR
     00000C48 68F6                   MOV.L       @R15+,R8
@@ -1852,15 +1967,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C8C 40668000               .DATA.L     H'40668000
     00000C90 <00000000>             .DATA.L     __ltd
     00000C94 40768000               .DATA.L     H'40768000
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   29
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000C98 C0568000               .DATA.L     H'C0568000
     00000C9C 3EE4F8B5               .DATA.L     H'3EE4F8B5
     00000CA0 88E368F1               .DATA.L     H'88E368F1
@@ -1868,13 +1974,28 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000CA8 3F1A36E2               .DATA.L     H'3F1A36E2
     00000CAC <00000000>             .DATA.L     __gtd
     00000CB0 40568000               .DATA.L     H'40568000
+            JS.c    96    
+            JS.c    97    int GC()
     00000CB4              _GC:                             ; function: GC
                                                            ; frame size=160
                                                            ; used runtime library name:
                                                            ; __addd, __subdr, __muld, __divdr, __negd, __gtd, __ltd
     00000CB4 2FE6                   MOV.L       R14,@-R15
+            JS.c    98    {
+            JS.c    99            double gr,gf,ge,gp;
+            JS.c   100            double ga,gi,gw,gt,gz;
+            JS.c   101            int i=0;
     00000CB6 E400                   MOV         #0,R4
     00000CB8 D5C0                   MOV.L       L618+4,R5  ; _l_sqx
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   31
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000CBA E738                   MOV         #56,R7
     00000CBC 4F22                   STS.L       PR,@-R15
     00000CBE 4F12                   STS.L       MACL,@-R15
@@ -1892,9 +2013,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000CD6 2F26                   MOV.L       R2,@-R15
     00000CD8 8800                   CMP/EQ      #0,R0
     00000CDA 891D                   BT          L587
+            JS.c   102            if (yscs.k<l_sqx[0].s_qdk)      //SQX_ERR();
+            JS.c   103            while(yscs.k<l_sqx[i].s_qdk || yscs.k>l_sqx[i].s_zdk){
     00000CDC A001                   BRA         L588
     00000CDE 0009                   NOP
     00000CE0              L589:                             
+            JS.c   104                    i++;
     00000CE0 7401                   ADD         #1,R4
     00000CE2              L588:                             
     00000CE2 53E1                   MOV.L       @(4,R14),R3
@@ -1918,15 +2042,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000D06 2F36                   MOV.L       R3,@-R15
     00000D08 526D                   MOV.L       @(52,R6),R2
     00000D0A 2F26                   MOV.L       R2,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   30
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000D0C 526C                   MOV.L       @(48,R6),R2
     00000D0E D3AD                   MOV.L       L618+12,R3 ; __gtd
     00000D10 430B                   JSR         @R3
@@ -1934,7 +2049,19 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000D14 8800                   CMP/EQ      #0,R0
     00000D16 8BE3                   BF          L589
     00000D18              L587:                             
+            JS.c   105            }
+            JS.c   106            
+            JS.c   107            ge=l_sqx[i].s_qdi/100;   //前坡
     00000D18 0477                   MUL.L       R7,R4
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   32
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000D1A E200                   MOV         #0,R2
     00000D1C 061A                   STS         MACL,R6
     00000D1E 365C                   ADD         R5,R6
@@ -1950,6 +2077,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000D32 7140                   ADD         #64,R1
     00000D34 430B                   JSR         @R3
     00000D36 2F16                   MOV.L       R1,@-R15
+            JS.c   108            gf=l_sqx[i].s_zdi/100;   //后坡
     00000D38 5269                   MOV.L       @(36,R6),R2
     00000D3A E300                   MOV         #0,R3
     00000D3C 2F26                   MOV.L       R2,@-R15
@@ -1963,10 +2091,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000D4C 7148                   ADD         #72,R1
     00000D4E 420B                   JSR         @R2
     00000D50 2F16                   MOV.L       R1,@-R15
+            JS.c   109            ga=l_sqx[i].s_bpk;   //变坡点桩号
     00000D52 6363                   MOV         R6,R3
     00000D54 7308                   ADD         #8,R3
     00000D56 60F3                   MOV         R15,R0
     00000D58 6232                   MOV.L       @R3,R2
+            JS.c   110            gz=l_sqx[i].s_bph;   //变坡点高程
     00000D5A 6163                   MOV         R6,R1
     00000D5C 7020                   ADD         #32,R0
     00000D5E 7110                   ADD         #16,R1
@@ -1975,6 +2105,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000D64 1021                   MOV.L       R2,@(4,R0)
     00000D66 63F3                   MOV         R15,R3
     00000D68 6212                   MOV.L       @R1,R2
+
     00000D6A 6063                   MOV         R6,R0
     00000D6C 2322                   MOV.L       R2,@R3
     00000D6E 7028                   ADD         #40,R0
@@ -1984,19 +2115,20 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000D76 63F3                   MOV         R15,R3
     00000D78 7340                   ADD         #64,R3
     00000D7A 2322                   MOV.L       R2,@R3
+    00000D7C 5201                   MOV.L       @(4,R0),R2
+            JS.c   112            gt=gr*fabs(gf-ge)/2; //切线长
+    00000D7E E04C                   MOV         #76,R0
+    00000D80 1321                   MOV.L       R2,@(4,R3)
+    00000D82 7FF8                   ADD         #-8,R15
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   31
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   33
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    00000D7C 5201                   MOV.L       @(4,R0),R2
-    00000D7E E04C                   MOV         #76,R0
-    00000D80 1321                   MOV.L       R2,@(4,R3)
-    00000D82 7FF8                   ADD         #-8,R15
     00000D84 01FE                   MOV.L       @(R0,R15),R1
     00000D86 E04C                   MOV         #76,R0
     00000D88 2F16                   MOV.L       R1,@-R15
@@ -2040,6 +2172,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000DD4 7118                   ADD         #24,R1
     00000DD6 420B                   JSR         @R2
     00000DD8 2F16                   MOV.L       R1,@-R15
+            JS.c   113            if (gf-ge>0)    gw=1;   else gw=-1; 
     00000DDA 7FF8                   ADD         #-8,R15
     00000DDC D17C                   MOV.L       L618+24,R1 ; __subdr
     00000DDE E044                   MOV         #68,R0
@@ -2050,18 +2183,18 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000DE8 2F36                   MOV.L       R3,@-R15
     00000DEA E044                   MOV         #68,R0
     00000DEC 02FE                   MOV.L       @(R0,R15),R2
+    00000DEE E044                   MOV         #68,R0
+    00000DF0 2F26                   MOV.L       R2,@-R15
+    00000DF2 02FE                   MOV.L       @(R0,R15),R2
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   32
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   34
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    00000DEE E044                   MOV         #68,R0
-    00000DF0 2F26                   MOV.L       R2,@-R15
-    00000DF2 02FE                   MOV.L       @(R0,R15),R2
     00000DF4 2F26                   MOV.L       R2,@-R15
     00000DF6 63F3                   MOV         R15,R3
     00000DF8 7310                   ADD         #16,R3
@@ -2089,6 +2222,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000E22 E300                   MOV         #0,R3
     00000E24 1031                   MOV.L       R3,@(4,R0)
     00000E26              L591:                             
+            JS.c   114            if (yscs.k<ga)  gi=-ge; else gi=gf;
     00000E26 52E1                   MOV.L       @(4,R14),R2
     00000E28 2F26                   MOV.L       R2,@-R15
     00000E2A 62E2                   MOV.L       @R14,R2
@@ -2116,21 +2250,22 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000E54 60F3                   MOV         R15,R0
     00000E56 7038                   ADD         #56,R0
     00000E58 6202                   MOV.L       @R0,R2
+    00000E5A 63F3                   MOV         R15,R3
+    00000E5C 7318                   ADD         #24,R3
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   33
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   35
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    00000E5A 63F3                   MOV         R15,R3
-    00000E5C 7318                   ADD         #24,R3
     00000E5E 2322                   MOV.L       R2,@R3
     00000E60 5201                   MOV.L       @(4,R0),R2
     00000E62 1321                   MOV.L       R2,@(4,R3)
     00000E64              L593:                             
+            JS.c   115            gp=fabs(ga-yscs.k); //计算点距离变坡点长度
     00000E64 7FF8                   ADD         #-8,R15
     00000E66 51FB                   MOV.L       @(44,R15),R1
     00000E68 2F16                   MOV.L       R1,@-R15
@@ -2151,6 +2286,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000E86 D353                   MOV.L       L618+28,R3 ; _fabs
     00000E88 430B                   JSR         @R3
     00000E8A 0009                   NOP
+            JS.c   116            if (gp-gt>0)    yscs.gch=gz+gi*gp;      else yscs.gch=gz+gi*gp+gw*((gt-gp)*(gt-gp))/2/gr;
     00000E8C D150                   MOV.L       L618+24,R1 ; __subdr
     00000E8E 7F04                   ADD         #4,R15
     00000E90 50FD                   MOV.L       @(52,R15),R0
@@ -2186,7 +2322,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   34
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   36
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -2252,7 +2388,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   35
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   37
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -2318,13 +2454,16 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   36
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   38
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
     00000FAC              L595:                             
+            JS.c   117            
+            JS.c   118            return 1;
     00000FAC E001                   MOV         #1,R0
+            JS.c   119    }
     00000FAE 7F48                   ADD         #72,R15
     00000FB0 4F16                   LDS.L       @R15+,MACL
     00000FB2 4F26                   LDS.L       @R15+,PR
@@ -2345,11 +2484,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000FE4 BFF00000               .DATA.L     H'BFF00000
     00000FE8 <00000000>             .DATA.L     __negd
     00000FEC <00000000>             .DATA.L     __addd
+            JS.c   120    
+            JS.c   121    int HP()
     00000FF0              _HP:                             ; function: HP
                                                            ; frame size=96
                                                            ; used runtime library name:
                                                            ; __addd, __subdr, __muld, __divdr, __ned, __gtd, __ltd
     00000FF0 4F22                   STS.L       PR,@-R15
+            JS.c   122    {
+            JS.c   123            int i=0;
     00000FF2 E500                   MOV         #0,R5
     00000FF4 D458                   MOV.L       L619,R4    ; _yscs
     00000FF6 7FD8                   ADD         #-40,R15
@@ -2366,9 +2509,22 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000100C 2F26                   MOV.L       R2,@-R15
     0000100E 8800                   CMP/EQ      #0,R0
     00001010 8921                   BT          L597
+            JS.c   124            double hpj,hpv,hpg,hpe,hpl;
+            JS.c   125            if (yscs.k<hpys[0].h_qdk)       //HP_ERR();
+            JS.c   126            while(yscs.k<hpys[i].h_qdk || yscs.k>hpys[i].h_zdk){
     00001012 A001                   BRA         L598
     00001014 0009                   NOP
     00001016              L599:                             
+            JS.c   127                    i++;
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   39
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00001016 7501                   ADD         #1,R5
     00001018              L598:                             
     00001018 5341                   MOV.L       @(4,R4),R3
@@ -2380,15 +2536,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001024 6353                   MOV         R5,R3
     00001026 373C                   ADD         R3,R7
     00001028 D34D                   MOV.L       L619+8,R3  ; __ltd
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   37
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000102A 4708                   SHLL2       R7
     0000102C 4700                   SHLL        R7
     0000102E 376C                   ADD         R6,R7
@@ -2412,6 +2559,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001052 8800                   CMP/EQ      #0,R0
     00001054 8BDF                   BF          L599
     00001056              L597:                             
+            JS.c   128            }
+            JS.c   129                    hpe=hpys[i].h_qdk;
     00001056 6753                   MOV         R5,R7
     00001058 6353                   MOV         R5,R3
     0000105A 4708                   SHLL2       R7
@@ -2422,6 +2571,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001064 6273                   MOV         R7,R2
     00001066 63F3                   MOV         R15,R3
     00001068 6122                   MOV.L       @R2,R1
+            JS.c   130                    hpj=hpys[i].h_qdi;
     0000106A 6023                   MOV         R2,R0
     0000106C 7308                   ADD         #8,R3
     0000106E 7008                   ADD         #8,R0
@@ -2430,7 +2580,17 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001074 1311                   MOV.L       R1,@(4,R3)
     00001076 63F3                   MOV         R15,R3
     00001078 6202                   MOV.L       @R0,R2
+            JS.c   131                    hpv=hpys[i].h_zdi;
     0000107A 6173                   MOV         R7,R1
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   40
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000107C 7320                   ADD         #32,R3
     0000107E 7110                   ADD         #16,R1
     00001080 2322                   MOV.L       R2,@R3
@@ -2438,6 +2598,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001084 1321                   MOV.L       R2,@(4,R3)
     00001086 63F3                   MOV         R15,R3
     00001088 6212                   MOV.L       @R1,R2
+            JS.c   132                    hpg=hpys[i].h_zdk;
     0000108A 6073                   MOV         R7,R0
     0000108C 7318                   ADD         #24,R3
     0000108E 2322                   MOV.L       R2,@R3
@@ -2446,19 +2607,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001094 7018                   ADD         #24,R0
     00001096 63F3                   MOV         R15,R3
     00001098 6202                   MOV.L       @R0,R2
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   38
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000109A 7310                   ADD         #16,R3
     0000109C 2322                   MOV.L       R2,@R3
     0000109E 5201                   MOV.L       @(4,R0),R2
     000010A0 1321                   MOV.L       R2,@(4,R3)
+            JS.c   133    
+            JS.c   134            hpl=hpg-hpe;
     000010A2 51F5                   MOV.L       @(20,R15),R1
     000010A4 D230                   MOV.L       L619+16,R2 ; __subdr
     000010A6 2F16                   MOV.L       R1,@-R15
@@ -2472,6 +2626,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000010B6 7110                   ADD         #16,R1
     000010B8 420B                   JSR         @R2
     000010BA 2F16                   MOV.L       R1,@-R15
+            JS.c   135            if (hpj==hpv) yscs.hpd=hpj;     else yscs.hpd=(hpj+((hpv-hpj)/hpl)*(yscs.k-hpe));
     000010BC 53F9                   MOV.L       @(36,R15),R3
     000010BE 2F36                   MOV.L       R3,@-R15
     000010C0 53F9                   MOV.L       @(36,R15),R3
@@ -2493,6 +2648,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000010E0 5321                   MOV.L       @(4,R2),R3
     000010E2 A035                   BRA         L601
     000010E4 1131                   MOV.L       R3,@(4,R1)
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   41
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000010E6              L600:                             
     000010E6 E04C                   MOV         #76,R0
     000010E8 D11F                   MOV.L       L619+16,R1 ; __subdr
@@ -2512,15 +2676,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001104 2F36                   MOV.L       R3,@-R15
     00001106 62F3                   MOV         R15,R2
     00001108 7210                   ADD         #16,R2
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   39
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000110A 410B                   JSR         @R1
     0000110C 2F26                   MOV.L       R2,@-R15
     0000110E 53F9                   MOV.L       @(36,R15),R3
@@ -2557,6 +2712,17 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000114C 430B                   JSR         @R3
     0000114E 2F16                   MOV.L       R1,@-R15
     00001150              L601:                             
+            JS.c   136            return 1;       
+            JS.c   137    }
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE   42
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00001150 7F28                   ADD         #40,R15
     00001152 4F26                   LDS.L       @R15+,PR
     00001154 000B                   RTS
@@ -2571,172 +2737,14 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001170 <00000000>             .DATA.L     __divdr
     00001174 <00000000>             .DATA.L     __muld
     00001178 <00000000>             .DATA.L     __addd
-
-
-            JS.c     2    
-            JS.c     3    int ZS()
-            JS.c     4    {
-            JS.c     5            double Ca,DKa,DKb,Xa,Ya;
-            JS.c     6            double Ra,Rb,Pa,Pb;
-            JS.c     7            double pi,h,W,z,v;
-            JS.c     8            double U,dk,p,c,J_out;
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   40
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-            JS.c     9            int k;
-            JS.c    10            int n=10;
-            JS.c    11            int i=0;
-            JS.c    12            
-            JS.c    13            if (yscs.k<qxys[0].p_qdk)       yscs.k=qxys[0].p_qdk;
-            JS.c    14            if (yscs.k>qxys[setup.db_num].p_zdk)    yscs.k=qxys[setup.db_num].p_zdk;
-            JS.c    15            while(yscs.k<qxys[i].p_qdk || yscs.k>qxys[i].p_zdk){
-            JS.c    16                    i++;
-            JS.c    17            }
-            JS.c    18            if (yscs.k>=qxys[i].p_qdk       &&      yscs.k<=qxys[i].p_zdk){
-            JS.c    19                    Ca=qxys[i].p_qda;
-            JS.c    20                    DKa=qxys[i].p_qdk;
-            JS.c    21                    DKb=qxys[i].p_zdk;
-            JS.c    22                    Xa=qxys[i].p_qdx;
-            JS.c    23                    Ya=qxys[i].p_qdy;
-            JS.c    24                    Ra=qxys[i].p_qdr;
-            JS.c    25                    Rb=qxys[i].p_zdr;
-            JS.c    26            }
-            JS.c    27        
-            JS.c    28            if (Ra==0 && Rb!=0){
-            JS.c    29            Pa=0;
-            JS.c    30            Pb=1/Rb;
-            JS.c    31            }
-            JS.c    32            else if (Rb==0 && Ra!=0){
-            JS.c    33            Pb=0;
-            JS.c    34            Pa=1/Ra;
-            JS.c    35            }
-            JS.c    36            else if (Ra==0 && Rb==0){
-            JS.c    37            Pa=0;
-            JS.c    38            Pb=0;
-            JS.c    39            n=1;
-            JS.c    40            }
-            JS.c    41            else if (Ra!=0 && Rb!=0){
-            JS.c    42            Pa=1/Ra; 
-            JS.c    43            Pb=1/Rb;
-            JS.c    44            }
-            JS.c    45            pi=Pa+(Pb-Pa)*fabs(yscs.k-DKa)/fabs(DKb-DKa);  //计算里程处曲率
-
-            JS.c    47            h=fabs(yscs.k-DKa)/n;
-            JS.c    48        W==0;
-            JS.c    49            z==0;
-            JS.c    50            U==0;
-            JS.c    51            v==0;
-            JS.c    52            for(k=1;k<=2*n-1;k++)
-            JS.c    53    {
-            JS.c    54            dk=DKa+k*h/2;
-            JS.c    55            p=Pa+(Pb-Pa)*fabs(dk-DKa)/fabs(DKb-DKa);
-            JS.c    56            c=Ca+0.5*(Pa+p)*fabs(dk-DKa);
-            JS.c    57            if (k%2==0){
-            JS.c    58            W=W+cos(c);
-            JS.c    59            z=z+sin(c);
-            JS.c    60            }
-            JS.c    61            else if (k%2==1){
-            JS.c    62            U=U+cos(c);
-            JS.c    63            v=v+sin(c);
-            JS.c    64            }
-            JS.c    65    }
-            JS.c    66            yscs.xn = Xa+h/6.0*(cos(Ca)+4.0*U+2.0*W+cos(J_out)); 
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   41
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-            JS.c    67            yscs.ye = Ya+h/6.0*(sin(Ca)+4.0*v+2.0*z+sin(J_out)); 
-            JS.c    68            yscs.fn=J_out/PI*180;  //将弧度转换角度      弧度=角度乘以π后再除以180   角度=
-                         +弧度除以π再乘以180
-            JS.c    69            zfset.ks=yscs.k;
-            JS.c    70            return 1;       
-            JS.c    71    }
-            JS.c    72    
-            JS.c    73    int FS()
-            JS.c    74    {
-            JS.c    75            double fi,fj,fw;
-            JS.c    76            int cc;
-            JS.c    77            
-            JS.c    78            yscs.d=0.0;     cc=0;   
-            JS.c    79            do{
-            JS.c    80                    ZS(); 
-            JS.c    81                    fi = sqrt((yscs.xn-yscs.x1)*(yscs.xn-yscs.x1)+(yscs.ye-yscs.y1)*(yscs.ye-yscs.y1));
-            JS.c    82                    fj = atan((yscs.ye-yscs.y1)/(yscs.xn-yscs.x1+1e-12));
-            JS.c    83                    fj = fj/ PI * 180.0;  //将弧度转换角度
-            JS.c    84                    if (yscs.xn -yscs.x1< 0.0)      fj += 180.0;  //fj=fj+180
-            JS.c    85                    if (fj<0.0)     fj += 360.0;                 //fj=fj+360
-            JS.c    86                    fw=fi*sin((yscs.fn-fj-90.0)*PI/180.0);  //将角度转换弧度
-            JS.c    87                    yscs.k=yscs.k+fw;
-            JS.c    88                    ++cc;
-            JS.c    89                    if (cc>=80)     fw=0.00001;
-            JS.c    90    
-            JS.c    91            }while(fabs(fw)>0.0001);
-            JS.c    92                    ZS();
-            JS.c    93                    yscs.d=(yscs.y1-yscs.ye)/sin((yscs.fn+90.0)*PI/180.0);
-            JS.c    94                    return 1;
-            JS.c    95    }
-            JS.c    96    
-            JS.c    97    int GC()
-            JS.c    98    {
-            JS.c    99            double gr,gf,ge,gp;
-            JS.c   100            double ga,gi,gw,gt,gz;
-            JS.c   101            int i=0;
-            JS.c   102            if (yscs.k<l_sqx[0].s_qdk)      //SQX_ERR();
-            JS.c   103            while(yscs.k<l_sqx[i].s_qdk || yscs.k>l_sqx[i].s_zdk){
-            JS.c   104                    i++;
-            JS.c   105            }
-            JS.c   106            
-            JS.c   107            ge=l_sqx[i].s_qdi/100;   //前坡
-            JS.c   108            gf=l_sqx[i].s_zdi/100;   //后坡
-            JS.c   109            ga=l_sqx[i].s_bpk;   //变坡点桩号
-            JS.c   110            gz=l_sqx[i].s_bph;   //变坡点高程
 
-            JS.c   112            gt=gr*fabs(gf-ge)/2; //切线长
-            JS.c   113            if (gf-ge>0)    gw=1;   else gw=-1; 
-            JS.c   114            if (yscs.k<ga)  gi=-ge; else gi=gf;
-            JS.c   115            gp=fabs(ga-yscs.k); //计算点距离变坡点长度
-            JS.c   116            if (gp-gt>0)    yscs.gch=gz+gi*gp;      else yscs.gch=gz+gi*gp+gw*((gt-gp)*(gt-gp))/2/gr;
-            JS.c   117            
-            JS.c   118            return 1;
-            JS.c   119    }
-            JS.c   120    
-            JS.c   121    int HP()
-            JS.c   122    {
-            JS.c   123            int i=0;
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE   42
 
 
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-            JS.c   124            double hpj,hpv,hpg,hpe,hpl;
-            JS.c   125            if (yscs.k<hpys[0].h_qdk)       //HP_ERR();
-            JS.c   126            while(yscs.k<hpys[i].h_qdk || yscs.k>hpys[i].h_zdk){
-            JS.c   127                    i++;
-            JS.c   128            }
-            JS.c   129                    hpe=hpys[i].h_qdk;
-            JS.c   130                    hpj=hpys[i].h_qdi;
-            JS.c   131                    hpv=hpys[i].h_zdi;
-            JS.c   132                    hpg=hpys[i].h_zdk;
-            JS.c   133    
-            JS.c   134            hpl=hpg-hpe;
-            JS.c   135            if (hpj==hpv) yscs.hpd=hpj;     else yscs.hpd=(hpj+((hpv-hpj)/hpl)*(yscs.k-hpe));
-            JS.c   136            return 1;       
-            JS.c   137    }
 
 
 
@@ -2776,15 +2784,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-
-
-
-
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:10  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:47  PAGE    1
 
 
 ******** STATISTICS INFORMATION ********
@@ -2793,7 +2793,7 @@ SH SERIES C/C++ Compiler (Ver. 6.0C)                                            
 ********** ERROR INFORMATION ***********
 
 NUMBER OF ERRORS:           0
-NUMBER OF WARNINGS:        11
+NUMBER OF WARNINGS:         0
 
 
 
@@ -2853,5 +2853,5 @@ NUMBER OF INTERNAL/EXTERNAL SYMBOLS:            79
 *** COMMAND PARAMETER ***
 
 
-  -subcommand=C:\Users\ADMINI~1\AppData\Local\Temp\hmk5DCC.tmp 
+  -subcommand=C:\Users\����\AppData\Local\Temp\hmk127.tmp 
 

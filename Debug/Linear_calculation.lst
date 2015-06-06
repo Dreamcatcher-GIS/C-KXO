@@ -1,8 +1,8 @@
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE    1
 
 ************ OBJECT LISTING ************
 
-FILE NAME: C:\Users\Administrator\Desktop\2015-06-6½»µã·¨×ªÏßÔªÍÆÁ´±í\2015-06-4½»µã·¨×ªÏßÔªÍÆÁ´±í\Linear_calculation.c
+FILE NAME: F:\ProgramOfUniversity\C-KXO\C-KXO\Linear_calculation.c
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
@@ -13,12 +13,43 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
+
+
+
+
+
+
+      Linear_cal     2    #include "runmain.h"
+      Linear_cal     3    #include "MyFont.h"
+
+
+      Linear_cal     4    
+      Linear_cal     5    
+      Linear_cal     6    static char TITLE[] = "³£ÓÃ";
+      Linear_cal     7    
+      Linear_cal     8    #define MODE_INPUT_2_POINT 1
+      Linear_cal     9    #define MODE_INPUT_JJQZ 2
+      Linear_cal    10    #define MODE_INPUT_ZH 3
+      Linear_cal    11    #define MODE_INPUT_REAL 4
+      Linear_cal    12    #define MODE_INPUT_P_AND_D 5
+      Linear_cal    13    #define MODE_DISP_P 6
+      Linear_cal    14    
+      Linear_cal    15    
+      Linear_cal    16    
+      Linear_cal    17    ///////////////////////////////////////////
+      Linear_cal    18    //      F1 Commonly used
+      Linear_cal    19    ///////////////////////////////////////////
+      Linear_cal    20    int Menu_Draw1()
 P   00000000              _Menu_Draw1:                     ; function: Menu_Draw1
                                                            ; frame size=20
                                                            ; used runtime library name:
                                                            ; __quick_evn_mvn
     00000000 2FE6                   MOV.L       R14,@-R15
+      Linear_cal    21    {   
+      Linear_cal    22        int i=0;
     00000002 EE00                   MOV         #0,R14
+      Linear_cal    23        char *context[] = 
+      Linear_cal    24            {"·´Ëã ","ÕýËã ",};
     00000004 D23B                   MOV.L       L718+12,R2 ; L518
     00000006 2FD6                   MOV.L       R13,@-R15
     00000008 4F22                   STS.L       PR,@-R15
@@ -28,22 +59,34 @@ P   00000000              _Menu_Draw1:                     ; function: Menu_Draw
     00000010 61F3                   MOV         R15,R1
     00000012 430B                   JSR         @R3
     00000014 E008                   MOV         #8,R0
+      Linear_cal    25            SetMyFont(&stHz8x8,&stAsc6x12); //ÉèÖÃÖÐÎÄ´óÐ¡8*8 
     00000016 D539                   MOV.L       L718+20,R5 ; _stAsc6x12
     00000018 D439                   MOV.L       L718+24,R4 ; _stHz8x8
     0000001A D13A                   MOV.L       L718+28,R1 ; _SetMyFont
     0000001C 410B                   JSR         @R1
     0000001E 0009                   NOP
+      Linear_cal    26            DispStr(4,56,context[0]); 
     00000020 66D2                   MOV.L       @R13,R6
     00000022 E538                   MOV         #56,R5
     00000024 D338                   MOV.L       L718+32,R3 ; _DispStr
     00000026 430B                   JSR         @R3
     00000028 E404                   MOV         #4,R4
+      Linear_cal    27            DispStr(24,56,context[1]); 
     0000002A E538                   MOV         #56,R5
     0000002C D236                   MOV.L       L718+32,R2 ; _DispStr
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE    2
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000002E 56D1                   MOV.L       @(4,R13),R6
     00000030 420B                   JSR         @R2
     00000032 E418                   MOV         #24,R4
-
+      Linear_cal    28            PrintIcon(i++,"",mode<=MODE_INPUT_REAL);
     00000034 DD35                   MOV.L       L718+36,R13; _mode
     00000036 E304                   MOV         #4,R3
     00000038 D535                   MOV.L       L718+40,R5 ; L521
@@ -56,6 +99,7 @@ P   00000000              _Menu_Draw1:                     ; function: Menu_Draw
     00000046 666B                   NEG         R6,R6
     00000048 410B                   JSR         @R1
     0000004A 7E01                   ADD         #1,R14
+      Linear_cal    29            PrintIcon(i++,"",mode>MODE_INPUT_REAL && mode<=MODE_DISP_P);
     0000004C 62D2                   MOV.L       @R13,R2
     0000004E E304                   MOV         #4,R3
     00000050 3237                   CMP/GT      R3,R2
@@ -67,28 +111,27 @@ P   00000000              _Menu_Draw1:                     ; function: Menu_Draw
     0000005C A001                   BRA         L656
     0000005E E601                   MOV         #1,R6
     00000060              L655:                             
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE    2
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000060 E600                   MOV         #0,R6
     00000062              L656:                             
     00000062 D52B                   MOV.L       L718+40,R5 ; L521
     00000064 D22B                   MOV.L       L718+44,R2 ; _PrintIcon
     00000066 420B                   JSR         @R2
     00000068 64E3                   MOV         R14,R4
+      Linear_cal    30            //PrintIcon(i++,"",0);
+      Linear_cal    31            //PrintIcon(i++,"",0);
+      Linear_cal    32            //PrintIcon(5,"?",0);
+      Linear_cal    33    }
     0000006A 7F08                   ADD         #8,R15
     0000006C 4F26                   LDS.L       @R15+,PR
     0000006E 6DF6                   MOV.L       @R15+,R13
     00000070 000B                   RTS
     00000072 6EF6                   MOV.L       @R15+,R14
+      Linear_cal    34    
+      Linear_cal    35    void Menu_Proc1()
     00000074              _Menu_Proc1:                     ; function: Menu_Proc1
                                                            ; frame size=0
+      Linear_cal    36    {
+      Linear_cal    37            switch (key)
     00000074 D425                   MOV.L       L718+36,R4 ; _mode
     00000076 D328                   MOV.L       L718+48,R3 ; _key
     00000078 9136                   MOV.W       L718,R1    ; H'7539
@@ -97,6 +140,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000007E 890D                   BT          L617
     00000080 9133                   MOV.W       L718+2,R1  ; H'753A
     00000082 3010                   CMP/EQ      R1,R0
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE    3
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000084 890D                   BT          L618
     00000086 9131                   MOV.W       L718+4,R1  ; H'753B
     00000088 3010                   CMP/EQ      R1,R0
@@ -110,15 +162,24 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000098 A005                   BRA         L657
     0000009A 0009                   NOP
     0000009C              L617:                            ; case label 
+      Linear_cal    38            {
+      Linear_cal    39                    case KEY_CTRL_F1:mode=MODE_INPUT_2_POINT;break;
     0000009C E201                   MOV         #1,R2
     0000009E A002                   BRA         L657
     000000A0 2422                   MOV.L       R2,@R4
     000000A2              L618:                            ; case label 
+      Linear_cal    40                    case KEY_CTRL_F2:mode=MODE_INPUT_P_AND_D;break;
     000000A2 E005                   MOV         #5,R0
     000000A4 2402                   MOV.L       R0,@R4
+      Linear_cal    41                    case KEY_CTRL_F3:break;
+      Linear_cal    42                    case KEY_CTRL_F4:break;
+      Linear_cal    43                    case KEY_CTRL_F6:break;
     000000A6              L657:                             
+      Linear_cal    44            }
+      Linear_cal    45    }
     000000A6 000B                   RTS
     000000A8 0009                   NOP
+      Linear_cal    46    void Run_F1_FanSuan ()
     000000AA              _Run_F1_FanSuan:                 ; function: Run_F1_FanSuan
                                                            ; frame size=184
                                                            ; used runtime library name:
@@ -132,16 +193,11 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000B6 2F86                   MOV.L       R8,@-R15
     000000B8 4F22                   STS.L       PR,@-R15
     000000BA 7FB4                   ADD         #-76,R15
+      Linear_cal    47    {
+      Linear_cal    48            double x,y;
+      Linear_cal    49            int i;
+      Linear_cal    50            if (mode == MODE_INPUT_2_POINT)
     000000BC D813                   MOV.L       L718+36,R8 ; _mode
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE    3
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000000BE D917                   MOV.L       L718+52,R9 ; _setup_data
     000000C0 DA17                   MOV.L       L718+56,R10; _PrintFloat
     000000C2 DC18                   MOV.L       L718+60,R12; _need_redraw
@@ -150,18 +206,33 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000C8 8801                   CMP/EQ      #1,R0
     000000CA 8D02                   BT/S        L719
     000000CC EB00                   MOV         #0,R11
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE    4
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000000CE A0A0                   BRA         L658
     000000D0 0009                   NOP
     000000D2              L719:                             
+      Linear_cal    51            {
+      Linear_cal    52                char *context[] = 
+      Linear_cal    53               {"ÆðµãX ","ÆðµãY ","ÖÕµãX ","ÖÕµãY "};
     000000D2 61F3                   MOV         R15,R1
     000000D4 D214                   MOV.L       L718+64,R2 ; L532
     000000D6 712C                   ADD         #44,R1
     000000D8 D307                   MOV.L       L718+16,R3 ; __quick_evn_mvn
     000000DA 430B                   JSR         @R3
     000000DC E010                   MOV         #16,R0
+      Linear_cal    54                    index = 0;
+      Linear_cal    55                    need_redraw = REFRESH_ALL;
     000000DE E302                   MOV         #2,R3
     000000E0 D112                   MOV.L       L718+68,R1 ; _index
     000000E2 21B2                   MOV.L       R11,@R1
+      Linear_cal    56                    while(mode == MODE_INPUT_2_POINT)
     000000E4 A092                   BRA         L659
     000000E6 2C32                   MOV.L       R3,@R12
     000000E8              L718:                             
@@ -187,48 +258,63 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000128 <00000000>             .DATA.L     L532
     0000012C <00000000>             .DATA.L     _index
     00000130              L660:                             
+      Linear_cal    57                    {
+      Linear_cal    58                            //// REDRAW
+      Linear_cal    59                            if (need_redraw==REFRESH_ALL)
     00000130 60C2                   MOV.L       @R12,R0
     00000132 8802                   CMP/EQ      #2,R0
     00000134 8B31                   BF          L661
+      Linear_cal    60                            {
+      Linear_cal    61                                    Bdisp_AllClr_DDVRAM();
     00000136 D24A                   MOV.L       L720+2,R2  ; _Bdisp_AllClr_DDVRAM
     00000138 420B                   JSR         @R2
     0000013A 0009                   NOP
+      Linear_cal    62                                    i = 0;
+      Linear_cal    63                                    SetMyFont(&stHz12x12,&stAsc6x12);  //¶¨Òå×ÖÌå´óÐ¡
     0000013C D549                   MOV.L       L720+6,R5  ; _stAsc6x12
-    0000013E D44A                   MOV.L       L720+10,R4 ; _stHz12x12
-    00000140 D34A                   MOV.L       L720+14,R3 ; _SetMyFont
-    00000142 430B                   JSR         @R3
-    00000144 0009                   NOP
-    00000146 E501                   MOV         #1,R5
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE    4
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE    5
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    0000013E D44A                   MOV.L       L720+10,R4 ; _stHz12x12
+    00000140 D34A                   MOV.L       L720+14,R3 ; _SetMyFont
+    00000142 430B                   JSR         @R3
+    00000144 0009                   NOP
+      Linear_cal    64                                DispStr(2,1, "Ö± ");
+    00000146 E501                   MOV         #1,R5
     00000148 D649                   MOV.L       L720+18,R6 ; L539
     0000014A 4D0B                   JSR         @R13
     0000014C E402                   MOV         #2,R4
+      Linear_cal    65                                DispStr(2,15,"Ïß ");
     0000014E E50F                   MOV         #15,R5
     00000150 D648                   MOV.L       L720+22,R6 ; L540
     00000152 4D0B                   JSR         @R13
     00000154 E402                   MOV         #2,R4
+      Linear_cal    66                                DispStr(2,28,"Á½ ");
     00000156 E51C                   MOV         #28,R5
     00000158 D647                   MOV.L       L720+26,R6 ; L541
     0000015A 4D0B                   JSR         @R13
     0000015C E402                   MOV         #2,R4
+      Linear_cal    67                                DispStr(2,41,"µã ");
     0000015E E529                   MOV         #41,R5
     00000160 D646                   MOV.L       L720+30,R6 ; L542
     00000162 4D0B                   JSR         @R13
     00000164 E402                   MOV         #2,R4
+      Linear_cal    68                                    ShowTitle(TITLE);
     00000166 D446                   MOV.L       L720+34,R4 ; __$TITLE
     00000168 D246                   MOV.L       L720+38,R2 ; _ShowTitle
     0000016A 420B                   JSR         @R2
     0000016C 0009                   NOP
+      Linear_cal    69                                    
+      Linear_cal    70                                    for (i=0;i<4;++i)
     0000016E 6EB3                   MOV         R11,R14
     00000170              L662:                             
+      Linear_cal    71                                    DispStr(16,4+i*12,context[i]);
     00000170 66E3                   MOV         R14,R6
     00000172 4608                   SHLL2       R6
     00000174 63F3                   MOV         R15,R3
@@ -247,15 +333,32 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000018E E304                   MOV         #4,R3
     00000190 3E33                   CMP/GE      R3,R14
     00000192 8BED                   BF          L662
+      Linear_cal    72                                    
+      Linear_cal    73                                    need_redraw = REFRESH_PART;
     00000194 E101                   MOV         #1,R1
+      Linear_cal    74                                    Menu_Draw1();
     00000196 BF33                   BSR         _Menu_Draw1
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE    6
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000198 2C12                   MOV.L       R1,@R12
     0000019A              L661:                             
+      Linear_cal    75                            }
+      Linear_cal    76                            if (need_redraw==REFRESH_PART)
     0000019A 60C2                   MOV.L       @R12,R0
     0000019C 8801                   CMP/EQ      #1,R0
     0000019E 8B1D                   BF          L663
+      Linear_cal    77                            {
+      Linear_cal    78                                    for(i=0;i<4;++i)
     000001A0 6EB3                   MOV         R11,R14
     000001A2              L664:                             
+      Linear_cal    79                                            PrintFloat(value[i],50,4+i*12,index==i,setup_data.point);
     000001A2 63E3                   MOV         R14,R3
     000001A4 D138                   MOV.L       L720+42,R1 ; _value
     000001A6 65E3                   MOV         R14,R5
@@ -265,15 +368,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001AE 332C                   ADD         R2,R3
     000001B0 5031                   MOV.L       @(4,R3),R0
     000001B2 2F06                   MOV.L       R0,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE    5
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000001B4 6032                   MOV.L       @R3,R0
     000001B6 2F06                   MOV.L       R0,@-R15
     000001B8 6792                   MOV.L       @R9,R7
@@ -293,23 +387,40 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001D4 3E23                   CMP/GE      R2,R14
     000001D6 8FE4                   BF/S        L664
     000001D8 7F08                   ADD         #8,R15
+      Linear_cal    80                                    need_redraw = 0;
     000001DA 2CB2                   MOV.L       R11,@R12
     000001DC              L663:                             
+      Linear_cal    81                            }
+      Linear_cal    82                            GetKey(&key);
     000001DC D42C                   MOV.L       L720+50,R4 ; _key
     000001DE D22D                   MOV.L       L720+54,R2 ; _GetKey
     000001E0 420B                   JSR         @R2
     000001E2 0009                   NOP
+      Linear_cal    83                            Menu_Proc1();
     000001E4 BF46                   BSR         _Menu_Proc1
     000001E6 0009                   NOP
-
+      Linear_cal    84                            if (key==KEY_CTRL_EXE)
     000001E8 9239                   MOV.W       L720,R2    ; H'7534
     000001EA D129                   MOV.L       L720+50,R1 ; _key
     000001EC 6312                   MOV.L       @R1,R3
     000001EE 3320                   CMP/EQ      R2,R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE    7
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000001F0 8B01                   BF          L665
+      Linear_cal    85                            {
+      Linear_cal    86                                    mode = MODE_INPUT_JJQZ;
     000001F2 E302                   MOV         #2,R3
     000001F4 2832                   MOV.L       R3,@R8
     000001F6              L665:                             
+      Linear_cal    87                            }
+      Linear_cal    88                            InputDefProc(value,4,50,4,MODE_INPUT_JJQZ,MODE_EXIT);
     000001F6 E202                   MOV         #2,R2
     000001F8 D323                   MOV.L       L720+42,R3 ; _value
     000001FA E704                   MOV         #4,R7
@@ -326,39 +437,48 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000020E 8801                   CMP/EQ      #1,R0
     00000210 898E                   BT          L660
     00000212              L658:                             
-
-
+      Linear_cal    89                    }
+      Linear_cal    90    
+      Linear_cal    91            }
+      Linear_cal    92            ///// Calculate and input Jian ju
+      Linear_cal    93            if (mode == MODE_INPUT_JJQZ)
     00000212 DE22                   MOV.L       L720+62,R14; _common_data
     00000214 6082                   MOV.L       @R8,R0
     00000216 8802                   CMP/EQ      #2,R0
     00000218 8901                   BT          L721
     0000021A A124                   BRA         L666
     0000021C 0009                   NOP
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE    6
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000021E              L721:                             
+      Linear_cal    94            {
+      Linear_cal    95                    char *context[] = 
+      Linear_cal    96                    {"¾àÀë:","·½Î»: ","¼ä¾à ","Æð×® "};
     0000021E 61F3                   MOV         R15,R1
     00000220 D21F                   MOV.L       L720+66,R2 ; L547
     00000222 712C                   ADD         #44,R1
     00000224 D31F                   MOV.L       L720+70,R3 ; __quick_evn_mvn
     00000226 430B                   JSR         @R3
     00000228 E010                   MOV         #16,R0
+      Linear_cal    97                    index = 0;
+      Linear_cal    98                    need_redraw = REFRESH_ALL;
     0000022A E302                   MOV         #2,R3
     0000022C D117                   MOV.L       L720+46,R1 ; _index
     0000022E 21B2                   MOV.L       R11,@R1
     00000230 2C32                   MOV.L       R3,@R12
+      Linear_cal    99                    Pol(value[0],value[1],value[2],value[3],&common_data.distance,&common_data.position);
     00000232 D315                   MOV.L       L720+42,R3 ; _value
     00000234 6032                   MOV.L       @R3,R0
     00000236 7018                   ADD         #24,R0
     00000238 5201                   MOV.L       @(4,R0),R2
     0000023A 2F26                   MOV.L       R2,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE    8
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000023C 6202                   MOV.L       @R0,R2
     0000023E 2F26                   MOV.L       R2,@-R15
     00000240 6232                   MOV.L       @R3,R2
@@ -400,15 +520,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002A8 5021                   MOV.L       @(4,R2),R0
     000002AA 65E3                   MOV         R14,R5
     000002AC 2F06                   MOV.L       R0,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE    7
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000002AE 64E3                   MOV         R14,R4
     000002B0 6022                   MOV.L       @R2,R0
     000002B2 7548                   ADD         #72,R5
@@ -416,44 +527,68 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002B6 D202                   MOV.L       L722,R2    ; _Pol
     000002B8 420B                   JSR         @R2
     000002BA 7440                   ADD         #64,R4
+      Linear_cal   100                    while(mode==MODE_INPUT_JJQZ)
     000002BC A0A8                   BRA         L667
     000002BE 7F20                   ADD         #32,R15
     000002C0              L722:                             
     000002C0 <00000000>             .DATA.L     _Pol
     000002C4              L668:                             
+      Linear_cal   101                    {
+      Linear_cal   102                                    
+      Linear_cal   103                            if (need_redraw == REFRESH_ALL)
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE    9
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000002C4 60C2                   MOV.L       @R12,R0
     000002C6 8802                   CMP/EQ      #2,R0
     000002C8 8B5E                   BF          L669
+      Linear_cal   104                            {
+      Linear_cal   105                                    char strpos[20];
+      Linear_cal   106                                    Bdisp_AllClr_DDVRAM();
     000002CA D354                   MOV.L       L723+4,R3  ; _Bdisp_AllClr_DDVRAM
     000002CC 430B                   JSR         @R3
     000002CE 0009                   NOP
+      Linear_cal   107                                    SetMyFont(&stHz12x12,&stAsc6x12); 
     000002D0 D553                   MOV.L       L723+8,R5  ; _stAsc6x12
     000002D2 D454                   MOV.L       L723+12,R4 ; _stHz12x12
     000002D4 D254                   MOV.L       L723+16,R2 ; _SetMyFont
     000002D6 420B                   JSR         @R2
     000002D8 0009                   NOP
+      Linear_cal   108                                    DispStr(2,1, "Ö± ");
     000002DA E501                   MOV         #1,R5
     000002DC D653                   MOV.L       L723+20,R6 ; L539
     000002DE 4D0B                   JSR         @R13
     000002E0 E402                   MOV         #2,R4
+      Linear_cal   109                                DispStr(2,15,"Ïß ");
     000002E2 E50F                   MOV         #15,R5
     000002E4 D652                   MOV.L       L723+24,R6 ; L540
     000002E6 4D0B                   JSR         @R13
     000002E8 E402                   MOV         #2,R4
+      Linear_cal   110                                DispStr(2,28,"Á½ ");
     000002EA E51C                   MOV         #28,R5
     000002EC D651                   MOV.L       L723+28,R6 ; L541
     000002EE 4D0B                   JSR         @R13
     000002F0 E402                   MOV         #2,R4
+      Linear_cal   111                                DispStr(2,41,"µã ");
     000002F2 E529                   MOV         #41,R5
     000002F4 D650                   MOV.L       L723+32,R6 ; L542
     000002F6 4D0B                   JSR         @R13
     000002F8 E402                   MOV         #2,R4
+      Linear_cal   112                                    ShowTitle(TITLE);
     000002FA D450                   MOV.L       L723+36,R4 ; __$TITLE
     000002FC D350                   MOV.L       L723+40,R3 ; _ShowTitle
     000002FE 430B                   JSR         @R3
     00000300 0009                   NOP
+      Linear_cal   113                                    for (i=0;i<4;++i)
     00000302 2FB2                   MOV.L       R11,@R15
     00000304              L670:                             
+      Linear_cal   114                                    DispStr(16,4+i*12,context[i]);
     00000304 66F2                   MOV.L       @R15,R6
     00000306 63F3                   MOV         R15,R3
     00000308 65F2                   MOV.L       @R15,R5
@@ -466,16 +601,16 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000316 352C                   ADD         R2,R5
     00000318 4508                   SHLL2       R5
     0000031A 7504                   ADD         #4,R5
+    0000031C 4D0B                   JSR         @R13
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE    8
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   10
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    0000031C 4D0B                   JSR         @R13
     0000031E E410                   MOV         #16,R4
     00000320 63F2                   MOV.L       @R15,R3
     00000322 E204                   MOV         #4,R2
@@ -483,7 +618,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000326 3323                   CMP/GE      R2,R3
     00000328 8FEC                   BF/S        L670
     0000032A 2F32                   MOV.L       R3,@R15
+      Linear_cal   115                                    i=0;
     0000032C 2FB2                   MOV.L       R11,@R15
+      Linear_cal   116                                    FloatToDegStr(common_data.position,strpos);
     0000032E 63E3                   MOV         R14,R3
     00000330 7348                   ADD         #72,R3
     00000332 5231                   MOV.L       @(4,R3),R2
@@ -494,6 +631,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000033C 64F3                   MOV         R15,R4
     0000033E 430B                   JSR         @R3
     00000340 7420                   ADD         #32,R4
+      Linear_cal   117                                    PrintFloat(common_data.distance,50,4+i++*12,0,setup_data.point);
     00000342 62E3                   MOV         R14,R2
     00000344 7240                   ADD         #64,R2
     00000346 E600                   MOV         #0,R6
@@ -514,6 +652,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000364 4A0B                   JSR         @R10
     00000366 E432                   MOV         #50,R4
     00000368 7F10                   ADD         #16,R15
+      Linear_cal   118                                    PrintXY(52,6+i++*12,strpos,0);
     0000036A E700                   MOV         #0,R7
     0000036C 65F2                   MOV.L       @R15,R5
     0000036E 66F3                   MOV         R15,R6
@@ -526,24 +665,31 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000037C 7506                   ADD         #6,R5
     0000037E 430B                   JSR         @R3
     00000380 E434                   MOV         #52,R4
+      Linear_cal   119                                    need_redraw = REFRESH_PART;
     00000382 E201                   MOV         #1,R2
-    00000384 BE3C                   BSR         _Menu_Draw1
-    00000386 2C22                   MOV.L       R2,@R12
-    00000388              L669:                             
-    00000388 60C2                   MOV.L       @R12,R0
-    0000038A 8801                   CMP/EQ      #1,R0
+      Linear_cal   120                                    Menu_Draw1();
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE    9
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   11
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    00000384 BE3C                   BSR         _Menu_Draw1
+    00000386 2C22                   MOV.L       R2,@R12
+    00000388              L669:                             
+      Linear_cal   121                            }
+      Linear_cal   122                            if (need_redraw==REFRESH_PART)
+    00000388 60C2                   MOV.L       @R12,R0
+    0000038A 8801                   CMP/EQ      #1,R0
     0000038C 8B28                   BF          L671
+      Linear_cal   123                            {
+      Linear_cal   124                                    i = 2;
     0000038E E302                   MOV         #2,R3
     00000390 2F32                   MOV.L       R3,@R15
+      Linear_cal   125                                    PrintFloat(common_data.Spacing,50,4+i++*12,index==0,setup_data.point);
     00000392 52E1                   MOV.L       @(4,R14),R2
     00000394 D32D                   MOV.L       L723+52,R3 ; _index
     00000396 2F26                   MOV.L       R2,@-R15
@@ -564,6 +710,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003B4 7504                   ADD         #4,R5
     000003B6 4A0B                   JSR         @R10
     000003B8 E432                   MOV         #50,R4
+      Linear_cal   126                                    PrintFloat(common_data.BeginStake,50,4+i++*12,index==1,setup_data.point);
     000003BA 53E3                   MOV.L       @(12,R14),R3
     000003BC D223                   MOV.L       L723+52,R2 ; _index
     000003BE 2F36                   MOV.L       R3,@-R15
@@ -582,31 +729,40 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003D8 4A0B                   JSR         @R10
     000003DA E432                   MOV         #50,R4
     000003DC 7F10                   ADD         #16,R15
+      Linear_cal   127                                    need_redraw = 0;
     000003DE 2CB2                   MOV.L       R11,@R12
     000003E0              L671:                             
+      Linear_cal   128                            }
+      Linear_cal   129                            GetKey(&key);
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   12
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000003E0 D41B                   MOV.L       L723+56,R4 ; _key
     000003E2 D31C                   MOV.L       L723+60,R3 ; _GetKey
     000003E4 430B                   JSR         @R3
     000003E6 0009                   NOP
+      Linear_cal   130                            Menu_Proc1();
     000003E8 BE44                   BSR         _Menu_Proc1
     000003EA 0009                   NOP
+      Linear_cal   131                            if (key==KEY_CTRL_EXE)
     000003EC 9314                   MOV.W       L723,R3    ; H'7534
     000003EE D118                   MOV.L       L723+56,R1 ; _key
     000003F0 6212                   MOV.L       @R1,R2
     000003F2 3230                   CMP/EQ      R3,R2
     000003F4 8F02                   BF/S        L673
+      Linear_cal   132                            {
+      Linear_cal   133                                    mode = MODE_INPUT_ZH;
+      Linear_cal   134                            }
+      Linear_cal   135                            InputDefProc((double*)(& common_data),2,50,28,MODE_INPUT_ZH,MODE_INPUT_2_POINT);
     000003F6 E301                   MOV         #1,R3
     000003F8 E203                   MOV         #3,R2
     000003FA 2822                   MOV.L       R2,@R8
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   10
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000003FC              L673:                             
     000003FC 2F36                   MOV.L       R3,@-R15
     000003FE E203                   MOV         #3,R2
@@ -644,36 +800,46 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000458 <00000000>             .DATA.L     _common_data
     0000045C <00000000>             .DATA.L     _InputDefProc
     00000460              L714:                             
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   13
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000460 8B01                   BF          L724
     00000462 AF2F                   BRA         L668
     00000464 0009                   NOP
     00000466              L724:                             
     00000466              L666:                             
+      Linear_cal   136                    }
+      Linear_cal   137            }//if
+      Linear_cal   138            if (mode == MODE_INPUT_ZH)
     00000466 6082                   MOV.L       @R8,R0
     00000468 8803                   CMP/EQ      #3,R0
     0000046A 8901                   BT          L725
     0000046C A211                   BRA         L674
     0000046E 0009                   NOP
     00000470              L725:                             
+      Linear_cal   139            {
+      Linear_cal   140                    char *context[] = 
+      Linear_cal   141                    {"×®ºÅ ","Æ«¾à ","×ø±êX:","×ø±êY:"};
     00000470 D205                   MOV.L       L726,R2    ; L559
     00000472 61F3                   MOV         R15,R1
     00000474 D305                   MOV.L       L726+4,R3  ; __quick_evn_mvn
     00000476 712C                   ADD         #44,R1
     00000478 430B                   JSR         @R3
     0000047A E010                   MOV         #16,R0
+      Linear_cal   142                    int prekey = 0;
     0000047C 1FB1                   MOV.L       R11,@(4,R15)
+      Linear_cal   143                    index = 0;
+      Linear_cal   144                    need_redraw = REFRESH_ALL;
     0000047E E102                   MOV         #2,R1
     00000480 D303                   MOV.L       L726+8,R3  ; _index
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   11
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000482 23B2                   MOV.L       R11,@R3
+      Linear_cal   145                    while(mode==MODE_INPUT_ZH)
     00000484 A200                   BRA         L675
     00000486 2C12                   MOV.L       R1,@R12
     00000488              L726:                             
@@ -681,40 +847,60 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000048C <00000000>             .DATA.L     __quick_evn_mvn
     00000490 <00000000>             .DATA.L     _index
     00000494              L676:                             
+      Linear_cal   146                    {
+      Linear_cal   147                            if (need_redraw == REFRESH_ALL)
     00000494 60C2                   MOV.L       @R12,R0
     00000496 8802                   CMP/EQ      #2,R0
     00000498 8B34                   BF          L677
+      Linear_cal   148                            {
+      Linear_cal   149                                SetMyFont(&stHz12x12,&stAsc6x12); 
     0000049A D5BE                   MOV.L       L727+2,R5  ; _stAsc6x12
     0000049C D4BE                   MOV.L       L727+6,R4  ; _stHz12x12
     0000049E D2BF                   MOV.L       L727+10,R2 ; _SetMyFont
     000004A0 420B                   JSR         @R2
     000004A2 0009                   NOP
+      Linear_cal   150                                    Bdisp_AllClr_DDVRAM();
     000004A4 D3BE                   MOV.L       L727+14,R3 ; _Bdisp_AllClr_DDVRAM
     000004A6 430B                   JSR         @R3
     000004A8 0009                   NOP
+      Linear_cal   151                                    DispStr(2,1, "Ö± ");
     000004AA E501                   MOV         #1,R5
     000004AC D6BD                   MOV.L       L727+18,R6 ; L539
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   14
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000004AE 4D0B                   JSR         @R13
     000004B0 E402                   MOV         #2,R4
+      Linear_cal   152                                DispStr(2,15,"Ïß ");
     000004B2 E50F                   MOV         #15,R5
     000004B4 D6BC                   MOV.L       L727+22,R6 ; L540
     000004B6 4D0B                   JSR         @R13
     000004B8 E402                   MOV         #2,R4
+      Linear_cal   153                                DispStr(2,28,"Á½ ");
     000004BA E51C                   MOV         #28,R5
     000004BC D6BB                   MOV.L       L727+26,R6 ; L541
     000004BE 4D0B                   JSR         @R13
     000004C0 E402                   MOV         #2,R4
+      Linear_cal   154                                DispStr(2,41,"µã ");
     000004C2 E529                   MOV         #41,R5
     000004C4 D6BA                   MOV.L       L727+30,R6 ; L542
     000004C6 4D0B                   JSR         @R13
     000004C8 E402                   MOV         #2,R4
+      Linear_cal   155                                    ShowTitle(TITLE);
     000004CA D4BA                   MOV.L       L727+34,R4 ; __$TITLE
     000004CC D2BA                   MOV.L       L727+38,R2 ; _ShowTitle
     000004CE 420B                   JSR         @R2
     000004D0 0009                   NOP
+      Linear_cal   156                                    for (i=0;i<4;++i)
     000004D2 2FB2                   MOV.L       R11,@R15
     000004D4              L678:                             
-
+      Linear_cal   157                                    DispStr(16,4+i*12,context[i]);
     000004D4 66F2                   MOV.L       @R15,R6
     000004D6 63F3                   MOV         R15,R3
     000004D8 65F2                   MOV.L       @R15,R5
@@ -731,30 +917,39 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000004EE E410                   MOV         #16,R4
     000004F0 63F2                   MOV.L       @R15,R3
     000004F2 E204                   MOV         #4,R2
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   12
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000004F4 7301                   ADD         #1,R3
     000004F6 3323                   CMP/GE      R2,R3
     000004F8 8FEC                   BF/S        L678
     000004FA 2F32                   MOV.L       R3,@R15
+      Linear_cal   158                                    Menu_Draw1();
     000004FC BD80                   BSR         _Menu_Draw1
     000004FE 0009                   NOP
+      Linear_cal   159                                    //ShowArrow(1);//////////////////////////////////////////////////////////
+      Linear_cal   160                                    need_redraw = REFRESH_PART;
     00000500 E101                   MOV         #1,R1
     00000502 2C12                   MOV.L       R1,@R12
     00000504              L677:                             
+      Linear_cal   161                            }
+      Linear_cal   162                            if (need_redraw==REFRESH_PART)
     00000504 60C2                   MOV.L       @R12,R0
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   15
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000506 8801                   CMP/EQ      #1,R0
     00000508 8901                   BT          L728
     0000050A A13A                   BRA         L679
     0000050C 0009                   NOP
     0000050E              L728:                             
+      Linear_cal   163                            {
+      Linear_cal   164                                    x = value[0]+(common_data.PegNo-common_data.BeginStake)*
+      Linear_cal   165                                            cos(common_data.position*PI/180.0)
+      Linear_cal   166                                            +common_data.Offset*cos(common_data.position*PI/180.0+PI/2);
     0000050E 7FF8                   ADD         #-8,R15
     00000510 D3AA                   MOV.L       L727+42,R3 ; _value
     00000512 6232                   MOV.L       @R3,R2
@@ -797,21 +992,21 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000055C 2F06                   MOV.L       R0,@-R15
     0000055E D09C                   MOV.L       L727+62,R0 ; H'40668000
     00000560 2F06                   MOV.L       R0,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   13
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000562 62F3                   MOV         R15,R2
     00000564 7210                   ADD         #16,R2
     00000566 410B                   JSR         @R1
     00000568 2F26                   MOV.L       R2,@-R15
     0000056A E008                   MOV         #8,R0
     0000056C D29A                   MOV.L       L727+70,R2 ; _cos
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   16
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000056E 30FC                   ADD         R15,R0
     00000570 420B                   JSR         @R2
     00000572 2F06                   MOV.L       R0,@-R15
@@ -863,21 +1058,21 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000005CE 2F36                   MOV.L       R3,@-R15
     000005D0 62F3                   MOV         R15,R2
     000005D2 7210                   ADD         #16,R2
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   14
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000005D4 410B                   JSR         @R1
     000005D6 2F26                   MOV.L       R2,@-R15
     000005D8 E308                   MOV         #8,R3
     000005DA 33FC                   ADD         R15,R3
     000005DC 2F36                   MOV.L       R3,@-R15
     000005DE D37E                   MOV.L       L727+70,R3 ; _cos
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   17
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000005E0 430B                   JSR         @R3
     000005E2 0009                   NOP
     000005E4 D379                   MOV.L       L727+58,R3 ; __muld
@@ -891,6 +1086,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000005F4 7154                   ADD         #84,R1
     000005F6 420B                   JSR         @R2
     000005F8 2F16                   MOV.L       R1,@-R15
+      Linear_cal   167                                    y = value[1]+(common_data.PegNo-common_data.BeginStake)*
+      Linear_cal   168                                            sin(common_data.position*PI/180.0)
+      Linear_cal   169                                            +common_data.Offset*sin(common_data.position*PI/180.0+PI/2);
     000005FA 7FF8                   ADD         #-8,R15
     000005FC D06F                   MOV.L       L727+42,R0 ; _value
     000005FE 6302                   MOV.L       @R0,R3
@@ -929,18 +1127,18 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000640 7310                   ADD         #16,R3
     00000642 420B                   JSR         @R2
     00000644 2F36                   MOV.L       R3,@-R15
+    00000646 E100                   MOV         #0,R1
+    00000648 D262                   MOV.L       L727+66,R2 ; __divdr
+    0000064A 2F16                   MOV.L       R1,@-R15
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   15
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   18
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    00000646 E100                   MOV         #0,R1
-    00000648 D262                   MOV.L       L727+66,R2 ; __divdr
-    0000064A 2F16                   MOV.L       R1,@-R15
     0000064C D160                   MOV.L       L727+62,R1 ; H'40668000
     0000064E 2F16                   MOV.L       R1,@-R15
     00000650 63F3                   MOV         R15,R3
@@ -995,18 +1193,18 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000006B2 2F36                   MOV.L       R3,@-R15
     000006B4 D143                   MOV.L       L727+50,R1 ; H'53C8D4F1
     000006B6 2F16                   MOV.L       R1,@-R15
+    000006B8 D149                   MOV.L       L727+78,R1 ; H'3FF921FB
+    000006BA 2F16                   MOV.L       R1,@-R15
+    000006BC D247                   MOV.L       L727+74,R2 ; __addd
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   16
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   19
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    000006B8 D149                   MOV.L       L727+78,R1 ; H'3FF921FB
-    000006BA 2F16                   MOV.L       R1,@-R15
-    000006BC D247                   MOV.L       L727+74,R2 ; __addd
     000006BE 63F3                   MOV         R15,R3
     000006C0 7310                   ADD         #16,R3
     000006C2 420B                   JSR         @R2
@@ -1027,7 +1225,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000006E0 724C                   ADD         #76,R2
     000006E2 430B                   JSR         @R3
     000006E4 2F26                   MOV.L       R2,@-R15
+      Linear_cal   170                                    i = 0;
     000006E6 2FB2                   MOV.L       R11,@R15
+      Linear_cal   171                                    PrintFloat(common_data.PegNo,50,4+i++*12,index==0,setup_data.point);
     000006E8 53E5                   MOV.L       @(20,R14),R3
     000006EA 2F36                   MOV.L       R3,@-R15
     000006EC 53E4                   MOV.L       @(16,R14),R3
@@ -1048,6 +1248,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000070A 7504                   ADD         #4,R5
     0000070C 4A0B                   JSR         @R10
     0000070E E432                   MOV         #50,R4
+      Linear_cal   172                                    PrintFloat(common_data.Offset,50,4+i++*12,index==1,setup_data.point);
     00000710 52E7                   MOV.L       @(28,R14),R2
     00000712 2F26                   MOV.L       R2,@-R15
     00000714 52E6                   MOV.L       @(24,R14),R2
@@ -1065,7 +1266,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   17
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   20
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -1077,6 +1278,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000732 7504                   ADD         #4,R5
     00000734 4A0B                   JSR         @R10
     00000736 E432                   MOV         #50,R4
+      Linear_cal   173                                    PrintFloat(x,50,4+i++*12,0,setup_data.point);
     00000738 E058                   MOV         #88,R0
     0000073A E600                   MOV         #0,R6
     0000073C 03FE                   MOV.L       @(R0,R15),R3
@@ -1096,6 +1298,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000758 7504                   ADD         #4,R5
     0000075A 4A0B                   JSR         @R10
     0000075C E432                   MOV         #50,R4
+      Linear_cal   174                                    PrintFloat(y,50,4+i++*12,0,setup_data.point);
     0000075E E058                   MOV         #88,R0
     00000760 02FE                   MOV.L       @(R0,R15),R2
     00000762 E600                   MOV         #0,R6
@@ -1113,30 +1316,35 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000077A 4A0B                   JSR         @R10
     0000077C E432                   MOV         #50,R4
     0000077E 7F20                   ADD         #32,R15
+      Linear_cal   175                                    need_redraw = 0;
     00000780 2CB2                   MOV.L       R11,@R12
     00000782              L679:                             
+      Linear_cal   176                            }
+      Linear_cal   177                            //
+      Linear_cal   178                            GetKey(&key);
     00000782 D41A                   MOV.L       L727+90,R4 ; _key
     00000784 D31A                   MOV.L       L727+94,R3 ; _GetKey
     00000786 430B                   JSR         @R3
     00000788 0009                   NOP
+      Linear_cal   179                            Menu_Proc1();
     0000078A BC73                   BSR         _Menu_Proc1
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   21
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000078C 0009                   NOP
-
+      Linear_cal   180                            if (key==KEY_CTRL_DOWN)
     0000078E A031                   BRA         L715
     00000790 0009                   NOP
     00000792              L727:                             
     00000792 0000                   .DATA.W     0
     00000794 <00000000>             .DATA.L     _stAsc6x12
     00000798 <00000000>             .DATA.L     _stHz12x12
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   18
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000079C <00000000>             .DATA.L     _SetMyFont
     000007A0 <00000000>             .DATA.L     _Bdisp_AllClr_DDVRAM
     000007A4 <00000000>             .DATA.L     L539
@@ -1165,6 +1373,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000007F8 6212                   MOV.L       @R1,R2
     000007FA 3230                   CMP/EQ      R3,R2
     000007FC 8B06                   BF          L681
+      Linear_cal   181                                    if(prekey==key) mode = MODE_INPUT_REAL;
     000007FE D13A                   MOV.L       L729+8,R1  ; _key
     00000800 50F1                   MOV.L       @(4,R15),R0
     00000802 6212                   MOV.L       @R1,R2
@@ -1173,6 +1382,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000808 E304                   MOV         #4,R3
     0000080A 2832                   MOV.L       R3,@R8
     0000080C              L681:                             
+      Linear_cal   182                            if (!index)
     0000080C D137                   MOV.L       L729+12,R1 ; _index
     0000080E 6212                   MOV.L       @R1,R2
     00000810 2228                   TST         R2,R2
@@ -1184,8 +1394,21 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000081C 8902                   BT          L685
     0000081E 9061                   MOV.W       L729+4,R0  ; H'7545
     00000820 3400                   CMP/EQ      R0,R4
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   22
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000822 8B10                   BF          L684
     00000824              L685:                             
+      Linear_cal   183                            {
+      Linear_cal   184                                    if (key==KEY_CTRL_EXE || key == KEY_CTRL_RIGHT)
+      Linear_cal   185                                            common_data.PegNo += common_data.Spacing,need_redraw = REFRESH_PAR
+                         +T;
     00000824 52E5                   MOV.L       @(20,R14),R2
     00000826 2F26                   MOV.L       R2,@-R15
     00000828 52E4                   MOV.L       @(16,R14),R2
@@ -1194,15 +1417,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000082E 62E3                   MOV         R14,R2
     00000830 2F36                   MOV.L       R3,@-R15
     00000832 7210                   ADD         #16,R2
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   19
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000834 63E2                   MOV.L       @R14,R3
     00000836 2F36                   MOV.L       R3,@-R15
     00000838 2F26                   MOV.L       R2,@-R15
@@ -1213,9 +1427,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000842 A013                   BRA         L683
     00000844 2C32                   MOV.L       R3,@R12
     00000846              L684:                             
+      Linear_cal   186                                    else if (key==KEY_CTRL_LEFT)
     00000846 914E                   MOV.W       L729+6,R1  ; H'7544
     00000848 3410                   CMP/EQ      R1,R4
     0000084A 8B0F                   BF          L683
+      Linear_cal   187                                            common_data.PegNo -= common_data.Spacing,need_redraw = REFRESH_PAR
+                         +T;
     0000084C 52E5                   MOV.L       @(20,R14),R2
     0000084E 2F26                   MOV.L       R2,@-R15
     00000850 52E4                   MOV.L       @(16,R14),R2
@@ -1233,6 +1450,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000868 E301                   MOV         #1,R3
     0000086A 2C32                   MOV.L       R3,@R12
     0000086C              L683:                             
+      Linear_cal   188                            }
+      Linear_cal   189                            InputDefProc(((double*)(&common_data)+2),2,50,4,mode,MODE_INPUT_JJQZ);
     0000086C D422                   MOV.L       L729+24,R4 ; H'00000010+_common_data
     0000086E E202                   MOV         #2,R2
     00000870 D122                   MOV.L       L729+28,R1 ; _InputDefProc
@@ -1241,8 +1460,18 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000876 E632                   MOV         #50,R6
     00000878 6382                   MOV.L       @R8,R3
     0000087A 2F36                   MOV.L       R3,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   23
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000087C 410B                   JSR         @R1
     0000087E 6523                   MOV         R2,R5
+      Linear_cal   190                            prekey = key;
     00000880 D219                   MOV.L       L729+8,R2  ; _key
     00000882 7F08                   ADD         #8,R15
     00000884 6322                   MOV.L       @R2,R3
@@ -1255,424 +1484,27 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000890 0009                   NOP
     00000892              L730:                             
     00000892              L674:                             
+      Linear_cal   191                    }
+      Linear_cal   192            }//if mode
+      Linear_cal   193            if (mode == MODE_INPUT_REAL)
     00000892 6082                   MOV.L       @R8,R0
     00000894 8804                   CMP/EQ      #4,R0
     00000896 8901                   BT          L731
     00000898 A0F1                   BRA         L688
     0000089A 0009                   NOP
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   20
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000089C              L731:                             
-      Linear_cal     2    #include "runmain.h"
-      Linear_cal     3    #include "MyFont.h"
-
-
-      Linear_cal     4    
-      Linear_cal     5    
-      Linear_cal     6    static char TITLE[] = "³£ÓÃ";
-      Linear_cal     7    
-      Linear_cal     8    #define MODE_INPUT_2_POINT 1
-      Linear_cal     9    #define MODE_INPUT_JJQZ 2
-      Linear_cal    10    #define MODE_INPUT_ZH 3
-      Linear_cal    11    #define MODE_INPUT_REAL 4
-      Linear_cal    12    #define MODE_INPUT_P_AND_D 5
-      Linear_cal    13    #define MODE_DISP_P 6
-      Linear_cal    14    
-      Linear_cal    15    
-      Linear_cal    16    
-      Linear_cal    17    ///////////////////////////////////////////
-      Linear_cal    18    //      F1 Commonly used
-      Linear_cal    19    ///////////////////////////////////////////
-      Linear_cal    20    int Menu_Draw1()
-      Linear_cal    21    {   
-      Linear_cal    22        int i=0;
-      Linear_cal    23        char *context[] = 
-      Linear_cal    24            {"·´Ëã ","ÕýËã ",};
-      Linear_cal    25            SetMyFont(&stHz8x8,&stAsc6x12); //ÉèÖÃÖÐÎÄ´óÐ¡8*8 
-      Linear_cal    26            DispStr(4,56,context[0]); 
-      Linear_cal    27            DispStr(24,56,context[1]); 
-      Linear_cal    28            PrintIcon(i++,"",mode<=MODE_INPUT_REAL);
-      Linear_cal    29            PrintIcon(i++,"",mode>MODE_INPUT_REAL && mode<=MODE_DISP_P);
-      Linear_cal    30            //PrintIcon(i++,"",0);
-      Linear_cal    31            //PrintIcon(i++,"",0);
-      Linear_cal    32            //PrintIcon(5,"?",0);
-      Linear_cal    33    }
-      Linear_cal    34    
-      Linear_cal    35    void Menu_Proc1()
-      Linear_cal    36    {
-      Linear_cal    37            switch (key)
-      Linear_cal    38            {
-      Linear_cal    39                    case KEY_CTRL_F1:mode=MODE_INPUT_2_POINT;break;
-      Linear_cal    40                    case KEY_CTRL_F2:mode=MODE_INPUT_P_AND_D;break;
-      Linear_cal    41                    case KEY_CTRL_F3:break;
-      Linear_cal    42                    case KEY_CTRL_F4:break;
-      Linear_cal    43                    case KEY_CTRL_F6:break;
-      Linear_cal    44            }
-      Linear_cal    45    }
-      Linear_cal    46    void Run_F1_FanSuan ()
-      Linear_cal    47    {
-      Linear_cal    48            double x,y;
-      Linear_cal    49            int i;
-      Linear_cal    50            if (mode == MODE_INPUT_2_POINT)
-      Linear_cal    51            {
-      Linear_cal    52                char *context[] = 
-      Linear_cal    53               {"ÆðµãX ","ÆðµãY ","ÖÕµãX ","ÖÕµãY "};
-      Linear_cal    54                    index = 0;
-      Linear_cal    55                    need_redraw = REFRESH_ALL;
-      Linear_cal    56                    while(mode == MODE_INPUT_2_POINT)
-      Linear_cal    57                    {
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   21
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      Linear_cal    58                            //// REDRAW
-      Linear_cal    59                            if (need_redraw==REFRESH_ALL)
-      Linear_cal    60                            {
-      Linear_cal    61                                    Bdisp_AllClr_DDVRAM();
-      Linear_cal    62                                    i = 0;
-      Linear_cal    63                                    SetMyFont(&stHz12x12,&stAsc6x12);  //¶¨Òå×ÖÌå´óÐ¡
-      Linear_cal    64                                DispStr(2,1, "Ö± ");
-      Linear_cal    65                                DispStr(2,15,"Ïß ");
-      Linear_cal    66                                DispStr(2,28,"Á½ ");
-      Linear_cal    67                                DispStr(2,41,"µã ");
-      Linear_cal    68                                    ShowTitle(TITLE);
-      Linear_cal    69                                    
-      Linear_cal    70                                    for (i=0;i<4;++i)
-      Linear_cal    71                                    DispStr(16,4+i*12,context[i]);
-      Linear_cal    72                                    
-      Linear_cal    73                                    need_redraw = REFRESH_PART;
-      Linear_cal    74                                    Menu_Draw1();
-      Linear_cal    75                            }
-      Linear_cal    76                            if (need_redraw==REFRESH_PART)
-      Linear_cal    77                            {
-      Linear_cal    78                                    for(i=0;i<4;++i)
-      Linear_cal    79                                            PrintFloat(value[i],50,4+i*12,index==i,setup_data.point);
-      Linear_cal    80                                    need_redraw = 0;
-      Linear_cal    81                            }
-      Linear_cal    82                            GetKey(&key);
-      Linear_cal    83                            Menu_Proc1();
-      Linear_cal    84                            if (key==KEY_CTRL_EXE)
-      Linear_cal    85                            {
-      Linear_cal    86                                    mode = MODE_INPUT_JJQZ;
-      Linear_cal    87                            }
-      Linear_cal    88                            InputDefProc(value,4,50,4,MODE_INPUT_JJQZ,MODE_EXIT);
-      Linear_cal    89                    }
-      Linear_cal    90    
-      Linear_cal    91            }
-      Linear_cal    92            ///// Calculate and input Jian ju
-      Linear_cal    93            if (mode == MODE_INPUT_JJQZ)
-      Linear_cal    94            {
-      Linear_cal    95                    char *context[] = 
-      Linear_cal    96                    {"¾àÀë:","·½Î»: ","¼ä¾à ","Æð×® "};
-      Linear_cal    97                    index = 0;
-      Linear_cal    98                    need_redraw = REFRESH_ALL;
-      Linear_cal    99                    Pol(value[0],value[1],value[2],value[3],&common_data.distance,&common_data.position);
-      Linear_cal   100                    while(mode==MODE_INPUT_JJQZ)
-      Linear_cal   101                    {
-      Linear_cal   102                                    
-      Linear_cal   103                            if (need_redraw == REFRESH_ALL)
-      Linear_cal   104                            {
-      Linear_cal   105                                    char strpos[20];
-      Linear_cal   106                                    Bdisp_AllClr_DDVRAM();
-      Linear_cal   107                                    SetMyFont(&stHz12x12,&stAsc6x12); 
-      Linear_cal   108                                    DispStr(2,1, "Ö± ");
-      Linear_cal   109                                DispStr(2,15,"Ïß ");
-      Linear_cal   110                                DispStr(2,28,"Á½ ");
-      Linear_cal   111                                DispStr(2,41,"µã ");
-      Linear_cal   112                                    ShowTitle(TITLE);
-      Linear_cal   113                                    for (i=0;i<4;++i)
-      Linear_cal   114                                    DispStr(16,4+i*12,context[i]);
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   22
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      Linear_cal   115                                    i=0;
-      Linear_cal   116                                    FloatToDegStr(common_data.position,strpos);
-      Linear_cal   117                                    PrintFloat(common_data.distance,50,4+i++*12,0,setup_data.point);
-      Linear_cal   118                                    PrintXY(52,6+i++*12,strpos,0);
-      Linear_cal   119                                    need_redraw = REFRESH_PART;
-      Linear_cal   120                                    Menu_Draw1();
-      Linear_cal   121                            }
-      Linear_cal   122                            if (need_redraw==REFRESH_PART)
-      Linear_cal   123                            {
-      Linear_cal   124                                    i = 2;
-      Linear_cal   125                                    PrintFloat(common_data.Spacing,50,4+i++*12,index==0,setup_data.point);
-      Linear_cal   126                                    PrintFloat(common_data.BeginStake,50,4+i++*12,index==1,setup_data.point);
-      Linear_cal   127                                    need_redraw = 0;
-      Linear_cal   128                            }
-      Linear_cal   129                            GetKey(&key);
-      Linear_cal   130                            Menu_Proc1();
-      Linear_cal   131                            if (key==KEY_CTRL_EXE)
-      Linear_cal   132                            {
-      Linear_cal   133                                    mode = MODE_INPUT_ZH;
-      Linear_cal   134                            }
-      Linear_cal   135                            InputDefProc((double*)(& common_data),2,50,28,MODE_INPUT_ZH,MODE_INPUT_2_POINT);
-      Linear_cal   136                    }
-      Linear_cal   137            }//if
-      Linear_cal   138            if (mode == MODE_INPUT_ZH)
-      Linear_cal   139            {
-      Linear_cal   140                    char *context[] = 
-      Linear_cal   141                    {"×®ºÅ ","Æ«¾à ","×ø±êX:","×ø±êY:"};
-      Linear_cal   142                    int prekey = 0;
-      Linear_cal   143                    index = 0;
-      Linear_cal   144                    need_redraw = REFRESH_ALL;
-      Linear_cal   145                    while(mode==MODE_INPUT_ZH)
-      Linear_cal   146                    {
-      Linear_cal   147                            if (need_redraw == REFRESH_ALL)
-      Linear_cal   148                            {
-      Linear_cal   149                                SetMyFont(&stHz12x12,&stAsc6x12); 
-      Linear_cal   150                                    Bdisp_AllClr_DDVRAM();
-      Linear_cal   151                                    DispStr(2,1, "Ö± ");
-      Linear_cal   152                                DispStr(2,15,"Ïß ");
-      Linear_cal   153                                DispStr(2,28,"Á½ ");
-      Linear_cal   154                                DispStr(2,41,"µã ");
-      Linear_cal   155                                    ShowTitle(TITLE);
-      Linear_cal   156                                    for (i=0;i<4;++i)
-      Linear_cal   157                                    DispStr(16,4+i*12,context[i]);
-      Linear_cal   158                                    Menu_Draw1();
-      Linear_cal   159                                    //ShowArrow(1);//////////////////////////////////////////////////////////
-      Linear_cal   160                                    need_redraw = REFRESH_PART;
-      Linear_cal   161                            }
-      Linear_cal   162                            if (need_redraw==REFRESH_PART)
-      Linear_cal   163                            {
-      Linear_cal   164                                    x = value[0]+(common_data.PegNo-common_data.BeginStake)*
-      Linear_cal   165                                            cos(common_data.position*PI/180.0)
-      Linear_cal   166                                            +common_data.Offset*cos(common_data.position*PI/180.0+PI/2);
-      Linear_cal   167                                    y = value[1]+(common_data.PegNo-common_data.BeginStake)*
-      Linear_cal   168                                            sin(common_data.position*PI/180.0)
-      Linear_cal   169                                            +common_data.Offset*sin(common_data.position*PI/180.0+PI/2);
-      Linear_cal   170                                    i = 0;
-      Linear_cal   171                                    PrintFloat(common_data.PegNo,50,4+i++*12,index==0,setup_data.point);
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   23
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      Linear_cal   172                                    PrintFloat(common_data.Offset,50,4+i++*12,index==1,setup_data.point);
-      Linear_cal   173                                    PrintFloat(x,50,4+i++*12,0,setup_data.point);
-      Linear_cal   174                                    PrintFloat(y,50,4+i++*12,0,setup_data.point);
-      Linear_cal   175                                    need_redraw = 0;
-      Linear_cal   176                            }
-      Linear_cal   177                            //
-      Linear_cal   178                            GetKey(&key);
-      Linear_cal   179                            Menu_Proc1();
-      Linear_cal   180                            if (key==KEY_CTRL_DOWN)
-      Linear_cal   181                                    if(prekey==key) mode = MODE_INPUT_REAL;
-      Linear_cal   182                            if (!index)
-      Linear_cal   183                            {
-      Linear_cal   184                                    if (key==KEY_CTRL_EXE || key == KEY_CTRL_RIGHT)
-      Linear_cal   185                                            common_data.PegNo += common_data.Spacing,need_redraw = REFRESH_PAR
-                         +T;
-      Linear_cal   186                                    else if (key==KEY_CTRL_LEFT)
-      Linear_cal   187                                            common_data.PegNo -= common_data.Spacing,need_redraw = REFRESH_PAR
-                         +T;
-      Linear_cal   188                            }
-      Linear_cal   189                            InputDefProc(((double*)(&common_data)+2),2,50,4,mode,MODE_INPUT_JJQZ);
-      Linear_cal   190                            prekey = key;
-      Linear_cal   191                    }
-      Linear_cal   192            }//if mode
-      Linear_cal   193            if (mode == MODE_INPUT_REAL)
       Linear_cal   194            {
       Linear_cal   195                    double shice[2];
       Linear_cal   196                    double zh,pj;
       Linear_cal   197                    char *context[] = 
       Linear_cal   198                    {"ÒÑÖªX","\ÒÑÖªY","×®ºÅ:","\xc6\xab\xbe\xe0:"};
-      Linear_cal   199                    shice[0] = x;shice[1] = y;
-      Linear_cal   200                    index = 0;
-      Linear_cal   201                    need_redraw = REFRESH_ALL;
-      Linear_cal   202                    while(mode==MODE_INPUT_REAL)
-      Linear_cal   203                    {
-      Linear_cal   204                            if (need_redraw == REFRESH_ALL)
-      Linear_cal   205                            {
-      Linear_cal   206                                    Bdisp_AllClr_DDVRAM();
-      Linear_cal   207                                    SetMyFont(&stHz12x12,&stAsc6x12); 
-      Linear_cal   208                                    DispStr(2,1, "Ö± ");
-      Linear_cal   209                                DispStr(2,15,"Ïß ");
-      Linear_cal   210                                DispStr(2,28,"Á½ ");
-      Linear_cal   211                                DispStr(2,41,"µã ");
-      Linear_cal   212                                    ShowTitle(TITLE);
-      Linear_cal   213                                    for (i=0;i<4;++i)
-      Linear_cal   214                                    DispStr(18,4+i*12,context[i]);
-      Linear_cal   215                                    Menu_Draw1();
-      Linear_cal   216                                    need_redraw = REFRESH_PART;
-      Linear_cal   217                            }
-      Linear_cal   218                            if (need_redraw==REFRESH_PART)
-      Linear_cal   219                            {
-      Linear_cal   220                                    CalcPosAndDistance(     shice[0],shice[1],
-      Linear_cal   221                                                                            value[0],value[1],
-      Linear_cal   222                                                                            common_data.position,
-      Linear_cal   223                                                                            &zh,&pj);
-      Linear_cal   224                                    for (i=0;i<2;++i)
-      Linear_cal   225                                            PrintFloat(shice[i],50,4+i*12,index==i,setup_data.point);
-      Linear_cal   226                                    PrintFloat((float)zh,50,4+i++*12,0,setup_data.point);
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   24
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      Linear_cal   227                                    PrintFloat(pj,50,4+i++*12,0,setup_data.point);
-      Linear_cal   228    
-      Linear_cal   229                            }
-      Linear_cal   230                            GetKey(&key);
-      Linear_cal   231                            Menu_Proc1();
-      Linear_cal   232                            InputDefProc(shice,2,50,4,mode,MODE_INPUT_ZH);
-      Linear_cal   233                    }
-      Linear_cal   234            }//if mode
-      Linear_cal   235    }
-      Linear_cal   236    void Run_F1_ZhenSuan ()
-      Linear_cal   237    {
-      Linear_cal   238            int i;
-      Linear_cal   239            if (mode == MODE_INPUT_P_AND_D)
-      Linear_cal   240            {
-      Linear_cal   241                    char *context[] = 
-      Linear_cal   242                    {"ÆðµãX ","ÆðµãY","¾àÀë:","·½Î»:"};
-      Linear_cal   243                    double data[4],deg_change;
-      Linear_cal   244                    data[0]=common_data.value[0];
-      Linear_cal   245                    data[1]=common_data.value[1];
-      Linear_cal   246                    data[2]=common_data.distance;
-      Linear_cal   247                    data[3]=deg_change=common_data.position;
-      Linear_cal   248                    index = 0;
-      Linear_cal   249                    need_redraw = REFRESH_ALL;
-      Linear_cal   250                    while(mode == MODE_INPUT_P_AND_D)
-      Linear_cal   251                    {
-      Linear_cal   252                            //// REDRAW
-      Linear_cal   253                            if (need_redraw==REFRESH_ALL)
-      Linear_cal   254                            {
-      Linear_cal   255                                    Bdisp_AllClr_DDVRAM();
-      Linear_cal   256                                    i = 0;
-      Linear_cal   257                                    SetMyFont(&stHz12x12,&stAsc6x12); 
-      Linear_cal   258                                    DispStr(2,1, "ÆÕ ");
-      Linear_cal   259                                DispStr(2,15,"Í¨ ");
-      Linear_cal   260                                DispStr(2,28,"·´ ");
-      Linear_cal   261                                DispStr(2,41,"Ëã ");
-      Linear_cal   262                                    ShowTitle(TITLE);
-      Linear_cal   263                                    for (i=0;i<4;++i)
-      Linear_cal   264                                    DispStr(16,4+i*12,context[i]);
-      Linear_cal   265                                    need_redraw = REFRESH_PART;
-      Linear_cal   266                                    Menu_Draw1();
-      Linear_cal   267                            }
-      Linear_cal   268                            if (need_redraw==REFRESH_PART)
-      Linear_cal   269                            {
-      Linear_cal   270                                    char strpos[20];
-      Linear_cal   271                                    DrawClearBox (50,40,125,51,index==3);
-      Linear_cal   272                                    FloatToDegStr(data[3],strpos);
-      Linear_cal   273                                    PrintXY(52,42,strpos,strpos[11]=0);
-      Linear_cal   274                                    if (index==3)Bdisp_AreaReverseVRAM(52,42,123,49);
-      Linear_cal   275                                    for(i=0;i<3;++i)
-      Linear_cal   276                                    PrintFloat(data[i],50,4+i*12,index==i,setup_data.point);
-      Linear_cal   277                                    need_redraw = 0;
-      Linear_cal   278                            }
-      Linear_cal   279                            GetKey(&key);
-      Linear_cal   280                            Menu_Proc1();
-      Linear_cal   281                            if (key==KEY_CTRL_EXE) mode = MODE_DISP_P;
-      Linear_cal   282                            InputDefProc(data,4,50,4,MODE_DISP_P,MODE_EXIT);
-      Linear_cal   283                            if (deg_change!=data[3])
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   25
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      Linear_cal   284                            {
-      Linear_cal   285                                    double  x,y,z;
-      Linear_cal   286                                    x = (int)data[3];
-      Linear_cal   287                                    y = (int)((data[3]-x)*100.0)/60.0;
-      Linear_cal   288                                    z = (data[3]-x)*100.0;
-      Linear_cal   289                                    z = (z - (int)z)*100.0/3600.0;
-      Linear_cal   290                                    data[3]=deg_change=x+y+z;
-      Linear_cal   291                            }
-      Linear_cal   292                    }
-      Linear_cal   293                    common_data.value[0]=data[0];
-      Linear_cal   294                    common_data.value[1]=data[1];
-      Linear_cal   295                    common_data.distance=data[2];
-      Linear_cal   296                    common_data.position=data[3];
-      Linear_cal   297            }
-      Linear_cal   298            if (mode == MODE_DISP_P)
-      Linear_cal   299            {
-      Linear_cal   300                    need_redraw = REFRESH_ALL;
-      Linear_cal   301                    while(mode == MODE_DISP_P)
-      Linear_cal   302                    {
-      Linear_cal   303                            if (need_redraw==REFRESH_ALL)
-      Linear_cal   304                            {
-      Linear_cal   305                                    Bdisp_AllClr_DDVRAM();
-      Linear_cal   306                                    i=0;
-      Linear_cal   307                                    SetMyFont(&stHz12x12,&stAsc6x12); 
-      Linear_cal   308                                    DispStr(2,1, "ÆÕ ");
-      Linear_cal   309                                DispStr(2,15,"Í¨ ");
-      Linear_cal   310                                DispStr(2,28,"·´ ");
-      Linear_cal   311                                DispStr(2,41,"Ëã ");
-      Linear_cal   312                                    ShowTitle(TITLE);
-      Linear_cal   313                                    DispStr(16,6, "×ø±êX ");
-      Linear_cal   314                                    DispStr(16,18,"×ø±êY ");
-      Linear_cal   315                                    value[2] = value[0]+common_data.distance*
-      Linear_cal   316                                            cos(common_data.position*PI/180.0)
-      Linear_cal   317                                            +common_data.Offset*cos(common_data.position*PI/180.0+PI/2);
-      Linear_cal   318                                    value[3] = value[1]+common_data.distance*
-      Linear_cal   319                                            sin(common_data.position*PI/180.0)
-      Linear_cal   320                                            +common_data.Offset*sin(common_data.position*PI/180.0+PI/2);
-      Linear_cal   321                                    PrintFloat(value[2],50,6+i++*12,0,setup_data.point);
-      Linear_cal   322                                    PrintFloat(value[3],50,6+i*12,0,setup_data.point);
-      Linear_cal   323                                    Menu_Draw1();
-      Linear_cal   324                            }
-      Linear_cal   325                            GetKey(&key);
-      Linear_cal   326                            Menu_Proc1();
-      Linear_cal   327                            if (key==KEY_CTRL_EXIT || key==KEY_CTRL_EXE) mode = MODE_INPUT_P_AND_D;
-      Linear_cal   328                    }
-      Linear_cal   329            }
-      Linear_cal   330    }
-      Linear_cal   331    int BinMain_1()
-      Linear_cal   332    {
-      Linear_cal   333            need_redraw = REFRESH_ALL;
-      Linear_cal   334            mode = MODE_INPUT_2_POINT;
-      Linear_cal   335            while (mode!=MODE_EXIT)
-      Linear_cal   336            {
-      Linear_cal   337                    Run_F1_FanSuan();
-      Linear_cal   338                    Run_F1_ZhenSuan();
-      Linear_cal   339            }
-      Linear_cal   340    }
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   26
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000089C D218                   MOV.L       L729+32,R2 ; L574
     0000089E 61F3                   MOV         R15,R1
     000008A0 D318                   MOV.L       L729+36,R3 ; __quick_evn_mvn
     000008A2 710C                   ADD         #12,R1
     000008A4 430B                   JSR         @R3
     000008A6 E010                   MOV         #16,R0
+      Linear_cal   199                    shice[0] = x;shice[1] = y;
     000008A8 61F3                   MOV         R15,R1
     000008AA 7144                   ADD         #68,R1
     000008AC 6312                   MOV.L       @R1,R3
@@ -1689,9 +1521,20 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000008C2 2102                   MOV.L       R0,@R1
     000008C4 5031                   MOV.L       @(4,R3),R0
     000008C6 1101                   MOV.L       R0,@(4,R1)
+      Linear_cal   200                    index = 0;
     000008C8 D308                   MOV.L       L729+12,R3 ; _index
+      Linear_cal   201                    need_redraw = REFRESH_ALL;
     000008CA E102                   MOV         #2,R1
     000008CC 23B2                   MOV.L       R11,@R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   24
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000008CE 60F3                   MOV         R15,R0
     000008D0 2C12                   MOV.L       R1,@R12
     000008D2 7034                   ADD         #52,R0
@@ -1699,6 +1542,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000008D6 61F3                   MOV         R15,R1
     000008D8 712C                   ADD         #44,R1
     000008DA 1F12                   MOV.L       R1,@(8,R15)
+      Linear_cal   202                    while(mode==MODE_INPUT_REAL)
     000008DC A0CA                   BRA         L689
     000008DE 0009                   NOP
     000008E0              L729:                             
@@ -1715,48 +1559,60 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000900 <00000000>             .DATA.L     L574
     00000904 <00000000>             .DATA.L     __quick_evn_mvn
     00000908              L690:                             
+      Linear_cal   203                    {
+      Linear_cal   204                            if (need_redraw == REFRESH_ALL)
     00000908 60C2                   MOV.L       @R12,R0
     0000090A 8802                   CMP/EQ      #2,R0
     0000090C 8B34                   BF          L691
+      Linear_cal   205                            {
+      Linear_cal   206                                    Bdisp_AllClr_DDVRAM();
     0000090E D287                   MOV.L       L732,R2    ; _Bdisp_AllClr_DDVRAM
     00000910 420B                   JSR         @R2
     00000912 0009                   NOP
+      Linear_cal   207                                    SetMyFont(&stHz12x12,&stAsc6x12); 
     00000914 D586                   MOV.L       L732+4,R5  ; _stAsc6x12
     00000916 D487                   MOV.L       L732+8,R4  ; _stHz12x12
     00000918 D387                   MOV.L       L732+12,R3 ; _SetMyFont
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   27
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000091A 430B                   JSR         @R3
     0000091C 0009                   NOP
+      Linear_cal   208                                    DispStr(2,1, "Ö± ");
     0000091E E501                   MOV         #1,R5
     00000920 D686                   MOV.L       L732+16,R6 ; L539
     00000922 4D0B                   JSR         @R13
     00000924 E402                   MOV         #2,R4
+      Linear_cal   209                                DispStr(2,15,"Ïß ");
     00000926 E50F                   MOV         #15,R5
     00000928 D685                   MOV.L       L732+20,R6 ; L540
     0000092A 4D0B                   JSR         @R13
     0000092C E402                   MOV         #2,R4
+      Linear_cal   210                                DispStr(2,28,"Á½ ");
     0000092E E51C                   MOV         #28,R5
     00000930 D684                   MOV.L       L732+24,R6 ; L541
     00000932 4D0B                   JSR         @R13
     00000934 E402                   MOV         #2,R4
+      Linear_cal   211                                DispStr(2,41,"µã ");
     00000936 E529                   MOV         #41,R5
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   25
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000938 D683                   MOV.L       L732+28,R6 ; L542
     0000093A 4D0B                   JSR         @R13
     0000093C E402                   MOV         #2,R4
+      Linear_cal   212                                    ShowTitle(TITLE);
     0000093E D483                   MOV.L       L732+32,R4 ; __$TITLE
     00000940 D283                   MOV.L       L732+36,R2 ; _ShowTitle
     00000942 420B                   JSR         @R2
     00000944 0009                   NOP
+      Linear_cal   213                                    for (i=0;i<4;++i)
     00000946 2FB2                   MOV.L       R11,@R15
     00000948              L692:                             
+      Linear_cal   214                                    DispStr(18,4+i*12,context[i]);
     00000948 66F2                   MOV.L       @R15,R6
     0000094A 63F3                   MOV         R15,R3
     0000094C 65F2                   MOV.L       @R15,R5
@@ -1777,31 +1633,40 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000096A 3323                   CMP/GE      R2,R3
     0000096C 8FEC                   BF/S        L692
     0000096E 2F32                   MOV.L       R3,@R15
+      Linear_cal   215                                    Menu_Draw1();
     00000970 BB46                   BSR         _Menu_Draw1
     00000972 0009                   NOP
+      Linear_cal   216                                    need_redraw = REFRESH_PART;
     00000974 E101                   MOV         #1,R1
     00000976 2C12                   MOV.L       R1,@R12
     00000978              L691:                             
+      Linear_cal   217                            }
+      Linear_cal   218                            if (need_redraw==REFRESH_PART)
     00000978 60C2                   MOV.L       @R12,R0
     0000097A 8801                   CMP/EQ      #1,R0
     0000097C 8B68                   BF          L693
+      Linear_cal   219                            {
+      Linear_cal   220                                    CalcPosAndDistance(     shice[0],shice[1],
+      Linear_cal   221                                                                            value[0],value[1],
+      Linear_cal   222                                                                            common_data.position,
+      Linear_cal   223                                                                            &zh,&pj);
     0000097E 62E3                   MOV         R14,R2
     00000980 D074                   MOV.L       L732+40,R0 ; _value
     00000982 7248                   ADD         #72,R2
     00000984 5321                   MOV.L       @(4,R2),R3
     00000986 2F36                   MOV.L       R3,@-R15
+    00000988 6322                   MOV.L       @R2,R3
+    0000098A 2F36                   MOV.L       R3,@-R15
+    0000098C 6102                   MOV.L       @R0,R1
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   28
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   26
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    00000988 6322                   MOV.L       @R2,R3
-    0000098A 2F36                   MOV.L       R3,@-R15
-    0000098C 6102                   MOV.L       @R0,R1
     0000098E 7108                   ADD         #8,R1
     00000990 5311                   MOV.L       @(4,R1),R3
     00000992 2F36                   MOV.L       R3,@-R15
@@ -1829,8 +1694,10 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000009BE 420B                   JSR         @R2
     000009C0 744C                   ADD         #76,R4
     000009C2 7F28                   ADD         #40,R15
+      Linear_cal   224                                    for (i=0;i<2;++i)
     000009C4 2FB2                   MOV.L       R11,@R15
     000009C6              L694:                             
+      Linear_cal   225                                            PrintFloat(shice[i],50,4+i*12,index==i,setup_data.point);
     000009C6 62F3                   MOV         R15,R2
     000009C8 D064                   MOV.L       L732+48,R0 ; _index
     000009CA 722C                   ADD         #44,R2
@@ -1856,21 +1723,22 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000009F2 4A0B                   JSR         @R10
     000009F4 E432                   MOV         #50,R4
     000009F6 7F08                   ADD         #8,R15
+    000009F8 63F2                   MOV.L       @R15,R3
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   29
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   27
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    000009F8 63F2                   MOV.L       @R15,R3
     000009FA E202                   MOV         #2,R2
     000009FC 7301                   ADD         #1,R3
     000009FE 3323                   CMP/GE      R2,R3
     00000A00 8FE1                   BF/S        L694
     00000A02 2F32                   MOV.L       R3,@R15
+      Linear_cal   226                                    PrintFloat((float)zh,50,4+i++*12,0,setup_data.point);
     00000A04 53FA                   MOV.L       @(40,R15),R3
     00000A06 2F36                   MOV.L       R3,@-R15
     00000A08 53FA                   MOV.L       @(40,R15),R3
@@ -1894,6 +1762,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A2C 7504                   ADD         #4,R5
     00000A2E 4A0B                   JSR         @R10
     00000A30 E432                   MOV         #50,R4
+      Linear_cal   227                                    PrintFloat(pj,50,4+i++*12,0,setup_data.point);
     00000A32 E600                   MOV         #0,R6
     00000A34 52FA                   MOV.L       @(40,R15),R2
     00000A36 2F26                   MOV.L       R2,@-R15
@@ -1910,27 +1779,32 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A4C E432                   MOV         #50,R4
     00000A4E 7F10                   ADD         #16,R15
     00000A50              L693:                             
+      Linear_cal   228    
+      Linear_cal   229                            }
+      Linear_cal   230                            GetKey(&key);
     00000A50 D445                   MOV.L       L732+60,R4 ; _key
     00000A52 D346                   MOV.L       L732+64,R3 ; _GetKey
     00000A54 430B                   JSR         @R3
     00000A56 0009                   NOP
+      Linear_cal   231                            Menu_Proc1();
     00000A58 BB0C                   BSR         _Menu_Proc1
     00000A5A 0009                   NOP
+      Linear_cal   232                            InputDefProc(shice,2,50,4,mode,MODE_INPUT_ZH);
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   28
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000A5C D144                   MOV.L       L732+68,R1 ; _InputDefProc
     00000A5E E303                   MOV         #3,R3
     00000A60 2F36                   MOV.L       R3,@-R15
     00000A62 E704                   MOV         #4,R7
     00000A64 6282                   MOV.L       @R8,R2
     00000A66 E632                   MOV         #50,R6
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   30
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000A68 2F26                   MOV.L       R2,@-R15
     00000A6A E502                   MOV         #2,R5
     00000A6C 64F3                   MOV         R15,R4
@@ -1945,6 +1819,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A7C 0009                   NOP
     00000A7E              L733:                             
     00000A7E              L688:                             
+      Linear_cal   233                    }
+      Linear_cal   234            }//if mode
+      Linear_cal   235    }
     00000A7E 7F4C                   ADD         #76,R15
     00000A80 4F26                   LDS.L       @R15+,PR
     00000A82 68F6                   MOV.L       @R15+,R8
@@ -1955,6 +1832,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A8C 6DF6                   MOV.L       @R15+,R13
     00000A8E 000B                   RTS
     00000A90 6EF6                   MOV.L       @R15+,R14
+      Linear_cal   236    void Run_F1_ZhenSuan ()
     00000A92              _Run_F1_ZhenSuan:                ; function: Run_F1_ZhenSuan
                                                            ; frame size=200
                                                            ; used runtime library name:
@@ -1969,34 +1847,42 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A9E 2F86                   MOV.L       R8,@-R15
     00000AA0 4F22                   STS.L       PR,@-R15
     00000AA2 7FA4                   ADD         #-92,R15
+      Linear_cal   237    {
+      Linear_cal   238            int i;
+      Linear_cal   239            if (mode == MODE_INPUT_P_AND_D)
     00000AA4 D833                   MOV.L       L732+72,R8 ; _mode
     00000AA6 DA34                   MOV.L       L732+76,R10; _need_redraw
     00000AA8 DD34                   MOV.L       L732+80,R13; _common_data
     00000AAA DE35                   MOV.L       L732+84,R14; _DispStr
     00000AAC 6082                   MOV.L       @R8,R0
     00000AAE 8805                   CMP/EQ      #5,R0
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   29
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000AB0 8D02                   BT/S        L734
     00000AB2 EC00                   MOV         #0,R12
     00000AB4 A1EC                   BRA         L695
     00000AB6 0009                   NOP
     00000AB8              L734:                             
+      Linear_cal   240            {
+      Linear_cal   241                    char *context[] = 
+      Linear_cal   242                    {"ÆðµãX ","ÆðµãY","¾àÀë:","·½Î»:"};
     00000AB8 D232                   MOV.L       L732+88,R2 ; L587
     00000ABA 61F3                   MOV         R15,R1
     00000ABC D332                   MOV.L       L732+92,R3 ; __quick_evn_mvn
     00000ABE 714C                   ADD         #76,R1
     00000AC0 430B                   JSR         @R3
     00000AC2 E010                   MOV         #16,R0
+      Linear_cal   243                    double data[4],deg_change;
+      Linear_cal   244                    data[0]=common_data.value[0];
     00000AC4 69F3                   MOV         R15,R9
     00000AC6 792C                   ADD         #44,R9
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   31
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000AC8 61D3                   MOV         R13,R1
     00000ACA 7120                   ADD         #32,R1
     00000ACC 6012                   MOV.L       @R1,R0
@@ -2004,6 +1890,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000AD0 2302                   MOV.L       R0,@R3
     00000AD2 5011                   MOV.L       @(4,R1),R0
     00000AD4 1301                   MOV.L       R0,@(4,R3)
+      Linear_cal   245                    data[1]=common_data.value[1];
     00000AD6 63D3                   MOV         R13,R3
     00000AD8 7328                   ADD         #40,R3
     00000ADA 6193                   MOV         R9,R1
@@ -2012,6 +1899,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000AE0 2102                   MOV.L       R0,@R1
     00000AE2 5031                   MOV.L       @(4,R3),R0
     00000AE4 1101                   MOV.L       R0,@(4,R1)
+      Linear_cal   246                    data[2]=common_data.distance;
     00000AE6 63D3                   MOV         R13,R3
     00000AE8 7340                   ADD         #64,R3
     00000AEA 6193                   MOV         R9,R1
@@ -2020,6 +1908,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000AF0 2102                   MOV.L       R0,@R1
     00000AF2 5031                   MOV.L       @(4,R3),R0
     00000AF4 1101                   MOV.L       R0,@(4,R1)
+      Linear_cal   247                    data[3]=deg_change=common_data.position;
     00000AF6 63D3                   MOV         R13,R3
     00000AF8 7348                   ADD         #72,R3
     00000AFA 61F3                   MOV         R15,R1
@@ -2033,11 +1922,22 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000B0A 6193                   MOV         R9,R1
     00000B0C 6032                   MOV.L       @R3,R0
     00000B0E 7118                   ADD         #24,R1
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   30
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000B10 2102                   MOV.L       R0,@R1
     00000B12 5031                   MOV.L       @(4,R3),R0
+      Linear_cal   248                    index = 0;
     00000B14 D311                   MOV.L       L732+48,R3 ; _index
     00000B16 1101                   MOV.L       R0,@(4,R1)
     00000B18 23C2                   MOV.L       R12,@R3
+      Linear_cal   249                    need_redraw = REFRESH_ALL;
     00000B1A E102                   MOV         #2,R1
     00000B1C 2A12                   MOV.L       R1,@R10
     00000B1E 6093                   MOV         R9,R0
@@ -2045,6 +1945,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000B22 61F3                   MOV         R15,R1
     00000B24 1F01                   MOV.L       R0,@(4,R15)
     00000B26 711B                   ADD         #27,R1
+      Linear_cal   250                    while(mode == MODE_INPUT_P_AND_D)
     00000B28 A18E                   BRA         L696
     00000B2A 1F12                   MOV.L       R1,@(8,R15)
     00000B2C              L732:                             
@@ -2054,15 +1955,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000B38 <00000000>             .DATA.L     _SetMyFont
     00000B3C <00000000>             .DATA.L     L539
     00000B40 <00000000>             .DATA.L     L540
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   32
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000B44 <00000000>             .DATA.L     L541
     00000B48 <00000000>             .DATA.L     L542
     00000B4C <00000000>             .DATA.L     __$TITLE
@@ -2082,53 +1974,67 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000B84 <00000000>             .DATA.L     L587
     00000B88 <00000000>             .DATA.L     __quick_evn_mvn
     00000B8C              L697:                             
+      Linear_cal   251                    {
+      Linear_cal   252                            //// REDRAW
+      Linear_cal   253                            if (need_redraw==REFRESH_ALL)
     00000B8C 60A2                   MOV.L       @R10,R0
     00000B8E 8802                   CMP/EQ      #2,R0
     00000B90 8B31                   BF          L698
+      Linear_cal   254                            {
+      Linear_cal   255                                    Bdisp_AllClr_DDVRAM();
     00000B92 D24A                   MOV.L       L735+2,R2  ; _Bdisp_AllClr_DDVRAM
     00000B94 420B                   JSR         @R2
     00000B96 0009                   NOP
+      Linear_cal   256                                    i = 0;
+      Linear_cal   257                                    SetMyFont(&stHz12x12,&stAsc6x12); 
     00000B98 D549                   MOV.L       L735+6,R5  ; _stAsc6x12
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   31
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000B9A D44A                   MOV.L       L735+10,R4 ; _stHz12x12
     00000B9C D34A                   MOV.L       L735+14,R3 ; _SetMyFont
     00000B9E 430B                   JSR         @R3
     00000BA0 0009                   NOP
+      Linear_cal   258                                    DispStr(2,1, "ÆÕ ");
     00000BA2 E501                   MOV         #1,R5
     00000BA4 D649                   MOV.L       L735+18,R6 ; L594
     00000BA6 4E0B                   JSR         @R14
     00000BA8 E402                   MOV         #2,R4
+      Linear_cal   259                                DispStr(2,15,"Í¨ ");
     00000BAA E50F                   MOV         #15,R5
     00000BAC D648                   MOV.L       L735+22,R6 ; L595
     00000BAE 4E0B                   JSR         @R14
     00000BB0 E402                   MOV         #2,R4
+      Linear_cal   260                                DispStr(2,28,"·´ ");
     00000BB2 E51C                   MOV         #28,R5
     00000BB4 D647                   MOV.L       L735+26,R6 ; L596
     00000BB6 4E0B                   JSR         @R14
     00000BB8 E402                   MOV         #2,R4
+      Linear_cal   261                                DispStr(2,41,"Ëã ");
     00000BBA E529                   MOV         #41,R5
     00000BBC D646                   MOV.L       L735+30,R6 ; L597
     00000BBE 4E0B                   JSR         @R14
     00000BC0 E402                   MOV         #2,R4
+      Linear_cal   262                                    ShowTitle(TITLE);
     00000BC2 D446                   MOV.L       L735+34,R4 ; __$TITLE
     00000BC4 D246                   MOV.L       L735+38,R2 ; _ShowTitle
     00000BC6 420B                   JSR         @R2
     00000BC8 0009                   NOP
+      Linear_cal   263                                    for (i=0;i<4;++i)
     00000BCA 6BC3                   MOV         R12,R11
     00000BCC              L699:                             
+      Linear_cal   264                                    DispStr(16,4+i*12,context[i]);
     00000BCC 66B3                   MOV         R11,R6
     00000BCE 4608                   SHLL2       R6
     00000BD0 63F3                   MOV         R15,R3
     00000BD2 734C                   ADD         #76,R3
     00000BD4 363C                   ADD         R3,R6
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   33
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000BD6 65B3                   MOV         R11,R5
     00000BD8 6662                   MOV.L       @R6,R6
     00000BDA 62B3                   MOV         R11,R2
@@ -2142,13 +2048,29 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000BEA E304                   MOV         #4,R3
     00000BEC 3B33                   CMP/GE      R3,R11
     00000BEE 8BED                   BF          L699
+      Linear_cal   265                                    need_redraw = REFRESH_PART;
     00000BF0 E101                   MOV         #1,R1
+      Linear_cal   266                                    Menu_Draw1();
     00000BF2 BA05                   BSR         _Menu_Draw1
     00000BF4 2A12                   MOV.L       R1,@R10
     00000BF6              L698:                             
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   32
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      Linear_cal   267                            }
+      Linear_cal   268                            if (need_redraw==REFRESH_PART)
     00000BF6 60A2                   MOV.L       @R10,R0
     00000BF8 8801                   CMP/EQ      #1,R0
     00000BFA 8B45                   BF          L700
+      Linear_cal   269                            {
+      Linear_cal   270                                    char strpos[20];
+      Linear_cal   271                                    DrawClearBox (50,40,125,51,index==3);
     00000BFC D339                   MOV.L       L735+42,R3 ; _index
     00000BFE E733                   MOV         #51,R7
     00000C00 D239                   MOV.L       L735+46,R2 ; _DrawClearBox
@@ -2160,6 +2082,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C0C 2F06                   MOV.L       R0,@-R15
     00000C0E 420B                   JSR         @R2
     00000C10 E432                   MOV         #50,R4
+      Linear_cal   272                                    FloatToDegStr(data[3],strpos);
     00000C12 53F2                   MOV.L       @(8,R15),R3
     00000C14 5231                   MOV.L       @(4,R3),R2
     00000C16 2F26                   MOV.L       R2,@-R15
@@ -2169,6 +2092,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C1E 64F3                   MOV         R15,R4
     00000C20 430B                   JSR         @R3
     00000C22 741C                   ADD         #28,R4
+      Linear_cal   273                                    PrintXY(52,42,strpos,strpos[11]=0);
     00000C24 D332                   MOV.L       L735+54,R3 ; _PrintXY
     00000C26 7F0C                   ADD         #12,R15
     00000C28 57F2                   MOV.L       @(8,R15),R7
@@ -2179,6 +2103,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C32 7610                   ADD         #16,R6
     00000C34 430B                   JSR         @R3
     00000C36 E434                   MOV         #52,R4
+      Linear_cal   274                                    if (index==3)Bdisp_AreaReverseVRAM(52,42,123,49);
     00000C38 D22A                   MOV.L       L735+42,R2 ; _index
     00000C3A 6022                   MOV.L       @R2,R0
     00000C3C 8803                   CMP/EQ      #3,R0
@@ -2186,22 +2111,24 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C40 D12C                   MOV.L       L735+58,R1 ; _Bdisp_AreaReverseVRAM
     00000C42 E731                   MOV         #49,R7
     00000C44 E67B                   MOV         #123,R6
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   34
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000C46 E52A                   MOV         #42,R5
     00000C48 410B                   JSR         @R1
     00000C4A E434                   MOV         #52,R4
     00000C4C              L701:                             
+      Linear_cal   275                                    for(i=0;i<3;++i)
     00000C4C 6BC3                   MOV         R12,R11
     00000C4E              L702:                             
+      Linear_cal   276                                    PrintFloat(data[i],50,4+i*12,index==i,setup_data.point);
     00000C4E 63B3                   MOV         R11,R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   33
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000C50 D129                   MOV.L       L735+62,R1 ; _setup_data
     00000C52 65B3                   MOV         R11,R5
     00000C54 4308                   SHLL2       R3
@@ -2229,14 +2156,19 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C80 3B23                   CMP/GE      R2,R11
     00000C82 8FE4                   BF/S        L702
     00000C84 7F08                   ADD         #8,R15
+      Linear_cal   277                                    need_redraw = 0;
     00000C86 2AC2                   MOV.L       R12,@R10
     00000C88              L700:                             
+      Linear_cal   278                            }
+      Linear_cal   279                            GetKey(&key);
     00000C88 D41D                   MOV.L       L735+70,R4 ; _key
     00000C8A D21E                   MOV.L       L735+74,R2 ; _GetKey
     00000C8C 420B                   JSR         @R2
     00000C8E 0009                   NOP
+      Linear_cal   280                            Menu_Proc1();
     00000C90 B9F0                   BSR         _Menu_Proc1
     00000C92 0009                   NOP
+      Linear_cal   281                            if (key==KEY_CTRL_EXE) mode = MODE_DISP_P;
     00000C94 9211                   MOV.W       L735,R2    ; H'7534
     00000C96 D11A                   MOV.L       L735+70,R1 ; _key
     00000C98 6312                   MOV.L       @R1,R3
@@ -2245,6 +2177,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C9E E306                   MOV         #6,R3
     00000CA0 2832                   MOV.L       R3,@R8
     00000CA2              L703:                             
+      Linear_cal   282                            InputDefProc(data,4,50,4,MODE_DISP_P,MODE_EXIT);
     00000CA2 E206                   MOV         #6,R2
     00000CA4 D318                   MOV.L       L735+78,R3 ; _InputDefProc
     00000CA6 E704                   MOV         #4,R7
@@ -2252,18 +2185,19 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000CAA E632                   MOV         #50,R6
     00000CAC 2F26                   MOV.L       R2,@-R15
     00000CAE 6573                   MOV         R7,R5
+    00000CB0 430B                   JSR         @R3
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   35
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   34
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    00000CB0 430B                   JSR         @R3
     00000CB2 6493                   MOV         R9,R4
     00000CB4 7F08                   ADD         #8,R15
+      Linear_cal   283                            if (deg_change!=data[3])
     00000CB6 A029                   BRA         L716
     00000CB8 0009                   NOP
     00000CBA              L735:                             
@@ -2305,6 +2239,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000D26 A08F                   BRA         L696
     00000D28 0009                   NOP
     00000D2A              L737:                             
+      Linear_cal   284                            {
+      Linear_cal   285                                    double  x,y,z;
+      Linear_cal   286                                    x = (int)data[3];
     00000D2A 50F1                   MOV.L       @(4,R15),R0
     00000D2C D25E                   MOV.L       L736+6,R2  ; __dtoi
     00000D2E 5301                   MOV.L       @(4,R0),R3
@@ -2315,18 +2252,19 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000D38 D35C                   MOV.L       L736+10,R3 ; __itod
     00000D3A 61F3                   MOV         R15,R1
     00000D3C 711C                   ADD         #28,R1
-    00000D3E 430B                   JSR         @R3
-    00000D40 2F16                   MOV.L       R1,@-R15
-    00000D42 7FF0                   ADD         #-16,R15
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   36
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   35
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    00000D3E 430B                   JSR         @R3
+    00000D40 2F16                   MOV.L       R1,@-R15
+      Linear_cal   287                                    y = (int)((data[3]-x)*100.0)/60.0;
+    00000D42 7FF0                   ADD         #-16,R15
     00000D44 D15A                   MOV.L       L736+14,R1 ; __subdr
     00000D46 54F5                   MOV.L       @(20,R15),R4
     00000D48 5341                   MOV.L       @(4,R4),R3
@@ -2366,6 +2304,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000D8C 7124                   ADD         #36,R1
     00000D8E 430B                   JSR         @R3
     00000D90 2F16                   MOV.L       R1,@-R15
+      Linear_cal   288                                    z = (data[3]-x)*100.0;
     00000D92 7FF8                   ADD         #-8,R15
     00000D94 D146                   MOV.L       L736+14,R1 ; __subdr
     00000D96 5241                   MOV.L       @(4,R4),R2
@@ -2379,25 +2318,26 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000DA6 62F3                   MOV         R15,R2
     00000DA8 7210                   ADD         #16,R2
     00000DAA 410B                   JSR         @R1
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   36
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000DAC 2F26                   MOV.L       R2,@-R15
     00000DAE E300                   MOV         #0,R3
     00000DB0 D241                   MOV.L       L736+22,R2 ; __muld
     00000DB2 2F36                   MOV.L       R3,@-R15
     00000DB4 D33F                   MOV.L       L736+18,R3 ; H'40590000
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   37
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000DB6 2F36                   MOV.L       R3,@-R15
     00000DB8 61F3                   MOV         R15,R1
     00000DBA 711C                   ADD         #28,R1
     00000DBC 420B                   JSR         @R2
     00000DBE 2F16                   MOV.L       R1,@-R15
+      Linear_cal   289                                    z = (z - (int)z)*100.0/3600.0;
     00000DC0 7FF0                   ADD         #-16,R15
     00000DC2 53F8                   MOV.L       @(32,R15),R3
     00000DC4 2F36                   MOV.L       R3,@-R15
@@ -2436,6 +2376,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000E06 711C                   ADD         #28,R1
     00000E08 430B                   JSR         @R3
     00000E0A 2F16                   MOV.L       R1,@-R15
+      Linear_cal   290                                    data[3]=deg_change=x+y+z;
     00000E0C D12E                   MOV.L       L736+38,R1 ; __addd
     00000E0E 7FF8                   ADD         #-8,R15
     00000E10 52FA                   MOV.L       @(40,R15),R2
@@ -2443,6 +2384,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000E14 52FA                   MOV.L       @(40,R15),R2
     00000E16 2F26                   MOV.L       R2,@-R15
     00000E18 53FA                   MOV.L       @(40,R15),R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   37
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000E1A 2F36                   MOV.L       R3,@-R15
     00000E1C 53FA                   MOV.L       @(40,R15),R3
     00000E1E 2F36                   MOV.L       R3,@-R15
@@ -2450,15 +2400,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000E22 7210                   ADD         #16,R2
     00000E24 410B                   JSR         @R1
     00000E26 2F26                   MOV.L       R2,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   38
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000E28 53F6                   MOV.L       @(24,R15),R3
     00000E2A 2F36                   MOV.L       R3,@-R15
     00000E2C 53F6                   MOV.L       @(24,R15),R3
@@ -2482,8 +2423,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000E4E AE9D                   BRA         L697
     00000E50 0009                   NOP
     00000E52              L738:                             
+      Linear_cal   291                            }
+      Linear_cal   292                    }
+      Linear_cal   293                    common_data.value[0]=data[0];
     00000E52 6293                   MOV         R9,R2
     00000E54 6122                   MOV.L       @R2,R1
+      Linear_cal   294                    common_data.value[1]=data[1];
     00000E56 6023                   MOV         R2,R0
     00000E58 63D3                   MOV         R13,R3
     00000E5A 7320                   ADD         #32,R3
@@ -2492,17 +2437,28 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000E60 5121                   MOV.L       @(4,R2),R1
     00000E62 1311                   MOV.L       R1,@(4,R3)
     00000E64 6202                   MOV.L       @R0,R2
+      Linear_cal   295                    common_data.distance=data[2];
     00000E66 6193                   MOV         R9,R1
     00000E68 63D3                   MOV         R13,R3
     00000E6A 7328                   ADD         #40,R3
     00000E6C 2322                   MOV.L       R2,@R3
     00000E6E 7110                   ADD         #16,R1
     00000E70 5201                   MOV.L       @(4,R0),R2
+      Linear_cal   296                    common_data.position=data[3];
     00000E72 6093                   MOV         R9,R0
     00000E74 1321                   MOV.L       R2,@(4,R3)
     00000E76 7018                   ADD         #24,R0
     00000E78 6212                   MOV.L       @R1,R2
     00000E7A 63D3                   MOV         R13,R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   38
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000E7C 7340                   ADD         #64,R3
     00000E7E 2322                   MOV.L       R2,@R3
     00000E80 5211                   MOV.L       @(4,R1),R2
@@ -2514,23 +2470,19 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000E8C 5201                   MOV.L       @(4,R0),R2
     00000E8E 1321                   MOV.L       R2,@(4,R3)
     00000E90              L695:                             
+      Linear_cal   297            }
+      Linear_cal   298            if (mode == MODE_DISP_P)
     00000E90 6082                   MOV.L       @R8,R0
     00000E92 8806                   CMP/EQ      #6,R0
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   39
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000E94 8901                   BT          L739
     00000E96 A19C                   BRA         L705
     00000E98 0009                   NOP
     00000E9A              L739:                             
+      Linear_cal   299            {
+      Linear_cal   300                    need_redraw = REFRESH_ALL;
     00000E9A E202                   MOV         #2,R2
     00000E9C DB0B                   MOV.L       L736+42,R11; _value
+      Linear_cal   301                    while(mode == MODE_DISP_P)
     00000E9E A193                   BRA         L706
     00000EA0 2A22                   MOV.L       R2,@R10
     00000EA2              L736:                             
@@ -2547,57 +2499,73 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000EC8 <00000000>             .DATA.L     __addd
     00000ECC <00000000>             .DATA.L     _value
     00000ED0              L707:                             
+      Linear_cal   302                    {
+      Linear_cal   303                            if (need_redraw==REFRESH_ALL)
     00000ED0 60A2                   MOV.L       @R10,R0
     00000ED2 8802                   CMP/EQ      #2,R0
     00000ED4 8901                   BT          L740
     00000ED6 A12B                   BRA         L708
     00000ED8 0009                   NOP
     00000EDA              L740:                             
+      Linear_cal   304                            {
+      Linear_cal   305                                    Bdisp_AllClr_DDVRAM();
     00000EDA D39A                   MOV.L       L741+2,R3  ; _Bdisp_AllClr_DDVRAM
     00000EDC 430B                   JSR         @R3
     00000EDE 0009                   NOP
+      Linear_cal   306                                    i=0;
+      Linear_cal   307                                    SetMyFont(&stHz12x12,&stAsc6x12); 
     00000EE0 D599                   MOV.L       L741+6,R5  ; _stAsc6x12
     00000EE2 D49A                   MOV.L       L741+10,R4 ; _stHz12x12
-    00000EE4 D29A                   MOV.L       L741+14,R2 ; _SetMyFont
-    00000EE6 420B                   JSR         @R2
-    00000EE8 69C3                   MOV         R12,R9
-    00000EEA E501                   MOV         #1,R5
-    00000EEC D699                   MOV.L       L741+18,R6 ; L594
-    00000EEE 4E0B                   JSR         @R14
-    00000EF0 E402                   MOV         #2,R4
-    00000EF2 E50F                   MOV         #15,R5
-    00000EF4 D698                   MOV.L       L741+22,R6 ; L595
-    00000EF6 4E0B                   JSR         @R14
-    00000EF8 E402                   MOV         #2,R4
-    00000EFA E51C                   MOV         #28,R5
-    00000EFC D697                   MOV.L       L741+26,R6 ; L596
-    00000EFE 4E0B                   JSR         @R14
-    00000F00 E402                   MOV         #2,R4
-    00000F02 E529                   MOV         #41,R5
-    00000F04 D696                   MOV.L       L741+30,R6 ; L597
-    00000F06 4E0B                   JSR         @R14
-    00000F08 E402                   MOV         #2,R4
-    00000F0A D496                   MOV.L       L741+34,R4 ; __$TITLE
-    00000F0C D396                   MOV.L       L741+38,R3 ; _ShowTitle
-    00000F0E 430B                   JSR         @R3
-    00000F10 0009                   NOP
-    00000F12 E506                   MOV         #6,R5
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   40
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   39
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    00000EE4 D29A                   MOV.L       L741+14,R2 ; _SetMyFont
+    00000EE6 420B                   JSR         @R2
+    00000EE8 69C3                   MOV         R12,R9
+      Linear_cal   308                                    DispStr(2,1, "ÆÕ ");
+    00000EEA E501                   MOV         #1,R5
+    00000EEC D699                   MOV.L       L741+18,R6 ; L594
+    00000EEE 4E0B                   JSR         @R14
+    00000EF0 E402                   MOV         #2,R4
+      Linear_cal   309                                DispStr(2,15,"Í¨ ");
+    00000EF2 E50F                   MOV         #15,R5
+    00000EF4 D698                   MOV.L       L741+22,R6 ; L595
+    00000EF6 4E0B                   JSR         @R14
+    00000EF8 E402                   MOV         #2,R4
+      Linear_cal   310                                DispStr(2,28,"·´ ");
+    00000EFA E51C                   MOV         #28,R5
+    00000EFC D697                   MOV.L       L741+26,R6 ; L596
+    00000EFE 4E0B                   JSR         @R14
+    00000F00 E402                   MOV         #2,R4
+      Linear_cal   311                                DispStr(2,41,"Ëã ");
+    00000F02 E529                   MOV         #41,R5
+    00000F04 D696                   MOV.L       L741+30,R6 ; L597
+    00000F06 4E0B                   JSR         @R14
+    00000F08 E402                   MOV         #2,R4
+      Linear_cal   312                                    ShowTitle(TITLE);
+    00000F0A D496                   MOV.L       L741+34,R4 ; __$TITLE
+    00000F0C D396                   MOV.L       L741+38,R3 ; _ShowTitle
+    00000F0E 430B                   JSR         @R3
+    00000F10 0009                   NOP
+      Linear_cal   313                                    DispStr(16,6, "×ø±êX ");
+    00000F12 E506                   MOV         #6,R5
     00000F14 D695                   MOV.L       L741+42,R6 ; L607
     00000F16 4E0B                   JSR         @R14
     00000F18 E410                   MOV         #16,R4
+      Linear_cal   314                                    DispStr(16,18,"×ø±êY ");
     00000F1A E512                   MOV         #18,R5
     00000F1C D694                   MOV.L       L741+46,R6 ; L608
     00000F1E 4E0B                   JSR         @R14
     00000F20 E410                   MOV         #16,R4
+      Linear_cal   315                                    value[2] = value[0]+common_data.distance*
+      Linear_cal   316                                            cos(common_data.position*PI/180.0)
+      Linear_cal   317                                            +common_data.Offset*cos(common_data.position*PI/180.0+PI/2);
     00000F22 60D3                   MOV         R13,R0
     00000F24 62B2                   MOV.L       @R11,R2
     00000F26 7040                   ADD         #64,R0
@@ -2614,6 +2582,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000F3C 7FF8                   ADD         #-8,R15
     00000F3E 5101                   MOV.L       @(4,R0),R1
     00000F40 2F16                   MOV.L       R1,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   40
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000F42 6102                   MOV.L       @R0,R1
     00000F44 2F16                   MOV.L       R1,@-R15
     00000F46 7FE8                   ADD         #-24,R15
@@ -2648,15 +2625,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000F80 D07E                   MOV.L       L741+58,R0 ; __muld
     00000F82 61F3                   MOV         R15,R1
     00000F84 7110                   ADD         #16,R1
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   41
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000F86 400B                   JSR         @R0
     00000F88 2F16                   MOV.L       R1,@-R15
     00000F8A 63F3                   MOV         R15,R3
@@ -2680,6 +2648,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000FAE 2F16                   MOV.L       R1,@-R15
     00000FB0 D171                   MOV.L       L741+54,R1 ; H'400921FB
     00000FB2 2F16                   MOV.L       R1,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   41
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000FB4 D271                   MOV.L       L741+58,R2 ; __muld
     00000FB6 63F3                   MOV         R15,R3
     00000FB8 7310                   ADD         #16,R3
@@ -2714,19 +2691,13 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000FF2 7110                   ADD         #16,R1
     00000FF4 400B                   JSR         @R0
     00000FF6 2F16                   MOV.L       R1,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   42
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000FF8 52F4                   MOV.L       @(16,R15),R2
     00000FFA D364                   MOV.L       L741+74,R3 ; __addd
     00000FFC 430B                   JSR         @R3
     00000FFE 2F26                   MOV.L       R2,@-R15
+      Linear_cal   318                                    value[3] = value[1]+common_data.distance*
+      Linear_cal   319                                            sin(common_data.position*PI/180.0)
+      Linear_cal   320                                            +common_data.Offset*sin(common_data.position*PI/180.0+PI/2);
     00001000 61B2                   MOV.L       @R11,R1
     00001002 60D3                   MOV         R13,R0
     00001004 7118                   ADD         #24,R1
@@ -2743,6 +2714,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000101A 7348                   ADD         #72,R3
     0000101C 7FF8                   ADD         #-8,R15
     0000101E 5201                   MOV.L       @(4,R0),R2
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   42
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00001020 2F26                   MOV.L       R2,@-R15
     00001022 6202                   MOV.L       @R0,R2
     00001024 2F26                   MOV.L       R2,@-R15
@@ -2780,15 +2760,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001064 7210                   ADD         #16,R2
     00001066 400B                   JSR         @R0
     00001068 2F26                   MOV.L       R2,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   43
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000106A 63F3                   MOV         R15,R3
     0000106C D147                   MOV.L       L741+74,R1 ; __addd
     0000106E 7310                   ADD         #16,R3
@@ -2809,6 +2780,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000108C 2F16                   MOV.L       R1,@-R15
     0000108E 2F26                   MOV.L       R2,@-R15
     00001090 D239                   MOV.L       L741+54,R2 ; H'400921FB
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   43
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00001092 2F26                   MOV.L       R2,@-R15
     00001094 D139                   MOV.L       L741+58,R1 ; __muld
     00001096 63F3                   MOV         R15,R3
@@ -2846,17 +2826,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000010D6 2F26                   MOV.L       R2,@-R15
     000010D8 52F4                   MOV.L       @(16,R15),R2
     000010DA D32C                   MOV.L       L741+74,R3 ; __addd
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   44
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000010DC 430B                   JSR         @R3
     000010DE 2F26                   MOV.L       R2,@-R15
+      Linear_cal   321                                    PrintFloat(value[2],50,6+i++*12,0,setup_data.point);
     000010E0 61B2                   MOV.L       @R11,R1
     000010E2 E600                   MOV         #0,R6
     000010E4 D22C                   MOV.L       L741+86,R2 ; _setup_data
@@ -2874,8 +2846,18 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000010FC 353C                   ADD         R3,R5
     000010FE 4508                   SHLL2       R5
     00001100 7506                   ADD         #6,R5
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   44
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00001102 410B                   JSR         @R1
     00001104 E432                   MOV         #50,R4
+      Linear_cal   322                                    PrintFloat(value[3],50,6+i*12,0,setup_data.point);
     00001106 E600                   MOV         #0,R6
     00001108 63B2                   MOV.L       @R11,R3
     0000110A 6593                   MOV         R9,R5
@@ -2894,17 +2876,22 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001124 7506                   ADD         #6,R5
     00001126 420B                   JSR         @R2
     00001128 E432                   MOV         #50,R4
+      Linear_cal   323                                    Menu_Draw1();
     0000112A D31D                   MOV.L       L741+94,R3 ; _Menu_Draw1
     0000112C 430B                   JSR         @R3
     0000112E 7F10                   ADD         #16,R15
     00001130              L708:                             
+      Linear_cal   324                            }
+      Linear_cal   325                            GetKey(&key);
     00001130 D41C                   MOV.L       L741+98,R4 ; _key
     00001132 D21D                   MOV.L       L741+102,R2; _GetKey
     00001134 420B                   JSR         @R2
     00001136 0009                   NOP
+      Linear_cal   326                            Menu_Proc1();
     00001138 D31C                   MOV.L       L741+106,R3; _Menu_Proc1
     0000113A 430B                   JSR         @R3
     0000113C 0009                   NOP
+      Linear_cal   327                            if (key==KEY_CTRL_EXIT || key==KEY_CTRL_EXE) mode = MODE_INPUT_P_AND_D;
     0000113E A037                   BRA         L717
     00001140 0009                   NOP
     00001142              L741:                             
@@ -2912,15 +2899,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001144 <00000000>             .DATA.L     _Bdisp_AllClr_DDVRAM
     00001148 <00000000>             .DATA.L     _stAsc6x12
     0000114C <00000000>             .DATA.L     _stHz12x12
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   45
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00001150 <00000000>             .DATA.L     _SetMyFont
     00001154 <00000000>             .DATA.L     L594
     00001158 <00000000>             .DATA.L     L595
@@ -2934,6 +2912,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001178 400921FB               .DATA.L     H'400921FB
     0000117C <00000000>             .DATA.L     __muld
     00001180 40668000               .DATA.L     H'40668000
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   45
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00001184 <00000000>             .DATA.L     __divdr
     00001188 <00000000>             .DATA.L     _cos
     0000118C <00000000>             .DATA.L     __addd
@@ -2967,6 +2954,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000011D0 0009                   NOP
     000011D2              L743:                             
     000011D2              L705:                             
+      Linear_cal   328                    }
+      Linear_cal   329            }
+      Linear_cal   330    }
     000011D2 7F5C                   ADD         #92,R15
     000011D4 4F26                   LDS.L       @R15+,PR
     000011D6 68F6                   MOV.L       @R15+,R8
@@ -2977,36 +2967,46 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000011E0 6DF6                   MOV.L       @R15+,R13
     000011E2 000B                   RTS
     000011E4 6EF6                   MOV.L       @R15+,R14
+      Linear_cal   331    int BinMain_1()
     000011E6              _BinMain_1:                      ; function: BinMain_1
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   46
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
                                                            ; frame size=8
+      Linear_cal   332    {
+      Linear_cal   333            need_redraw = REFRESH_ALL;
     000011E6 E302                   MOV         #2,R3
     000011E8 D20B                   MOV.L       L742+10,R2 ; _need_redraw
     000011EA 2FE6                   MOV.L       R14,@-R15
     000011EC 4F22                   STS.L       PR,@-R15
     000011EE 2232                   MOV.L       R3,@R2
+      Linear_cal   334            mode = MODE_INPUT_2_POINT;
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   46
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000011F0 DE0A                   MOV.L       L742+14,R14; _mode
     000011F2 E301                   MOV         #1,R3
+      Linear_cal   335            while (mode!=MODE_EXIT)
     000011F4 A005                   BRA         L711
     000011F6 2E32                   MOV.L       R3,@R14
     000011F8              L712:                             
+      Linear_cal   336            {
+      Linear_cal   337                    Run_F1_FanSuan();
     000011F8 D209                   MOV.L       L742+18,R2 ; _Run_F1_FanSuan
     000011FA 420B                   JSR         @R2
     000011FC 0009                   NOP
+      Linear_cal   338                    Run_F1_ZhenSuan();
     000011FE BC48                   BSR         _Run_F1_ZhenSuan
     00001200 0009                   NOP
     00001202              L711:                             
     00001202 62E2                   MOV.L       @R14,R2
     00001204 2228                   TST         R2,R2
     00001206 8BF7                   BF          L712
+      Linear_cal   339            }
+      Linear_cal   340    }
     00001208 4F26                   LDS.L       @R15+,PR
     0000120A 000B                   RTS
     0000120C 6EF6                   MOV.L       @R15+,R14
@@ -3048,7 +3048,7 @@ C   00000000              L518:
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   47
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   47
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -3114,7 +3114,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   48
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   48
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -3180,7 +3180,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE   49
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE   49
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -3246,7 +3246,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:12  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:48  PAGE    1
 
 
 ******** STATISTICS INFORMATION ********
@@ -3255,7 +3255,7 @@ SH SERIES C/C++ Compiler (Ver. 6.0C)                                            
 ********** ERROR INFORMATION ***********
 
 NUMBER OF ERRORS:           0
-NUMBER OF WARNINGS:        18
+NUMBER OF WARNINGS:         3
 
 
 
@@ -3315,5 +3315,5 @@ NUMBER OF INTERNAL/EXTERNAL SYMBOLS:           162
 *** COMMAND PARAMETER ***
 
 
-  -subcommand=C:\Users\ADMINI~1\AppData\Local\Temp\hmk66C4.tmp 
+  -subcommand=C:\Users\¿­Åô\AppData\Local\Temp\hmk512.tmp 
 

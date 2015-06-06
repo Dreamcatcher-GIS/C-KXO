@@ -1,22 +1,44 @@
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    1
 
 ************ OBJECT LISTING ************
 
-FILE NAME: C:\Users\Administrator\Desktop\2015-06-6½»µã·¨×ªÏßÔªÍÆÁ´±í\2015-06-4½»µã·¨×ªÏßÔªÍÆÁ´±í\Vertical section_parameter.c
+FILE NAME: F:\ProgramOfUniversity\C-KXO\C-KXO\Vertical section_parameter.c
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
       Vertical s     1    #include "headfile.h"
-P   00000000              _PrintTables3:                   ; function: PrintTables3
-                                                           ; frame size=44
-    00000000 2FE6                   MOV.L       R14,@-R15
-    00000002 6073                   MOV         R7,R0
 
 
 
 
 
 
+
+
+
+
+
+
+      Vertical s     2    #include "runmain.h"
+      Vertical s     3    #include "zbzfs.h"
+
+      Vertical s     4    #include "MyFont.h"
+
+
+      Vertical s     5    #include "cvs.h"
+      Vertical s     6    #include <stdarg.h>
+      Vertical s     7              
+      Vertical s     8    double zdm_to_gc( double stake);
+      Vertical s     9    
+      Vertical s    10    int PrintTables3(short x,short y,char * str,short sel,short lbl)
+P   00000000              _PrintTables3:                   ; function: PrintTables3
+                                                           ; frame size=44
+    00000000 2FE6                   MOV.L       R14,@-R15
+    00000002 6073                   MOV         R7,R0
+      Vertical s    11    {
+      Vertical s    12            int len;
+      Vertical s    13            const int width = 28;
+      Vertical s    14            len = strlen(str);
     00000004 D350                   MOV.L       L991+6,R3  ; _strlen
     00000006 2FD6                   MOV.L       R13,@-R15
     00000008 2FC6                   MOV.L       R12,@-R15
@@ -35,6 +57,8 @@ P   00000000              _PrintTables3:                   ; function: PrintTabl
     00000022 430B                   JSR         @R3
     00000024 64C3                   MOV         R12,R4
     00000026 6A03                   MOV         R0,R10
+      Vertical s    15            x *= width;
+      Vertical s    16            y *= 8;
     00000028 63F1                   MOV.W       @R15,R3
     0000002A 62B3                   MOV         R11,R2
     0000002C 292F                   MULS        R2,R9
@@ -42,12 +66,25 @@ P   00000000              _PrintTables3:                   ; function: PrintTabl
     00000030 091A                   STS         MACL,R9
     00000032 4300                   SHLL        R3
     00000034 2F31                   MOV.W       R3,@R15
+      Vertical s    17            x += 16;
     00000036 7910                   ADD         #16,R9
     00000038 85F2                   MOV.W       @(4,R15),R0
     0000003A 6E3F                   EXTS.W      R3,R14
     0000003C 2008                   TST         R0,R0
     0000003E 8D1C                   BT/S        L839
     00000040 6D9F                   EXTS.W      R9,R13
+      Vertical s    18            if (sel)
+      Vertical s    19            {
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    2
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      Vertical s    20                    Bdisp_AreaReverseVRAM(x,y,x+width-1,y+7);
     00000042 67E3                   MOV         R14,R7
     00000044 D141                   MOV.L       L991+10,R1 ; _Bdisp_AreaReverseVRAM
     00000046 66D3                   MOV         R13,R6
@@ -56,6 +93,7 @@ P   00000000              _PrintTables3:                   ; function: PrintTabl
     0000004C 65E3                   MOV         R14,R5
     0000004E 410B                   JSR         @R1
     00000050 64D3                   MOV         R13,R4
+      Vertical s    21                    PrintMini(x+1+(lbl ? (width-5*len)/2:0),y+1,str,MINI_REV);
     00000052 E712                   MOV         #18,R7
     00000054 66C3                   MOV         R12,R6
     00000056 65E3                   MOV         R14,R5
@@ -66,15 +104,6 @@ P   00000000              _PrintTables3:                   ; function: PrintTabl
     00000060 7501                   ADD         #1,R5
     00000062 63A3                   MOV         R10,R3
     00000064 4A08                   SHLL2       R10
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE    2
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000066 3A3C                   ADD         R3,R10
     00000068 3BA8                   SUB         R10,R11
     0000006A 64B3                   MOV         R11,R4
@@ -87,6 +116,11 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000076 A023                   BRA         L983
     00000078 E400                   MOV         #0,R4
     0000007A              L839:                             
+      Vertical s    22            }
+      Vertical s    23            else
+      Vertical s    24            {
+      Vertical s    25    
+      Vertical s    26                    Bdisp_DrawLineVRAM(x+width-1,y,x+width-1,y+7);
     0000007A 69E3                   MOV         R14,R9
     0000007C D134                   MOV.L       L991+14,R1 ; _Bdisp_DrawLineVRAM
     0000007E 68D3                   MOV         R13,R8
@@ -97,15 +131,25 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000088 65E3                   MOV         R14,R5
     0000008A 410B                   JSR         @R1
     0000008C 6483                   MOV         R8,R4
+      Vertical s    27                    Bdisp_DrawLineVRAM(x,y+7,x+width-1,y+7);
     0000008E 6793                   MOV         R9,R7
     00000090 D32F                   MOV.L       L991+14,R3 ; _Bdisp_DrawLineVRAM
     00000092 6683                   MOV         R8,R6
     00000094 6593                   MOV         R9,R5
     00000096 430B                   JSR         @R3
     00000098 64D3                   MOV         R13,R4
-
+      Vertical s    28                    PrintMini(x+1+(lbl ? (width-5*len)/2:0),y+1,str,MINI_OVER);
     0000009A E710                   MOV         #16,R7
     0000009C 66C3                   MOV         R12,R6
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    3
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000009E 65E3                   MOV         R14,R5
     000000A0 E02E                   MOV         #46,R0
     000000A2 03FD                   MOV.W       @(R0,R15),R3
@@ -133,21 +177,16 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000CA 4F26                   LDS.L       @R15+,PR
     000000CC 68F6                   MOV.L       @R15+,R8
     000000CE 69F6                   MOV.L       @R15+,R9
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE    3
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000000D0 6AF6                   MOV.L       @R15+,R10
     000000D2 6BF6                   MOV.L       @R15+,R11
     000000D4 6CF6                   MOV.L       @R15+,R12
     000000D6 6DF6                   MOV.L       @R15+,R13
     000000D8 432B                   JMP         @R3
     000000DA 6EF6                   MOV.L       @R15+,R14
+      Vertical s    29            }
+      Vertical s    30    }
+      Vertical s    31    
+      Vertical s    32    int PrintTableFormats3 (short x,short y,short sel,short lbl,char * format,...)
     000000DC              _PrintTableFormats3:             ; function: PrintTableFormats3
                                                            ; frame size=156
     000000DC 2FE6                   MOV.L       R14,@-R15
@@ -157,6 +196,10 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000E4 6043                   MOV         R4,R0
     000000E6 81F2                   MOV.W       R0,@(4,R15)
     000000E8 6053                   MOV         R5,R0
+      Vertical s    33    {
+      Vertical s    34            char buffer[128];
+      Vertical s    35            va_list parglist;
+      Vertical s    36            va_start(parglist, format);
     000000EA E503                   MOV         #3,R5
     000000EC 81F4                   MOV.W       R0,@(8,R15)
     000000EE 6063                   MOV         R6,R0
@@ -164,6 +207,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000F2 2F71                   MOV.W       R7,@R15
     000000F4 9026                   MOV.W       L991+2,R0  ; H'0098
     000000F6 30FC                   ADD         R15,R0
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    4
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000000F8 7004                   ADD         #4,R0
     000000FA 2508                   TST         R0,R5
     000000FC 8903                   BT          L845
@@ -176,6 +228,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000108 35FC                   ADD         R15,R5
     0000010A 7504                   ADD         #4,R5
     0000010C              L846:                             
+      Vertical s    37            vsprintf(buffer,format, parglist);
     0000010C 901A                   MOV.W       L991+2,R0  ; H'0098
     0000010E 6EF3                   MOV         R15,R14
     00000110 D311                   MOV.L       L991+22,R3 ; _vsprintf
@@ -184,7 +237,10 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000116 7E10                   ADD         #16,R14
     00000118 430B                   JSR         @R3
     0000011A 64E3                   MOV         R14,R4
+      Vertical s    38            va_end(pArgList);
+      Vertical s    39            buffer[6] = 0;
     0000011C E000                   MOV         #0,R0
+      Vertical s    40            PrintTables(x,y,buffer,sel,lbl);
     0000011E 66E3                   MOV         R14,R6
     00000120 80E6                   MOV.B       R0,@(6,R14)
     00000122 63F1                   MOV.W       @R15,R3
@@ -197,17 +253,10 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000130 85F4                   MOV.W       @(8,R15),R0
     00000132 430B                   JSR         @R3
     00000134 6403                   MOV         R0,R4
+      Vertical s    41            return 0;
     00000136 E000                   MOV         #0,R0
+      Vertical s    42    }
     00000138 9105                   MOV.W       L991+4,R1  ; H'0094
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE    4
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000013A 3F1C                   ADD         R1,R15
     0000013C 4F26                   LDS.L       @R15+,PR
     0000013E 000B                   RTS
@@ -222,13 +271,26 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000154 <00000000>             .DATA.L     _PrintMini
     00000158 <00000000>             .DATA.L     _vsprintf
     0000015C <00000000>             .DATA.L     _PrintTables
+      Vertical s    43    int PrintTableIndexs3 (int y,int index)
     00000160              _PrintTableIndexs3:              ; function: PrintTableIndexs3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    5
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
                                                            ; frame size=28
     00000160 2FE6                   MOV.L       R14,@-R15
     00000162 2FD6                   MOV.L       R13,@-R15
     00000164 4F22                   STS.L       PR,@-R15
     00000166 6D53                   MOV         R5,R13
     00000168 7FF8                   ADD         #-8,R15
+      Vertical s    44    {
+      Vertical s    45            char buffer[8];
+      Vertical s    46            if (index<0 || index>999) return 0;
     0000016A 4D11                   CMP/PZ      R13
     0000016C 8F03                   BF/S        L849
     0000016E 6E43                   MOV         R4,R14
@@ -239,6 +301,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000176 A018                   BRA         L850
     00000178 E000                   MOV         #0,R0
     0000017A              L848:                             
+      Vertical s    47            sprintf(buffer,"%d",index);
     0000017A 2FD6                   MOV.L       R13,@-R15
     0000017C D23D                   MOV.L       L992+8,R2  ; L567
     0000017E 2F26                   MOV.L       R2,@-R15
@@ -246,6 +309,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000182 64F3                   MOV         R15,R4
     00000184 430B                   JSR         @R3
     00000186 7408                   ADD         #8,R4
+      Vertical s    48            y *= 8;
+      Vertical s    49            Bdisp_AreaReverseVRAM(0,y,15,y+7);
     00000188 D23C                   MOV.L       L992+16,R2 ; _Bdisp_AreaReverseVRAM
     0000018A 7F08                   ADD         #8,R15
     0000018C 4E08                   SHLL2       R14
@@ -256,6 +321,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000196 65E3                   MOV         R14,R5
     00000198 420B                   JSR         @R2
     0000019A E400                   MOV         #0,R4
+      Vertical s    50            PrintMini(1,y+2,buffer,MINI_REV);
     0000019C D338                   MOV.L       L992+20,R3 ; _PrintMini
     0000019E E712                   MOV         #18,R7
     000001A0 66F3                   MOV         R15,R6
@@ -263,37 +329,44 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001A4 7502                   ADD         #2,R5
     000001A6 430B                   JSR         @R3
     000001A8 E401                   MOV         #1,R4
+      Vertical s    51    }
     000001AA              L850:                             
     000001AA 7F08                   ADD         #8,R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE    5
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000001AC 4F26                   LDS.L       @R15+,PR
     000001AE 6DF6                   MOV.L       @R15+,R13
     000001B0 000B                   RTS
     000001B2 6EF6                   MOV.L       @R15+,R14
+      Vertical s    52    int WhetherCover3()
     000001B4              _WhetherCover3:                  ; function: WhetherCover3
                                                            ; frame size=24
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    6
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000001B4 2FE6                   MOV.L       R14,@-R15
     000001B6 2FD6                   MOV.L       R13,@-R15
     000001B8 2FC6                   MOV.L       R12,@-R15
     000001BA 2FB6                   MOV.L       R11,@-R15
     000001BC 2FA6                   MOV.L       R10,@-R15
     000001BE 4F22                   STS.L       PR,@-R15
+      Vertical s    53    {
+      Vertical s    54            int enter;
+      Vertical s    55            PopUpWin(5);
     000001C0 D330                   MOV.L       L992+24,R3 ; _PopUpWin
     000001C2 430B                   JSR         @R3
     000001C4 E405                   MOV         #5,R4
+      Vertical s    56            DispStr(48,12,"¸²¸Ç?"); //fugai
     000001C6 E50C                   MOV         #12,R5
     000001C8 D230                   MOV.L       L992+32,R2 ; _DispStr
     000001CA D62F                   MOV.L       L992+28,R6 ; L571
     000001CC 420B                   JSR         @R2
     000001CE E430                   MOV         #48,R4
+      Vertical s    57            locate(7,5);Print("Yes : [F1]");
     000001D0 D32F                   MOV.L       L992+36,R3 ; _locate
     000001D2 E505                   MOV         #5,R5
     000001D4 430B                   JSR         @R3
@@ -302,6 +375,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001DA D22F                   MOV.L       L992+44,R2 ; _Print
     000001DC 420B                   JSR         @R2
     000001DE 0009                   NOP
+      Vertical s    58            locate(7,6);Print("No  : [F6]");
     000001E0 D32B                   MOV.L       L992+36,R3 ; _locate
     000001E2 E506                   MOV         #6,R5
     000001E4 430B                   JSR         @R3
@@ -315,9 +389,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001F4 9C3B                   MOV.W       L992+2,R12 ; H'753E
     000001F6 ED01                   MOV         #1,R13
     000001F8 DE2A                   MOV.L       L992+56,R14; _key
+      Vertical s    59            do{
+      Vertical s    60                    GetKey(&key);
     000001FA D42A                   MOV.L       L992+56,R4 ; _key
     000001FC 4A0B                   JSR         @R10
     000001FE 0009                   NOP
+      Vertical s    61                    if (key==KEY_CTRL_F6 || key==KEY_CTRL_EXIT){enter =0 ;break;}
     00000200 63E2                   MOV.L       @R14,R3
     00000202 33C0                   CMP/EQ      R12,R3
     00000204 8903                   BT          L853
@@ -328,18 +405,22 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000020E              L853:                             
     0000020E A001                   BRA         L854
     00000210 64B3                   MOV         R11,R4
-    00000212              L852:                             
-    00000212 64D3                   MOV         R13,R4
-    00000214              L854:                             
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE    6
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    7
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    00000212              L852:                             
+      Vertical s    62                    else if (KEY_CTRL_F1) {enter = 1;break;}
+    00000212 64D3                   MOV         R13,R4
+    00000214              L854:                             
+      Vertical s    63            }while(1);
+      Vertical s    64            return enter;
+      Vertical s    65    }
     00000214 4F26                   LDS.L       @R15+,PR
     00000216 6043                   MOV         R4,R0
     00000218 6AF6                   MOV.L       @R15+,R10
@@ -348,6 +429,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000021E 6DF6                   MOV.L       @R15+,R13
     00000220 000B                   RTS
     00000222 6EF6                   MOV.L       @R15+,R14
+      Vertical s    66    int WheterSavaAS3()
     00000224              _WheterSavaAS3:                  ; function: WheterSavaAS3
                                                            ; frame size=48
                                                            ; used runtime library name:
@@ -360,18 +442,23 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000022E 2F96                   MOV.L       R9,@-R15
     00000230 4F22                   STS.L       PR,@-R15
     00000232 7FF0                   ADD         #-16,R15
+      Vertical s    67    {
+      Vertical s    68            char str[13]="";
     00000234 D21C                   MOV.L       L992+60,R2 ; L580
     00000236 6EF3                   MOV         R15,R14
     00000238 D31C                   MOV.L       L992+64,R3 ; __slow_mvn
     0000023A 61F3                   MOV         R15,R1
     0000023C 430B                   JSR         @R3
     0000023E E00D                   MOV         #13,R0
+      Vertical s    69            int suc,enter,i;
+      Vertical s    70            for (i=0;i<13 && setup_data.zdmroute_name[i] != '.';++i)
     00000240 DC1B                   MOV.L       L992+68,R12; _setup_data
     00000242 E600                   MOV         #0,R6
     00000244 E50D                   MOV         #13,R5
     00000246 A007                   BRA         L858
     00000248 6463                   MOV         R6,R4
     0000024A              L859:                             
+      Vertical s    71                    str[i] = setup_data.zdmroute_name[i];
     0000024A 6043                   MOV         R4,R0
     0000024C 63C3                   MOV         R12,R3
     0000024E 7311                   ADD         #17,R3
@@ -384,9 +471,19 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000025A 8903                   BT          L860
     0000025C D015                   MOV.L       L992+72,R0 ; H'00000011+_setup_data
     0000025E 004C                   MOV.B       @(R0,R4),R0
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    8
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000260 882E                   CMP/EQ      #46,R0
     00000262 8BF2                   BF          L859
     00000264              L860:                             
+      Vertical s    72            str[i>=13 ? 12 : i] = 0;
     00000264 3453                   CMP/GE      R5,R4
     00000266 8B27                   BF          L861
     00000268 A027                   BRA         L862
@@ -397,15 +494,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000270 7532                   .DATA.W     H'7532
     00000272 0000                   .DATA.W     0
     00000274 <00000000>             .DATA.L     L567
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE    7
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000278 <00000000>             .DATA.L     _sprintf
     0000027C <00000000>             .DATA.L     _Bdisp_AreaReverseVRAM
     00000280 <00000000>             .DATA.L     _PrintMini
@@ -426,9 +514,11 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002B8 6043                   MOV         R4,R0
     000002BA              L862:                             
     000002BA 0E64                   MOV.B       R6,@(R0,R14)
+      Vertical s    73            PopUpWin(4);
     000002BC D21F                   MOV.L       L993+4,R2  ; _PopUpWin
     000002BE 420B                   JSR         @R2
     000002C0 E404                   MOV         #4,R4
+      Vertical s    74            DispStr(24,8,"\xce\xc4\xbc\xfe\xc3\xfb(*.zdm)");//file_name
     000002C2 E508                   MOV         #8,R5
     000002C4 D31F                   MOV.L       L993+12,R3 ; _DispStr
     000002C6 D61E                   MOV.L       L993+8,R6  ; L584
@@ -439,62 +529,89 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002D0 9B32                   MOV.W       L993,R11   ; H'7534
     000002D2 6DB3                   MOV         R11,R13
     000002D4 7DFE                   ADD         #-2,R13
+      Vertical s    75            do
     000002D6              L863:                             
+      Vertical s    76            {
+      Vertical s    77                    suc = InputString(24,24,str,1,8);
     000002D6 E208                   MOV         #8,R2
     000002D8 2F26                   MOV.L       R2,@-R15
     000002DA E701                   MOV         #1,R7
     000002DC 66E3                   MOV         R14,R6
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    9
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000002DE E518                   MOV         #24,R5
     000002E0 490B                   JSR         @R9
     000002E2 6453                   MOV         R5,R4
     000002E4 6403                   MOV         R0,R4
+      Vertical s    78                    if (suc==KEY_CTRL_EXIT) break;
     000002E6 34D0                   CMP/EQ      R13,R4
     000002E8 8D1D                   BT/S        L868
     000002EA 7F04                   ADD         #4,R15
+      Vertical s    79                    if (! str[0]) continue;
     000002EC 63A0                   MOV.B       @R10,R3
     000002EE 2338                   TST         R3,R3
+      Vertical s    80            }while(suc!=KEY_CTRL_EXE);
     000002F0 34B0                   CMP/EQ      R11,R4
     000002F2 8BF0                   BF          L863
+      Vertical s    81            if(suc!=KEY_CTRL_EXIT)
     000002F4 34D0                   CMP/EQ      R13,R4
     000002F6 8916                   BT          L868
-
+      Vertical s    82            {
+      Vertical s    83                    enter = 1;
+      Vertical s    84                    strcat(str,".zdm");
     000002F8 D514                   MOV.L       L993+20,R5 ; L587
     000002FA ED01                   MOV         #1,R13
     000002FC D214                   MOV.L       L993+24,R2 ; _strcat
     000002FE 420B                   JSR         @R2
     00000300 64E3                   MOV         R14,R4
+      Vertical s    85                    if (TestSRDFile3(str))
     00000302 D314                   MOV.L       L993+28,R3 ; _TestSRDFile3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE    8
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000304 430B                   JSR         @R3
     00000306 64E3                   MOV         R14,R4
     00000308 2008                   TST         R0,R0
     0000030A 8902                   BT          L869
+      Vertical s    86                    {
+      Vertical s    87                            enter = WhetherCover3();
     0000030C BF52                   BSR         _WhetherCover3
     0000030E 0009                   NOP
     00000310 6D03                   MOV         R0,R13
     00000312              L869:                             
-
+      Vertical s    88                    }
+      Vertical s    89                    if (enter)
     00000312 2DD8                   TST         R13,R13
     00000314 8907                   BT          L868
+      Vertical s    90                    {
+      Vertical s    91                            SaveSRDFile3(str);
     00000316 D310                   MOV.L       L993+32,R3 ; _SaveSRDFile3
     00000318 430B                   JSR         @R3
     0000031A 64E3                   MOV         R14,R4
-
+      Vertical s    92                            strcpy(setup_data.zdmroute_name,str);
     0000031C D20F                   MOV.L       L993+36,R2 ; __slow_strcpy
     0000031E 61E3                   MOV         R14,R1
     00000320 60C3                   MOV         R12,R0
     00000322 420B                   JSR         @R2
     00000324 7011                   ADD         #17,R0
     00000326              L868:                             
+      Vertical s    93                    }
+      Vertical s    94            }
+      Vertical s    95    }
     00000326 7F10                   ADD         #16,R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   10
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000328 4F26                   LDS.L       @R15+,PR
     0000032A 69F6                   MOV.L       @R15+,R9
     0000032C 6AF6                   MOV.L       @R15+,R10
@@ -515,6 +632,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000354 <00000000>             .DATA.L     _TestSRDFile3
     00000358 <00000000>             .DATA.L     _SaveSRDFile3
     0000035C <00000000>             .DATA.L     __slow_strcpy
+      Vertical s    96    
+      Vertical s    97    int Selectfile3()
     00000360              _Selectfile3:                    ; function: Selectfile3
                                                            ; frame size=68
                                                            ; used runtime library name:
@@ -524,23 +643,18 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000364 2FC6                   MOV.L       R12,@-R15
     00000366 2FB6                   MOV.L       R11,@-R15
     00000368 2FA6                   MOV.L       R10,@-R15
+      Vertical s    98    {
+      Vertical s    99            index = 0;
     0000036A EB00                   MOV         #0,R11
     0000036C DD44                   MOV.L       L994+10,R13; _index
     0000036E 2F96                   MOV.L       R9,@-R15
     00000370 2F86                   MOV.L       R8,@-R15
+      Vertical s   100            need_redraw = REDRAW_PART;
     00000372 E901                   MOV         #1,R9
     00000374 D343                   MOV.L       L994+14,R3 ; _need_redraw
     00000376 4F22                   STS.L       PR,@-R15
+      Vertical s   101            SetMyFont(&stHz12x12,&stAsc6x12);
     00000378 D543                   MOV.L       L994+18,R5 ; _stAsc6x12
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE    9
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000037A 7FE8                   ADD         #-24,R15
     0000037C D443                   MOV.L       L994+22,R4 ; _stHz12x12
     0000037E 2DB2                   MOV.L       R11,@R13
@@ -554,14 +668,30 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000038E 63E3                   MOV         R14,R3
     00000390 DC42                   MOV.L       L994+38,R12; _key
     00000392 1F31                   MOV.L       R3,@(4,R15)
+      Vertical s   102            
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   11
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      Vertical s   103            while(1)
     00000394              L872:                             
+      Vertical s   104            {
+      Vertical s   105                    if (need_redraw == REDRAW_PART)
     00000394 D13B                   MOV.L       L994+14,R1 ; _need_redraw
     00000396 6012                   MOV.L       @R1,R0
     00000398 8801                   CMP/EQ      #1,R0
     0000039A 8B35                   BF          L873
+      Vertical s   106                    {
+      Vertical s   107                            PopUpWin(6);
     0000039C D240                   MOV.L       L994+42,R2 ; _PopUpWin
     0000039E 420B                   JSR         @R2
     000003A0 E406                   MOV         #6,R4
+      Vertical s   108                            DrawPicture(32,9,       16,     10,     G_ICON_SAVE);   DispStr(48,8,"±£´æÎª ");
     000003A2 E70A                   MOV         #10,R7
     000003A4 D240                   MOV.L       L994+50,R2 ; _DrawPicture
     000003A6 E610                   MOV         #16,R6
@@ -575,6 +705,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003B6 D63D                   MOV.L       L994+54,R6 ; L596
     000003B8 430B                   JSR         @R3
     000003BA E430                   MOV         #48,R4
+      Vertical s   109                            DrawPicture(32,25,      16,     10,     G_ICON_OPEN);   DispStr(48,24,"´ò¿ª ");
     000003BC D23D                   MOV.L       L994+62,R2 ; _G_ICON_OPEN
     000003BE E70A                   MOV         #10,R7
     000003C0 D339                   MOV.L       L994+50,R3 ; _DrawPicture
@@ -588,6 +719,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003D0 D237                   MOV.L       L994+58,R2 ; _DispStr
     000003D2 420B                   JSR         @R2
     000003D4 E430                   MOV         #48,R4
+      Vertical s   110                            DrawPicture(32,41,      16,     10,     G_ICON_OTHER);  DispStr(48,40,"ÐÂ½¨ ");
     000003D6 E70A                   MOV         #10,R7
     000003D8 D233                   MOV.L       L994+50,R2 ; _DrawPicture
     000003DA E610                   MOV         #16,R6
@@ -598,19 +730,21 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003E4 E420                   MOV         #32,R4
     000003E6 7F0C                   ADD         #12,R15
     000003E8 D635                   MOV.L       L994+74,R6 ; L598
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   10
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000003EA E528                   MOV         #40,R5
     000003EC D330                   MOV.L       L994+58,R3 ; _DispStr
     000003EE 430B                   JSR         @R3
     000003F0 E430                   MOV         #48,R4
+      Vertical s   111                            
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   12
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      Vertical s   112                            Bdisp_AreaReverseVRAM(14,8+16*index,112,20+index*16);
     000003F2 E670                   MOV         #112,R6
     000003F4 D333                   MOV.L       L994+78,R3 ; _Bdisp_AreaReverseVRAM
     000003F6 67D2                   MOV.L       @R13,R7
@@ -623,10 +757,13 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000404 430B                   JSR         @R3
     00000406 E40E                   MOV         #14,R4
     00000408              L873:                             
+      Vertical s   113                    }
+      Vertical s   114                    GetKey(&key);
     00000408 D424                   MOV.L       L994+38,R4 ; _key
     0000040A D22F                   MOV.L       L994+82,R2 ; _GetKey
     0000040C 420B                   JSR         @R2
     0000040E 0009                   NOP
+      Vertical s   115                    if (key==KEY_CTRL_UP)   {if(--index<0) index = 2;need_redraw = REDRAW_PART;}
     00000410 9331                   MOV.W       L994,R3    ; H'7542
     00000412 62C2                   MOV.L       @R12,R2
     00000414 3230                   CMP/EQ      R3,R2
@@ -642,6 +779,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000426 D317                   MOV.L       L994+14,R3 ; _need_redraw
     00000428 2392                   MOV.L       R9,@R3
     0000042A              L874:                             
+      Vertical s   116                    if (key==KEY_CTRL_DOWN) {if(++index>2) index = 0;need_redraw = REDRAW_PART;}
     0000042A 9225                   MOV.W       L994+2,R2  ; H'7547
     0000042C 61C2                   MOV.L       @R12,R1
     0000042E 3120                   CMP/EQ      R2,R1
@@ -663,25 +801,31 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000044A 8B01                   BF          L995
     0000044C A190                   BRA         __$EXIT$621
     0000044E 0009                   NOP
-    00000450              L995:                             
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   11
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   13
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    00000450              L995:                             
+      Vertical s   117                    if (key==KEY_CTRL_EXIT) break;
+      Vertical s   118                    if (key==KEY_CTRL_EXE)
     00000450 9314                   MOV.W       L994+6,R3  ; H'7534
     00000452 3430                   CMP/EQ      R3,R4
     00000454 8B9E                   BF          L872
+      Vertical s   119                    {
+      Vertical s   120                            char str[13]="";
     00000456 61F3                   MOV         R15,R1
     00000458 D21C                   MOV.L       L994+86,R2 ; L603
     0000045A 7108                   ADD         #8,R1
     0000045C D31C                   MOV.L       L994+90,R3 ; __slow_mvn
     0000045E 430B                   JSR         @R3
     00000460 E00D                   MOV         #13,R0
+      Vertical s   121                            int suc,enter,i;
+      Vertical s   122                            switch(index)
     00000462 60D2                   MOV.L       @R13,R0
     00000464 8800                   CMP/EQ      #0,R0
     00000466 893A                   BT          L757
@@ -723,23 +867,28 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000004D4              L984:                             
     000004D4 8B01                   BF          L997
     000004D6 A0C9                   BRA         L760
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   14
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000004D8 0009                   NOP
     000004DA              L997:                             
     000004DA A11D                   BRA         L881
     000004DC 0009                   NOP
     000004DE              L757:                            ; case label 
+      Vertical s   123                            {
+      Vertical s   124                                    case 0:
+      Vertical s   125                                            
+      Vertical s   126                                            for (i=0;i<13 && setup_data.zdmroute_name[i] != '.';++i)
     000004DE A007                   BRA         L882
     000004E0 64B3                   MOV         R11,R4
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   12
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000004E2              L883:                             
+      Vertical s   127                                                    str[i] = setup_data.zdmroute_name[i];
     000004E2 6043                   MOV         R4,R0
     000004E4 63A3                   MOV         R10,R3
     000004E6 7311                   ADD         #17,R3
@@ -756,6 +905,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000004FA 882E                   CMP/EQ      #46,R0
     000004FC 8BF1                   BF          L883
     000004FE              L884:                             
+      Vertical s   128                                            str[i>=13 ? 12 : i] = 0;
     000004FE E30D                   MOV         #13,R3
     00000500 3433                   CMP/GE      R3,R4
     00000502 8B01                   BF          L885
@@ -766,24 +916,39 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000050A              L886:                             
     0000050A 32EC                   ADD         R14,R2
     0000050C 22B0                   MOV.B       R11,@R2
+      Vertical s   129                                            PopUpWin(4);
     0000050E D232                   MOV.L       L998+10,R2 ; _PopUpWin
     00000510 420B                   JSR         @R2
     00000512 E404                   MOV         #4,R4
+      Vertical s   130                                            DispStr(24,8,"\xce\xc4\xbc\xfe\xc3\xfb(*.zdm)");//file_name
     00000514 D631                   MOV.L       L998+14,R6 ; L584
     00000516 E508                   MOV         #8,R5
     00000518 D331                   MOV.L       L998+18,R3 ; _DispStr
     0000051A 430B                   JSR         @R3
     0000051C E418                   MOV         #24,R4
+      Vertical s   131                                            do
     0000051E              L887:                             
+      Vertical s   132                                            {
+      Vertical s   133                                                    suc = InputString(24,24,str,1,8);
     0000051E E208                   MOV         #8,R2
     00000520 D330                   MOV.L       L998+22,R3 ; _InputString
     00000522 E701                   MOV         #1,R7
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   15
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000524 2F26                   MOV.L       R2,@-R15
     00000526 66E3                   MOV         R14,R6
     00000528 E518                   MOV         #24,R5
     0000052A 430B                   JSR         @R3
     0000052C 6453                   MOV         R5,R4
     0000052E 6403                   MOV         R0,R4
+      Vertical s   134                                                    if (suc==KEY_CTRL_EXIT) break;
     00000530 924D                   MOV.W       L998,R2    ; H'7532
     00000532 3420                   CMP/EQ      R2,R4
     00000534 8F02                   BF/S        L999
@@ -791,52 +956,64 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000538 A0EE                   BRA         L881
     0000053A 0009                   NOP
     0000053C              L999:                             
+      Vertical s   135                                                    if (! str[0]) continue;
     0000053C 53F1                   MOV.L       @(4,R15),R3
     0000053E 6230                   MOV.B       @R3,R2
+      Vertical s   136                                            }while(suc!=KEY_CTRL_EXE);
     00000540 9146                   MOV.W       L998+2,R1  ; H'7534
     00000542 2228                   TST         R2,R2
     00000544 3410                   CMP/EQ      R1,R4
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   13
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000546 8BEA                   BF          L887
+      Vertical s   137                                            if(suc!=KEY_CTRL_EXIT)
     00000548 9241                   MOV.W       L998,R2    ; H'7532
     0000054A 3420                   CMP/EQ      R2,R4
     0000054C 8B01                   BF          L1000
     0000054E A0E3                   BRA         L881
     00000550 0009                   NOP
     00000552              L1000:                            
+      Vertical s   138                                            {
+      Vertical s   139                                                    enter = 1;
     00000552 2F92                   MOV.L       R9,@R15
+      Vertical s   140                                                    strcat(str,".zdm");
     00000554 D524                   MOV.L       L998+26,R5 ; L587
     00000556 D325                   MOV.L       L998+30,R3 ; _strcat
     00000558 430B                   JSR         @R3
     0000055A 64E3                   MOV         R14,R4
+      Vertical s   141                                                    if (TestSRDFile3(str))
     0000055C D224                   MOV.L       L998+34,R2 ; _TestSRDFile3
     0000055E 420B                   JSR         @R2
     00000560 64E3                   MOV         R14,R4
     00000562 2008                   TST         R0,R0
     00000564 8924                   BT          L893
+      Vertical s   142                                                    {
+      Vertical s   143                                                            PopUpWin(5);
     00000566 D21C                   MOV.L       L998+10,R2 ; _PopUpWin
     00000568 420B                   JSR         @R2
     0000056A E405                   MOV         #5,R4
+      Vertical s   144                                                            DispStr(48,12,"¸²¸Ç?"); //fugai
     0000056C D621                   MOV.L       L998+38,R6 ; L571
     0000056E E50C                   MOV         #12,R5
     00000570 D31B                   MOV.L       L998+18,R3 ; _DispStr
     00000572 430B                   JSR         @R3
     00000574 E430                   MOV         #48,R4
+      Vertical s   145                                                            locate(7,5);Print("Yes : [F1]");
     00000576 E505                   MOV         #5,R5
     00000578 480B                   JSR         @R8
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   16
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000057A E407                   MOV         #7,R4
     0000057C D41E                   MOV.L       L998+42,R4 ; L572
     0000057E D21F                   MOV.L       L998+46,R2 ; _Print
     00000580 420B                   JSR         @R2
     00000582 0009                   NOP
+      Vertical s   146                                                            locate(7,6);Print("No  : [F6]");
     00000584 E506                   MOV         #6,R5
     00000586 480B                   JSR         @R8
     00000588 E407                   MOV         #7,R4
@@ -844,10 +1021,14 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000058C D31B                   MOV.L       L998+46,R3 ; _Print
     0000058E 430B                   JSR         @R3
     00000590 0009                   NOP
+      Vertical s   147                                                            do{
+      Vertical s   148                                                                    GetKey(&key);
     00000592 D41C                   MOV.L       L998+54,R4 ; _key
     00000594 D21C                   MOV.L       L998+58,R2 ; _GetKey
     00000596 420B                   JSR         @R2
     00000598 0009                   NOP
+      Vertical s   149                                                                    if (key==KEY_CTRL_F6 || key==KEY_CTRL_EXIT
+                         +){enter =0 ;break;}
     0000059A 931A                   MOV.W       L998+4,R3  ; H'753E
     0000059C 62C2                   MOV.L       @R12,R2
     0000059E 3230                   CMP/EQ      R3,R2
@@ -860,32 +1041,41 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000005AA A001                   BRA         L893
     000005AC 2FB2                   MOV.L       R11,@R15
     000005AE              L895:                             
+      Vertical s   150                                                                    else if (KEY_CTRL_F1) {enter = 1;break;}
     000005AE 2F92                   MOV.L       R9,@R15
     000005B0              L893:                             
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   14
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
+      Vertical s   151                                                            }while(1);
+      Vertical s   152                                                    }
+      Vertical s   153                                                    if (enter)
     000005B0 63F2                   MOV.L       @R15,R3
     000005B2 2338                   TST         R3,R3
     000005B4 8B01                   BF          L1001
     000005B6 A0AF                   BRA         L881
     000005B8 0009                   NOP
     000005BA              L1001:                            
+      Vertical s   154                                                    {
+      Vertical s   155                                                            SaveSRDFile3(str);
     000005BA D314                   MOV.L       L998+62,R3 ; _SaveSRDFile3
     000005BC 430B                   JSR         @R3
     000005BE 64E3                   MOV         R14,R4
+      Vertical s   156                                                            strcpy(setup_data.zdmroute_name,str);
     000005C0 D213                   MOV.L       L998+66,R2 ; __slow_strcpy
     000005C2 61E3                   MOV         R14,R1
     000005C4 60A3                   MOV         R10,R0
     000005C6 420B                   JSR         @R2
     000005C8 7011                   ADD         #17,R0
-
+      Vertical s   157                                                    }
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   17
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      Vertical s   158                                            }     
+      Vertical s   159                                            break;
     000005CA A0A5                   BRA         L881
     000005CC 0009                   NOP
     000005CE              L998:                             
@@ -909,15 +1099,21 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000060C <00000000>             .DATA.L     _SaveSRDFile3
     00000610 <00000000>             .DATA.L     __slow_strcpy
     00000614              L758:                            ; case label 
+      Vertical s   160                                    case 1:
+      Vertical s   161                                            suc = SelectFiles3 (str);
     00000614 D142                   MOV.L       L1002+2,R1 ; _SelectFiles3
     00000616 410B                   JSR         @R1
     00000618 64E3                   MOV         R14,R4
+      Vertical s   162                                            if (suc==-1)
     0000061A 88FF                   CMP/EQ      #-1,R0
     0000061C 8F0E                   BF/S        L901
     0000061E 2F02                   MOV.L       R0,@R15
+      Vertical s   163                                            {
+      Vertical s   164                                                    PopUpWin(1);
     00000620 D240                   MOV.L       L1002+6,R2 ; _PopUpWin
     00000622 420B                   JSR         @R2
     00000624 E401                   MOV         #1,R4
+      Vertical s   165                                                    locate(7,4);Print("No File!");
     00000626 E504                   MOV         #4,R5
     00000628 480B                   JSR         @R8
     0000062A E407                   MOV         #7,R4
@@ -925,31 +1121,38 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000062E D33F                   MOV.L       L1002+14,R3; _Print
     00000630 430B                   JSR         @R3
     00000632 0009                   NOP
+      Vertical s   166                                                    GetKey(&key);
     00000634 D43E                   MOV.L       L1002+18,R4; _key
     00000636 D23F                   MOV.L       L1002+22,R2; _GetKey
     00000638 420B                   JSR         @R2
     0000063A 0009                   NOP
+    0000063C              L901:                             
+      Vertical s   167                                            }
+      Vertical s   168                                            if(suc==1)
+    0000063C 60F2                   MOV.L       @R15,R0
+    0000063E 8801                   CMP/EQ      #1,R0
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   15
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   18
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    0000063C              L901:                             
-    0000063C 60F2                   MOV.L       @R15,R0
-    0000063E 8801                   CMP/EQ      #1,R0
     00000640 8B14                   BF          L760
+      Vertical s   169                                            {
+      Vertical s   170                                                    LoadSRDFile3 (str);
     00000642 D23D                   MOV.L       L1002+26,R2; _LoadSRDFile3
     00000644 420B                   JSR         @R2
     00000646 64E3                   MOV         R14,R4
+      Vertical s   171                                                    strcpy(setup_data.zdmroute_name,str);
     00000648 D33C                   MOV.L       L1002+30,R3; __slow_strcpy
     0000064A 61E3                   MOV         R14,R1
     0000064C 60A3                   MOV         R10,R0
     0000064E 430B                   JSR         @R3
     00000650 7011                   ADD         #17,R0
+      Vertical s   172                                                    if(LoadSRDFile3 (setup_data.zdmroute_name)==1)
     00000652 64A3                   MOV         R10,R4
     00000654 D238                   MOV.L       L1002+26,R2; _LoadSRDFile3
     00000656 420B                   JSR         @R2
@@ -959,21 +1162,28 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000065E A087                   BRA         __$EXIT$621
     00000660 0009                   NOP
     00000662              L1003:                            
+      Vertical s   173                                                    SaveIniSRDFile3();
     00000662 D237                   MOV.L       L1002+34,R2; _SaveIniSRDFile3
     00000664 420B                   JSR         @R2
     00000666 0009                   NOP
+      Vertical s   174                                                    goto EXIT;
     00000668 A082                   BRA         __$EXIT$621
     0000066A 0009                   NOP
     0000066C              L760:                            ; case label 
+      Vertical s   175                                            }
+      Vertical s   176                                            
+      Vertical s   177                                    case 2:
+      Vertical s   178                                            PopUpWin(5);
     0000066C D22D                   MOV.L       L1002+6,R2 ; _PopUpWin
     0000066E 420B                   JSR         @R2
     00000670 E405                   MOV         #5,R4
+      Vertical s   179                                        DispStr(48,12,"ÐÂ½¨?"); 
     00000672 E50C                   MOV         #12,R5
     00000674 D334                   MOV.L       L1002+42,R3; _DispStr
     00000676 D633                   MOV.L       L1002+38,R6; L622
     00000678 430B                   JSR         @R3
     0000067A E430                   MOV         #48,R4
-
+      Vertical s   180                                        locate(7,5);Print("Yes : [F1]");
     0000067C E505                   MOV         #5,R5
     0000067E 480B                   JSR         @R8
     00000680 E407                   MOV         #7,R4
@@ -981,38 +1191,44 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000684 D229                   MOV.L       L1002+14,R2; _Print
     00000686 420B                   JSR         @R2
     00000688 0009                   NOP
+      Vertical s   181                                            locate(7,6);Print("No  : [F6]");
     0000068A E506                   MOV         #6,R5
     0000068C 480B                   JSR         @R8
     0000068E E407                   MOV         #7,R4
     00000690 D42F                   MOV.L       L1002+50,R4; L573
     00000692 D326                   MOV.L       L1002+14,R3; _Print
-    00000694 430B                   JSR         @R3
-    00000696 0009                   NOP
-    00000698 D425                   MOV.L       L1002+18,R4; _key
-    0000069A D226                   MOV.L       L1002+22,R2; _GetKey
-    0000069C 420B                   JSR         @R2
-    0000069E 0009                   NOP
-    000006A0 933D                   MOV.W       L1002,R3   ; H'7539
-    000006A2 62C2                   MOV.L       @R12,R2
-    000006A4 3230                   CMP/EQ      R3,R2
-    000006A6 8B37                   BF          L881
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   16
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   19
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    00000694 430B                   JSR         @R3
+    00000696 0009                   NOP
+      Vertical s   182                                            GetKey(&key);
+    00000698 D425                   MOV.L       L1002+18,R4; _key
+    0000069A D226                   MOV.L       L1002+22,R2; _GetKey
+    0000069C 420B                   JSR         @R2
+    0000069E 0009                   NOP
+      Vertical s   183                                            if (key==KEY_CTRL_F1){
+    000006A0 933D                   MOV.W       L1002,R3   ; H'7539
+    000006A2 62C2                   MOV.L       @R12,R2
+    000006A4 3230                   CMP/EQ      R3,R2
+    000006A6 8B37                   BF          L881
+      Vertical s   184                                                    PopUpWin(5);
     000006A8 D21E                   MOV.L       L1002+6,R2 ; _PopUpWin
     000006AA 420B                   JSR         @R2
     000006AC E405                   MOV         #5,R4
+      Vertical s   185                                            DispStr(40,12,"±£´æÊý¾Ý?"); 
     000006AE E50C                   MOV         #12,R5
     000006B0 D325                   MOV.L       L1002+42,R3; _DispStr
     000006B2 D628                   MOV.L       L1002+54,R6; L624
     000006B4 430B                   JSR         @R3
     000006B6 E428                   MOV         #40,R4
+      Vertical s   186                                            locate(7,5);Print("Yes : [F1]");
     000006B8 E505                   MOV         #5,R5
     000006BA 480B                   JSR         @R8
     000006BC E407                   MOV         #7,R4
@@ -1020,6 +1236,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000006C0 D21A                   MOV.L       L1002+14,R2; _Print
     000006C2 420B                   JSR         @R2
     000006C4 0009                   NOP
+      Vertical s   187                                                locate(7,6);Print("No  : [F6]");
     000006C6 E506                   MOV         #6,R5
     000006C8 480B                   JSR         @R8
     000006CA E407                   MOV         #7,R4
@@ -1027,582 +1244,76 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000006CE D317                   MOV.L       L1002+14,R3; _Print
     000006D0 430B                   JSR         @R3
     000006D2 0009                   NOP
+      Vertical s   188                                                GetKey(&key);
     000006D4 D416                   MOV.L       L1002+18,R4; _key
     000006D6 D217                   MOV.L       L1002+22,R2; _GetKey
     000006D8 420B                   JSR         @R2
     000006DA 0009                   NOP
+      Vertical s   189                                                    if(key==KEY_CTRL_F1)
     000006DC 931F                   MOV.W       L1002,R3   ; H'7539
     000006DE 62C2                   MOV.L       @R12,R2
     000006E0 3230                   CMP/EQ      R3,R2
     000006E2 8B0D                   BF          L905
+      Vertical s   190                                                    {
+      Vertical s   191                                                            if(setup_data.zdmroute_name[0]==0)
     000006E4 60A3                   MOV         R10,R0
     000006E6 7011                   ADD         #17,R0
     000006E8 6200                   MOV.B       @R0,R2
     000006EA 2228                   TST         R2,R2
     000006EC 8B04                   BF          L906
+      Vertical s   192                                                {
+      Vertical s   193                                                        WheterSavaAS();
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   20
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000006EE D21A                   MOV.L       L1002+58,R2; _WheterSavaAS
     000006F0 420B                   JSR         @R2
     000006F2 0009                   NOP
     000006F4 A004                   BRA         L905
     000006F6 0009                   NOP
     000006F8              L906:                             
-      Vertical s     2    #include "runmain.h"
-      Vertical s     3    #include "zbzfs.h"
-
-      Vertical s     4    #include "MyFont.h"
-
-
-      Vertical s     5    #include "cvs.h"
-      Vertical s     6    #include <stdarg.h>
-      Vertical s     7              
-      Vertical s     8    double zdm_to_gc( double stake);
-      Vertical s     9    
-      Vertical s    10    int PrintTables3(short x,short y,char * str,short sel,short lbl)
-      Vertical s    11    {
-      Vertical s    12            int len;
-      Vertical s    13            const int width = 28;
-      Vertical s    14            len = strlen(str);
-      Vertical s    15            x *= width;
-      Vertical s    16            y *= 8;
-      Vertical s    17            x += 16;
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   17
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      Vertical s    18            if (sel)
-      Vertical s    19            {
-      Vertical s    20                    Bdisp_AreaReverseVRAM(x,y,x+width-1,y+7);
-      Vertical s    21                    PrintMini(x+1+(lbl ? (width-5*len)/2:0),y+1,str,MINI_REV);
-      Vertical s    22            }
-      Vertical s    23            else
-      Vertical s    24            {
-      Vertical s    25    
-      Vertical s    26                    Bdisp_DrawLineVRAM(x+width-1,y,x+width-1,y+7);
-      Vertical s    27                    Bdisp_DrawLineVRAM(x,y+7,x+width-1,y+7);
-      Vertical s    28                    PrintMini(x+1+(lbl ? (width-5*len)/2:0),y+1,str,MINI_OVER);
-      Vertical s    29            }
-      Vertical s    30    }
-      Vertical s    31    
-      Vertical s    32    int PrintTableFormats3 (short x,short y,short sel,short lbl,char * format,...)
-      Vertical s    33    {
-      Vertical s    34            char buffer[128];
-      Vertical s    35            va_list parglist;
-      Vertical s    36            va_start(parglist, format);
-      Vertical s    37            vsprintf(buffer,format, parglist);
-      Vertical s    38            va_end(pArgList);
-      Vertical s    39            buffer[6] = 0;
-      Vertical s    40            PrintTables(x,y,buffer,sel,lbl);
-      Vertical s    41            return 0;
-      Vertical s    42    }
-      Vertical s    43    int PrintTableIndexs3 (int y,int index)
-      Vertical s    44    {
-      Vertical s    45            char buffer[8];
-      Vertical s    46            if (index<0 || index>999) return 0;
-      Vertical s    47            sprintf(buffer,"%d",index);
-      Vertical s    48            y *= 8;
-      Vertical s    49            Bdisp_AreaReverseVRAM(0,y,15,y+7);
-      Vertical s    50            PrintMini(1,y+2,buffer,MINI_REV);
-      Vertical s    51    }
-      Vertical s    52    int WhetherCover3()
-      Vertical s    53    {
-      Vertical s    54            int enter;
-      Vertical s    55            PopUpWin(5);
-      Vertical s    56            DispStr(48,12,"¸²¸Ç?"); //fugai
-      Vertical s    57            locate(7,5);Print("Yes : [F1]");
-      Vertical s    58            locate(7,6);Print("No  : [F6]");
-      Vertical s    59            do{
-      Vertical s    60                    GetKey(&key);
-      Vertical s    61                    if (key==KEY_CTRL_F6 || key==KEY_CTRL_EXIT){enter =0 ;break;}
-      Vertical s    62                    else if (KEY_CTRL_F1) {enter = 1;break;}
-      Vertical s    63            }while(1);
-      Vertical s    64            return enter;
-      Vertical s    65    }
-      Vertical s    66    int WheterSavaAS3()
-      Vertical s    67    {
-      Vertical s    68            char str[13]="";
-      Vertical s    69            int suc,enter,i;
-      Vertical s    70            for (i=0;i<13 && setup_data.zdmroute_name[i] != '.';++i)
-      Vertical s    71                    str[i] = setup_data.zdmroute_name[i];
-      Vertical s    72            str[i>=13 ? 12 : i] = 0;
-      Vertical s    73            PopUpWin(4);
-      Vertical s    74            DispStr(24,8,"\xce\xc4\xbc\xfe\xc3\xfb(*.zdm)");//file_name
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   18
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      Vertical s    75            do
-      Vertical s    76            {
-      Vertical s    77                    suc = InputString(24,24,str,1,8);
-      Vertical s    78                    if (suc==KEY_CTRL_EXIT) break;
-      Vertical s    79                    if (! str[0]) continue;
-      Vertical s    80            }while(suc!=KEY_CTRL_EXE);
-      Vertical s    81            if(suc!=KEY_CTRL_EXIT)
-      Vertical s    82            {
-      Vertical s    83                    enter = 1;
-      Vertical s    84                    strcat(str,".zdm");
-      Vertical s    85                    if (TestSRDFile3(str))
-      Vertical s    86                    {
-      Vertical s    87                            enter = WhetherCover3();
-      Vertical s    88                    }
-      Vertical s    89                    if (enter)
-      Vertical s    90                    {
-      Vertical s    91                            SaveSRDFile3(str);
-      Vertical s    92                            strcpy(setup_data.zdmroute_name,str);
-      Vertical s    93                    }
-      Vertical s    94            }
-      Vertical s    95    }
-      Vertical s    96    
-      Vertical s    97    int Selectfile3()
-      Vertical s    98    {
-      Vertical s    99            index = 0;
-      Vertical s   100            need_redraw = REDRAW_PART;
-      Vertical s   101            SetMyFont(&stHz12x12,&stAsc6x12);
-      Vertical s   102            
-      Vertical s   103            while(1)
-      Vertical s   104            {
-      Vertical s   105                    if (need_redraw == REDRAW_PART)
-      Vertical s   106                    {
-      Vertical s   107                            PopUpWin(6);
-      Vertical s   108                            DrawPicture(32,9,       16,     10,     G_ICON_SAVE);   DispStr(48,8,"±£´æÎª ");
-      Vertical s   109                            DrawPicture(32,25,      16,     10,     G_ICON_OPEN);   DispStr(48,24,"´ò¿ª ");
-      Vertical s   110                            DrawPicture(32,41,      16,     10,     G_ICON_OTHER);  DispStr(48,40,"ÐÂ½¨ ");
-      Vertical s   111                            
-      Vertical s   112                            Bdisp_AreaReverseVRAM(14,8+16*index,112,20+index*16);
-      Vertical s   113                    }
-      Vertical s   114                    GetKey(&key);
-      Vertical s   115                    if (key==KEY_CTRL_UP)   {if(--index<0) index = 2;need_redraw = REDRAW_PART;}
-      Vertical s   116                    if (key==KEY_CTRL_DOWN) {if(++index>2) index = 0;need_redraw = REDRAW_PART;}
-      Vertical s   117                    if (key==KEY_CTRL_EXIT) break;
-      Vertical s   118                    if (key==KEY_CTRL_EXE)
-      Vertical s   119                    {
-      Vertical s   120                            char str[13]="";
-      Vertical s   121                            int suc,enter,i;
-      Vertical s   122                            switch(index)
-      Vertical s   123                            {
-      Vertical s   124                                    case 0:
-      Vertical s   125                                            
-      Vertical s   126                                            for (i=0;i<13 && setup_data.zdmroute_name[i] != '.';++i)
-      Vertical s   127                                                    str[i] = setup_data.zdmroute_name[i];
-      Vertical s   128                                            str[i>=13 ? 12 : i] = 0;
-      Vertical s   129                                            PopUpWin(4);
-      Vertical s   130                                            DispStr(24,8,"\xce\xc4\xbc\xfe\xc3\xfb(*.zdm)");//file_name
-      Vertical s   131                                            do
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   19
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      Vertical s   132                                            {
-      Vertical s   133                                                    suc = InputString(24,24,str,1,8);
-      Vertical s   134                                                    if (suc==KEY_CTRL_EXIT) break;
-      Vertical s   135                                                    if (! str[0]) continue;
-      Vertical s   136                                            }while(suc!=KEY_CTRL_EXE);
-      Vertical s   137                                            if(suc!=KEY_CTRL_EXIT)
-      Vertical s   138                                            {
-      Vertical s   139                                                    enter = 1;
-      Vertical s   140                                                    strcat(str,".zdm");
-      Vertical s   141                                                    if (TestSRDFile3(str))
-      Vertical s   142                                                    {
-      Vertical s   143                                                            PopUpWin(5);
-      Vertical s   144                                                            DispStr(48,12,"¸²¸Ç?"); //fugai
-      Vertical s   145                                                            locate(7,5);Print("Yes : [F1]");
-      Vertical s   146                                                            locate(7,6);Print("No  : [F6]");
-      Vertical s   147                                                            do{
-      Vertical s   148                                                                    GetKey(&key);
-      Vertical s   149                                                                    if (key==KEY_CTRL_F6 || key==KEY_CTRL_EXIT
-                         +){enter =0 ;break;}
-      Vertical s   150                                                                    else if (KEY_CTRL_F1) {enter = 1;break;}
-      Vertical s   151                                                            }while(1);
-      Vertical s   152                                                    }
-      Vertical s   153                                                    if (enter)
-      Vertical s   154                                                    {
-      Vertical s   155                                                            SaveSRDFile3(str);
-      Vertical s   156                                                            strcpy(setup_data.zdmroute_name,str);
-      Vertical s   157                                                    }
-      Vertical s   158                                            }     
-      Vertical s   159                                            break;
-      Vertical s   160                                    case 1:
-      Vertical s   161                                            suc = SelectFiles3 (str);
-      Vertical s   162                                            if (suc==-1)
-      Vertical s   163                                            {
-      Vertical s   164                                                    PopUpWin(1);
-      Vertical s   165                                                    locate(7,4);Print("No File!");
-      Vertical s   166                                                    GetKey(&key);
-      Vertical s   167                                            }
-      Vertical s   168                                            if(suc==1)
-      Vertical s   169                                            {
-      Vertical s   170                                                    LoadSRDFile3 (str);
-      Vertical s   171                                                    strcpy(setup_data.zdmroute_name,str);
-      Vertical s   172                                                    if(LoadSRDFile3 (setup_data.zdmroute_name)==1)
-      Vertical s   173                                                    SaveIniSRDFile3();
-      Vertical s   174                                                    goto EXIT;
-      Vertical s   175                                            }
-      Vertical s   176                                            
-      Vertical s   177                                    case 2:
-      Vertical s   178                                            PopUpWin(5);
-      Vertical s   179                                        DispStr(48,12,"ÐÂ½¨?"); 
-      Vertical s   180                                        locate(7,5);Print("Yes : [F1]");
-      Vertical s   181                                            locate(7,6);Print("No  : [F6]");
-      Vertical s   182                                            GetKey(&key);
-      Vertical s   183                                            if (key==KEY_CTRL_F1){
-      Vertical s   184                                                    PopUpWin(5);
-      Vertical s   185                                            DispStr(40,12,"±£´æÊý¾Ý?"); 
-      Vertical s   186                                            locate(7,5);Print("Yes : [F1]");
-      Vertical s   187                                                locate(7,6);Print("No  : [F6]");
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   20
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      Vertical s   188                                                GetKey(&key);
-      Vertical s   189                                                    if(key==KEY_CTRL_F1)
-      Vertical s   190                                                    {
-      Vertical s   191                                                            if(setup_data.zdmroute_name[0]==0)
-      Vertical s   192                                                {
-      Vertical s   193                                                        WheterSavaAS();
       Vertical s   194                                                }
       Vertical s   195                                                else
       Vertical s   196                                                {
       Vertical s   197                                                        SaveSRDFile3(setup_data.zdmroute_name);
-      Vertical s   198                                                }
-      Vertical s   199                                                    }                                               
-      Vertical s   200                                                    setup_data.zdmroute_name[0]=0;
-      Vertical s   201                                            zdmroute_initial(&zdmroute);
-      Vertical s   202                                zdmroute_push_back(&zdmroute);
-      Vertical s   203                                                    goto EXIT;
-      Vertical s   204                                    }   
-      Vertical s   205                                        break;
-      Vertical s   206                                            
-      Vertical s   207                                    default:break;
-      Vertical s   208                            }
-      Vertical s   209                            need_redraw = REDRAW_PART;
-      Vertical s   210                    }
-      Vertical s   211            }
-      Vertical s   212            EXIT:
-      Vertical s   213            return 0;
-      Vertical s   214    }
-      Vertical s   215    
-      Vertical s   216    
-      Vertical s   217    int ZDM_parameter()
-      Vertical s   218    {
-      Vertical s   219            
-      Vertical s   220            char * table_label[]= {"DH","BBZH","BBGC","BJ"};
-      Vertical s   221            char * icons[]          = {"","","","",""};
-      Vertical s   222            char * ch_text[]        = {"\xb5\xe3\xc3\xfb",
-      Vertical s   223                                    "±äÆÂ×®ºÅ",
-      Vertical s   224                                                            "±äÆÂ¸ß³Ì",
-      Vertical s   225                                                            "°ë¾¶ "};
-      Vertical s   226            int x = 0,y = 0,i,j,t;
-      Vertical s   227            int left = 0,top = 0;
-      Vertical s   228            int refresh = REDRAW_ALL;
-      Vertical s   229            int enter,suc;
-      Vertical s   230            char str[13]="";
-      Vertical s   231            char c;
-      Vertical s   232            
-      Vertical s   233       
-      Vertical s   234            while(1){
-      Vertical s   235                    if (refresh==REDRAW_ALL){
-      Vertical s   236                            Bdisp_AllClr_VRAM();
-      Vertical s   237                            for (i=0;i<4;++i)
-      Vertical s   238                            PrintTables(i,0,table_label[left+i],1,1);
-      Vertical s   239                            t = zdmroute.size<= 1 ? 2 : 5; //Èç¹û½»µã¸öÊýÐ¡ÓÚµÈÓÚ1 ÄÇÃ´T=2 ·ñÔòµÈÓÚ5
-      Vertical s   240                            if      (t>=2){
-      Vertical s   241                            SetMyFont(&stHz8x8,&stAsc6x12);
-      Vertical s   242                            DispStr(2,56,"\xCE\xC4\xBC\xFE");
-      Vertical s   243                        DispStr(23,56,"Ìí¼Ó");
-      Vertical s   244                            }
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   21
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      Vertical s   245                            if      (t>2){
-      Vertical s   246                            SetMyFont(&stHz8x8,&stAsc6x12);
-      Vertical s   247                            DispStr(45,56,"²åÈë ");
-      Vertical s   248                        DispStr(65,56,"É¾ÐÐ ");
-      Vertical s   249                            DispStr(86,56,"Çå¿Õ ");
-      Vertical s   250                            }
-      Vertical s   251                            for (i=0;i< t;++i) // i<2 »ò  i<5
-      Vertical s   252                            PrintIcon(i,icons[i],0);  //´òÓ¡ÏÂ±ê 
-      Vertical s   253                            PrintIcon(5,"?",0);  //¹Ì¶¨´òÓ¡ÏÂ±ê
-////
-      Vertical s   263                                               PrintTables3(j,i+1-top,"",y==i && x-left==j,0);///////////////
-      Vertical s   264                                            else/////////
-      Vertical s   265                                                    PrintTableFormats3(j,i+1-top,y==i && x-left==j,0,"%lf",sd[
-                         +j+left-1]);
-      Vertical s   266                                    }
-      Vertical s   267                                    if (left==0)
-      Vertical s   268                                            PrintTableFormats3(0,i+1-top,y==i && x-left==0,0,"%s",zdmroute.set
-                         +[i].name);
-      Vertical s   269                                    PrintTableIndexs3(i-top+1,i);
-      Vertical s   270                            }
-      Vertical s   271                            SetMyFont(&stHz12x12,&stAsc6x12);
-      Vertical s   272                            if(x>0){
-      Vertical s   273                                    //if (!(y==0 && x>2)){
-      Vertical s   274                                            sd =  & (zdmroute.set[y].zdm_bbzh); //È¡µØÖ·µÄÖµ
-      Vertical s   275                                            DispStr(0,42,ch_text[x]);
-      Vertical s   276                                            PrintFloat(sd[x-1],49,42,0,setup_data.point); //´òÓ¡ 
-      Vertical s   277                                    //}
-      Vertical s   278                            }else{
-      Vertical s   279                                    DispStr(0,42,ch_text[x]);
-      Vertical s   280                                    PrintXY(51,44,zdmroute.set[y].name,0);
-      Vertical s   281                            }
-      Vertical s   282                            refresh = 0;
-      Vertical s   283                    }
-      Vertical s   284                    GetKey(&key);
-      Vertical s   285                    switch (key){
-      Vertical s   286                    case KEY_CTRL_UP:
-      Vertical s   287                            y--;refresh = REDRAW_ALL;break;
-      Vertical s   288                    case KEY_CTRL_DOWN:
-      Vertical s   289                            y++;refresh = REDRAW_ALL;break;
-      Vertical s   290                    case KEY_CTRL_LEFT:
-      Vertical s   291                            x--;refresh = REDRAW_ALL;break;
-      Vertical s   292                    case KEY_CTRL_RIGHT:
-      Vertical s   293                            x++;refresh = REDRAW_ALL;break;
-      Vertical s   294                    case KEY_CTRL_EXIT:
-      Vertical s   295                        PopUpWin(5);
-      Vertical s   296                            DispStr(48,12,"±£´æ?"); 
-      Vertical s   297                            locate(7,5);Print("Yes : [F1]");
-      Vertical s   298                            locate(7,6);Print("No  : [F6]");
-      Vertical s   299                            do{
-      Vertical s   300                                    GetKey(&key);
-      Vertical s   301                                    if (key==KEY_CTRL_F6 || key==KEY_CTRL_EXIT){enter =0 ;break;}
-      Vertical s   302                                    else if (KEY_CTRL_F1) {enter = 1;break;}
-      Vertical s   303                            }while(1);
-      Vertical s   304                            if(enter)
-      Vertical s   305                            {
-      Vertical s   306                                    if(setup_data.zdmroute_name[0]==0)
-      Vertical s   307                                    {
-      Vertical s   308                                            WheterSavaAS3();
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   22
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      Vertical s   309                                    }
-      Vertical s   310                                    else
-      Vertical s   311                                    {
-      Vertical s   312                                            SaveSRDFile3(setup_data.zdmroute_name);
-      Vertical s   313                                    }
-      Vertical s   314                            }
-      Vertical s   315                            return 0 ;
-      Vertical s   316                    case KEY_CTRL_F1:                                       /* Set */
-      Vertical s   317                            refresh = REDRAW_ALL;
-      Vertical s   318                            Selectfile3();
-      Vertical s   319                            break;
-      Vertical s   320                    case KEY_CTRL_F2:                                       /* Add */
-      Vertical s   321                            zdmroute_push_back (&zdmroute);
-      Vertical s   322                            y = zdmroute.size - 1;
-      Vertical s   323                            refresh = REDRAW_ALL;
-      Vertical s   324                            break;
-      Vertical s   325                    case KEY_CTRL_F3:                                       /* ins */
-      Vertical s   326                            //if (y==0) break;
-      Vertical s   327                            zdmroute_insert (&zdmroute,y);
-      Vertical s   328                            y++;
-      Vertical s   329                            refresh = REDRAW_ALL;
-      Vertical s   330                            break;
-      Vertical s   331                    case KEY_CTRL_F4:                                       /* Del a point */
-      Vertical s   332                            //if (y==0) break;
-      Vertical s   333                            refresh = REDRAW_ALL;
-      Vertical s   334                            PopUpWin(4);DispStr(25,10,"É¾ ³ý Ò» ÐÐ?");
-      Vertical s   335                            locate(3,5);Print("[F1]Yes   [F6]No");
-      Vertical s   336                            GetKey(&key);
-      Vertical s   337                            if (key==KEY_CTRL_F1){
-      Vertical s   338                                    zdmroute_del(&zdmroute,y);y--;
-      Vertical s   339                            }
-      Vertical s   340                            break;
-      Vertical s   341                            
-      Vertical s   342                     case KEY_CTRL_F5:                                      /* Del All */
-      Vertical s   343                            refresh = REDRAW_ALL;
-      Vertical s   344                            PopUpWin(4);DispStr(25,10,"Çå ¿Õ Ëù ÓÐ ?");
-      Vertical s   345                            locate(3,5);Print("[F1]Yes   [F6]No");
-      Vertical s   346                            GetKey(&key);
-      Vertical s   347                            if (key==KEY_CTRL_F1){
-      Vertical s   348                                    zdmroute_initial(&zdmroute);
-      Vertical s   349                        zdmroute_push_back(&zdmroute);
-      Vertical s   350                            }
-      Vertical s   351                            break;
-      Vertical s   352    
-      Vertical s   353             case KEY_CTRL_F6:
-      Vertical s   354                        refresh = REDRAW_ALL;
-      Vertical s   355                            PopUpWin(4);
-      Vertical s   356                            PrintfXY (15,10,0,"%.3f",zdmroute.set[1].zdm_bbgc);  
-      Vertical s   357                            GetKey(&key);
-      Vertical s   358                            PrintfXY (15,20,0,"%.3f",zdmroute.set[2].zdm_bbgc);  
-      Vertical s   359                            GetKey(&key);
-      Vertical s   360                            PrintfXY (15,30,0,"%.3f",zdmroute.set[3].zdm_bbgc);  
-      Vertical s   361                            GetKey(&key);
-      Vertical s   362                            //PrintfXY (70,30,0,"%.3f",route.set[0].xy_zr);  
-      Vertical s   363                            DispStr(15,10,"ÏßÂ·Ãû³Æ");
-      Vertical s   364                            if(setup_data.zdmroute_name[0]==0)
-      Vertical s   365                            {
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   23
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      Vertical s   366                             DispStr(25,27,"Çë±£´æÏßÂ·ÎÄ¼þ ");
-      Vertical s   367                            }
-      Vertical s   368                             //else
-      Vertical s   369                            //{
-      Vertical s   370                 //DispStr(25,27,setup_data.zdmroute_name);
-      Vertical s   371                            //}
-      Vertical s   372                            GetKey(&key);
-      Vertical s   373                    break;  
-      Vertical s   374                    default:                                                        /*other things*/
-      Vertical s   375                            if (x>0 && (c=GetPressNumChar(key))!=0){
-      Vertical s   376                                    char buffer[14];
-      Vertical s   377                                    int r;
-      Vertical s   378                                    //if (y==0 && x > 2)break;
-      Vertical s   379                                    buffer[0] = c;
-      Vertical s   380                                    buffer[1] = '\0';
-      Vertical s   381                                    buffer[1] = '\0';
-      Vertical s   382                                    r = InputString(49,42,buffer,0,12);
-      Vertical s   383                                    if (r!=KEY_CTRL_EXIT){
-      Vertical s   384                                            double * sd;
-      Vertical s   385                                            sd =  (double*)&(zdmroute.set[y].zdm_bbzh);
-      Vertical s   386                                            sd[x-1] = atof(buffer);
-      Vertical s   387                                            switch(r){
-      Vertical s   388                                            case KEY_CTRL_UP:       y--;break;
-      Vertical s   389                                            case KEY_CTRL_DOWN:     y++;break;
-      Vertical s   390                                            case KEY_CTRL_EXE:      x++;break;
-      Vertical s   391                                            }
-      Vertical s   392                                    }
-      Vertical s   393                                    refresh = REDRAW_ALL;
-      Vertical s   394                            }
-      Vertical s   395                            else if (x==0 && (c=GetPressChar(key))!=0){
-      Vertical s   396                                    char buffer[14];
-      Vertical s   397                                    int r;
-      Vertical s   398                                    buffer[0] = c;
-      Vertical s   399                                    buffer[1] = '\0';
-      Vertical s   400                                    r = InputString(49,42,buffer,1,12);
-      Vertical s   401                                    if (r!=KEY_CTRL_EXIT){
-      Vertical s   402                                            strncpy(zdmroute.set[y].name,buffer,12);
-      Vertical s   403                                            switch(r){
-      Vertical s   404                                            case KEY_CTRL_UP:       y--;break;
-      Vertical s   405                                            case KEY_CTRL_DOWN:     y++;break;
-      Vertical s   406                                            case KEY_CTRL_EXE:      x++;break;
-      Vertical s   407                                            }
-      Vertical s   408                                    }
-      Vertical s   409                                    refresh = REDRAW_ALL;
-      Vertical s   410                            }
-      Vertical s   411                            break;
-      Vertical s   412                    }
-      Vertical s   413                    if (x<0) x = 3,y--;
-      Vertical s   414                    if (x>3) x = 0,y++;
-      Vertical s   415                    if (y<0) y = 0;
-      Vertical s   416                    if (y>=zdmroute.size) y = zdmroute.size - 1;
-      Vertical s   417                    if (y>top + 3) top = y - 3;
-      Vertical s   418                    if (y<top) top = y;
-      Vertical s   419                    if (x>left +3) left = x - 3;
-      Vertical s   420                    if (x<left) left = x;
-      Vertical s   421            }
-      Vertical s   422    }
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   24
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      Vertical s   423    
-      Vertical s   424    double zdm_to_gc( double stake)
-      Vertical s   425    {
-      Vertical s   426            int i; 
-      Vertical s   427            double qxc,length,gc;
-      Vertical s   428            double I1,I2,bad,cave_vex;
-      Vertical s   429            for(i=1;i<zdmroute.size-1;i++)
-      Vertical s   430            {
-      Vertical s   431                    if(stake>zdmroute.set[i].zdm_zdzh && zdmroute.set[i+1].zdm_r!=0)
-      Vertical s   432                            continue;
-      Vertical s   433                    else{
-      Vertical s   434                            
-      Vertical s   435                            I1 = (zdmroute.set[i].zdm_bbgc-zdmroute.set[i-1].zdm_bbgc)/(zdmroute.set[i].zdm_bb
-                         +zh-zdmroute.set[i-1].zdm_bbzh);//Ç°×ÝÆÂ
-      Vertical s   436                            I2 =(zdmroute.set[i+1].zdm_bbgc-zdmroute.set[i].zdm_bbgc)/(zdmroute.set[i+1].zdm_b
-                         +bzh-zdmroute.set[i].zdm_bbzh); //ºó×ÝÆÂ
-      Vertical s   437                            bad = I2 - I1;
-      Vertical s   438                            cave_vex = zdmroute.set[i].zdm_r * (bad>=0?1:-1);
-      Vertical s   439                            qxc = zdmroute.set[i].zdm_zdzh - zdmroute.set[i].zdm_bbzh;  
-      Vertical s   440                            length = stake - zdmroute.set[i].zdm_bbzh;    
-      Vertical s   441                            gc = zdmroute.set[i].zdm_bbgc+I1*length;
-      Vertical s   442                            length=length+qxc; //
-      Vertical s   443                            if(length>0)
-      Vertical s   444                                    gc = gc+length*length/2.0/cave_vex; 
-      Vertical s   445                            else{
-      Vertical s   446                                    length = length - qxc;
-      Vertical s   447                                    if(length>qxc)
-      Vertical s   448                                    gc = zdmroute.set[i].zdm_bbgc+I2*length; 
-      Vertical s   449                              
-      Vertical s   450                            }
-      Vertical s   451                    }
-      Vertical s   452             break;
-      Vertical s   453            }
-      Vertical s   454             
-      Vertical s   455             return gc;
-      Vertical s   456    }
-      Vertical s   457    
     000006F8 D218                   MOV.L       L1002+62,R2; _SaveSRDFile3
     000006FA 64A3                   MOV         R10,R4
     000006FC 420B                   JSR         @R2
     000006FE 7411                   ADD         #17,R4
     00000700              L905:                             
+      Vertical s   198                                                }
+      Vertical s   199                                                    }                                               
+      Vertical s   200                                                    setup_data.zdmroute_name[0]=0;
+      Vertical s   201                                            zdmroute_initial(&zdmroute);
     00000700 D417                   MOV.L       L1002+66,R4; _zdmroute
     00000702 63A3                   MOV         R10,R3
     00000704 D217                   MOV.L       L1002+70,R2; _zdmroute_initial
     00000706 7311                   ADD         #17,R3
     00000708 420B                   JSR         @R2
     0000070A 23B0                   MOV.B       R11,@R3
+      Vertical s   202                                zdmroute_push_back(&zdmroute);
     0000070C D414                   MOV.L       L1002+66,R4; _zdmroute
     0000070E D316                   MOV.L       L1002+74,R3; _zdmroute_push_back
     00000710 430B                   JSR         @R3
     00000712 0009                   NOP
+      Vertical s   203                                                    goto EXIT;
     00000714 A02C                   BRA         __$EXIT$621
     00000716 0009                   NOP
     00000718              L881:                             
+      Vertical s   204                                    }   
+      Vertical s   205                                        break;
+      Vertical s   206                                            
+      Vertical s   207                                    default:break;
+      Vertical s   208                            }
+      Vertical s   209                            need_redraw = REDRAW_PART;
     00000718 D314                   MOV.L       L1002+78,R3; _need_redraw
     0000071A AE3B                   BRA         L872
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   25
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000071C 2392                   MOV.L       R9,@R3
     0000071E              L1002:                            
     0000071E 7539                   .DATA.W     H'7539
@@ -1618,6 +1329,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000744 <00000000>             .DATA.L     L622
     00000748 <00000000>             .DATA.L     _DispStr
     0000074C <00000000>             .DATA.L     L572
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   21
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000750 <00000000>             .DATA.L     L573
     00000754 <00000000>             .DATA.L     L624
     00000758 <00000000>             .DATA.L     _WheterSavaAS
@@ -1627,7 +1347,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000768 <00000000>             .DATA.L     _zdmroute_push_back
     0000076C <00000000>             .DATA.L     _need_redraw
     00000770              __$EXIT$621:                     ; label: EXIT
+      Vertical s   210                    }
+      Vertical s   211            }
+      Vertical s   212            EXIT:
+      Vertical s   213            return 0;
     00000770 E000                   MOV         #0,R0
+      Vertical s   214    }
     00000772 7F18                   ADD         #24,R15
     00000774 4F26                   LDS.L       @R15+,PR
     00000776 68F6                   MOV.L       @R15+,R8
@@ -1638,6 +1363,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000780 6DF6                   MOV.L       @R15+,R13
     00000782 000B                   RTS
     00000784 6EF6                   MOV.L       @R15+,R14
+      Vertical s   215    
+      Vertical s   216    
+      Vertical s   217    int ZDM_parameter()
     00000786              _ZDM_parameter:                  ; function: ZDM_parameter
                                                            ; frame size=220
                                                            ; used runtime library name:
@@ -1645,6 +1373,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000786 2FE6                   MOV.L       R14,@-R15
     00000788 2FD6                   MOV.L       R13,@-R15
     0000078A ED00                   MOV         #0,R13
+      Vertical s   218    {
+      Vertical s   219            
+      Vertical s   220            char * table_label[]= {"DH","BBZH","BBGC","BJ"};
     0000078C 9155                   MOV.W       L1004+2,R1 ; H'0084
     0000078E 2FC6                   MOV.L       R12,@-R15
     00000790 2FB6                   MOV.L       R11,@-R15
@@ -1660,30 +1391,40 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000007A4 D227                   MOV.L       L1004+12,R2; L632
     000007A6 D328                   MOV.L       L1004+16,R3; __quick_evn_mvn
     000007A8 430B                   JSR         @R3
+    000007AA E010                   MOV         #16,R0
+      Vertical s   221            char * icons[]          = {"","","","",""};
+    000007AC D227                   MOV.L       L1004+20,R2; L638
+    000007AE 61F3                   MOV         R15,R1
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   26
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   22
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    000007AA E010                   MOV         #16,R0
-    000007AC D227                   MOV.L       L1004+20,R2; L638
-    000007AE 61F3                   MOV         R15,R1
     000007B0 D327                   MOV.L       L1004+24,R3; __quick_odd_mvn
     000007B2 7170                   ADD         #112,R1
     000007B4 430B                   JSR         @R3
     000007B6 E014                   MOV         #20,R0
+      Vertical s   222            char * ch_text[]        = {"\xb5\xe3\xc3\xfb",
+      Vertical s   223                                    "±äÆÂ×®ºÅ",
+      Vertical s   224                                                            "±äÆÂ¸ß³Ì",
+      Vertical s   225                                                            "°ë¾¶ "};
     000007B8 D226                   MOV.L       L1004+28,R2; L641
     000007BA 61F3                   MOV         R15,R1
     000007BC D322                   MOV.L       L1004+16,R3; __quick_evn_mvn
     000007BE 7160                   ADD         #96,R1
     000007C0 430B                   JSR         @R3
     000007C2 E010                   MOV         #16,R0
+      Vertical s   226            int x = 0,y = 0,i,j,t;
+      Vertical s   227            int left = 0,top = 0;
     000007C4 2FD2                   MOV.L       R13,@R15
+      Vertical s   228            int refresh = REDRAW_ALL;
     000007C6 E802                   MOV         #2,R8
+      Vertical s   229            int enter,suc;
+      Vertical s   230            char str[13]="";
     000007C8 D223                   MOV.L       L1004+32,R2; L657
     000007CA 6BD3                   MOV         R13,R11
     000007CC D323                   MOV.L       L1004+36,R3; __slow_mvn
@@ -1705,17 +1446,34 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000007EC 1F1E                   MOV.L       R1,@(56,R15)
     000007EE 7341                   ADD         #65,R3
     000007F0 1F3F                   MOV.L       R3,@(60,R15)
+      Vertical s   231            char c;
+      Vertical s   232            
+      Vertical s   233       
+      Vertical s   234            while(1){
     000007F2              L910:                             
+      Vertical s   235                    if (refresh==REDRAW_ALL){
     000007F2 6083                   MOV         R8,R0
     000007F4 D91A                   MOV.L       L1004+40,R9; _DispStr
     000007F6 8802                   CMP/EQ      #2,R0
     000007F8 8B75                   BF          L911
+      Vertical s   236                            Bdisp_AllClr_VRAM();
     000007FA DA1A                   MOV.L       L1004+44,R10; _Bdisp_AllClr_VRAM
     000007FC 4A0B                   JSR         @R10
     000007FE 0009                   NOP
+      Vertical s   237                            for (i=0;i<4;++i)
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   23
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000800 A010                   BRA         L912
     00000802 6AD3                   MOV         R13,R10
     00000804              L913:                             
+      Vertical s   238                            PrintTables(i,0,table_label[left+i],1,1);
     00000804 D818                   MOV.L       L1004+48,R8; _PrintTables
     00000806 E301                   MOV         #1,R3
     00000808 9218                   MOV.W       L1004+4,R2 ; H'0088
@@ -1726,15 +1484,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000812 32FC                   ADD         R15,R2
     00000814 36AC                   ADD         R10,R6
     00000816 4608                   SHLL2       R6
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   27
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000818 362C                   ADD         R2,R6
     0000081A 6662                   MOV.L       @R6,R6
     0000081C 480B                   JSR         @R8
@@ -1745,10 +1494,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000824 E304                   MOV         #4,R3
     00000826 3A33                   CMP/GE      R3,R10
     00000828 8BEC                   BF          L913
+      Vertical s   239                            t = zdmroute.size<= 1 ? 2 : 5; //Èç¹û½»µã¸öÊýÐ¡ÓÚµÈÓÚ1 ÄÇÃ´T=2 ·ñÔòµÈÓÚ5
     0000082A E101                   MOV         #1,R1
     0000082C 52C1                   MOV.L       @(4,R12),R2
     0000082E 3217                   CMP/GT      R1,R2
     00000830 8D1C                   BT/S        L914
+      Vertical s   240                            if      (t>=2){
     00000832 E202                   MOV         #2,R2
     00000834 A01B                   BRA         L915
     00000836 E802                   MOV         #2,R8
@@ -1773,56 +1524,68 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000086E              L915:                             
     0000086E 3823                   CMP/GE      R2,R8
     00000870 8B0D                   BF          L916
+      Vertical s   241                            SetMyFont(&stHz8x8,&stAsc6x12);
     00000872 D579                   MOV.L       L1005,R5   ; _stAsc6x12
     00000874 D479                   MOV.L       L1005+4,R4 ; _stHz8x8
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   24
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000876 D17A                   MOV.L       L1005+8,R1 ; _SetMyFont
     00000878 410B                   JSR         @R1
     0000087A 0009                   NOP
+      Vertical s   242                            DispStr(2,56,"\xCE\xC4\xBC\xFE");
     0000087C D679                   MOV.L       L1005+12,R6; L662
     0000087E E538                   MOV         #56,R5
     00000880 490B                   JSR         @R9
     00000882 E402                   MOV         #2,R4
+      Vertical s   243                        DispStr(23,56,"Ìí¼Ó");
     00000884 DA78                   MOV.L       L1005+16,R10; L663
     00000886 E538                   MOV         #56,R5
     00000888 66A3                   MOV         R10,R6
     0000088A 490B                   JSR         @R9
     0000088C E417                   MOV         #23,R4
     0000088E              L916:                             
+      Vertical s   244                            }
+      Vertical s   245                            if      (t>2){
     0000088E E302                   MOV         #2,R3
     00000890 3837                   CMP/GT      R3,R8
     00000892 8B11                   BF          L917
+      Vertical s   246                            SetMyFont(&stHz8x8,&stAsc6x12);
     00000894 D570                   MOV.L       L1005,R5   ; _stAsc6x12
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   28
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000896 D471                   MOV.L       L1005+4,R4 ; _stHz8x8
     00000898 D171                   MOV.L       L1005+8,R1 ; _SetMyFont
     0000089A 410B                   JSR         @R1
     0000089C 0009                   NOP
+      Vertical s   247                            DispStr(45,56,"²åÈë ");
     0000089E E538                   MOV         #56,R5
     000008A0 D672                   MOV.L       L1005+20,R6; L665
     000008A2 490B                   JSR         @R9
     000008A4 E42D                   MOV         #45,R4
+      Vertical s   248                        DispStr(65,56,"É¾ÐÐ ");
     000008A6 E538                   MOV         #56,R5
     000008A8 D671                   MOV.L       L1005+24,R6; L666
     000008AA 490B                   JSR         @R9
     000008AC E441                   MOV         #65,R4
+      Vertical s   249                            DispStr(86,56,"Çå¿Õ ");
     000008AE E538                   MOV         #56,R5
     000008B0 DA70                   MOV.L       L1005+28,R10; L667
     000008B2 66A3                   MOV         R10,R6
     000008B4 490B                   JSR         @R9
     000008B6 E456                   MOV         #86,R4
     000008B8              L917:                             
+      Vertical s   250                            }
+      Vertical s   251                            for (i=0;i< t;++i) // i<2 »ò  i<5
     000008B8 4815                   CMP/PL      R8
     000008BA 8F0D                   BF/S        L918
     000008BC 6AD3                   MOV         R13,R10
     000008BE              L919:                             
+      Vertical s   252                            PrintIcon(i,icons[i],0);  //´òÓ¡ÏÂ±ê 
     000008BE E600                   MOV         #0,R6
     000008C0 D26D                   MOV.L       L1005+32,R2; _PrintIcon
     000008C2 65A3                   MOV         R10,R5
@@ -1830,6 +1593,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000008C6 63F3                   MOV         R15,R3
     000008C8 7370                   ADD         #112,R3
     000008CA 353C                   ADD         R3,R5
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   25
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000008CC 6552                   MOV.L       @R5,R5
     000008CE 420B                   JSR         @R2
     000008D0 64A3                   MOV         R10,R4
@@ -1837,12 +1609,14 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000008D4 3A83                   CMP/GE      R8,R10
     000008D6 8BF2                   BF          L919
     000008D8              L918:                             
+      Vertical s   253                            PrintIcon(5,"?",0);  //¹Ì¶¨´òÓ¡ÏÂ±ê
     000008D8 DA68                   MOV.L       L1005+36,R10; L668
     000008DA E600                   MOV         #0,R6
     000008DC D266                   MOV.L       L1005+32,R2; _PrintIcon
     000008DE 65A3                   MOV         R10,R5
     000008E0 420B                   JSR         @R2
     000008E2 E405                   MOV         #5,R4
+////
     000008E4 E801                   MOV         #1,R8
     000008E6              L911:                             
     000008E6 E32C                   MOV         #44,R3
@@ -1858,15 +1632,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000008FA 8801                   CMP/EQ      #1,R0
     000008FC 8901                   BT          L1006
     000008FE A0DA                   BRA         L920
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   29
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000900 0009                   NOP
     00000902              L1006:                            
     00000902 60B3                   MOV         R11,R0
@@ -1895,6 +1660,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000092E 710C                   ADD         #12,R1
     00000930 1F1B                   MOV.L       R1,@(44,R15)
     00000932 53FA                   MOV.L       @(40,R15),R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   26
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000934 2338                   TST         R3,R3
     00000936 8901                   BT          L925
     00000938 A001                   BRA         L926
@@ -1922,17 +1696,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000095E 328C                   ADD         R8,R2
     00000960 3237                   CMP/GT      R3,R2
     00000962 8B10                   BF          L930
+      Vertical s   263                                               PrintTables3(j,i+1-top,"",y==i && x-left==j,0);///////////////
     00000964 E100                   MOV         #0,R1
     00000966 3EA0                   CMP/EQ      R10,R14
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   30
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000968 8F05                   BF/S        L931
     0000096A 2F16                   MOV.L       R1,@-R15
     0000096C 53F5                   MOV.L       @(20,R15),R3
@@ -1951,12 +1717,24 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000982 A01B                   BRA         L933
     00000984 7F04                   ADD         #4,R15
     00000986              L930:                             
+      Vertical s   264                                            else/////////
+      Vertical s   265                                                    PrintTableFormats3(j,i+1-top,y==i && x-left==j,0,"%lf",sd[
+                         +j+left-1]);
     00000986 63F2                   MOV.L       @R15,R3
     00000988 52FB                   MOV.L       @(44,R15),R2
     0000098A 338C                   ADD         R8,R3
     0000098C D03D                   MOV.L       L1005+44,R0; L673
     0000098E 73FF                   ADD         #-1,R3
     00000990 4308                   SHLL2       R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   27
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000992 4300                   SHLL        R3
     00000994 332C                   ADD         R2,R3
     00000996 3EA0                   CMP/EQ      R10,R14
@@ -1986,19 +1764,14 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000009C0 3823                   CMP/GE      R2,R8
     000009C2 8BC7                   BF          L929
     000009C4              L928:                             
+      Vertical s   266                                    }
+      Vertical s   267                                    if (left==0)
     000009C4 61F2                   MOV.L       @R15,R1
     000009C6 2118                   TST         R1,R1
     000009C8 8B15                   BF          L936
+      Vertical s   268                                            PrintTableFormats3(0,i+1-top,y==i && x-left==0,0,"%s",zdmroute.set
+                         +[i].name);
     000009CA E32C                   MOV         #44,R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   31
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000009CC 62C2                   MOV.L       @R12,R2
     000009CE 3EA0                   CMP/EQ      R10,R14
     000009D0 D82D                   MOV.L       L1005+48,R8; L674
@@ -2019,10 +1792,20 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000009EC              L938:                             
     000009EC 85FE                   MOV.W       @(28,R15),R0
     000009EE 6503                   MOV         R0,R5
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   28
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000009F0 BB74                   BSR         _PrintTableFormats3
     000009F2 E400                   MOV         #0,R4
     000009F4 7F08                   ADD         #8,R15
     000009F6              L936:                             
+      Vertical s   269                                    PrintTableIndexs3(i-top+1,i);
     000009F6 65A3                   MOV         R10,R5
     000009F8 53F1                   MOV.L       @(4,R15),R3
     000009FA 64A3                   MOV         R10,R4
@@ -2039,6 +1822,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A0E 3A13                   CMP/GE      R1,R10
     00000A10 8B87                   BF          L924
     00000A12              L939:                             
+      Vertical s   270                            }
+      Vertical s   271                            SetMyFont(&stHz12x12,&stAsc6x12);
     00000A12 D511                   MOV.L       L1005,R5   ; _stAsc6x12
     00000A14 D41E                   MOV.L       L1005+56,R4; _stHz12x12
     00000A16 D212                   MOV.L       L1005+8,R2 ; _SetMyFont
@@ -2051,23 +1836,19 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A24 4B15                   CMP/PL      R11
     00000A26 8F39                   BF/S        L940
     00000A28 3A3C                   ADD         R3,R10
+      Vertical s   272                            if(x>0){
+      Vertical s   273                                    //if (!(y==0 && x>2)){
+      Vertical s   274                                            sd =  & (zdmroute.set[y].zdm_bbzh); //È¡µØÖ·µÄÖµ
+      Vertical s   275                                            DispStr(0,42,ch_text[x]);
     00000A2A E52A                   MOV         #42,R5
     00000A2C 52F3                   MOV.L       @(12,R15),R2
     00000A2E 68C2                   MOV.L       @R12,R8
     00000A30 66A2                   MOV.L       @R10,R6
     00000A32 382C                   ADD         R2,R8
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   32
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000A34 780C                   ADD         #12,R8
     00000A36 490B                   JSR         @R9
     00000A38 E400                   MOV         #0,R4
+      Vertical s   276                                            PrintFloat(sd[x-1],49,42,0,setup_data.point); //´òÓ¡ 
     00000A3A E600                   MOV         #0,R6
     00000A3C DA15                   MOV.L       L1005+60,R10; _PrintFloat
     00000A3E E52A                   MOV         #42,R5
@@ -2077,6 +1858,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A46 2F26                   MOV.L       R2,@-R15
     00000A48 6282                   MOV.L       @R8,R2
     00000A4A 2F26                   MOV.L       R2,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   29
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000A4C D112                   MOV.L       L1005+64,R1; _setup_data
     00000A4E 6712                   MOV.L       @R1,R7
     00000A50 4A0B                   JSR         @R10
@@ -2102,10 +1892,14 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A94 <00000000>             .DATA.L     _PrintFloat
     00000A98 <00000000>             .DATA.L     _setup_data
     00000A9C              L940:                             
+      Vertical s   277                                    //}
+      Vertical s   278                            }else{
+      Vertical s   279                                    DispStr(0,42,ch_text[x]);
     00000A9C 66A2                   MOV.L       @R10,R6
     00000A9E E52A                   MOV         #42,R5
     00000AA0 490B                   JSR         @R9
     00000AA2 E400                   MOV         #0,R4
+      Vertical s   280                                    PrintXY(51,44,zdmroute.set[y].name,0);
     00000AA4 DA36                   MOV.L       L1007+22,R10; _PrintXY
     00000AA6 E700                   MOV         #0,R7
     00000AA8 53F3                   MOV.L       @(12,R15),R3
@@ -2115,25 +1909,30 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000AB0 4A0B                   JSR         @R10
     00000AB2 E433                   MOV         #51,R4
     00000AB4              L941:                             
+      Vertical s   281                            }
+      Vertical s   282                            refresh = 0;
     00000AB4 68D3                   MOV         R13,R8
     00000AB6              L920:                             
+      Vertical s   283                    }
+      Vertical s   284                    GetKey(&key);
     00000AB6 DA33                   MOV.L       L1007+26,R10; _GetKey
     00000AB8 D433                   MOV.L       L1007+30,R4; _key
     00000ABA 4A0B                   JSR         @R10
     00000ABC 0009                   NOP
+      Vertical s   285                    switch (key){
     00000ABE D332                   MOV.L       L1007+30,R3; _key
+    00000AC0 9153                   MOV.W       L1007,R1   ; H'7542
+    00000AC2 6032                   MOV.L       @R3,R0
+    00000AC4 3010                   CMP/EQ      R1,R0
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   33
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   30
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    00000AC0 9153                   MOV.W       L1007,R1   ; H'7542
-    00000AC2 6032                   MOV.L       @R3,R0
-    00000AC4 3010                   CMP/EQ      R1,R0
     00000AC6 8923                   BT          L786
     00000AC8 9150                   MOV.W       L1007+2,R1 ; H'7547
     00000ACA 3010                   CMP/EQ      R1,R0
@@ -2181,27 +1980,39 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000B16 0009                   NOP
     00000B18              L788:                            ; case label 
     00000B18 A192                   BRA         L724
+      Vertical s   286                    case KEY_CTRL_UP:
+      Vertical s   287                            y--;refresh = REDRAW_ALL;break;
+      Vertical s   288                    case KEY_CTRL_DOWN:
+      Vertical s   289                            y++;refresh = REDRAW_ALL;break;
+      Vertical s   290                    case KEY_CTRL_LEFT:
+      Vertical s   291                            x--;refresh = REDRAW_ALL;break;
     00000B1A 7BFF                   ADD         #-1,R11
     00000B1C              L789:                            ; case label 
     00000B1C A190                   BRA         L724
-    00000B1E 7B01                   ADD         #1,R11
-    00000B20              L790:                            ; case label 
-    00000B20 D11A                   MOV.L       L1007+34,R1; _PopUpWin
-    00000B22 410B                   JSR         @R1
+      Vertical s   292                    case KEY_CTRL_RIGHT:
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   34
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   31
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+      Vertical s   293                            x++;refresh = REDRAW_ALL;break;
+    00000B1E 7B01                   ADD         #1,R11
+    00000B20              L790:                            ; case label 
+      Vertical s   294                    case KEY_CTRL_EXIT:
+      Vertical s   295                        PopUpWin(5);
+    00000B20 D11A                   MOV.L       L1007+34,R1; _PopUpWin
+    00000B22 410B                   JSR         @R1
     00000B24 E405                   MOV         #5,R4
+      Vertical s   296                            DispStr(48,12,"±£´æ?"); 
     00000B26 E50C                   MOV         #12,R5
     00000B28 D619                   MOV.L       L1007+38,R6; L678
     00000B2A 490B                   JSR         @R9
     00000B2C E430                   MOV         #48,R4
+      Vertical s   297                            locate(7,5);Print("Yes : [F1]");
     00000B2E E505                   MOV         #5,R5
     00000B30 D318                   MOV.L       L1007+42,R3; _locate
     00000B32 430B                   JSR         @R3
@@ -2210,6 +2021,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000B38 D218                   MOV.L       L1007+50,R2; _Print
     00000B3A 420B                   JSR         @R2
     00000B3C 0009                   NOP
+      Vertical s   298                            locate(7,6);Print("No  : [F6]");
     00000B3E E506                   MOV         #6,R5
     00000B40 D314                   MOV.L       L1007+42,R3; _locate
     00000B42 430B                   JSR         @R3
@@ -2218,9 +2030,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000B48 D214                   MOV.L       L1007+50,R2; _Print
     00000B4A 420B                   JSR         @R2
     00000B4C 64E3                   MOV         R14,R4
+      Vertical s   299                            do{
+      Vertical s   300                                    GetKey(&key);
     00000B4E D40E                   MOV.L       L1007+30,R4; _key
     00000B50 4A0B                   JSR         @R10
     00000B52 0009                   NOP
+      Vertical s   301                                    if (key==KEY_CTRL_F6 || key==KEY_CTRL_EXIT){enter =0 ;break;}
     00000B54 9413                   MOV.W       L1007+20,R4; H'753E
     00000B56 D20C                   MOV.L       L1007+30,R2; _key
     00000B58 6322                   MOV.L       @R2,R3
@@ -2241,6 +2056,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000B72 7532                   .DATA.W     H'7532
     00000B74 7539                   .DATA.W     H'7539
     00000B76 753A                   .DATA.W     H'753A
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   32
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000B78 753B                   .DATA.W     H'753B
     00000B7A 753C                   .DATA.W     H'753C
     00000B7C 753D                   .DATA.W     H'753D
@@ -2254,50 +2078,76 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000B98 <00000000>             .DATA.L     L572
     00000B9C <00000000>             .DATA.L     _Print
     00000BA0 <00000000>             .DATA.L     L573
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   35
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000BA4              L944:                             
+      Vertical s   302                                    else if (KEY_CTRL_F1) {enter = 1;break;}
     00000BA4 E401                   MOV         #1,R4
     00000BA6              L946:                             
+      Vertical s   303                            }while(1);
+      Vertical s   304                            if(enter)
     00000BA6 2448                   TST         R4,R4
     00000BA8 890B                   BT          L949
+      Vertical s   305                            {
+      Vertical s   306                                    if(setup_data.zdmroute_name[0]==0)
     00000BAA D232                   MOV.L       L1010+4,R2 ; H'00000011+_setup_data
     00000BAC 6320                   MOV.B       @R2,R3
     00000BAE 2338                   TST         R3,R3
     00000BB0 8B03                   BF          L950
+      Vertical s   307                                    {
+      Vertical s   308                                            WheterSavaAS3();
     00000BB2 BB37                   BSR         _WheterSavaAS3
     00000BB4 0009                   NOP
     00000BB6 A004                   BRA         L949
     00000BB8 0009                   NOP
     00000BBA              L950:                             
+      Vertical s   309                                    }
+      Vertical s   310                                    else
+      Vertical s   311                                    {
+      Vertical s   312                                            SaveSRDFile3(setup_data.zdmroute_name);
     00000BBA DE2F                   MOV.L       L1010+8,R14; _SaveSRDFile3
     00000BBC D42D                   MOV.L       L1010+4,R4 ; H'00000011+_setup_data
     00000BBE 4E0B                   JSR         @R14
     00000BC0 0009                   NOP
     00000BC2              L949:                             
+      Vertical s   313                                    }
+      Vertical s   314                            }
+      Vertical s   315                            return 0 ;
     00000BC2 A168                   BRA         L952
     00000BC4 E000                   MOV         #0,R0
     00000BC6              L792:                            ; case label 
+      Vertical s   316                    case KEY_CTRL_F1:                                       /* Set */
+      Vertical s   317                            refresh = REDRAW_ALL;
+      Vertical s   318                            Selectfile3();
     00000BC6 BBCB                   BSR         _Selectfile3
     00000BC8 E802                   MOV         #2,R8
+      Vertical s   319                            break;
     00000BCA A13A                   BRA         L942
     00000BCC 0009                   NOP
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   33
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000BCE              L793:                            ; case label 
+      Vertical s   320                    case KEY_CTRL_F2:                                       /* Add */
+      Vertical s   321                            zdmroute_push_back (&zdmroute);
     00000BCE D42B                   MOV.L       L1010+12,R4; _zdmroute
     00000BD0 D12B                   MOV.L       L1010+16,R1; _zdmroute_push_back
     00000BD2 410B                   JSR         @R1
     00000BD4 0009                   NOP
+      Vertical s   322                            y = zdmroute.size - 1;
     00000BD6 5EC1                   MOV.L       @(4,R12),R14
     00000BD8 A12D                   BRA         L989
     00000BDA 0009                   NOP
     00000BDC              L794:                            ; case label 
+      Vertical s   323                            refresh = REDRAW_ALL;
+      Vertical s   324                            break;
+      Vertical s   325                    case KEY_CTRL_F3:                                       /* ins */
+      Vertical s   326                            //if (y==0) break;
+      Vertical s   327                            zdmroute_insert (&zdmroute,y);
     00000BDC DA29                   MOV.L       L1010+20,R10; _zdmroute_insert
     00000BDE D427                   MOV.L       L1010+12,R4; _zdmroute
     00000BE0 4A0B                   JSR         @R10
@@ -2305,6 +2155,13 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000BE4 A129                   BRA         L990
     00000BE6 0009                   NOP
     00000BE8              L795:                            ; case label 
+      Vertical s   328                            y++;
+      Vertical s   329                            refresh = REDRAW_ALL;
+      Vertical s   330                            break;
+      Vertical s   331                    case KEY_CTRL_F4:                                       /* Del a point */
+      Vertical s   332                            //if (y==0) break;
+      Vertical s   333                            refresh = REDRAW_ALL;
+      Vertical s   334                            PopUpWin(4);DispStr(25,10,"É¾ ³ý Ò» ÐÐ?");
     00000BE8 D227                   MOV.L       L1010+24,R2; _PopUpWin
     00000BEA E802                   MOV         #2,R8
     00000BEC 420B                   JSR         @R2
@@ -2313,6 +2170,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000BF2 E50A                   MOV         #10,R5
     00000BF4 490B                   JSR         @R9
     00000BF6 E419                   MOV         #25,R4
+      Vertical s   335                            locate(3,5);Print("[F1]Yes   [F6]No");
     00000BF8 D325                   MOV.L       L1010+32,R3; _locate
     00000BFA E505                   MOV         #5,R5
     00000BFC 430B                   JSR         @R3
@@ -2320,34 +2178,43 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C00 D424                   MOV.L       L1010+36,R4; L686
     00000C02 D225                   MOV.L       L1010+40,R2; _Print
     00000C04 420B                   JSR         @R2
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   36
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000C06 0009                   NOP
+      Vertical s   336                            GetKey(&key);
     00000C08 D424                   MOV.L       L1010+44,R4; _key
     00000C0A 4A0B                   JSR         @R10
     00000C0C 0009                   NOP
+      Vertical s   337                            if (key==KEY_CTRL_F1){
     00000C0E 932F                   MOV.W       L1010,R3   ; H'7539
     00000C10 D122                   MOV.L       L1010+44,R1; _key
     00000C12 6212                   MOV.L       @R1,R2
     00000C14 3230                   CMP/EQ      R3,R2
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   34
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000C16 8901                   BT          L1011
     00000C18 A113                   BRA         L942
     00000C1A 0009                   NOP
     00000C1C              L1011:                            
+      Vertical s   338                                    zdmroute_del(&zdmroute,y);y--;
     00000C1C DA20                   MOV.L       L1010+48,R10; _zdmroute_del
     00000C1E D417                   MOV.L       L1010+12,R4; _zdmroute
     00000C20 4A0B                   JSR         @R10
     00000C22 65E3                   MOV         R14,R5
+      Vertical s   339                            }
+      Vertical s   340                            break;
     00000C24 A10D                   BRA         L942
     00000C26 7EFF                   ADD         #-1,R14
     00000C28              L798:                            ; case label 
+      Vertical s   341                            
+      Vertical s   342                     case KEY_CTRL_F5:                                      /* Del All */
+      Vertical s   343                            refresh = REDRAW_ALL;
+      Vertical s   344                            PopUpWin(4);DispStr(25,10,"Çå ¿Õ Ëù ÓÐ ?");
     00000C28 D217                   MOV.L       L1010+24,R2; _PopUpWin
     00000C2A E802                   MOV         #2,R8
     00000C2C 420B                   JSR         @R2
@@ -2356,6 +2223,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C32 E50A                   MOV         #10,R5
     00000C34 490B                   JSR         @R9
     00000C36 E419                   MOV         #25,R4
+      Vertical s   345                            locate(3,5);Print("[F1]Yes   [F6]No");
     00000C38 D315                   MOV.L       L1010+32,R3; _locate
     00000C3A E505                   MOV         #5,R5
     00000C3C 430B                   JSR         @R3
@@ -2364,9 +2232,11 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C42 D215                   MOV.L       L1010+40,R2; _Print
     00000C44 420B                   JSR         @R2
     00000C46 0009                   NOP
+      Vertical s   346                            GetKey(&key);
     00000C48 D414                   MOV.L       L1010+44,R4; _key
     00000C4A 4A0B                   JSR         @R10
     00000C4C 0009                   NOP
+      Vertical s   347                            if (key==KEY_CTRL_F1){
     00000C4E 930F                   MOV.W       L1010,R3   ; H'7539
     00000C50 D112                   MOV.L       L1010+44,R1; _key
     00000C52 6212                   MOV.L       @R1,R2
@@ -2375,26 +2245,30 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C58 A0F3                   BRA         L942
     00000C5A 0009                   NOP
     00000C5C              L1012:                            
+      Vertical s   348                                    zdmroute_initial(&zdmroute);
     00000C5C DA12                   MOV.L       L1010+56,R10; _zdmroute_initial
     00000C5E D407                   MOV.L       L1010+12,R4; _zdmroute
     00000C60 4A0B                   JSR         @R10
     00000C62 0009                   NOP
+      Vertical s   349                        zdmroute_push_back(&zdmroute);
     00000C64 D405                   MOV.L       L1010+12,R4; _zdmroute
     00000C66 D306                   MOV.L       L1010+16,R3; _zdmroute_push_back
     00000C68 430B                   JSR         @R3
-    00000C6A 0009                   NOP
-    00000C6C A0E9                   BRA         L942
-    00000C6E 0009                   NOP
-    00000C70              L1010:                            
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   37
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   35
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    00000C6A 0009                   NOP
+      Vertical s   350                            }
+      Vertical s   351                            break;
+    00000C6C A0E9                   BRA         L942
+    00000C6E 0009                   NOP
+    00000C70              L1010:                            
     00000C70 7539                   .DATA.W     H'7539
     00000C72 0000                   .DATA.W     0
     00000C74 <00000011>             .DATA.L     H'00000011+_setup_data
@@ -2412,10 +2286,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000CA4 <00000000>             .DATA.L     L688
     00000CA8 <00000000>             .DATA.L     _zdmroute_initial
     00000CAC              L800:                            ; case label 
+      Vertical s   352    
+      Vertical s   353             case KEY_CTRL_F6:
+      Vertical s   354                        refresh = REDRAW_ALL;
+      Vertical s   355                            PopUpWin(4);
     00000CAC D140                   MOV.L       L1013+12,R1; _PopUpWin
     00000CAE E802                   MOV         #2,R8
     00000CB0 410B                   JSR         @R1
     00000CB2 E404                   MOV         #4,R4
+      Vertical s   356                            PrintfXY (15,10,0,"%.3f",zdmroute.set[1].zdm_bbgc);  
     00000CB4 63C2                   MOV.L       @R12,R3
     00000CB6 E600                   MOV         #0,R6
     00000CB8 D13E                   MOV.L       L1013+16,R1; L690
@@ -2429,9 +2308,11 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000CC8 2F16                   MOV.L       R1,@-R15
     00000CCA 430B                   JSR         @R3
     00000CCC E40F                   MOV         #15,R4
+      Vertical s   357                            GetKey(&key);
     00000CCE D43B                   MOV.L       L1013+24,R4; _key
     00000CD0 4A0B                   JSR         @R10
     00000CD2 0009                   NOP
+      Vertical s   358                            PrintfXY (15,20,0,"%.3f",zdmroute.set[2].zdm_bbgc);  
     00000CD4 62C2                   MOV.L       @R12,R2
     00000CD6 E600                   MOV         #0,R6
     00000CD8 D136                   MOV.L       L1013+16,R1; L690
@@ -2439,28 +2320,30 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000CDC 7258                   ADD         #88,R2
     00000CDE 5326                   MOV.L       @(24,R2),R3
     00000CE0 2F36                   MOV.L       R3,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   36
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000CE2 5325                   MOV.L       @(20,R2),R3
     00000CE4 2F36                   MOV.L       R3,@-R15
     00000CE6 2F16                   MOV.L       R1,@-R15
     00000CE8 D333                   MOV.L       L1013+20,R3; _PrintfXY
     00000CEA 430B                   JSR         @R3
     00000CEC E40F                   MOV         #15,R4
+      Vertical s   359                            GetKey(&key);
     00000CEE D433                   MOV.L       L1013+24,R4; _key
     00000CF0 4A0B                   JSR         @R10
     00000CF2 0009                   NOP
+      Vertical s   360                            PrintfXY (15,30,0,"%.3f",zdmroute.set[3].zdm_bbgc);  
     00000CF4 9356                   MOV.W       L1013,R3   ; H'0084
     00000CF6 E600                   MOV         #0,R6
     00000CF8 62C2                   MOV.L       @R12,R2
     00000CFA E51E                   MOV         #30,R5
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   38
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000CFC D02D                   MOV.L       L1013+16,R0; L690
     00000CFE 323C                   ADD         R3,R2
     00000D00 5126                   MOV.L       @(24,R2),R1
@@ -2471,28 +2354,52 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000D0A D22B                   MOV.L       L1013+20,R2; _PrintfXY
     00000D0C 420B                   JSR         @R2
     00000D0E E40F                   MOV         #15,R4
+      Vertical s   361                            GetKey(&key);
     00000D10 D42A                   MOV.L       L1013+24,R4; _key
     00000D12 4A0B                   JSR         @R10
     00000D14 7F24                   ADD         #36,R15
+      Vertical s   362                            //PrintfXY (70,30,0,"%.3f",route.set[0].xy_zr);  
+      Vertical s   363                            DispStr(15,10,"ÏßÂ·Ãû³Æ");
     00000D16 E50A                   MOV         #10,R5
     00000D18 D629                   MOV.L       L1013+28,R6; L691
     00000D1A 490B                   JSR         @R9
     00000D1C E40F                   MOV         #15,R4
+      Vertical s   364                            if(setup_data.zdmroute_name[0]==0)
     00000D1E D329                   MOV.L       L1013+32,R3; H'00000011+_setup_data
     00000D20 6230                   MOV.B       @R3,R2
     00000D22 2228                   TST         R2,R2
     00000D24 8B03                   BF          L955
+      Vertical s   365                            {
+      Vertical s   366                             DispStr(25,27,"Çë±£´æÏßÂ·ÎÄ¼þ ");
     00000D26 E51B                   MOV         #27,R5
     00000D28 D627                   MOV.L       L1013+36,R6; L693
     00000D2A 490B                   JSR         @R9
     00000D2C E419                   MOV         #25,R4
     00000D2E              L955:                             
+      Vertical s   367                            }
+      Vertical s   368                             //else
+      Vertical s   369                            //{
+      Vertical s   370                 //DispStr(25,27,setup_data.zdmroute_name);
+      Vertical s   371                            //}
+      Vertical s   372                            GetKey(&key);
     00000D2E D423                   MOV.L       L1013+24,R4; _key
     00000D30 4A0B                   JSR         @R10
     00000D32 0009                   NOP
+      Vertical s   373                    break;  
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   37
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000D34 A085                   BRA         L942
     00000D36 0009                   NOP
     00000D38              L804:                            ; default label 
+      Vertical s   374                    default:                                                        /*other things*/
+      Vertical s   375                            if (x>0 && (c=GetPressNumChar(key))!=0){
     00000D38 D924                   MOV.L       L1013+40,R9; _InputString
     00000D3A 4B15                   CMP/PL      R11
     00000D3C 9A33                   MOV.W       L1013+2,R10; H'7532
@@ -2504,6 +2411,13 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000D48 600E                   EXTS.B      R0,R0
     00000D4A 2008                   TST         R0,R0
     00000D4C 8944                   BT          L956
+      Vertical s   376                                    char buffer[14];
+      Vertical s   377                                    int r;
+      Vertical s   378                                    //if (y==0 && x > 2)break;
+      Vertical s   379                                    buffer[0] = c;
+      Vertical s   380                                    buffer[1] = '\0';
+      Vertical s   381                                    buffer[1] = '\0';
+      Vertical s   382                                    r = InputString(49,42,buffer,0,12);
     00000D4E E700                   MOV         #0,R7
     00000D50 52FD                   MOV.L       @(52,R15),R2
     00000D52 E52A                   MOV         #42,R5
@@ -2518,21 +2432,16 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000D64 66F3                   MOV         R15,R6
     00000D66 7644                   ADD         #68,R6
     00000D68 490B                   JSR         @R9
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   39
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000D6A E431                   MOV         #49,R4
     00000D6C 6903                   MOV         R0,R9
+      Vertical s   383                                    if (r!=KEY_CTRL_EXIT){
     00000D6E 39A0                   CMP/EQ      R10,R9
     00000D70 8D66                   BT/S        L724
     00000D72 7F04                   ADD         #4,R15
+      Vertical s   384                                            double * sd;
+      Vertical s   385                                            sd =  (double*)&(zdmroute.set[y].zdm_bbzh);
     00000D74 53F3                   MOV.L       @(12,R15),R3
+      Vertical s   386                                            sd[x-1] = atof(buffer);
     00000D76 64F3                   MOV         R15,R4
     00000D78 6AC2                   MOV.L       @R12,R10
     00000D7A 7440                   ADD         #64,R4
@@ -2543,6 +2452,16 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000D84 3A3C                   ADD         R3,R10
     00000D86 480B                   JSR         @R8
     00000D88 2FA6                   MOV.L       R10,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   38
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      Vertical s   387                                            switch(r){
     00000D8A 6093                   MOV         R9,R0
     00000D8C 910C                   MOV.W       L1013+4,R1 ; H'7542
     00000D8E 3010                   CMP/EQ      R1,R0
@@ -2556,6 +2475,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000D9E 8B4F                   BF          L724
     00000DA0              L807:                            ; case label 
     00000DA0 A04E                   BRA         L724
+      Vertical s   388                                            case KEY_CTRL_UP:       y--;break;
+      Vertical s   389                                            case KEY_CTRL_DOWN:     y++;break;
+      Vertical s   390                                            case KEY_CTRL_EXE:      x++;break;
     00000DA2 7B01                   ADD         #1,R11
     00000DA4              L1013:                            
     00000DA4 0084                   .DATA.W     H'0084
@@ -2575,6 +2497,11 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000DD0 <00000000>             .DATA.L     _GetPressNumChar
     00000DD4 <00000000>             .DATA.L     _atof
     00000DD8              L956:                             
+      Vertical s   391                                            }
+      Vertical s   392                                    }
+      Vertical s   393                                    refresh = REDRAW_ALL;
+      Vertical s   394                            }
+      Vertical s   395                            else if (x==0 && (c=GetPressChar(key))!=0){
     00000DD8 2BB8                   TST         R11,R11
     00000DDA 8B32                   BF          L942
     00000DDC D33A                   MOV.L       L1014+8,R3 ; _key
@@ -2584,17 +2511,22 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000DE4 80F8                   MOV.B       R0,@(8,R15)
     00000DE6 600E                   EXTS.B      R0,R0
     00000DE8 2008                   TST         R0,R0
+    00000DEA 892A                   BT          L942
+      Vertical s   396                                    char buffer[14];
+      Vertical s   397                                    int r;
+      Vertical s   398                                    buffer[0] = c;
+    00000DEC 52FE                   MOV.L       @(56,R15),R2
+      Vertical s   399                                    buffer[1] = '\0';
+      Vertical s   400                                    r = InputString(49,42,buffer,1,12);
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   40
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   39
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    00000DEA 892A                   BT          L942
-    00000DEC 52FE                   MOV.L       @(56,R15),R2
     00000DEE E701                   MOV         #1,R7
     00000DF0 84F8                   MOV.B       @(8,R15),R0
     00000DF2 E52A                   MOV         #42,R5
@@ -2608,9 +2540,11 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000E02 490B                   JSR         @R9
     00000E04 E431                   MOV         #49,R4
     00000E06 6903                   MOV         R0,R9
+      Vertical s   401                                    if (r!=KEY_CTRL_EXIT){
     00000E08 39A0                   CMP/EQ      R10,R9
     00000E0A 8D19                   BT/S        L724
     00000E0C 7F04                   ADD         #4,R15
+      Vertical s   402                                            strncpy(zdmroute.set[y].name,buffer,12);
     00000E0E E60C                   MOV         #12,R6
     00000E10 53F3                   MOV.L       @(12,R15),R3
     00000E12 65F3                   MOV         R15,R5
@@ -2619,6 +2553,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000E18 DA2D                   MOV.L       L1014+16,R10; _strncpy
     00000E1A 4A0B                   JSR         @R10
     00000E1C 343C                   ADD         R3,R4
+      Vertical s   403                                            switch(r){
     00000E1E 6093                   MOV         R9,R0
     00000E20 914E                   MOV.W       L1014,R1   ; H'7542
     00000E22 3010                   CMP/EQ      R1,R0
@@ -2632,40 +2567,53 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000E32 A005                   BRA         L724
     00000E34 0009                   NOP
     00000E36              L808:                            ; case label 
+      Vertical s   404                                            case KEY_CTRL_UP:       y--;break;
     00000E36              L989:                             
     00000E36 A003                   BRA         L724
     00000E38 7EFF                   ADD         #-1,R14
     00000E3A              L809:                            ; case label 
+      Vertical s   405                                            case KEY_CTRL_DOWN:     y++;break;
     00000E3A              L990:                             
     00000E3A A001                   BRA         L724
     00000E3C 7E01                   ADD         #1,R14
     00000E3E              L810:                            ; case label 
+      Vertical s   406                                            case KEY_CTRL_EXE:      x++;break;
     00000E3E 7B01                   ADD         #1,R11
     00000E40              L724:
+      Vertical s   407                                            }
+      Vertical s   408                                    }
+      Vertical s   409                                    refresh = REDRAW_ALL;
     00000E40 E802                   MOV         #2,R8
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   40
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      Vertical s   410                            }
+      Vertical s   411                            break;
     00000E42              L942:                             
+      Vertical s   412                    }
+      Vertical s   413                    if (x<0) x = 3,y--;
     00000E42 4B11                   CMP/PZ      R11
     00000E44 8D02                   BT/S        L963
     00000E46 E403                   MOV         #3,R4
     00000E48 6B43                   MOV         R4,R11
     00000E4A 7EFF                   ADD         #-1,R14
     00000E4C              L963:                             
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   41
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
+      Vertical s   414                    if (x>3) x = 0,y++;
     00000E4C 3B47                   CMP/GT      R4,R11
     00000E4E 8B01                   BF          L964
     00000E50 6BD3                   MOV         R13,R11
     00000E52 7E01                   ADD         #1,R14
     00000E54              L964:                             
+      Vertical s   415                    if (y<0) y = 0;
     00000E54 4E11                   CMP/PZ      R14
     00000E56 8D01                   BT/S        L965
+      Vertical s   416                    if (y>=zdmroute.size) y = zdmroute.size - 1;
     00000E58 52C1                   MOV.L       @(4,R12),R2
     00000E5A 6ED3                   MOV         R13,R14
     00000E5C              L965:                             
@@ -2674,6 +2622,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000E60 5EC1                   MOV.L       @(4,R12),R14
     00000E62 7EFF                   ADD         #-1,R14
     00000E64              L966:                             
+      Vertical s   417                    if (y>top + 3) top = y - 3;
     00000E64 52F1                   MOV.L       @(4,R15),R2
     00000E66 7203                   ADD         #3,R2
     00000E68 3E27                   CMP/GT      R2,R14
@@ -2682,11 +2631,13 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000E6E 72FD                   ADD         #-3,R2
     00000E70 1F21                   MOV.L       R2,@(4,R15)
     00000E72              L967:                             
+      Vertical s   418                    if (y<top) top = y;
     00000E72 53F1                   MOV.L       @(4,R15),R3
     00000E74 3E33                   CMP/GE      R3,R14
     00000E76 8900                   BT          L968
     00000E78 1FE1                   MOV.L       R14,@(4,R15)
     00000E7A              L968:                             
+      Vertical s   419                    if (x>left +3) left = x - 3;
     00000E7A 63F2                   MOV.L       @R15,R3
     00000E7C 7303                   ADD         #3,R3
     00000E7E 3B37                   CMP/GT      R3,R11
@@ -2695,15 +2646,27 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000E84 72FD                   ADD         #-3,R2
     00000E86 2F22                   MOV.L       R2,@R15
     00000E88              L969:                             
+      Vertical s   420                    if (x<left) left = x;
     00000E88 63F2                   MOV.L       @R15,R3
     00000E8A 3B33                   CMP/GE      R3,R11
     00000E8C 8B01                   BF          L1015
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   41
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000E8E ACB0                   BRA         L910
     00000E90 0009                   NOP
     00000E92              L1015:                            
     00000E92 ACAE                   BRA         L910
     00000E94 2FB2                   MOV.L       R11,@R15
     00000E96              L952:                             
+      Vertical s   421            }
+      Vertical s   422    }
     00000E96 9116                   MOV.W       L1014+6,R1 ; H'0094
     00000E98 3F1C                   ADD         R1,R15
     00000E9A 4F16                   LDS.L       @R15+,MACL
@@ -2716,19 +2679,17 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000EA8 6DF6                   MOV.L       @R15+,R13
     00000EAA 000B                   RTS
     00000EAC 6EF6                   MOV.L       @R15+,R14
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   42
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
+      Vertical s   423    
+      Vertical s   424    double zdm_to_gc( double stake)
     00000EAE              _zdm_to_gc:                      ; function: zdm_to_gc
                                                            ; frame size=116
                                                            ; used runtime library name:
                                                            ; __addd, __subdr, __muld, __divdr, __itod, __eqd, __gtd, __ged
+      Vertical s   425    {
+      Vertical s   426            int i; 
+      Vertical s   427            double qxc,length,gc;
+      Vertical s   428            double I1,I2,bad,cave_vex;
+      Vertical s   429            for(i=1;i<zdmroute.size-1;i++)
     00000EAE E62C                   MOV         #44,R6
     00000EB0 2FE6                   MOV.L       R14,@-R15
     00000EB2 2FD6                   MOV.L       R13,@-R15
@@ -2755,6 +2716,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000EE0 02FE                   MOV.L       @(R0,R15),R2
     00000EE2 071A                   STS         MACL,R7
     00000EE4 2F26                   MOV.L       R2,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   42
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000EE6 E050                   MOV         #80,R0
     00000EE8 02FE                   MOV.L       @(R0,R15),R2
     00000EEA 3D7C                   ADD         R7,R13
@@ -2782,17 +2752,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000F16 8B01                   BF          L1017
     00000F18 A120                   BRA         L974
     00000F1A 0009                   NOP
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   43
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000F1C              L1017:                            
     00000F1C              L973:                             
+      Vertical s   430            {
+      Vertical s   431                    if(stake>zdmroute.set[i].zdm_zdzh && zdmroute.set[i+1].zdm_r!=0)
+      Vertical s   432                            continue;
+      Vertical s   433                    else{
+      Vertical s   434                            
+      Vertical s   435                            I1 = (zdmroute.set[i].zdm_bbgc-zdmroute.set[i-1].zdm_bbgc)/(zdmroute.set[i].zdm_bb
+                         +zh-zdmroute.set[i-1].zdm_bbzh);//Ç°×ÝÆÂ
     00000F1C D19C                   MOV.L       L1016+8,R1 ; __subdr
     00000F1E 7FF8                   ADD         #-8,R15
     00000F20 64E3                   MOV         R14,R4
@@ -2814,6 +2782,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000F40 7210                   ADD         #16,R2
     00000F42 410B                   JSR         @R1
     00000F44 2F26                   MOV.L       R2,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   43
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000F46 7FF8                   ADD         #-8,R15
     00000F48 D191                   MOV.L       L1016+8,R1 ; __subdr
     00000F4A 5344                   MOV.L       @(16,R4),R3
@@ -2833,6 +2810,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000F66 7028                   ADD         #40,R0
     00000F68 420B                   JSR         @R2
     00000F6A 2F06                   MOV.L       R0,@-R15
+      Vertical s   436                            I2 =(zdmroute.set[i+1].zdm_bbgc-zdmroute.set[i].zdm_bbgc)/(zdmroute.set[i+1].zdm_b
+                         +bzh-zdmroute.set[i].zdm_bbzh); //ºó×ÝÆÂ
     00000F6C D188                   MOV.L       L1016+8,R1 ; __subdr
     00000F6E 7FF8                   ADD         #-8,R15
     00000F70 6543                   MOV         R4,R5
@@ -2848,15 +2827,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000F84 63F3                   MOV         R15,R3
     00000F86 7310                   ADD         #16,R3
     00000F88 410B                   JSR         @R1
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   44
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000F8A 2F36                   MOV.L       R3,@-R15
     00000F8C D180                   MOV.L       L1016+8,R1 ; __subdr
     00000F8E 7FF8                   ADD         #-8,R15
@@ -2877,6 +2847,16 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000FAC 7020                   ADD         #32,R0
     00000FAE 430B                   JSR         @R3
     00000FB0 2F06                   MOV.L       R0,@-R15
+      Vertical s   437                            bad = I2 - I1;
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   44
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000FB2 52F5                   MOV.L       @(20,R15),R2
     00000FB4 2F26                   MOV.L       R2,@-R15
     00000FB6 52F5                   MOV.L       @(20,R15),R2
@@ -2890,6 +2870,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000FC6 7118                   ADD         #24,R1
     00000FC8 420B                   JSR         @R2
     00000FCA 2F16                   MOV.L       R1,@-R15
+      Vertical s   438                            cave_vex = zdmroute.set[i].zdm_r * (bad>=0?1:-1);
     00000FCC 5348                   MOV.L       @(32,R4),R3
     00000FCE 2F36                   MOV.L       R3,@-R15
     00000FD0 5347                   MOV.L       @(28,R4),R3
@@ -2914,20 +2895,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000FF2 D26A                   MOV.L       L1016+20,R2; __itod
     00000FF4 420B                   JSR         @R2
     00000FF6 2FF6                   MOV.L       R15,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   45
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000FF8 D369                   MOV.L       L1016+24,R3; __muld
     00000FFA 61F3                   MOV         R15,R1
     00000FFC 7110                   ADD         #16,R1
     00000FFE 430B                   JSR         @R3
     00001000 2F16                   MOV.L       R1,@-R15
+      Vertical s   439                            qxc = zdmroute.set[i].zdm_zdzh - zdmroute.set[i].zdm_bbzh;  
     00001002 524A                   MOV.L       @(40,R4),R2
     00001004 2F26                   MOV.L       R2,@-R15
     00001006 5249                   MOV.L       @(36,R4),R2
@@ -2941,6 +2914,16 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001016 7140                   ADD         #64,R1
     00001018 420B                   JSR         @R2
     0000101A 2F16                   MOV.L       R1,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   45
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      Vertical s   440                            length = stake - zdmroute.set[i].zdm_bbzh;    
     0000101C E050                   MOV         #80,R0
     0000101E 03FE                   MOV.L       @(R0,R15),R3
     00001020 2F36                   MOV.L       R3,@-R15
@@ -2956,6 +2939,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001034 7138                   ADD         #56,R1
     00001036 430B                   JSR         @R3
     00001038 2F16                   MOV.L       R1,@-R15
+      Vertical s   441                            gc = zdmroute.set[i].zdm_bbgc+I1*length;
     0000103A 5246                   MOV.L       @(24,R4),R2
     0000103C D158                   MOV.L       L1016+24,R1; __muld
     0000103E 2F26                   MOV.L       R2,@-R15
@@ -2979,16 +2963,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001062 7030                   ADD         #48,R0
     00001064 420B                   JSR         @R2
     00001066 2F06                   MOV.L       R0,@-R15
+      Vertical s   442                            length=length+qxc; //
     00001068 53FD                   MOV.L       @(52,R15),R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   46
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000106A 2F36                   MOV.L       R3,@-R15
     0000106C 53FD                   MOV.L       @(52,R15),R3
     0000106E 2F36                   MOV.L       R3,@-R15
@@ -3001,8 +2977,18 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000107C 7138                   ADD         #56,R1
     0000107E 430B                   JSR         @R3
     00001080 2F16                   MOV.L       R1,@-R15
+      Vertical s   443                            if(length>0)
     00001082 E300                   MOV         #0,R3
     00001084 52FB                   MOV.L       @(44,R15),R2
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   46
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00001086 2F26                   MOV.L       R2,@-R15
     00001088 52FB                   MOV.L       @(44,R15),R2
     0000108A 2F26                   MOV.L       R2,@-R15
@@ -3012,6 +2998,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001092 2F36                   MOV.L       R3,@-R15
     00001094 8800                   CMP/EQ      #0,R0
     00001096 892E                   BT          L978
+      Vertical s   444                                    gc = gc+length*length/2.0/cave_vex; 
     00001098 D141                   MOV.L       L1016+24,R1; __muld
     0000109A 7FE8                   ADD         #-24,R15
     0000109C E044                   MOV         #68,R0
@@ -3046,15 +3033,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000010D6 2F26                   MOV.L       R2,@-R15
     000010D8 63F3                   MOV         R15,R3
     000010DA 7310                   ADD         #16,R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   47
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000010DC 410B                   JSR         @R1
     000010DE 2F36                   MOV.L       R3,@-R15
     000010E0 52FB                   MOV.L       @(44,R15),R2
@@ -3068,7 +3046,18 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000010F0 2F16                   MOV.L       R1,@-R15
     000010F2 A03A                   BRA         L981
     000010F4 0009                   NOP
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   47
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000010F6              L978:                             
+      Vertical s   445                            else{
+      Vertical s   446                                    length = length - qxc;
     000010F6 50FB                   MOV.L       @(44,R15),R0
     000010F8 D225                   MOV.L       L1016+8,R2 ; __subdr
     000010FA 2F06                   MOV.L       R0,@-R15
@@ -3082,6 +3071,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000110A 7138                   ADD         #56,R1
     0000110C 420B                   JSR         @R2
     0000110E 2F16                   MOV.L       R1,@-R15
+      Vertical s   447                                    if(length>qxc)
     00001110 53FB                   MOV.L       @(44,R15),R3
     00001112 2F36                   MOV.L       R3,@-R15
     00001114 53FB                   MOV.L       @(44,R15),R3
@@ -3094,6 +3084,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001122 2F26                   MOV.L       R2,@-R15
     00001124 8800                   CMP/EQ      #0,R0
     00001126 8920                   BT          L981
+      Vertical s   448                                    gc = zdmroute.set[i].zdm_bbgc+I2*length; 
     00001128 D11D                   MOV.L       L1016+24,R1; __muld
     0000112A 37EC                   ADD         R14,R7
     0000112C 5276                   MOV.L       @(24,R7),R2
@@ -3112,21 +3103,25 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001146 63F3                   MOV         R15,R3
     00001148 7310                   ADD         #16,R3
     0000114A 410B                   JSR         @R1
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   48
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000114C 2F36                   MOV.L       R3,@-R15
     0000114E 60F3                   MOV         R15,R0
     00001150 D214                   MOV.L       L1016+28,R2; __addd
     00001152 7030                   ADD         #48,R0
     00001154 420B                   JSR         @R2
     00001156 2F06                   MOV.L       R0,@-R15
+      Vertical s   449                              
+      Vertical s   450                            }
+      Vertical s   451                    }
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   48
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      Vertical s   452             break;
     00001158 A007                   BRA         L981
     0000115A 0009                   NOP
     0000115C              L974:                             
@@ -3140,6 +3135,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001168 0009                   NOP
     0000116A              L1018:                            
     0000116A              L981:                             
+      Vertical s   453            }
+      Vertical s   454             
+      Vertical s   455             return gc;
     0000116A 62F3                   MOV         R15,R2
     0000116C 7248                   ADD         #72,R2
     0000116E 63F3                   MOV         R15,R3
@@ -3149,6 +3147,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00001176 2102                   MOV.L       R0,@R1
     00001178 5031                   MOV.L       @(4,R3),R0
     0000117A 1101                   MOV.L       R0,@(4,R1)
+      Vertical s   456    }
     0000117C 7F38                   ADD         #56,R15
     0000117E 4F16                   LDS.L       @R15+,MACL
     00001180 4F26                   LDS.L       @R15+,PR
@@ -3165,6 +3164,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000011A0 <00000000>             .DATA.L     __muld
     000011A4 <00000000>             .DATA.L     __addd
     000011A8 40000000               .DATA.L     H'40000000
+      Vertical s   457    
 C   00000000              L567:
     00000000 2564                   .SDATA      "%d"
     00000002 00                     .DATA.B     H'00
@@ -3182,7 +3182,7 @@ C   00000000              L567:
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   49
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   49
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -3248,7 +3248,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   50
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   50
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -3314,7 +3314,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   51
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   51
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -3380,7 +3380,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE   52
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   52
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -3446,7 +3446,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:22  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    1
 
 
 ******** STATISTICS INFORMATION ********
@@ -3455,7 +3455,7 @@ SH SERIES C/C++ Compiler (Ver. 6.0C)                                            
 ********** ERROR INFORMATION ***********
 
 NUMBER OF ERRORS:           0
-NUMBER OF WARNINGS:        35
+NUMBER OF WARNINGS:        17
 
 
 
@@ -3515,5 +3515,5 @@ NUMBER OF INTERNAL/EXTERNAL SYMBOLS:           251
 *** COMMAND PARAMETER ***
 
 
-  -subcommand=C:\Users\ADMINI~1\AppData\Local\Temp\hmk8E2E.tmp 
+  -subcommand=C:\Users\¿­Åô\AppData\Local\Temp\hmk1153.tmp 
 

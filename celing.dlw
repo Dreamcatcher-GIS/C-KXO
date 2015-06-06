@@ -3,20 +3,20 @@
 [_1]
 Type=5
 Order=0
-Top=240
-Left=-75
-Height=8760
-Width=10230
+Top=330
+Left=1635
+Height=10710
+Width=9810
 State=0
 Flags=00000020
-Setting=15:1:Intersection_parameter.c
+Setting=241:39:Plane_parameter.c
 OptionA=0
 
 [_2]
 Type=1
 Order=2
-Top=-120
-Left=10425
+Top=45
+Left=11505
 Height=4410
 Width=5340
 State=0
@@ -27,33 +27,33 @@ OptionB=15
 [_3]
 Type=6
 Order=1
-Top=3795
-Left=10680
-Height=10230
-Width=5025
+Top=4470
+Left=11355
+Height=6885
+Width=5715
 State=0
 Flags=00000001
 OptionA=0
 
 [_4]
 Type=7
-Order=5
-Top=735
-Left=5280
-Height=4395
+Order=7
+Top=375
+Left=9900
+Height=4500
 Width=5760
-State=0
+State=16
 Flags=00000000
 OptionA=0
 
 [_5]
 Type=8
 Order=6
-Top=5385
-Left=5445
-Height=5010
+Top=5115
+Left=9615
+Height=4980
 Width=6285
-State=0
+State=16
 Flags=00000000
 OptionA=0
 
@@ -93,8 +93,8 @@ OptionA=0
 [_9]
 Type=15
 Order=3
-Top=-225
-Left=-555
+Top=195
+Left=-150
 Height=11010
 Width=10035
 State=0
@@ -205,14 +205,14 @@ OptionA=0
 
 [_35]
 Type=16
-Order=7
-Top=2025
-Left=2415
+Order=4
+Top=7365
+Left=1515
 Height=6420
 Width=9885
-State=16
+State=0
 Flags=00000020
-Setting=323:3:MyMenu.c
+Setting=240:1:C:\Users\凯鹏\Desktop\2015-06-4交点法转线元推链表\Plane_parameter.c
 OptionA=0
 
 [_36]
@@ -240,14 +240,14 @@ OptionA=0
 
 [_38]
 Type=16
-Order=4
-Top=-45
-Left=-45
+Order=5
+Top=540
+Left=420
 Height=11700
 Width=8655
 State=0
 Flags=00000020
-Setting=237:9:Plane_parameter.c
+Setting=231:2:Plane_parameter.c
 OptionA=0
 
 [_39]

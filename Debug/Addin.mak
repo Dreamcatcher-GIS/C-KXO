@@ -3,10 +3,10 @@
 #
 ############################
 # Directory defines
-TCDIR = C:\Program Files\CASIO\fx-9860G SDK\OS\SH
-OSDIR = C:\Program Files\CASIO\fx-9860G SDK\OS
-APPDIR = C:\Users\Administrator\Desktop\2015-06-6交点法转线元推链表\2015-06-4交点法转线元推链表
-OUTDIR = C:\Users\Administrator\Desktop\2015-06-6交点法转线元推链表\2015-06-4交点法转线元推链表\Debug
+TCDIR = D:\SoftWare\fx-9860G SDK\OS\SH
+OSDIR = D:\SoftWare\fx-9860G SDK\OS
+APPDIR = F:\ProgramOfUniversity\C-KXO\C-KXO
+OUTDIR = F:\ProgramOfUniversity\C-KXO\C-KXO\Debug
 
 ################
 # Main Defines

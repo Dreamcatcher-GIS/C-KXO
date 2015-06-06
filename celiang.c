@@ -136,7 +136,6 @@ int AddIn_main(int isAppli, unsigned short OptionNum)
 	zdmroute_push_back(&zdmroute);
 	
 	pmroute_initial(&pmroute);
-	pmroute_push_back(&pmroute);	
 	LoadInit(); //加载测计师注册版
 	
 	//LoadLastDataFile(); //加载要素表格

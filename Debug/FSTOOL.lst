@@ -1,12 +1,26 @@
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:07  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:46  PAGE    1
 
 ************ OBJECT LISTING ************
 
-FILE NAME: C:\Users\Administrator\Desktop\2015-06-6½»µã·¨×ªÏßÔªÍÆÁ´±í\2015-06-4½»µã·¨×ªÏßÔªÍÆÁ´±í\FSTOOL.c
+FILE NAME: F:\ProgramOfUniversity\C-KXO\C-KXO\FSTOOL.c
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
         FSTOOL.c     1    #include "headfile.h"
+
+
+
+
+
+
+
+
+
+
+
+
+        FSTOOL.c     2    
+        FSTOOL.c     3    int FSTOOL ()
 P   00000000              _FSTOOL:                         ; function: FSTOOL
                                                            ; frame size=252
                                                            ; used runtime library name:
@@ -17,6 +31,12 @@ P   00000000              _FSTOOL:                         ; function: FSTOOL
     00000006 2FB6                   MOV.L       R11,@-R15
     00000008 2FA6                   MOV.L       R10,@-R15
     0000000A EB00                   MOV         #0,R11
+        FSTOOL.c     4    {
+        FSTOOL.c     5            uint refresh = 2,key;
+        FSTOOL.c     6            int  index = 0,i;
+        FSTOOL.c     7            char ch;
+        FSTOOL.c     8            double fsx1,fsx2,fsy1,fsy2,fsd,fsv;
+        FSTOOL.c     9            double value[4] = {0.0,0.0,0.0,0.0};
     0000000C D235                   MOV.L       L598+4,R2  ; L510
     0000000E 6EB3                   MOV         R11,R14
     00000010 D335                   MOV.L       L598+8,R3  ; __quick_evn_mvn
@@ -33,6 +53,7 @@ P   00000000              _FSTOOL:                         ; function: FSTOOL
     00000026 7148                   ADD         #72,R1
     00000028 430B                   JSR         @R3
     0000002A E020                   MOV         #32,R0
+        FSTOOL.c    10            const char * context[] = {"X1=:","Y1=:","X2=:","Y2=:"};
     0000002C D22F                   MOV.L       L598+12,R2 ; L512
     0000002E 64F3                   MOV         R15,R4
     00000030 D32D                   MOV.L       L598+8,R3  ; __quick_evn_mvn
@@ -51,6 +72,15 @@ P   00000000              _FSTOOL:                         ; function: FSTOOL
     0000004A 6133                   MOV         R3,R1
     0000004C 7208                   ADD         #8,R2
     0000004E 7110                   ADD         #16,R1
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:46  PAGE    2
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000050 1F28                   MOV.L       R2,@(32,R15)
     00000052 7318                   ADD         #24,R3
     00000054 1F13                   MOV.L       R1,@(12,R15)
@@ -60,30 +90,21 @@ P   00000000              _FSTOOL:                         ; function: FSTOOL
     0000005C 1F24                   MOV.L       R2,@(16,R15)
     0000005E 62F3                   MOV         R15,R2
     00000060 7229                   ADD         #41,R2
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:07  PAGE    2
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000062 1F25                   MOV.L       R2,@(20,R15)
-
-
-
-
-
-
+        FSTOOL.c    11    
+        FSTOOL.c    12            while(1){
     00000064              L576:                             
+        FSTOOL.c    13                    if (refresh == REFRESH_ALL){
     00000064 60D3                   MOV         R13,R0
     00000066 8802                   CMP/EQ      #2,R0
     00000068 8F35                   BF/S        L577
     0000006A EC01                   MOV         #1,R12
+        FSTOOL.c    14                            refresh = REFRESH_PART;
+        FSTOOL.c    15                            Bdisp_AllClr_VRAM();
     0000006C DA20                   MOV.L       L598+16,R10; _Bdisp_AllClr_VRAM
     0000006E 4A0B                   JSR         @R10
     00000070 6DC3                   MOV         R12,R13
+        FSTOOL.c    16                            DrawPicture (29, 0,70,9,PIC_FS_TOOL);
     00000072 E709                   MOV         #9,R7
     00000074 DA1F                   MOV.L       L598+20,R10; _DrawPicture
     00000076 E646                   MOV         #70,R6
@@ -95,9 +116,11 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000082 7F04                   ADD         #4,R15
     00000084 E40C                   MOV         #12,R4
     00000086 1F41                   MOV.L       R4,@(4,R15)
+        FSTOOL.c    17                            for (i=0;i<4;++i){
     00000088 A009                   BRA         L578
     0000008A 5AF7                   MOV.L       @(28,R15),R10
     0000008C              L579:                             
+        FSTOOL.c    18                                    PrintXY(12,12+i*12,(uchar*)context[i],0);
     0000008C 66A6                   MOV.L       @R10+,R6
     0000008E E700                   MOV         #0,R7
     00000090 55F1                   MOV.L       @(4,R15),R5
@@ -111,45 +134,54 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000009E 53F9                   MOV.L       @(36,R15),R3
     000000A0 3A32                   CMP/HS      R3,R10
     000000A2 8BF3                   BF          L579
+        FSTOOL.c    19                            }
+        FSTOOL.c    20                            PrintIcon (0,"ZS",0);
     000000A4 DA16                   MOV.L       L598+32,R10; _PrintIcon
     000000A6 E600                   MOV         #0,R6
-    000000A8 D516                   MOV.L       L598+36,R5 ; L520
-    000000AA 4A0B                   JSR         @R10
-    000000AC 6463                   MOV         R6,R4
-    000000AE E601                   MOV         #1,R6
-    000000B0 D515                   MOV.L       L598+40,R5 ; L521
-    000000B2 4A0B                   JSR         @R10
-    000000B4 6463                   MOV         R6,R4
-    000000B6 E601                   MOV         #1,R6
-    000000B8 D514                   MOV.L       L598+44,R5 ; L522
-    000000BA 4A0B                   JSR         @R10
-    000000BC E402                   MOV         #2,R4
-    000000BE E601                   MOV         #1,R6
-    000000C0 D513                   MOV.L       L598+48,R5 ; L523
-    000000C2 4A0B                   JSR         @R10
-    000000C4 E403                   MOV         #3,R4
-    000000C6 E601                   MOV         #1,R6
-    000000C8 D512                   MOV.L       L598+52,R5 ; L524
-    000000CA 4A0B                   JSR         @R10
-    000000CC E404                   MOV         #4,R4
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:07  PAGE    3
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:46  PAGE    3
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    000000A8 D516                   MOV.L       L598+36,R5 ; L520
+    000000AA 4A0B                   JSR         @R10
+    000000AC 6463                   MOV         R6,R4
+        FSTOOL.c    21                            PrintIcon (1,"FS",1);
+    000000AE E601                   MOV         #1,R6
+    000000B0 D515                   MOV.L       L598+40,R5 ; L521
+    000000B2 4A0B                   JSR         @R10
+    000000B4 6463                   MOV         R6,R4
+        FSTOOL.c    22                            PrintIcon (2,"Disp",1);
+    000000B6 E601                   MOV         #1,R6
+    000000B8 D514                   MOV.L       L598+44,R5 ; L522
+    000000BA 4A0B                   JSR         @R10
+    000000BC E402                   MOV         #2,R4
+        FSTOOL.c    23                            PrintIcon (3,"^=^",1);
+    000000BE E601                   MOV         #1,R6
+    000000C0 D513                   MOV.L       L598+48,R5 ; L523
+    000000C2 4A0B                   JSR         @R10
+    000000C4 E403                   MOV         #3,R4
+        FSTOOL.c    24                            PrintIcon (4,"save",1);
+    000000C6 E601                   MOV         #1,R6
+    000000C8 D512                   MOV.L       L598+52,R5 ; L524
+    000000CA 4A0B                   JSR         @R10
+    000000CC E404                   MOV         #4,R4
+        FSTOOL.c    25                            PrintIcon (5,"?",0);
     000000CE E600                   MOV         #0,R6
     000000D0 D511                   MOV.L       L598+56,R5 ; L525
     000000D2 4A0B                   JSR         @R10
     000000D4 E405                   MOV         #5,R4
     000000D6              L577:                             
+        FSTOOL.c    26                    }
+        FSTOOL.c    27                    if (refresh == REFRESH_PART){
     000000D6 60D3                   MOV         R13,R0
     000000D8 8801                   CMP/EQ      #1,R0
     000000DA 8B39                   BF          L580
-
+        FSTOOL.c    28                            for (i=0;i<4;++i){
     000000DC A034                   BRA         L581
     000000DE 6DB3                   MOV         R11,R13
     000000E0              L598:                             
@@ -170,7 +202,17 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000114 <00000000>             .DATA.L     L524
     00000118 <00000000>             .DATA.L     L525
     0000011C              L582:                             
+        FSTOOL.c    29                                    PrintFloat(value[i],35,10+i*12,index==i,3);
     0000011C DA30                   MOV.L       L599+22,R10; _PrintFloat
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:46  PAGE    4
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000011E 63D3                   MOV         R13,R3
     00000120 4308                   SHLL2       R3
     00000122 4300                   SHLL        R3
@@ -196,20 +238,16 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000148 E204                   MOV         #4,R2
     0000014A 3D23                   CMP/GE      R2,R13
     0000014C 8BE6                   BF          L582
+        FSTOOL.c    30                            }
+        FSTOOL.c    31                            refresh = 0;
     0000014E 6DB3                   MOV         R11,R13
     00000150              L580:                             
+        FSTOOL.c    32                    }
+        FSTOOL.c    33                    GetKey(&key);
     00000150 DA24                   MOV.L       L599+26,R10; _GetKey
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:07  PAGE    4
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000152 4A0B                   JSR         @R10
     00000154 64F3                   MOV         R15,R4
+        FSTOOL.c    34                    switch(key){
     00000156 60F2                   MOV.L       @R15,R0
     00000158 9137                   MOV.W       L599,R1    ; H'7539
     0000015A 3010                   CMP/EQ      R1,R0
@@ -232,6 +270,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000178 912B                   MOV.W       L599+8,R1  ; H'753D
     0000017A 3010                   CMP/EQ      R1,R0
     0000017C 8912                   BT          L560
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:46  PAGE    5
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000017E 9129                   MOV.W       L599+10,R1 ; H'753E
     00000180 3010                   CMP/EQ      R1,R0
     00000182 8912                   BT          L561
@@ -253,41 +300,51 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001A0 A1A0                   BRA         L569
     000001A2 0009                   NOP
     000001A4              L558:                            ; case label 
+        FSTOOL.c    35                            case KEY_CTRL_F1        :       return 0;       break;
+        FSTOOL.c    36                            case KEY_CTRL_F2        :       break;
+        FSTOOL.c    37                            case KEY_CTRL_F3        :
+        FSTOOL.c    38                            case KEY_CTRL_F4        :
     000001A4              L559:                            ; case label 
+        FSTOOL.c    39                            case KEY_CTRL_F5        :       Nodata();       refresh=REFRESH_ALL;    break;
     000001A4              L560:                            ; case label 
     000001A4 DD10                   MOV.L       L599+30,R13; _Nodata
     000001A6 A001                   BRA         L596
     000001A8 0009                   NOP
     000001AA              L561:                            ; case label 
+        FSTOOL.c    40                            case KEY_CTRL_F6        :       About();        refresh=REFRESH_ALL;    break;
     000001AA DD10                   MOV.L       L599+34,R13; _About
     000001AC              L596:                             
     000001AC 4D0B                   JSR         @R13
     000001AE 0009                   NOP
     000001B0 A1D0                   BRA         L583
     000001B2 6D83                   MOV         R8,R13
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:07  PAGE    5
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000001B4              L562:                            ; case label 
+        FSTOOL.c    41                            case KEY_CTRL_UP        :       refresh=REFRESH_PART;   --index;        break;
     000001B4 6DC3                   MOV         R12,R13
     000001B6 A1CD                   BRA         L583
     000001B8 7EFF                   ADD         #-1,R14
     000001BA              L563:                            ; case label 
     000001BA A1CA                   BRA         L541
+        FSTOOL.c    42                            case KEY_CTRL_DOWN      :       refresh=REFRESH_PART;   ++index;        break;
     000001BC 6DC3                   MOV         R12,R13
     000001BE              L564:                            ; case label 
+        FSTOOL.c    43                            case KEY_CTRL_EXE:
+        FSTOOL.c    44                                    if      (index<3) refresh=REFRESH_PART,++index;
     000001BE E303                   MOV         #3,R3
     000001C0 3E33                   CMP/GE      R3,R14
     000001C2 8915                   BT          L585
     000001C4 6DC3                   MOV         R12,R13
     000001C6 A1C5                   BRA         L583
     000001C8 7E01                   ADD         #1,R14
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:46  PAGE    6
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000001CA              L599:                             
     000001CA 7539                   .DATA.W     H'7539
     000001CC 753A                   .DATA.W     H'753A
@@ -305,12 +362,16 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001E8 <00000000>             .DATA.L     _Nodata
     000001EC <00000000>             .DATA.L     _About
     000001F0              L585:                             
+        FSTOOL.c    45                                    else{
+        FSTOOL.c    46                                            refresh=REFRESH_ALL;
+        FSTOOL.c    47                                            fsx1=value[0];
     000001F0 52F6                   MOV.L       @(24,R15),R2
     000001F2 6D83                   MOV         R8,R13
     000001F4 90C7                   MOV.W       L603,R0    ; H'0090
     000001F6 6123                   MOV         R2,R1
     000001F8 6312                   MOV.L       @R1,R3
     000001FA 30FC                   ADD         R15,R0
+        FSTOOL.c    48                                            fsy1=value[1];
     000001FC 92C4                   MOV.W       L603+2,R2  ; H'0080
     000001FE 2032                   MOV.L       R3,@R0
     00000200 5311                   MOV.L       @(4,R1),R3
@@ -319,6 +380,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000206 51F8                   MOV.L       @(32,R15),R1
     00000208 6313                   MOV         R1,R3
     0000020A 6032                   MOV.L       @R3,R0
+        FSTOOL.c    49                                            fsx2=value[2];
     0000020C 91BD                   MOV.W       L603+4,R1  ; H'0088
     0000020E 2202                   MOV.L       R0,@R2
     00000210 5031                   MOV.L       @(4,R3),R0
@@ -329,24 +391,26 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000021A 2102                   MOV.L       R0,@R1
     0000021C 5021                   MOV.L       @(4,R2),R0
     0000021E 1101                   MOV.L       R0,@(4,R1)
+        FSTOOL.c    50                                            fsy2=value[3];
     00000220 52F2                   MOV.L       @(8,R15),R2
     00000222 61F3                   MOV         R15,R1
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:07  PAGE    6
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000224 6323                   MOV         R2,R3
     00000226 7178                   ADD         #120,R1
     00000228 6032                   MOV.L       @R3,R0
     0000022A 2102                   MOV.L       R0,@R1
     0000022C 5031                   MOV.L       @(4,R3),R0
     0000022E 1101                   MOV.L       R0,@(4,R1)
+        FSTOOL.c    51                                            fsd = sqrt((fsx2-fsx1)*(fsx2-fsx1)+(fsy2-fsy1)*(fsy2-fsy1));
     00000230 DC5A                   MOV.L       L603+22,R12; _sqrt
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:46  PAGE    7
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000232 7FE8                   ADD         #-24,R15
     00000234 90AA                   MOV.W       L603+6,R0  ; H'00A4
     00000236 03FE                   MOV.L       @(R0,R15),R3
@@ -397,15 +461,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000290 02FE                   MOV.L       @(R0,R15),R2
     00000292 2F26                   MOV.L       R2,@-R15
     00000294 907C                   MOV.W       L603+10,R0 ; H'00AC
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:07  PAGE    7
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000296 03FE                   MOV.L       @(R0,R15),R3
     00000298 907A                   MOV.W       L603+10,R0 ; H'00AC
     0000029A 2F36                   MOV.L       R3,@-R15
@@ -413,6 +468,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000029E 2F36                   MOV.L       R3,@-R15
     000002A0 62F3                   MOV         R15,R2
     000002A2 7210                   ADD         #16,R2
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:46  PAGE    8
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000002A4 410B                   JSR         @R1
     000002A6 2F26                   MOV.L       R2,@-R15
     000002A8 9070                   MOV.W       L603+6,R0  ; H'00A4
@@ -447,6 +511,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002E2 7278                   ADD         #120,R2
     000002E4 4C0B                   JSR         @R12
     000002E6 2F26                   MOV.L       R2,@-R15
+        FSTOOL.c    52                                            fsv = atan((fsy2-fsy1)/(fsx2-fsx1+1e-12))/PI*180.0;
     000002E8 DC30                   MOV.L       L603+38,R12; _atan
     000002EA 7FEC                   ADD         #-20,R15
     000002EC 9052                   MOV.W       L603+14,R0 ; H'009C
@@ -463,21 +528,21 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000302 2F26                   MOV.L       R2,@-R15
     00000304 D126                   MOV.L       L603+26,R1 ; __subdr
     00000306 63F3                   MOV         R15,R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:07  PAGE    8
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000308 7310                   ADD         #16,R3
     0000030A 410B                   JSR         @R1
     0000030C 2F36                   MOV.L       R3,@-R15
     0000030E 7FF0                   ADD         #-16,R15
     00000310 903F                   MOV.W       L603+12,R0 ; H'00BC
     00000312 02FE                   MOV.L       @(R0,R15),R2
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:46  PAGE    9
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000314 903D                   MOV.W       L603+12,R0 ; H'00BC
     00000316 2F26                   MOV.L       R2,@-R15
     00000318 02FE                   MOV.L       @(R0,R15),R2
@@ -529,20 +594,21 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000374 62F3                   MOV         R15,R2
     00000376 7278                   ADD         #120,R2
     00000378 430B                   JSR         @R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:07  PAGE    9
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000037A 2F26                   MOV.L       R2,@-R15
+        FSTOOL.c    53                                            if (fsx2 -fsx1< 0.0)    fsv += 180.0;
     0000037C 900C                   MOV.W       L603+18,R0 ; H'0094
     0000037E 7FF8                   ADD         #-8,R15
     00000380 01FE                   MOV.L       @(R0,R15),R1
     00000382 A021                   BRA         L597
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:46  PAGE   10
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000384 0009                   NOP
     00000386              L603:                             
     00000386 0090                   .DATA.W     H'0090
@@ -595,20 +661,20 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003F8 2F36                   MOV.L       R3,@-R15
     000003FA E06C                   MOV         #108,R0
     000003FC 03FE                   MOV.L       @(R0,R15),R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:07  PAGE   10
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000003FE 2F36                   MOV.L       R3,@-R15
     00000400 E300                   MOV         #0,R3
     00000402 2F36                   MOV.L       R3,@-R15
     00000404 D32C                   MOV.L       L604+14,R3 ; H'40668000
     00000406 2F36                   MOV.L       R3,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:46  PAGE   11
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000408 62F3                   MOV         R15,R2
     0000040A 7278                   ADD         #120,R2
     0000040C 2F26                   MOV.L       R2,@-R15
@@ -616,6 +682,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000410 420B                   JSR         @R2
     00000412 0009                   NOP
     00000414              L587:                             
+        FSTOOL.c    54                                            if (fsv<0.0)    fsv += 360.0;
     00000414 E06C                   MOV         #108,R0
     00000416 E200                   MOV         #0,R2
     00000418 03FE                   MOV.L       @(R0,R15),R3
@@ -646,9 +713,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000044A 420B                   JSR         @R2
     0000044C 0009                   NOP
     0000044E              L588:                             
+        FSTOOL.c    55                                            
+        FSTOOL.c    56                                            PopUpWin (4);
     0000044E DC1D                   MOV.L       L604+26,R12; _PopUpWin
     00000450 4C0B                   JSR         @R12
     00000452 E404                   MOV         #4,R4
+        FSTOOL.c    57                                            PrintfXY (16,11,0,"D= %.3f",fsd);
     00000454 DA1C                   MOV.L       L604+30,R10; L532
     00000456 E074                   MOV         #116,R0
     00000458 DC1C                   MOV.L       L604+34,R12; _PrintfXY
@@ -661,16 +731,17 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000466 2F36                   MOV.L       R3,@-R15
     00000468 2FA6                   MOV.L       R10,@-R15
     0000046A 4C0B                   JSR         @R12
+    0000046C E410                   MOV         #16,R4
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:07  PAGE   11
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:46  PAGE   12
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    0000046C E410                   MOV         #16,R4
+        FSTOOL.c    58                                            PrintXY (16,22,(uchar*)"F= ",0);PrintDeg (32,22,fsv,0);
     0000046E E700                   MOV         #0,R7
     00000470 D318                   MOV.L       L604+42,R3 ; _PrintXY
     00000472 E516                   MOV         #22,R5
@@ -688,18 +759,25 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000048A 2F26                   MOV.L       R2,@-R15
     0000048C 4A0B                   JSR         @R10
     0000048E E420                   MOV         #32,R4
+        FSTOOL.c    59                                            PrintfXY (24,33,0,"Press any key");
     00000490 DA12                   MOV.L       L604+50,R10; L534
     00000492 E600                   MOV         #0,R6
     00000494 2FA6                   MOV.L       R10,@-R15
     00000496 E521                   MOV         #33,R5
     00000498 4C0B                   JSR         @R12
     0000049A E418                   MOV         #24,R4
+        FSTOOL.c    60                                            WaitKey();
     0000049C DC10                   MOV.L       L604+54,R12; _WaitKey
     0000049E 4C0B                   JSR         @R12
     000004A0 7F18                   ADD         #24,R15
     000004A2 A056                   BRA         L541
     000004A4 0009                   NOP
     000004A6              L543:
+        FSTOOL.c    61                                            ++index;
+        FSTOOL.c    62                                    }
+        FSTOOL.c    63                                    break;
+        FSTOOL.c    64                            case KEY_CTRL_EXIT:
+        FSTOOL.c    65                                    return 0;
     000004A6 A05F                   BRA         L584
     000004A8 E000                   MOV         #0,R0
     000004AA              L604:                             
@@ -720,6 +798,17 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000004DC <00000000>             .DATA.L     L534
     000004E0 <00000000>             .DATA.L     _WaitKey
     000004E4              L569:                            ; default label 
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:46  PAGE   13
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+        FSTOOL.c    66                            default:
+        FSTOOL.c    67                                    if ((ch=GetPressNumChar(key))!=0){
     000004E4 DA28                   MOV.L       L605+10,R10; _GetPressNumChar
     000004E6 4A0B                   JSR         @R10
     000004E8 64F2                   MOV.L       @R15,R4
@@ -727,17 +816,13 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000004EC 600E                   EXTS.B      R0,R0
     000004EE 2008                   TST         R0,R0
     000004F0 8930                   BT          L583
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:07  PAGE   12
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
+        FSTOOL.c    68                                            char buf[14];
+        FSTOOL.c    69                                            int        r;
+        FSTOOL.c    70                                            refresh = REFRESH_PART;
     000004F2 6DC3                   MOV         R12,R13
+        FSTOOL.c    71                                            buf[0] = ch;   buf[1] = '\0';
     000004F4 52F4                   MOV.L       @(16,R15),R2
+        FSTOOL.c    72                                            r = InputString (35,10+index*12,buf,0,12);
     000004F6 E700                   MOV         #0,R7
     000004F8 DC24                   MOV.L       L605+14,R12; _InputString
     000004FA 65E3                   MOV         R14,R5
@@ -755,11 +840,13 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000512 762C                   ADD         #44,R6
     00000514 4C0B                   JSR         @R12
     00000516 E423                   MOV         #35,R4
+        FSTOOL.c    73                                            if (r != KEY_CTRL_EXIT){
     00000518 9431                   MOV.W       L605,R4    ; H'7532
     0000051A 6C03                   MOV         R0,R12
     0000051C 3C40                   CMP/EQ      R4,R12
     0000051E 8D19                   BT/S        L583
     00000520 7F04                   ADD         #4,R15
+        FSTOOL.c    74                                                    value[index] = atof(buf);
     00000522 62E3                   MOV         R14,R2
     00000524 DA1A                   MOV.L       L605+18,R10; _atof
     00000526 64F3                   MOV         R15,R4
@@ -769,17 +856,29 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000052E 7428                   ADD         #40,R4
     00000530 4A0B                   JSR         @R10
     00000532 2F26                   MOV.L       R2,@-R15
+        FSTOOL.c    75                                                    if      (r==KEY_CTRL_DOWN)              ++index;
     00000534 9424                   MOV.W       L605+2,R4  ; H'7547
     00000536 3C40                   CMP/EQ      R4,R12
     00000538 8F01                   BF/S        L591
     0000053A 7F04                   ADD         #4,R15
     0000053C 7E01                   ADD         #1,R14
     0000053E              L591:                             
+        FSTOOL.c    76                                                    if      (r==KEY_CTRL_UP)        --index;
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:46  PAGE   14
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000053E 9420                   MOV.W       L605+4,R4  ; H'7542
     00000540 3C40                   CMP/EQ      R4,R12
     00000542 8B00                   BF          L592
     00000544 7EFF                   ADD         #-1,R14
     00000546              L592:                             
+        FSTOOL.c    77                                                    if (r==KEY_CTRL_EXE && index<3) ++index;
     00000546 941D                   MOV.W       L605+6,R4  ; H'7534
     00000548 3C40                   CMP/EQ      R4,R12
     0000054A 8B03                   BF          L583
@@ -788,21 +887,18 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000550 8900                   BT          L583
     00000552              L541:
     00000552 7E01                   ADD         #1,R14
+        FSTOOL.c    78                                            }
+        FSTOOL.c    79                                            break;
     00000554              L583:                             
+        FSTOOL.c    80                                    }
+        FSTOOL.c    81                    }
+        FSTOOL.c    82                    if (index >=4) index = 0;
     00000554 E204                   MOV         #4,R2
     00000556 3E23                   CMP/GE      R2,R14
     00000558 8B00                   BF          L594
     0000055A 6EB3                   MOV         R11,R14
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:07  PAGE   13
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000055C              L594:                             
+        FSTOOL.c    83                    if (index < 0) index = 3;
     0000055C 4E11                   CMP/PZ      R14
     0000055E 8B01                   BF          L606
     00000560 AD80                   BRA         L576
@@ -811,7 +907,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000564 AD7E                   BRA         L576
     00000566 EE03                   MOV         #3,R14
     00000568              L584:                             
-
+        FSTOOL.c    84            }
+        FSTOOL.c    85    }
     00000568 910D                   MOV.W       L605+8,R1  ; H'0098
     0000056A 3F1C                   ADD         R1,R15
     0000056C 4F26                   LDS.L       @R15+,PR
@@ -832,109 +929,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000588 <00000000>             .DATA.L     _GetPressNumChar
     0000058C <00000000>             .DATA.L     _InputString
     00000590 <00000000>             .DATA.L     _atof
-
-
-
-
-        FSTOOL.c     2    
-        FSTOOL.c     3    int FSTOOL ()
-        FSTOOL.c     4    {
-        FSTOOL.c     5            uint refresh = 2,key;
-        FSTOOL.c     6            int  index = 0,i;
-        FSTOOL.c     7            char ch;
-        FSTOOL.c     8            double fsx1,fsx2,fsy1,fsy2,fsd,fsv;
-        FSTOOL.c     9            double value[4] = {0.0,0.0,0.0,0.0};
-        FSTOOL.c    10            const char * context[] = {"X1=:","Y1=:","X2=:","Y2=:"};
-        FSTOOL.c    11    
-        FSTOOL.c    12            while(1){
-        FSTOOL.c    13                    if (refresh == REFRESH_ALL){
-        FSTOOL.c    14                            refresh = REFRESH_PART;
-        FSTOOL.c    15                            Bdisp_AllClr_VRAM();
-        FSTOOL.c    16                            DrawPicture (29, 0,70,9,PIC_FS_TOOL);
-        FSTOOL.c    17                            for (i=0;i<4;++i){
-        FSTOOL.c    18                                    PrintXY(12,12+i*12,(uchar*)context[i],0);
-        FSTOOL.c    19                            }
-        FSTOOL.c    20                            PrintIcon (0,"ZS",0);
-        FSTOOL.c    21                            PrintIcon (1,"FS",1);
-        FSTOOL.c    22                            PrintIcon (2,"Disp",1);
-        FSTOOL.c    23                            PrintIcon (3,"^=^",1);
-        FSTOOL.c    24                            PrintIcon (4,"save",1);
-        FSTOOL.c    25                            PrintIcon (5,"?",0);
-        FSTOOL.c    26                    }
-        FSTOOL.c    27                    if (refresh == REFRESH_PART){
-        FSTOOL.c    28                            for (i=0;i<4;++i){
-        FSTOOL.c    29                                    PrintFloat(value[i],35,10+i*12,index==i,3);
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:07  PAGE   14
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-        FSTOOL.c    30                            }
-        FSTOOL.c    31                            refresh = 0;
-        FSTOOL.c    32                    }
-        FSTOOL.c    33                    GetKey(&key);
-        FSTOOL.c    34                    switch(key){
-        FSTOOL.c    35                            case KEY_CTRL_F1        :       return 0;       break;
-        FSTOOL.c    36                            case KEY_CTRL_F2        :       break;
-        FSTOOL.c    37                            case KEY_CTRL_F3        :
-        FSTOOL.c    38                            case KEY_CTRL_F4        :
-        FSTOOL.c    39                            case KEY_CTRL_F5        :       Nodata();       refresh=REFRESH_ALL;    break;
-        FSTOOL.c    40                            case KEY_CTRL_F6        :       About();        refresh=REFRESH_ALL;    break;
-        FSTOOL.c    41                            case KEY_CTRL_UP        :       refresh=REFRESH_PART;   --index;        break;
-        FSTOOL.c    42                            case KEY_CTRL_DOWN      :       refresh=REFRESH_PART;   ++index;        break;
-        FSTOOL.c    43                            case KEY_CTRL_EXE:
-        FSTOOL.c    44                                    if      (index<3) refresh=REFRESH_PART,++index;
-        FSTOOL.c    45                                    else{
-        FSTOOL.c    46                                            refresh=REFRESH_ALL;
-        FSTOOL.c    47                                            fsx1=value[0];
-        FSTOOL.c    48                                            fsy1=value[1];
-        FSTOOL.c    49                                            fsx2=value[2];
-        FSTOOL.c    50                                            fsy2=value[3];
-        FSTOOL.c    51                                            fsd = sqrt((fsx2-fsx1)*(fsx2-fsx1)+(fsy2-fsy1)*(fsy2-fsy1));
-        FSTOOL.c    52                                            fsv = atan((fsy2-fsy1)/(fsx2-fsx1+1e-12))/PI*180.0;
-        FSTOOL.c    53                                            if (fsx2 -fsx1< 0.0)    fsv += 180.0;
-        FSTOOL.c    54                                            if (fsv<0.0)    fsv += 360.0;
-        FSTOOL.c    55                                            
-        FSTOOL.c    56                                            PopUpWin (4);
-        FSTOOL.c    57                                            PrintfXY (16,11,0,"D= %.3f",fsd);
-        FSTOOL.c    58                                            PrintXY (16,22,(uchar*)"F= ",0);PrintDeg (32,22,fsv,0);
-        FSTOOL.c    59                                            PrintfXY (24,33,0,"Press any key");
-        FSTOOL.c    60                                            WaitKey();
-        FSTOOL.c    61                                            ++index;
-        FSTOOL.c    62                                    }
-        FSTOOL.c    63                                    break;
-        FSTOOL.c    64                            case KEY_CTRL_EXIT:
-        FSTOOL.c    65                                    return 0;
-        FSTOOL.c    66                            default:
-        FSTOOL.c    67                                    if ((ch=GetPressNumChar(key))!=0){
-        FSTOOL.c    68                                            char buf[14];
-        FSTOOL.c    69                                            int        r;
-        FSTOOL.c    70                                            refresh = REFRESH_PART;
-        FSTOOL.c    71                                            buf[0] = ch;   buf[1] = '\0';
-        FSTOOL.c    72                                            r = InputString (35,10+index*12,buf,0,12);
-        FSTOOL.c    73                                            if (r != KEY_CTRL_EXIT){
-        FSTOOL.c    74                                                    value[index] = atof(buf);
-        FSTOOL.c    75                                                    if      (r==KEY_CTRL_DOWN)              ++index;
-        FSTOOL.c    76                                                    if      (r==KEY_CTRL_UP)        --index;
-        FSTOOL.c    77                                                    if (r==KEY_CTRL_EXE && index<3) ++index;
-        FSTOOL.c    78                                            }
-        FSTOOL.c    79                                            break;
-        FSTOOL.c    80                                    }
-        FSTOOL.c    81                    }
-        FSTOOL.c    82                    if (index >=4) index = 0;
-        FSTOOL.c    83                    if (index < 0) index = 3;
-        FSTOOL.c    84            }
-        FSTOOL.c    85    }
         FSTOOL.c    86    
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:07  PAGE   15
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:46  PAGE   15
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -1000,7 +1000,7 @@ C   00000000              L510:
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:07  PAGE   16
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:46  PAGE   16
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -1066,7 +1066,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:07  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:46  PAGE    1
 
 
 ******** STATISTICS INFORMATION ********
@@ -1075,7 +1075,7 @@ SH SERIES C/C++ Compiler (Ver. 6.0C)                                            
 ********** ERROR INFORMATION ***********
 
 NUMBER OF ERRORS:           0
-NUMBER OF WARNINGS:        11
+NUMBER OF WARNINGS:         0
 
 
 
@@ -1135,5 +1135,5 @@ NUMBER OF INTERNAL/EXTERNAL SYMBOLS:            76
 *** COMMAND PARAMETER ***
 
 
-  -subcommand=C:\Users\ADMINI~1\AppData\Local\Temp\hmk5158.tmp 
+  -subcommand=C:\Users\¿­Åô\AppData\Local\Temp\hmkFB27.tmp 
 

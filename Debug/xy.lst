@@ -1,12 +1,37 @@
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    1
 
 ************ OBJECT LISTING ************
 
-FILE NAME: C:\Users\Administrator\Desktop\2015-06-6交点法转线元推链表\2015-06-4交点法转线元推链表\xy.c
+FILE NAME: F:\ProgramOfUniversity\C-KXO\C-KXO\xy.c
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
             xy.c     1    #include <stdio.h>
+            xy.c     2    #include "cvs.h"
+            xy.c     3    #include "zbzfs.h"
+
+            xy.c     4    //#include "public.h"
+            xy.c     5    #include "headfile.h"
+
+
+
+
+
+
+
+
+
+
+
+
+            xy.c     6    
+            xy.c     7    
+            xy.c     8    
+            xy.c     9    double sd_to_xya( double stake, double distance, double angle, int xy );
+            xy.c    10    
+            xy.c    11    double xy_to_sd( double PX, double PY, int sd );
+            xy.c    12    
+            xy.c    13    double sd_to_xya( double stake, double distance, double angle, int xya )
 P   00000000              _sd_to_xya:                      ; function: sd_to_xya
                                                            ; frame size=152
                                                            ; used runtime library name:
@@ -19,6 +44,11 @@ P   00000000              _sd_to_xya:                      ; function: sd_to_xya
     0000000A 2F96                   MOV.L       R9,@-R15
     0000000C 2F86                   MOV.L       R8,@-R15
     0000000E 4F22                   STS.L       PR,@-R15
+            xy.c    14    {       
+            xy.c    15    
+            xy.c    16        int iter;
+            xy.c    17            s_pqx temp;
+            xy.c    18            for(iter=0; iter<l_pqx.length; iter++)
     00000010 D85A                   MOV.L       L588,R8    ; _zbzs_x
     00000012 7FC0                   ADD         #-64,R15
     00000014 D95A                   MOV.L       L588+4,R9  ; _intialCZb
@@ -31,15 +61,27 @@ P   00000000              _sd_to_xya:                      ; function: sd_to_xya
     00000022 A096                   BRA         L570
     00000024 ED00                   MOV         #0,R13
     00000026              L571:                             
+            xy.c    19            {       
+            xy.c    20            temp = GetList(&l_pqx,iter);
     00000026 65D3                   MOV         R13,R5
     00000028 D456                   MOV.L       L588+8,R4  ; _l_pqx
     0000002A 4B0B                   JSR         @R11
     0000002C 2FE6                   MOV.L       R14,@-R15
     0000002E 7F04                   ADD         #4,R15
+            xy.c    21                    if( stake>=temp.ss && stake<=temp.es )
     00000030 E068                   MOV         #104,R0
     00000032 03FE                   MOV.L       @(R0,R15),R3
     00000034 2F36                   MOV.L       R3,@-R15
     00000036 E068                   MOV         #104,R0
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    2
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000038 03FE                   MOV.L       @(R0,R15),R3
     0000003A 2F36                   MOV.L       R3,@-R15
     0000003C 52E1                   MOV.L       @(4,R14),R2
@@ -60,15 +102,6 @@ P   00000000              _sd_to_xya:                      ; function: sd_to_xya
     00000058 02FE                   MOV.L       @(R0,R15),R2
     0000005A 2F26                   MOV.L       R2,@-R15
     0000005C 53E3                   MOV.L       @(12,R14),R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE    2
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000005E 2F36                   MOV.L       R3,@-R15
     00000060 53E2                   MOV.L       @(8,R14),R3
     00000062 D24C                   MOV.L       L588+24,R2 ; __led
@@ -76,6 +109,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000066 2F36                   MOV.L       R3,@-R15
     00000068 8800                   CMP/EQ      #0,R0
     0000006A 8971                   BT          L572
+            xy.c    22                    {       
+            xy.c    23                        intialCZb(temp.ss, temp.es, temp.sx, temp.sy, temp.sa, temp.v, temp.sp, temp.ep);
     0000006C 53EE                   MOV.L       @(56,R14),R3
     0000006E 2F36                   MOV.L       R3,@-R15
     00000070 53ED                   MOV.L       @(52,R14),R3
@@ -104,9 +139,20 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000009E 2F36                   MOV.L       R3,@-R15
     000000A0 63E2                   MOV.L       @R14,R3
     000000A2 2F36                   MOV.L       R3,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    3
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000000A4 490B                   JSR         @R9
     000000A6 54EA                   MOV.L       @(40,R14),R4
     000000A8 7F38                   ADD         #56,R15
+            xy.c    24                            
+            xy.c    25                            switch( xya )
     000000AA 60F2                   MOV.L       @R15,R0
     000000AC 8800                   CMP/EQ      #0,R0
     000000AE 8903                   BT          L566
@@ -115,6 +161,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000B4 A033                   BRA         L568
     000000B6 0009                   NOP
     000000B8              L566:                            ; case label 
+            xy.c    26                            {       case 0:
+            xy.c    27                                            return zbzs_x(stake, distance, angle);
     000000B8 E078                   MOV         #120,R0
     000000BA 03FE                   MOV.L       @(R0,R15),R3
     000000BC 2F36                   MOV.L       R3,@-R15
@@ -126,15 +174,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000C8 2F26                   MOV.L       R2,@-R15
     000000CA E078                   MOV         #120,R0
     000000CC 02FE                   MOV.L       @(R0,R15),R2
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE    3
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000000CE E078                   MOV         #120,R0
     000000D0 2F26                   MOV.L       R2,@-R15
     000000D2 03FE                   MOV.L       @(R0,R15),R3
@@ -150,6 +189,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000E6 A031                   BRA         L586
     000000E8 0009                   NOP
     000000EA              L567:                            ; case label 
+            xy.c    28                                            break;
+            xy.c    29                                    case 1:
+            xy.c    30                                            return zbzs_y(stake, distance, angle);
     000000EA E078                   MOV         #120,R0
     000000EC D12A                   MOV.L       L588+28,R1 ; _zbzs_y
     000000EE 02FE                   MOV.L       @(R0,R15),R2
@@ -163,6 +205,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000FE E078                   MOV         #120,R0
     00000100 03FE                   MOV.L       @(R0,R15),R3
     00000102 E078                   MOV         #120,R0
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    4
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000104 2F36                   MOV.L       R3,@-R15
     00000106 02FE                   MOV.L       @(R0,R15),R2
     00000108 2F26                   MOV.L       R2,@-R15
@@ -177,6 +228,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000011A A017                   BRA         L586
     0000011C 0009                   NOP
     0000011E              L568:                            ; default label 
+            xy.c    31                                            break;
+            xy.c    32                                    default:
+            xy.c    33                                            return zbzs_a(stake, distance, angle);
     0000011E E078                   MOV         #120,R0
     00000120 01FE                   MOV.L       @(R0,R15),R1
     00000122 E078                   MOV         #120,R0
@@ -192,15 +246,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000136 E078                   MOV         #120,R0
     00000138 02FE                   MOV.L       @(R0,R15),R2
     0000013A E078                   MOV         #120,R0
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE    4
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000013C 2F26                   MOV.L       R2,@-R15
     0000013E 02FE                   MOV.L       @(R0,R15),R2
     00000140 2F26                   MOV.L       R2,@-R15
@@ -221,12 +266,27 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000158 AF65                   BRA         L571
     0000015A 0009                   NOP
     0000015C              L590:                             
+            xy.c    34                            }
+            xy.c    35                    }
+            xy.c    36            }
+            xy.c    37            return 0;
     0000015C 61F3                   MOV         R15,R1
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    5
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000015E 7160                   ADD         #96,R1
     00000160 6312                   MOV.L       @R1,R3
     00000162 E000                   MOV         #0,R0
     00000164 2302                   MOV.L       R0,@R3
     00000166 1301                   MOV.L       R0,@(4,R3)
+            xy.c    38            
+            xy.c    39    }
     00000168              L574:                             
     00000168 7F40                   ADD         #64,R15
     0000016A 4F26                   LDS.L       @R15+,PR
@@ -247,6 +307,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000190 <00000000>             .DATA.L     __ged
     00000194 <00000000>             .DATA.L     __led
     00000198 <00000000>             .DATA.L     _zbzs_y
+            xy.c    40    
+            xy.c    41    
+            xy.c    42    double xy_to_sd( double PX, double PY, int sd )
     0000019C              _xy_to_sd:                       ; function: xy_to_sd
                                                            ; frame size=328
                                                            ; used runtime library name:
@@ -258,32 +321,38 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001A4 2FA6                   MOV.L       R10,@-R15
     000001A6 2F96                   MOV.L       R9,@-R15
     000001A8 2F86                   MOV.L       R8,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE    5
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000001AA 4F22                   STS.L       PR,@-R15
     000001AC 901F                   MOV.W       L591,R0    ; H'FF1C
     000001AE 3F0C                   ADD         R0,R15
     000001B0 2F42                   MOV.L       R4,@R15
+            xy.c    43    {       
+            xy.c    44    
+            xy.c    45            double x = PX;
     000001B2 931D                   MOV.W       L591+2,R3  ; H'0108
     000001B4 921D                   MOV.W       L591+4,R2  ; H'00DC
     000001B6 33FC                   ADD         R15,R3
+            xy.c    46            double y = PY;
     000001B8 901C                   MOV.W       L591+6,R0  ; H'0110
     000001BA 32FC                   ADD         R15,R2
     000001BC 6132                   MOV.L       @R3,R1
     000001BE 30FC                   ADD         R15,R0
     000001C0 2212                   MOV.L       R1,@R2
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    6
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000001C2 5131                   MOV.L       @(4,R3),R1
     000001C4 9317                   MOV.W       L591+8,R3  ; H'00D4
     000001C6 1211                   MOV.L       R1,@(4,R2)
     000001C8 6202                   MOV.L       @R0,R2
     000001CA 33FC                   ADD         R15,R3
+            xy.c    47    
+            xy.c    48            double stake   = 0;             
     000001CC 9114                   MOV.W       L591+10,R1 ; H'00CC
     000001CE 2322                   MOV.L       R2,@R3
     000001D0 5201                   MOV.L       @(4,R0),R2
@@ -291,14 +360,26 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001D4 1321                   MOV.L       R2,@(4,R3)
     000001D6 E300                   MOV         #0,R3
     000001D8 2132                   MOV.L       R3,@R1
+            xy.c    49            double mindist = 0;             
     000001DA 6033                   MOV         R3,R0
     000001DC 1131                   MOV.L       R3,@(4,R1)
+            xy.c    50            
+            xy.c    51            int inum = 0;           
     000001DE 6403                   MOV         R0,R4
     000001E0 920B                   MOV.W       L591+12,R2 ; H'00C4
     000001E2 6A03                   MOV         R0,R10
     000001E4 32FC                   ADD         R15,R2
     000001E6 2232                   MOV.L       R3,@R2
     000001E8 1201                   MOV.L       R0,@(4,R2)
+            xy.c    52    
+            xy.c    53            double ex, ey, ea;
+            xy.c    54            double ped;
+            xy.c    55            double sx, sy, sa;      
+            xy.c    56            double psd;             
+            xy.c    57        double swapdist;
+            xy.c    58            int iter;
+            xy.c    59            s_pqx temp,temp1;
+            xy.c    60            for(iter=0; iter<l_pqx.length-1; iter++)
     000001EA A1E4                   BRA         L575
     000001EC 6B03                   MOV         R0,R11
     000001EE              L591:                             
@@ -310,6 +391,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001F8 00CC                   .DATA.W     H'00CC
     000001FA 00C4                   .DATA.W     H'00C4
     000001FC              L576:                             
+            xy.c    61            {       
+            xy.c    62            temp  = GetList(&l_pqx,iter);
     000001FC DD68                   MOV.L       L592+22,R13; _GetList
     000001FE 6EF3                   MOV         R15,R14
     00000200 D468                   MOV.L       L592+26,R4 ; _l_pqx
@@ -317,24 +400,29 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000204 7E40                   ADD         #64,R14
     00000206 4D0B                   JSR         @R13
     00000208 2FE6                   MOV.L       R14,@-R15
+            xy.c    63                    temp1 = GetList(&l_pqx,iter+1);
     0000020A 6CF3                   MOV         R15,R12
     0000020C D465                   MOV.L       L592+26,R4 ; _l_pqx
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    7
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000020E 65B3                   MOV         R11,R5
     00000210 7C08                   ADD         #8,R12
     00000212 7501                   ADD         #1,R5
     00000214 4D0B                   JSR         @R13
     00000216 2FC6                   MOV.L       R12,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE    6
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
+            xy.c    64                    sx = temp.sx;
     00000218 93B7                   MOV.W       L592,R3    ; H'009C
+            xy.c    65                    sy = temp.sy;
     0000021A 60E3                   MOV         R14,R0
+            xy.c    66                    sa = temp.sa;
+            xy.c    67                    psd = (y - sy) * cos( rad(sa - 90) ) - (x - sx) * sin( rad(sa - 90) ); //结果可能正负
     0000021C D862                   MOV.L       L592+30,R8 ; _cos
     0000021E 7F08                   ADD         #8,R15
     00000220 D962                   MOV.L       L592+34,R9 ; _sin
@@ -381,6 +469,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000272 2F36                   MOV.L       R3,@-R15
     00000274 908E                   MOV.W       L592+10,R0 ; H'00B8
     00000276 E300                   MOV         #0,R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    8
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000278 D150                   MOV.L       L592+50,R1 ; __addd
     0000027A 7FE8                   ADD         #-24,R15
     0000027C 02FE                   MOV.L       @(R0,R15),R2
@@ -390,15 +487,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000284 2F26                   MOV.L       R2,@-R15
     00000286 2F36                   MOV.L       R3,@-R15
     00000288 D34B                   MOV.L       L592+46,R3 ; H'C0568000
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE    7
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000028A 2F36                   MOV.L       R3,@-R15
     0000028C 62F3                   MOV         R15,R2
     0000028E 7210                   ADD         #16,R2
@@ -447,6 +535,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002E4 03FE                   MOV.L       @(R0,R15),R3
     000002E6 2F36                   MOV.L       R3,@-R15
     000002E8 2F26                   MOV.L       R2,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    9
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000002EA D233                   MOV.L       L592+46,R2 ; H'C0568000
     000002EC 2F26                   MOV.L       R2,@-R15
     000002EE 63F3                   MOV         R15,R3
@@ -456,15 +553,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002F6 E208                   MOV         #8,R2
     000002F8 32FC                   ADD         R15,R2
     000002FA 4D0B                   JSR         @R13
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE    8
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000002FC 2F26                   MOV.L       R2,@-R15
     000002FE 7F0C                   ADD         #12,R15
     00000300 E008                   MOV         #8,R0
@@ -482,6 +570,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000318 D326                   MOV.L       L592+42,R3 ; __subdr
     0000031A 430B                   JSR         @R3
     0000031C 2F16                   MOV.L       R1,@-R15
+            xy.c    68                    
+            xy.c    69                    intialCZb(temp.ss, temp.es, temp.sx, temp.sy, temp.sa, temp.v, temp.sp, temp.ep);
     0000031E 52EE                   MOV.L       @(56,R14),R2
     00000320 2F26                   MOV.L       R2,@-R15
     00000322 52ED                   MOV.L       @(52,R14),R2
@@ -511,9 +601,23 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000352 2F26                   MOV.L       R2,@-R15
     00000354 62E2                   MOV.L       @R14,R2
     00000356 2F26                   MOV.L       R2,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   10
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000358 430B                   JSR         @R3
     0000035A 54EA                   MOV.L       @(40,R14),R4
+            xy.c    70                    //ex = zbzs_x(temp.es, 0, 0);
+            xy.c    71                    //ey = zbzs_y(temp.es, 0, 0);
+            xy.c    72                    //ea = zbzs_a(temp.es, 0, 0);
+            xy.c    73                    ex = temp1.sx;
     0000035C 931D                   MOV.W       L592+16,R3 ; H'00BC
+            xy.c    74                    ey = temp1.sy;
     0000035E 60C3                   MOV         R12,R0
     00000360 7F38                   ADD         #56,R15
     00000362 62C3                   MOV         R12,R2
@@ -522,17 +626,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000368 6122                   MOV.L       @R2,R1
     0000036A 7018                   ADD         #24,R0
     0000036C 2312                   MOV.L       R1,@R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE    9
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000036E 5121                   MOV.L       @(4,R2),R1
     00000370 1311                   MOV.L       R1,@(4,R3)
+            xy.c    75                    ea = temp1.sa;
     00000372 61C3                   MOV         R12,R1
     00000374 9312                   MOV.W       L592+18,R3 ; H'00B4
     00000376 7120                   ADD         #32,R1
@@ -571,7 +667,17 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003C8 6212                   MOV.L       @R1,R2
     000003CA 2322                   MOV.L       R2,@R3
     000003CC 5211                   MOV.L       @(4,R1),R2
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   11
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000003CE 1321                   MOV.L       R2,@(4,R3)
+            xy.c    76                    ped = (y - ey) * cos( rad(ea -90) ) - (x - ex) * sin( rad(ea - 90) );
     000003D0 9095                   MOV.W       L593,R0    ; H'00E8
     000003D2 7FF0                   ADD         #-16,R15
     000003D4 D14E                   MOV.L       L593+18,R1 ; __subdr
@@ -588,15 +694,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003EA 2F36                   MOV.L       R3,@-R15
     000003EC 62F3                   MOV         R15,R2
     000003EE 7210                   ADD         #16,R2
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE   10
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000003F0 410B                   JSR         @R1
     000003F2 2F26                   MOV.L       R2,@-R15
     000003F4 9085                   MOV.W       L593+4,R0  ; H'00D8
@@ -636,6 +733,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000438 9064                   MOV.W       L593+6,R0  ; H'00F8
     0000043A 2F36                   MOV.L       R3,@-R15
     0000043C 03FE                   MOV.L       @(R0,R15),R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   12
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000043E 2F36                   MOV.L       R3,@-R15
     00000440 9061                   MOV.W       L593+8,R0  ; H'00E0
     00000442 02FE                   MOV.L       @(R0,R15),R2
@@ -654,15 +760,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000045C D12E                   MOV.L       L593+26,R1 ; __addd
     0000045E 02FE                   MOV.L       @(R0,R15),R2
     00000460 9051                   MOV.W       L593+8,R0  ; H'00E0
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE   11
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000462 2F26                   MOV.L       R2,@-R15
     00000464 02FE                   MOV.L       @(R0,R15),R2
     00000466 2F26                   MOV.L       R2,@-R15
@@ -693,6 +790,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000498 D21D                   MOV.L       L593+18,R2 ; __subdr
     0000049A 420B                   JSR         @R2
     0000049C 2F16                   MOV.L       R1,@-R15
+            xy.c    77    
+            xy.c    78                    if( psd * ped <= 0)  
     0000049E 7FF8                   ADD         #-8,R15
     000004A0 9033                   MOV.W       L593+12,R0 ; H'00B0
     000004A2 03FE                   MOV.L       @(R0,R15),R3
@@ -700,6 +799,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000004A6 2F36                   MOV.L       R3,@-R15
     000004A8 03FE                   MOV.L       @(R0,R15),R3
     000004AA 2F36                   MOV.L       R3,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   13
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000004AC 902E                   MOV.W       L593+14,R0 ; H'0098
     000004AE 02FE                   MOV.L       @(R0,R15),R2
     000004B0 902C                   MOV.W       L593+14,R0 ; H'0098
@@ -718,20 +826,14 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000004CA 2F26                   MOV.L       R2,@-R15
     000004CC 8800                   CMP/EQ      #0,R0
     000004CE 8971                   BT          L577
+            xy.c    79                    {       inum++;
+            xy.c    80                            if( inum==1 )
     000004D0 DE14                   MOV.L       L593+38,R14; _zbfs_d
     000004D2 7A01                   ADD         #1,R10
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE   12
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000004D4 60A3                   MOV         R10,R0
     000004D6 8801                   CMP/EQ      #1,R0
     000004D8 8B26                   BF          L578
+            xy.c    81                            {       mindist = zbfs_d(x, y);
     000004DA 9012                   MOV.W       L593+4,R0  ; H'00D8
     000004DC 03FE                   MOV.L       @(R0,R15),R3
     000004DE 2F36                   MOV.L       R3,@-R15
@@ -763,10 +865,23 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000510 <00000000>             .DATA.L     __subdr
     00000514 C0568000               .DATA.L     H'C0568000
     00000518 <00000000>             .DATA.L     __addd
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   14
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000051C <00000000>             .DATA.L     __muld
     00000520 <00000000>             .DATA.L     __led
     00000524 <00000000>             .DATA.L     _zbfs_d
     00000528              L578:                             
+            xy.c    82                                    stake = zbfs_s(x, y);
+            xy.c    83                            }
+            xy.c    84                            else
+            xy.c    85                            {       swapdist = zbfs_d(x, y);
     00000528 9079                   MOV.W       L594,R0    ; H'00D8
     0000052A 01FE                   MOV.L       @(R0,R15),R1
     0000052C 9077                   MOV.W       L594,R0    ; H'00D8
@@ -783,18 +898,10 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000542 32FC                   ADD         R15,R2
     00000544 4E0B                   JSR         @R14
     00000546 2F26                   MOV.L       R2,@-R15
+            xy.c    86                                    if( fabs(swapdist) < fabs(mindist) )
     00000548 DE39                   MOV.L       L594+18,R14; _fabs
     0000054A 7F0C                   ADD         #12,R15
     0000054C 906A                   MOV.W       L594+6,R0  ; H'0088
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE   13
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000054E E208                   MOV         #8,R2
     00000550 03FE                   MOV.L       @(R0,R15),R3
     00000552 2F36                   MOV.L       R3,@-R15
@@ -820,15 +927,26 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000057A 7F0C                   ADD         #12,R15
     0000057C 8800                   CMP/EQ      #0,R0
     0000057E 8919                   BT          L577
+            xy.c    87                                    {       mindist = swapdist;
     00000580 9151                   MOV.W       L594+8,R1  ; H'00C4
     00000582 63F3                   MOV         R15,R3
     00000584 737C                   ADD         #124,R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   15
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000586 31FC                   ADD         R15,R1
     00000588 6232                   MOV.L       @R3,R2
     0000058A 2122                   MOV.L       R2,@R1
     0000058C 5231                   MOV.L       @(4,R3),R2
     0000058E 1121                   MOV.L       R2,@(4,R1)
     00000590              L565:
+            xy.c    88                                            stake = zbfs_s(x, y);
     00000590 DE29                   MOV.L       L594+26,R14; _zbfs_s
     00000592 9044                   MOV.W       L594,R0    ; H'00D8
     00000594 03FE                   MOV.L       @(R0,R15),R3
@@ -852,23 +970,21 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000005B6              L575:                             
     000005B6 D421                   MOV.L       L594+30,R4 ; _l_pqx
     000005B8 6242                   MOV.L       @R4,R2
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE   14
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000005BA 72FF                   ADD         #-1,R2
     000005BC 3B23                   CMP/GE      R2,R11
     000005BE 8901                   BT          L595
     000005C0 AE1C                   BRA         L576
     000005C2 0009                   NOP
     000005C4              L595:                             
+            xy.c    89                                    }
+            xy.c    90                            }
+            xy.c    91                    }
+            xy.c    92            }
+            xy.c    93    
+            xy.c    94            if( inum == 0 )
     000005C4 2AA8                   TST         R10,R10
     000005C6 8B08                   BF          L581
+            xy.c    95            {       return -(1e10);
     000005C8 932F                   MOV.W       L594+12,R3 ; H'0104
     000005CA 33FC                   ADD         R15,R3
     000005CC 6232                   MOV.L       @R3,R2
@@ -879,9 +995,22 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000005D6 A017                   BRA         L582
     000005D8 0009                   NOP
     000005DA              L581:                             
+            xy.c    96            }
+            xy.c    97    
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   16
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+            xy.c    98            if( sd==0 )
     000005DA 60F2                   MOV.L       @R15,R0
     000005DC 2008                   TST         R0,R0
     000005DE 8B0A                   BF          L583
+            xy.c    99            {       return stake;
     000005E0 9323                   MOV.W       L594+12,R3 ; H'0104
     000005E2 33FC                   ADD         R15,R3
     000005E4 6232                   MOV.L       @R3,R2
@@ -894,6 +1023,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000005F2 A009                   BRA         L582
     000005F4 0009                   NOP
     000005F6              L583:                             
+            xy.c   100            }
+            xy.c   101            else
+            xy.c   102            {       return mindist;
     000005F6 9018                   MOV.W       L594+12,R0 ; H'0104
     000005F8 9215                   MOV.W       L594+8,R2  ; H'00C4
     000005FA 00FE                   MOV.L       @(R0,R15),R0
@@ -903,6 +1035,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000602 2312                   MOV.L       R1,@R3
     00000604 5121                   MOV.L       @(4,R2),R1
     00000606 1311                   MOV.L       R1,@(4,R3)
+            xy.c   103            }
+            xy.c   104    }
     00000608              L582:                             
     00000608 9111                   MOV.W       L594+16,R1 ; H'00E4
     0000060A 3F1C                   ADD         R1,R15
@@ -918,15 +1052,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000061E              L594:                             
     0000061E 00D8                   .DATA.W     H'00D8
     00000620 00E8                   .DATA.W     H'00E8
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE   15
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000622 008C                   .DATA.W     H'008C
     00000624 0088                   .DATA.W     H'0088
     00000626 00C4                   .DATA.W     H'00C4
@@ -938,142 +1063,31 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000634 <00000000>             .DATA.L     __ltd
     00000638 <00000000>             .DATA.L     _zbfs_s
     0000063C <00000000>             .DATA.L     _l_pqx
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE   17
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000640 C202A05F               .DATA.L     H'C202A05F
     00000644 20000000               .DATA.L     H'20000000
-            xy.c     2    #include "cvs.h"
-            xy.c     3    #include "zbzfs.h"
-
-            xy.c     4    //#include "public.h"
-            xy.c     5    #include "headfile.h"
-
-
-
-
-
-
-
-
-
-
-
-
-            xy.c     6    
-            xy.c     7    
-            xy.c     8    
-            xy.c     9    double sd_to_xya( double stake, double distance, double angle, int xy );
-            xy.c    10    
-            xy.c    11    double xy_to_sd( double PX, double PY, int sd );
-            xy.c    12    
-            xy.c    13    double sd_to_xya( double stake, double distance, double angle, int xya )
-            xy.c    14    {       
-            xy.c    15    
-            xy.c    16        int iter;
-            xy.c    17            s_pqx temp;
-            xy.c    18            for(iter=0; iter<l_pqx.length; iter++)
-            xy.c    19            {       
-            xy.c    20            temp = GetList(&l_pqx,iter);
-            xy.c    21                    if( stake>=temp.ss && stake<=temp.es )
-            xy.c    22                    {       
-            xy.c    23                        intialCZb(temp.ss, temp.es, temp.sx, temp.sy, temp.sa, temp.v, temp.sp, temp.ep);
-            xy.c    24                            
-            xy.c    25                            switch( xya )
-            xy.c    26                            {       case 0:
-            xy.c    27                                            return zbzs_x(stake, distance, angle);
-            xy.c    28                                            break;
-            xy.c    29                                    case 1:
-            xy.c    30                                            return zbzs_y(stake, distance, angle);
-            xy.c    31                                            break;
-            xy.c    32                                    default:
-            xy.c    33                                            return zbzs_a(stake, distance, angle);
-            xy.c    34                            }
-            xy.c    35                    }
-            xy.c    36            }
-            xy.c    37            return 0;
-            xy.c    38            
-            xy.c    39    }
-            xy.c    40    
-            xy.c    41    
-            xy.c    42    double xy_to_sd( double PX, double PY, int sd )
-            xy.c    43    {       
-            xy.c    44    
-            xy.c    45            double x = PX;
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE   16
 
 
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-            xy.c    46            double y = PY;
-            xy.c    47    
-            xy.c    48            double stake   = 0;             
-            xy.c    49            double mindist = 0;             
-            xy.c    50            
-            xy.c    51            int inum = 0;           
-            xy.c    52    
-            xy.c    53            double ex, ey, ea;
-            xy.c    54            double ped;
-            xy.c    55            double sx, sy, sa;      
-            xy.c    56            double psd;             
-            xy.c    57        double swapdist;
-            xy.c    58            int iter;
-            xy.c    59            s_pqx temp,temp1;
-            xy.c    60            for(iter=0; iter<l_pqx.length-1; iter++)
-            xy.c    61            {       
-            xy.c    62            temp  = GetList(&l_pqx,iter);
-            xy.c    63                    temp1 = GetList(&l_pqx,iter+1);
-            xy.c    64                    sx = temp.sx;
-            xy.c    65                    sy = temp.sy;
-            xy.c    66                    sa = temp.sa;
-            xy.c    67                    psd = (y - sy) * cos( rad(sa - 90) ) - (x - sx) * sin( rad(sa - 90) ); //结果可能正负
-            xy.c    68                    
-            xy.c    69                    intialCZb(temp.ss, temp.es, temp.sx, temp.sy, temp.sa, temp.v, temp.sp, temp.ep);
-            xy.c    70                    //ex = zbzs_x(temp.es, 0, 0);
-            xy.c    71                    //ey = zbzs_y(temp.es, 0, 0);
-            xy.c    72                    //ea = zbzs_a(temp.es, 0, 0);
-            xy.c    73                    ex = temp1.sx;
-            xy.c    74                    ey = temp1.sy;
-            xy.c    75                    ea = temp1.sa;
-            xy.c    76                    ped = (y - ey) * cos( rad(ea -90) ) - (x - ex) * sin( rad(ea - 90) );
-            xy.c    77    
-            xy.c    78                    if( psd * ped <= 0)  
-            xy.c    79                    {       inum++;
-            xy.c    80                            if( inum==1 )
-            xy.c    81                            {       mindist = zbfs_d(x, y);
-            xy.c    82                                    stake = zbfs_s(x, y);
-            xy.c    83                            }
-            xy.c    84                            else
-            xy.c    85                            {       swapdist = zbfs_d(x, y);
-            xy.c    86                                    if( fabs(swapdist) < fabs(mindist) )
-            xy.c    87                                    {       mindist = swapdist;
-            xy.c    88                                            stake = zbfs_s(x, y);
-            xy.c    89                                    }
-            xy.c    90                            }
-            xy.c    91                    }
-            xy.c    92            }
-            xy.c    93    
-            xy.c    94            if( inum == 0 )
-            xy.c    95            {       return -(1e10);
-            xy.c    96            }
-            xy.c    97    
-            xy.c    98            if( sd==0 )
-            xy.c    99            {       return stake;
-            xy.c   100            }
-            xy.c   101            else
-            xy.c   102            {       return mindist;
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE   17
 
 
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-            xy.c   103            }
-            xy.c   104    }
 
 
 
@@ -1119,21 +1133,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:23  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:51  PAGE    1
 
 
 ******** STATISTICS INFORMATION ********
@@ -1142,7 +1142,7 @@ SH SERIES C/C++ Compiler (Ver. 6.0C)                                            
 ********** ERROR INFORMATION ***********
 
 NUMBER OF ERRORS:           0
-NUMBER OF WARNINGS:        15
+NUMBER OF WARNINGS:         0
 
 
 
@@ -1202,5 +1202,5 @@ NUMBER OF INTERNAL/EXTERNAL SYMBOLS:            45
 *** COMMAND PARAMETER ***
 
 
-  -subcommand=C:\Users\ADMINI~1\AppData\Local\Temp\hmk9060.tmp 
+  -subcommand=C:\Users\凯鹏\AppData\Local\Temp\hmk125E.tmp 
 

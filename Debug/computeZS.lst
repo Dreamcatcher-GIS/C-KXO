@@ -1,8 +1,8 @@
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE    1
 
 ************ OBJECT LISTING ************
 
-FILE NAME: C:\Users\Administrator\Desktop\2015-06-6½»µã·¨×ªÏßÔªÍÆÁ´±í\2015-06-4½»µã·¨×ªÏßÔªÍÆÁ´±í\computeZS.c
+FILE NAME: F:\ProgramOfUniversity\C-KXO\C-KXO\computeZS.c
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
@@ -13,6 +13,28 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
+
+
+
+
+
+
+      computeZS.     2    #include "xy.h"
+
+
+
+      computeZS.     4    #include <fxlib.h>
+      computeZS.     5    #include <dispbios.h>
+      computeZS.     6    #include "fileline.h"
+      computeZS.     7    
+      computeZS.     8    static char TITLE[] = "";
+      computeZS.     9    
+      computeZS.    10    static FONTCHARACTER IniFile[] = { '\\','\\','c','r','d','0','\\','c','s','v','.','i','n','i' ,'\0'} ;
+      computeZS.    11    static FONTCHARACTER IniSet1[] = { '\\','\\','c','r','d','0','\\','s','e','t','1','.','i','n','i' ,'\0'} ;
+      computeZS.    12    static FONTCHARACTER IniSet2[] = { '\\','\\','c','r','d','0','\\','s','e','t','2','.','i','n','i' ,'\0'} ;
+      computeZS.    13    
+      computeZS.    14    
+      computeZS.    15    int computeZS ()
 P   00000000              _computeZS:                      ; function: computeZS
                                                            ; frame size=304
                                                            ; used runtime library name:
@@ -22,14 +44,22 @@ P   00000000              _computeZS:                      ; function: computeZS
     00000004 2FC6                   MOV.L       R12,@-R15
     00000006 2FB6                   MOV.L       R11,@-R15
     00000008 2FA6                   MOV.L       R10,@-R15
+      computeZS.    16    {
+      computeZS.    17            uint refresh = 2,key;
     0000000A EB02                   MOV         #2,R11
     0000000C 9D72                   MOV.W       L629+2,R13 ; H'0080
     0000000E 2F96                   MOV.L       R9,@-R15
     00000010 2F86                   MOV.L       R8,@-R15
     00000012 E800                   MOV         #0,R8
     00000014 D938                   MOV.L       L629+6,R9  ; _ReadFileLine
+      computeZS.    18            int  index = 0,i,hcs,ii;
     00000016 6C83                   MOV         R8,R12
     00000018 4F22                   STS.L       PR,@-R15
+      computeZS.    19            char ch;
+      computeZS.    20            char ss[20];
+      computeZS.    21            double ht,v,hd,bh;
+      computeZS.    22            double value[4];
+      computeZS.    23            for(ii=0;ii<4;ii++)
     0000001A 6E83                   MOV         R8,R14
     0000001C 9069                   MOV.W       L629,R0    ; H'FF6C
     0000001E 4F12                   STS.L       MACL,@-R15
@@ -39,11 +69,23 @@ P   00000000              _computeZS:                      ; function: computeZS
     00000026 A00F                   BRA         L604
     00000028 3DFC                   ADD         R15,R13
     0000002A              L605:                             
+      computeZS.    24            {
+      computeZS.    25                    ReadFileLine(IniSet2,ii,ss,20-1);
     0000002A E713                   MOV         #19,R7
     0000002C D433                   MOV.L       L629+10,R4 ; __$IniSet2
     0000002E 66D3                   MOV         R13,R6
     00000030 490B                   JSR         @R9
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE    2
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000032 65E3                   MOV         R14,R5
+      computeZS.    26                    value[ii]=atof(ss);
     00000034 62E3                   MOV         R14,R2
     00000036 4208                   SHLL2       R2
     00000038 4200                   SHLL        R2
@@ -66,82 +108,92 @@ P   00000000              _computeZS:                      ; function: computeZS
     00000058 1F34                   MOV.L       R3,@(16,R15)
     0000005A 7210                   ADD         #16,R2
     0000005C 2F22                   MOV.L       R2,@R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    2
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000005E 61F3                   MOV         R15,R1
     00000060 7130                   ADD         #48,R1
     00000062 1F13                   MOV.L       R1,@(12,R15)
     00000064 61F3                   MOV         R15,R1
     00000066 7131                   ADD         #49,R1
     00000068 1F12                   MOV.L       R1,@(8,R15)
-
+      computeZS.    27            }
+      computeZS.    28            //const char * context[] ={"","","",""};
+      computeZS.    29            while(1){
     0000006A              L607:                             
+      computeZS.    30                    if (refresh == REFRESH_ALL){  //ºê¶¨Òå REFRESH_ALL=2    È«²¿
     0000006A 60B3                   MOV         R11,R0
     0000006C DE25                   MOV.L       L629+18,R14; _DispStr
     0000006E 8802                   CMP/EQ      #2,R0
     00000070 8F3A                   BF/S        L608
     00000072 E901                   MOV         #1,R9
+      computeZS.    31                            refresh = REFRESH_PART;   //ºê¶¨Òå REFRESH_PART=1   ²¿·Ö£¬ REFRESH_PART¸³Öµ¸ørefre
+                         +sh=1  
+      computeZS.    32                            Bdisp_AllClr_VRAM();      //ÇåÀíÆÁÄ»
     00000074 D224                   MOV.L       L629+22,R2 ; _Bdisp_AllClr_VRAM
     00000076 420B                   JSR         @R2
     00000078 6B93                   MOV         R9,R11
+      computeZS.    33                            SetMyFont(&stHz12x12,&stAsc6x12);  //¶¨Òå×ÖÌå´óÐ¡
     0000007A D524                   MOV.L       L629+26,R5 ; _stAsc6x12
     0000007C D424                   MOV.L       L629+30,R4 ; _stHz12x12
     0000007E D325                   MOV.L       L629+34,R3 ; _SetMyFont
     00000080 430B                   JSR         @R3
     00000082 0009                   NOP
+      computeZS.    34                            DispStr(2,2,"Ïß ");
     00000084 D624                   MOV.L       L629+38,R6 ; L534
     00000086 E502                   MOV         #2,R5
     00000088 4E0B                   JSR         @R14
     0000008A 6453                   MOV         R5,R4
-    0000008C D623                   MOV.L       L629+42,R6 ; L535
-    0000008E E50C                   MOV         #12,R5
-    00000090 4E0B                   JSR         @R14
-    00000092 E402                   MOV         #2,R4
-    00000094 D622                   MOV.L       L629+46,R6 ; L536
-    00000096 E519                   MOV         #25,R5
-    00000098 4E0B                   JSR         @R14
-    0000009A E402                   MOV         #2,R4
-    0000009C D621                   MOV.L       L629+50,R6 ; L537
-    0000009E E526                   MOV         #38,R5
-    000000A0 4E0B                   JSR         @R14
-    000000A2 E402                   MOV         #2,R4
-    000000A4 D420                   MOV.L       L629+54,R4 ; __$TITLE
-    000000A6 D221                   MOV.L       L629+58,R2 ; _ShowTitle
-    000000A8 420B                   JSR         @R2
-    000000AA 0009                   NOP
-    000000AC D620                   MOV.L       L629+62,R6 ; L538
-    000000AE E500                   MOV         #0,R5
-    000000B0 4E0B                   JSR         @R14
-    000000B2 E411                   MOV         #17,R4
-    000000B4 D61F                   MOV.L       L629+66,R6 ; L539
-    000000B6 E50D                   MOV         #13,R5
-    000000B8 4E0B                   JSR         @R14
-    000000BA E411                   MOV         #17,R4
-    000000BC D61E                   MOV.L       L629+70,R6 ; L540
-    000000BE E51A                   MOV         #26,R5
-    000000C0 4E0B                   JSR         @R14
-    000000C2 E411                   MOV         #17,R4
-    000000C4 D61D                   MOV.L       L629+74,R6 ; L541
-    000000C6 E527                   MOV         #39,R5
-    000000C8 4E0B                   JSR         @R14
-    000000CA E411                   MOV         #17,R4
-    000000CC D50F                   MOV.L       L629+26,R5 ; _stAsc6x12
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    3
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE    3
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+      computeZS.    35                            DispStr(2,12,"Â· ");
+    0000008C D623                   MOV.L       L629+42,R6 ; L535
+    0000008E E50C                   MOV         #12,R5
+    00000090 4E0B                   JSR         @R14
+    00000092 E402                   MOV         #2,R4
+      computeZS.    36                            DispStr(2,25,"Õý ");
+    00000094 D622                   MOV.L       L629+46,R6 ; L536
+    00000096 E519                   MOV         #25,R5
+    00000098 4E0B                   JSR         @R14
+    0000009A E402                   MOV         #2,R4
+      computeZS.    37                            DispStr(2,38,"Ëã ");
+    0000009C D621                   MOV.L       L629+50,R6 ; L537
+    0000009E E526                   MOV         #38,R5
+    000000A0 4E0B                   JSR         @R14
+    000000A2 E402                   MOV         #2,R4
+      computeZS.    38                            ShowTitle(TITLE);  //±êÌâÏÔÊ¾
+    000000A4 D420                   MOV.L       L629+54,R4 ; __$TITLE
+    000000A6 D221                   MOV.L       L629+58,R2 ; _ShowTitle
+    000000A8 420B                   JSR         @R2
+    000000AA 0009                   NOP
+      computeZS.    39                            DispStr(17,0,"\xD7\xAE\xBA\xC5:"); // \xD7\xAE\xBA\xC5
+    000000AC D620                   MOV.L       L629+62,R6 ; L538
+    000000AE E500                   MOV         #0,R5
+    000000B0 4E0B                   JSR         @R14
+    000000B2 E411                   MOV         #17,R4
+      computeZS.    40                            DispStr(17,13,"Æ«¾à: ");
+    000000B4 D61F                   MOV.L       L629+66,R6 ; L539
+    000000B6 E50D                   MOV         #13,R5
+    000000B8 4E0B                   JSR         @R14
+    000000BA E411                   MOV         #17,R4
+      computeZS.    41                            DispStr(17,26,"¼Ð½Ç: ");
+    000000BC D61E                   MOV.L       L629+70,R6 ; L540
+    000000BE E51A                   MOV         #26,R5
+    000000C0 4E0B                   JSR         @R14
+    000000C2 E411                   MOV         #17,R4
+      computeZS.    42                            DispStr(17,39,"\xB2\xE2\xB8\xDF : ");
+    000000C4 D61D                   MOV.L       L629+74,R6 ; L541
+    000000C6 E527                   MOV         #39,R5
+    000000C8 4E0B                   JSR         @R14
+    000000CA E411                   MOV         #17,R4
+      computeZS.    43                            //DrawPicture (0, 4,11,47,PIC_ZS_TITLE);  //**************ÁÙÊ±³·Ïú£¬±êÌâÍ¼Æ¬Éú³É´
+                         +úÂëÏÔÊ¾£¬¼ÇµÃÉ¾³ýÍ¼Æ¬Éú²ú´úÂë
+    
+    000000CC D50F                   MOV.L       L629+26,R5 ; _stAsc6x12
     000000CE D41C                   MOV.L       L629+78,R4 ; _stHz8x8
     000000D0 D310                   MOV.L       L629+34,R3 ; _SetMyFont
     000000D2 430B                   JSR         @R3
@@ -156,6 +208,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000E4 4D0B                   JSR         @R13
     000000E6 E400                   MOV         #0,R4
     000000E8              L608:                             
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE    4
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000000E8 60B3                   MOV         R11,R0
     000000EA 8801                   CMP/EQ      #1,R0
     000000EC 8B72                   BF          L609
@@ -199,15 +260,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000160              L613:                             
     00000160 62D3                   MOV         R13,R2
     00000162 4208                   SHLL2       R2
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    4
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000164 4200                   SHLL        R2
     00000166 32AC                   ADD         R10,R2
     00000168 5321                   MOV.L       @(4,R2),R3
@@ -222,7 +274,17 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000017A 420B                   JSR         @R2
     0000017C E430                   MOV         #48,R4
     0000017E 7F08                   ADD         #8,R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE    5
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000180              L612:                             
+      computeZS.    66                                    if (i==3)       PrintFloat(value[i],48,0+i*13,index==i,4);
     00000180 60D3                   MOV         R13,R0
     00000182 8803                   CMP/EQ      #3,R0
     00000184 8B0F                   BF          L614
@@ -243,6 +305,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001A2 E430                   MOV         #48,R4
     000001A4 7F08                   ADD         #8,R15
     000001A6              L614:                             
+      computeZS.    67                                    if (i==2)       PrintDeg(48,0+i*13,value[i],index==i);
     000001A6 60D3                   MOV         R13,R0
     000001A8 8802                   CMP/EQ      #2,R0
     000001AA 8B0E                   BF          L615
@@ -265,23 +328,29 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001CA 7D01                   ADD         #1,R13
     000001CC              L610:                             
     000001CC E304                   MOV         #4,R3
+    000001CE 3D33                   CMP/GE      R3,R13
+    000001D0 8BBE                   BF          L611
+      computeZS.    68                            }
+      computeZS.    69                            refresh = 0;
+    000001D2 6B83                   MOV         R8,R11
+    000001D4              L609:                             
+      computeZS.    70                    }
+      computeZS.    71                    
+      computeZS.    72                    GetKey(&key);
+    000001D4 DD1E                   MOV.L       L630+30,R13; _GetKey
+    000001D6 64F3                   MOV         R15,R4
+    000001D8 4D0B                   JSR         @R13
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    5
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE    6
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    000001CE 3D33                   CMP/GE      R3,R13
-    000001D0 8BBE                   BF          L611
-    000001D2 6B83                   MOV         R8,R11
-    000001D4              L609:                             
-    000001D4 DD1E                   MOV.L       L630+30,R13; _GetKey
-    000001D6 64F3                   MOV         R15,R4
-    000001D8 4D0B                   JSR         @R13
     000001DA 7404                   ADD         #4,R4
+      computeZS.    73                    switch(key){
     000001DC 50F1                   MOV.L       @(4,R15),R0
     000001DE 9128                   MOV.W       L630,R1    ; H'7539
     000001E0 3010                   CMP/EQ      R1,R0
@@ -319,28 +388,41 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000021E A101                   BRA         L600
     00000220 0009                   NOP
     00000222              L582:                            ; case label 
+      computeZS.    74                            case KEY_CTRL_F1        :
+      computeZS.    75                                    SET();  refresh=REFRESH_ALL;    break;
     00000222 DE0C                   MOV.L       L630+34,R14; _SET
     00000224 4E0B                   JSR         @R14
     00000226 0009                   NOP
     00000228 A1E9                   BRA         L616
     0000022A EB02                   MOV         #2,R11
     0000022C              L583:                            ; case label 
+      computeZS.    76                            case KEY_CTRL_F2        :
+      computeZS.    77                                    //ZSSET();refresh=REFRESH_ALL;  break;
+      computeZS.    78                            case KEY_CTRL_F3        :
     0000022C              L584:                            ; case label 
+      computeZS.    79                                    //value[0]=value[0]+zfset.zsm;refresh=REFRESH_ALL;index = 3;    break;
+      computeZS.    80                            case KEY_CTRL_F4        :
     0000022C              L585:                            ; case label 
+      computeZS.    81                                    //value[0]=value[0]-zfset.zsm;refresh=REFRESH_ALL;index = 3;    break;
+      computeZS.    82                            case KEY_CTRL_F5        :
     0000022C              L586:                            ; case label 
-
-    0000022C              L587:                            ; case label 
-    0000022C              L588:                            ; case label 
-    0000022C 6B93                   MOV         R9,R11
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    6
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE    7
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+      computeZS.    83                                    //Nodata();     refresh=REFRESH_ALL;    break;
+      computeZS.    84                            case KEY_CTRL_F6        :
+    0000022C              L587:                            ; case label 
+      computeZS.    85                                    //About();      refresh=REFRESH_ALL;    break;
+      computeZS.    86                            case KEY_CTRL_UP        :
+    0000022C              L588:                            ; case label 
+      computeZS.    87                                    refresh=REFRESH_PART;   --index;        break;
+    0000022C 6B93                   MOV         R9,R11
     0000022E A1E6                   BRA         L616
     00000230 7CFF                   ADD         #-1,R12
     00000232              L630:                             
@@ -361,9 +443,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000254 <00000000>             .DATA.L     _SET
     00000258              L589:                            ; case label 
     00000258 A1D0                   BRA         L566
-
+      computeZS.    88                            case KEY_CTRL_DOWN      :
+      computeZS.    89                                    refresh=REFRESH_PART;   ++index;        break;
     0000025A 6B93                   MOV         R9,R11
     0000025C              L590:                            ; case label 
+      computeZS.    90                            case KEY_CTRL_EXE:
+      computeZS.    91                                    if      (index<3) refresh=REFRESH_PART,++index;
     0000025C E203                   MOV         #3,R2
     0000025E 3C23                   CMP/GE      R2,R12
     00000260 8902                   BT          L617
@@ -371,16 +456,31 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000264 A1CB                   BRA         L616
     00000266 7C01                   ADD         #1,R12
     00000268              L617:                             
-
+      computeZS.    92                                    else{
+      computeZS.    93                                            refresh=REFRESH_ALL;
+      computeZS.    94                                            yscs.k=value[0];
     00000268 DD59                   MOV.L       L632+4,R13 ; _yscs
     0000026A EB02                   MOV         #2,R11
     0000026C 51F5                   MOV.L       @(20,R15),R1
     0000026E 60D3                   MOV         R13,R0
+      computeZS.    95                                            yscs.d=value[1];
+      computeZS.    96                                            v=value[2];
+      computeZS.    97                                            ht=value[3];
+      computeZS.    98                                            yscs.xn=sd_to_xyaSrd(yscs.k,yscs.d,v,0);
     00000270 D958                   MOV.L       L632+8,R9  ; _sd_to_xyaSrd
     00000272 6212                   MOV.L       @R1,R2
     00000274 2022                   MOV.L       R2,@R0
     00000276 5211                   MOV.L       @(4,R1),R2
     00000278 1021                   MOV.L       R2,@(4,R0)
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE    8
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000027A 62D3                   MOV         R13,R2
     0000027C 51F4                   MOV.L       @(16,R15),R1
     0000027E 7220                   ADD         #32,R2
@@ -400,15 +500,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000029A E074                   MOV         #116,R0
     0000029C 03FE                   MOV.L       @(R0,R15),R3
     0000029E E074                   MOV         #116,R0
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    7
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000002A0 2F36                   MOV.L       R3,@-R15
     000002A2 03FE                   MOV.L       @(R0,R15),R3
     000002A4 2F36                   MOV.L       R3,@-R15
@@ -425,6 +516,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002BA 2F36                   MOV.L       R3,@-R15
     000002BC 490B                   JSR         @R9
     000002BE 2F26                   MOV.L       R2,@-R15
+      computeZS.    99                                            yscs.ye=sd_to_xyaSrd(yscs.k,yscs.d,v,1);
     000002C0 9084                   MOV.W       L632,R0    ; H'0090
     000002C2 E401                   MOV         #1,R4
     000002C4 03FE                   MOV.L       @(R0,R15),R3
@@ -444,6 +536,17 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002E0 2F36                   MOV.L       R3,@-R15
     000002E2 490B                   JSR         @R9
     000002E4 2F26                   MOV.L       R2,@-R15
+      computeZS.   100                                            yscs.fn=sd_to_xyaSrd(yscs.k,yscs.d,0,3);//½Ç¶ÈVÄ¬ÈÏÎª0 ·ñÔò»á³ö´í¼
+                         +ÇµÃÕâÀï~£¡
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE    9
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000002E6 E300                   MOV         #0,R3
     000002E8 2F36                   MOV.L       R3,@-R15
     000002EA E403                   MOV         #3,R4
@@ -460,68 +563,97 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000300 2F36                   MOV.L       R3,@-R15
     00000302 490B                   JSR         @R9
     00000304 2F26                   MOV.L       R2,@-R15
+      computeZS.   101                                            yscs.gch=zdm_to_gc(yscs.k);
     00000306 E238                   MOV         #56,R2
     00000308 D933                   MOV.L       L632+12,R9 ; _zdm_to_gc
     0000030A 32DC                   ADD         R13,R2
     0000030C 53D1                   MOV.L       @(4,R13),R3
     0000030E 2F36                   MOV.L       R3,@-R15
     00000310 63D2                   MOV.L       @R13,R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    8
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000312 2F36                   MOV.L       R3,@-R15
     00000314 490B                   JSR         @R9
     00000316 2F26                   MOV.L       R2,@-R15
+      computeZS.   102                                            
+      computeZS.   103                                            //ZS();
+      computeZS.   104                                            //GC();
+      computeZS.   105                                            //HP();
+      computeZS.   106                                            //yscs.xn=yscs.xn+yscs.d*cos((yscs.fn+v)*PI/180);   //½Ç¶È×ª»»»¡¶È
+      computeZS.   107                                            //yscs.ye=yscs.ye+yscs.d*sin((yscs.fn+v)*PI/180);   //½Ç¶È×ª»»»¡¶È
+      computeZS.   108                                            //if    (yscs.d<0)      hcs=-1; 
+      computeZS.   109                                            //if    (yscs.d>=0)     hcs=1;
+      computeZS.   110                                            //if    (yscs.d*hcs<=zfset.zsp) hd=0;
+      computeZS.   111                                            //if    (zfset.zsh==0)  hd=0;
+      computeZS.   112                                            //if    (yscs.d*hcs>zfset.zsp && yscs.d*hcs-zfset.zsp<zfset.zsh) h
+                         +d=(yscs.d*hcs-zfset.zsp)*hcs;
+      computeZS.   113                                            //if    (yscs.d*hcs-zfset.zsp>=zfset.zsh)       hd=zfset.zsh*hcs;
+      computeZS.   114                                            //bh=yscs.gch+(yscs.hpd*hd)-ht;
+      computeZS.   115                                            Bdisp_AllClr_VRAM();
     00000318 D130                   MOV.L       L632+16,R1 ; _Bdisp_AllClr_VRAM
     0000031A 410B                   JSR         @R1
     0000031C 0009                   NOP
+      computeZS.   116                                            SetMyFont(&stHz12x12,&stAsc6x12);  //¶¨Òå×ÖÌå´óÐ¡
     0000031E D530                   MOV.L       L632+20,R5 ; _stAsc6x12
     00000320 D430                   MOV.L       L632+24,R4 ; _stHz12x12
     00000322 D331                   MOV.L       L632+28,R3 ; _SetMyFont
     00000324 430B                   JSR         @R3
     00000326 0009                   NOP
+      computeZS.   117                                    DispStr(2,0, "¼Æ ");
     00000328 D630                   MOV.L       L632+32,R6 ; L549
     0000032A E500                   MOV         #0,R5
     0000032C 4E0B                   JSR         @R14
     0000032E 64B3                   MOV         R11,R4
+      computeZS.   118                                    DispStr(2,12,"Ëã ");
     00000330 D62F                   MOV.L       L632+36,R6 ; L537
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE   10
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000332 E50C                   MOV         #12,R5
     00000334 4E0B                   JSR         @R14
     00000336 64B3                   MOV         R11,R4
+      computeZS.   119                                    DispStr(2,26,"½á ");
     00000338 D62E                   MOV.L       L632+40,R6 ; L550
     0000033A E51A                   MOV         #26,R5
     0000033C 4E0B                   JSR         @R14
     0000033E 64B3                   MOV         R11,R4
+      computeZS.   120                                    DispStr(2,39,"¹û ");
     00000340 D62D                   MOV.L       L632+44,R6 ; L551
     00000342 E527                   MOV         #39,R5
     00000344 4E0B                   JSR         @R14
     00000346 64B3                   MOV         R11,R4
+      computeZS.   121                                            ShowTitle(TITLE);
     00000348 D42C                   MOV.L       L632+48,R4 ; __$TITLE
     0000034A D22D                   MOV.L       L632+52,R2 ; _ShowTitle
     0000034C 420B                   JSR         @R2
     0000034E 0009                   NOP
+      computeZS.   122                                            //DispStr(31,0, "×®ºÅ ");
+      computeZS.   123                                    DispStr(17,0,"×ø±êX "); 
     00000350 D62C                   MOV.L       L632+56,R6 ; L552
     00000352 E500                   MOV         #0,R5
     00000354 4E0B                   JSR         @R14
     00000356 E411                   MOV         #17,R4
+      computeZS.   124                                    DispStr(17,13,"×ø±êY ");
     00000358 D62B                   MOV.L       L632+60,R6 ; L553
     0000035A E50D                   MOV         #13,R5
     0000035C 4E0B                   JSR         @R14
     0000035E E411                   MOV         #17,R4
+      computeZS.   125                                    DispStr(17,26,"·½Î»: ");
     00000360 D62A                   MOV.L       L632+64,R6 ; L554
     00000362 E51A                   MOV         #26,R5
     00000364 4E0B                   JSR         @R14
     00000366 E411                   MOV         #17,R4
+      computeZS.   126                                            DispStr(17,39,"»ù¸ß: ");
     00000368 D629                   MOV.L       L632+68,R6 ; L555
     0000036A E527                   MOV         #39,R5
     0000036C 4E0B                   JSR         @R14
     0000036E E411                   MOV         #17,R4
+      computeZS.   127                                            //PrintfXY (48,1,0,"%.4f",yscs.k);
+      computeZS.   128                                            PrintfXY (48,2.5,0,"%.4f",yscs.xn);
     00000370 D928                   MOV.L       L632+72,R9 ; _PrintfXY
     00000372 E600                   MOV         #0,R6
     00000374 DE28                   MOV.L       L632+76,R14; L556
@@ -532,25 +664,27 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000037E 2F36                   MOV.L       R3,@-R15
     00000380 2FE6                   MOV.L       R14,@-R15
     00000382 490B                   JSR         @R9
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    9
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000384 E430                   MOV         #48,R4
+      computeZS.   129                                            PrintfXY (48,16,0,"%.4f",yscs.ye);
     00000386 E600                   MOV         #0,R6
     00000388 52D5                   MOV.L       @(20,R13),R2
     0000038A E510                   MOV         #16,R5
     0000038C 2F26                   MOV.L       R2,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE   11
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000038E 52D4                   MOV.L       @(16,R13),R2
     00000390 2F26                   MOV.L       R2,@-R15
     00000392 2FE6                   MOV.L       R14,@-R15
     00000394 490B                   JSR         @R9
     00000396 E430                   MOV         #48,R4
+      computeZS.   130                                            PrintDeg (46,27,yscs.fn,0); 
     00000398 D220                   MOV.L       L632+80,R2 ; _PrintDeg
     0000039A 7F78                   ADD         #120,R15
     0000039C 53D7                   MOV.L       @(28,R13),R3
@@ -561,6 +695,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003A6 2F36                   MOV.L       R3,@-R15
     000003A8 420B                   JSR         @R2
     000003AA E42E                   MOV         #46,R4
+      computeZS.   131                                            PrintfXY (49,42,0,"%.4f",yscs.gch);      
     000003AC 53DF                   MOV.L       @(60,R13),R3
     000003AE E600                   MOV         #0,R6
     000003B0 2F36                   MOV.L       R3,@-R15
@@ -570,12 +705,20 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003B8 2FE6                   MOV.L       R14,@-R15
     000003BA 490B                   JSR         @R9
     000003BC E431                   MOV         #49,R4
+      computeZS.   132                                            
+      computeZS.   133                                            //PrintfXY (6,47,0," P=%.5f",yscs.hpd);
+      computeZS.   134                                            //PrintfXY (6,56,0," H=%.3f",bh);
+      computeZS.   135                                            WaitKey();
     000003BE DE18                   MOV.L       L632+84,R14; _WaitKey
     000003C0 4E0B                   JSR         @R14
     000003C2 7F14                   ADD         #20,R15
     000003C4 A11A                   BRA         L566
     000003C6 0009                   NOP
     000003C8              L599:                            ; case label 
+      computeZS.   136                                            ++index;
+      computeZS.   137                                    }       break;
+      computeZS.   138                            case KEY_CTRL_EXIT:
+      computeZS.   139                                    return 0;
     000003C8 A123                   BRA         L619
     000003CA E000                   MOV         #0,R0
     000003CC              L632:                             
@@ -593,25 +736,27 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003F4 <00000000>             .DATA.L     L550
     000003F8 <00000000>             .DATA.L     L551
     000003FC <00000000>             .DATA.L     __$TITLE
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE   12
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000400 <00000000>             .DATA.L     _ShowTitle
     00000404 <00000000>             .DATA.L     L552
     00000408 <00000000>             .DATA.L     L553
     0000040C <00000000>             .DATA.L     L554
     00000410 <00000000>             .DATA.L     L555
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   10
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000414 <00000000>             .DATA.L     _PrintfXY
     00000418 <00000000>             .DATA.L     L556
     0000041C <00000000>             .DATA.L     _PrintDeg
     00000420 <00000000>             .DATA.L     _WaitKey
     00000424              L600:                            ; default label 
+      computeZS.   140                            default:
+      computeZS.   141                                    if ((ch=GetPressNumChar(key))!=0){
     00000424 DE61                   MOV.L       L633+4,R14 ; _GetPressNumChar
     00000426 4E0B                   JSR         @R14
     00000428 54F1                   MOV.L       @(4,R15),R4
@@ -622,8 +767,13 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000432 A0E4                   BRA         L616
     00000434 0009                   NOP
     00000436              L634:                             
+      computeZS.   142                                            char buf[14];
+      computeZS.   143                                            int        r;
+      computeZS.   144                                            refresh = REFRESH_PART;
     00000436 6B93                   MOV         R9,R11
+      computeZS.   145                                            buf[0] = ch;   buf[1] = '\0';
     00000438 52F3                   MOV.L       @(12,R15),R2
+      computeZS.   146                                            r = InputString (48,0+index*13,buf,0,12); //×¢ÒâÎ»ÒÆÊäÈë¿òµÄÎ»ÖÃ
     0000043A E700                   MOV         #0,R7
     0000043C DE5C                   MOV.L       L633+8,R14 ; _InputString
     0000043E E50D                   MOV         #13,R5
@@ -639,6 +789,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000452 4E0B                   JSR         @R14
     00000454 E430                   MOV         #48,R4
     00000456 6E03                   MOV         R0,R14
+      computeZS.   147                                            if (r != KEY_CTRL_EXIT){
     00000458 94A6                   MOV.W       L633,R4    ; H'7532
     0000045A 3E40                   CMP/EQ      R4,R14
     0000045C 8F02                   BF/S        L635
@@ -646,9 +797,20 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000460 A0CD                   BRA         L616
     00000462 0009                   NOP
     00000464              L635:                             
+      computeZS.   148                                                    
+      computeZS.   149                                                    value[index] = atof(buf);
     00000464 63C3                   MOV         R12,R3
     00000466 4308                   SHLL2       R3
     00000468 4300                   SHLL        R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE   13
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000046A 33AC                   ADD         R10,R3
     0000046C 64F3                   MOV         R15,R4
     0000046E 7430                   ADD         #48,R4
@@ -656,6 +818,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000472 D350                   MOV.L       L633+12,R3 ; _atof
     00000474 430B                   JSR         @R3
     00000476 0009                   NOP
+      computeZS.   150                                                    if (index == 2){
     00000478 60C3                   MOV         R12,R0
     0000047A 8802                   CMP/EQ      #2,R0
     0000047C 8D02                   BT/S        L636
@@ -663,16 +826,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000480 A088                   BRA         L622
     00000482 0009                   NOP
     00000484              L636:                             
+      computeZS.   151                                                            double  dd,ff,mm;
+      computeZS.   152                                                            dd = (int)value[2];
     00000484 60F2                   MOV.L       @R15,R0
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   11
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000486 5301                   MOV.L       @(4,R0),R3
     00000488 D24B                   MOV.L       L633+16,R2 ; __dtoi
     0000048A 2F36                   MOV.L       R3,@-R15
@@ -684,6 +840,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000496 7128                   ADD         #40,R1
     00000498 430B                   JSR         @R3
     0000049A 2F16                   MOV.L       R1,@-R15
+      computeZS.   153                                                            ff = (int)((value[2]-dd)*100.0)/60.0;
     0000049C D148                   MOV.L       L633+24,R1 ; __subdr
     0000049E 7FF0                   ADD         #-16,R15
     000004A0 54F4                   MOV.L       @(16,R15),R4
@@ -711,6 +868,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000004CC 410B                   JSR         @R1
     000004CE 2F36                   MOV.L       R3,@-R15
     000004D0 D239                   MOV.L       L633+16,R2 ; __dtoi
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE   14
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000004D2 420B                   JSR         @R2
     000004D4 0009                   NOP
     000004D6 7FF8                   ADD         #-8,R15
@@ -726,19 +892,11 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000004EA 7130                   ADD         #48,R1
     000004EC 430B                   JSR         @R3
     000004EE 2F16                   MOV.L       R1,@-R15
+      computeZS.   154                                                            mm = (value[2]-dd)*100.0;
     000004F0 D133                   MOV.L       L633+24,R1 ; __subdr
     000004F2 7FF8                   ADD         #-8,R15
     000004F4 5241                   MOV.L       @(4,R4),R2
     000004F6 2F26                   MOV.L       R2,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   12
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000004F8 6242                   MOV.L       @R4,R2
     000004FA 2F26                   MOV.L       R2,@-R15
     000004FC 53FF                   MOV.L       @(60,R15),R3
@@ -758,6 +916,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000518 7128                   ADD         #40,R1
     0000051A 420B                   JSR         @R2
     0000051C 2F16                   MOV.L       R1,@-R15
+      computeZS.   155                                                            mm = (mm - (int)mm)*100.0/3600.0;
     0000051E 7FF0                   ADD         #-16,R15
     00000520 53FB                   MOV.L       @(44,R15),R3
     00000522 2F36                   MOV.L       R3,@-R15
@@ -775,6 +934,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000053A 2FF6                   MOV.L       R15,@-R15
     0000053C D120                   MOV.L       L633+24,R1 ; __subdr
     0000053E 63F3                   MOV         R15,R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE   15
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000540 7310                   ADD         #16,R3
     00000542 410B                   JSR         @R1
     00000544 2F36                   MOV.L       R3,@-R15
@@ -796,15 +964,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000564 7128                   ADD         #40,R1
     00000566 430B                   JSR         @R3
     00000568 2F16                   MOV.L       R1,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   13
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
+      computeZS.   156                                                            value[2]=dd+ff+mm;
     0000056A 7FF8                   ADD         #-8,R15
     0000056C D11A                   MOV.L       L633+48,R1 ; __addd
     0000056E 52FD                   MOV.L       @(52,R15),R2
@@ -827,17 +987,28 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000590 420B                   JSR         @R2
     00000592 2F46                   MOV.L       R4,@-R15
     00000594              L622:                             
-
+      computeZS.   157                                                    } 
+      computeZS.   158                                                    WriteFileLine(IniSet2,index,buf);
     00000594 DD11                   MOV.L       L633+52,R13; _WriteFileLine
     00000596 66F3                   MOV         R15,R6
     00000598 D411                   MOV.L       L633+56,R4 ; __$IniSet2
     0000059A 7630                   ADD         #48,R6
     0000059C 4D0B                   JSR         @R13
     0000059E 65C3                   MOV         R12,R5
+      computeZS.   159                                                    if      (r==KEY_CTRL_DOWN)              ++index;
     000005A0 9403                   MOV.W       L633+2,R4  ; H'7547
     000005A2 3E40                   CMP/EQ      R4,R14
     000005A4 A01E                   BRA         L628
     000005A6 0009                   NOP
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE   16
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000005A8              L633:                             
     000005A8 7532                   .DATA.W     H'7532
     000005AA 7547                   .DATA.W     H'7547
@@ -859,20 +1030,13 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000005E4 8B00                   BF          L623
     000005E6 7C01                   ADD         #1,R12
     000005E8              L623:                             
+      computeZS.   160                                                    if      (r==KEY_CTRL_UP)        --index;
     000005E8 941F                   MOV.W       L637,R4    ; H'7542
     000005EA 3E40                   CMP/EQ      R4,R14
     000005EC 8B00                   BF          L624
     000005EE 7CFF                   ADD         #-1,R12
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   14
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000005F0              L624:                             
+      computeZS.   161                                                    if (r==KEY_CTRL_EXE && index<3) ++index;
     000005F0 941C                   MOV.W       L637+2,R4  ; H'7534
     000005F2 3E40                   CMP/EQ      R4,R14
     000005F4 8B03                   BF          L616
@@ -881,12 +1045,18 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000005FA 8900                   BT          L616
     000005FC              L566:
     000005FC 7C01                   ADD         #1,R12
+      computeZS.   162                                            }
+      computeZS.   163                                            break;
     000005FE              L616:                             
+      computeZS.   164                                    }
+      computeZS.   165                    }
+      computeZS.   166                    if (index >=4) index = 0;
     000005FE E304                   MOV         #4,R3
     00000600 3C33                   CMP/GE      R3,R12
     00000602 8B00                   BF          L626
     00000604 6C83                   MOV         R8,R12
     00000606              L626:                             
+      computeZS.   167                    if (index < 0) index = 3;
     00000606 4C11                   CMP/PZ      R12
     00000608 8B01                   BF          L638
     0000060A AD2E                   BRA         L607
@@ -895,6 +1065,17 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000060E AD2C                   BRA         L607
     00000610 EC03                   MOV         #3,R12
     00000612              L619:                             
+      computeZS.   168            }
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE   17
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      computeZS.   169    }
     00000612 910C                   MOV.W       L637+4,R1  ; H'0094
     00000614 3F1C                   ADD         R1,R15
     00000616 4F16                   LDS.L       @R15+,MACL
@@ -911,187 +1092,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000062A 7542                   .DATA.W     H'7542
     0000062C 7534                   .DATA.W     H'7534
     0000062E 0094                   .DATA.W     H'0094
-
-      computeZS.     2    #include "xy.h"
-
-
-
-      computeZS.     4    #include <fxlib.h>
-      computeZS.     5    #include <dispbios.h>
-      computeZS.     6    #include "fileline.h"
-      computeZS.     7    
-      computeZS.     8    static char TITLE[] = "";
-      computeZS.     9    
-      computeZS.    10    static FONTCHARACTER IniFile[] = { '\\','\\','c','r','d','0','\\','c','s','v','.','i','n','i' ,'\0'} ;
-      computeZS.    11    static FONTCHARACTER IniSet1[] = { '\\','\\','c','r','d','0','\\','s','e','t','1','.','i','n','i' ,'\0'} ;
-      computeZS.    12    static FONTCHARACTER IniSet2[] = { '\\','\\','c','r','d','0','\\','s','e','t','2','.','i','n','i' ,'\0'} ;
-      computeZS.    13    
-      computeZS.    14    
-      computeZS.    15    int computeZS ()
-      computeZS.    16    {
-      computeZS.    17            uint refresh = 2,key;
-      computeZS.    18            int  index = 0,i,hcs,ii;
-      computeZS.    19            char ch;
-      computeZS.    20            char ss[20];
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   15
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      computeZS.    21            double ht,v,hd,bh;
-      computeZS.    22            double value[4];
-      computeZS.    23            for(ii=0;ii<4;ii++)
-      computeZS.    24            {
-      computeZS.    25                    ReadFileLine(IniSet2,ii,ss,20-1);
-      computeZS.    26                    value[ii]=atof(ss);
-      computeZS.    27            }
-      computeZS.    28            //const char * context[] ={"","","",""};
-      computeZS.    29            while(1){
-      computeZS.    30                    if (refresh == REFRESH_ALL){  //ºê¶¨Òå REFRESH_ALL=2    È«²¿
-      computeZS.    31                            refresh = REFRESH_PART;   //ºê¶¨Òå REFRESH_PART=1   ²¿·Ö£¬ REFRESH_PART¸³Öµ¸ørefre
-                         +sh=1  
-      computeZS.    32                            Bdisp_AllClr_VRAM();      //ÇåÀíÆÁÄ»
-      computeZS.    33                            SetMyFont(&stHz12x12,&stAsc6x12);  //¶¨Òå×ÖÌå´óÐ¡
-      computeZS.    34                            DispStr(2,2,"Ïß ");
-      computeZS.    35                            DispStr(2,12,"Â· ");
-      computeZS.    36                            DispStr(2,25,"Õý ");
-      computeZS.    37                            DispStr(2,38,"Ëã ");
-      computeZS.    38                            ShowTitle(TITLE);  //±êÌâÏÔÊ¾
-      computeZS.    39                            DispStr(17,0,"\xD7\xAE\xBA\xC5:"); // \xD7\xAE\xBA\xC5
-      computeZS.    40                            DispStr(17,13,"Æ«¾à: ");
-      computeZS.    41                            DispStr(17,26,"¼Ð½Ç: ");
-      computeZS.    42                            DispStr(17,39,"\xB2\xE2\xB8\xDF : ");
-      computeZS.    43                            //DrawPicture (0, 4,11,47,PIC_ZS_TITLE);  //**************ÁÙÊ±³·Ïú£¬±êÌâÍ¼Æ¬Éú³É´
-                         +úÂëÏÔÊ¾£¬¼ÇµÃÉ¾³ýÍ¼Æ¬Éú²ú´úÂë
-    
-      computeZS.    66                                    if (i==3)       PrintFloat(value[i],48,0+i*13,index==i,4);
-      computeZS.    67                                    if (i==2)       PrintDeg(48,0+i*13,value[i],index==i);
-      computeZS.    68                            }
-      computeZS.    69                            refresh = 0;
-      computeZS.    70                    }
-      computeZS.    71                    
-      computeZS.    72                    GetKey(&key);
-      computeZS.    73                    switch(key){
-      computeZS.    74                            case KEY_CTRL_F1        :
-      computeZS.    75                                    SET();  refresh=REFRESH_ALL;    break;
-      computeZS.    76                            case KEY_CTRL_F2        :
-      computeZS.    77                                    //ZSSET();refresh=REFRESH_ALL;  break;
-      computeZS.    78                            case KEY_CTRL_F3        :
-      computeZS.    79                                    //value[0]=value[0]+zfset.zsm;refresh=REFRESH_ALL;index = 3;    break;
-      computeZS.    80                            case KEY_CTRL_F4        :
-      computeZS.    81                                    //value[0]=value[0]-zfset.zsm;refresh=REFRESH_ALL;index = 3;    break;
-      computeZS.    82                            case KEY_CTRL_F5        :
-      computeZS.    83                                    //Nodata();     refresh=REFRESH_ALL;    break;
-      computeZS.    84                            case KEY_CTRL_F6        :
-      computeZS.    85                                    //About();      refresh=REFRESH_ALL;    break;
-      computeZS.    86                            case KEY_CTRL_UP        :
-      computeZS.    87                                    refresh=REFRESH_PART;   --index;        break;
-      computeZS.    88                            case KEY_CTRL_DOWN      :
-      computeZS.    89                                    refresh=REFRESH_PART;   ++index;        break;
-      computeZS.    90                            case KEY_CTRL_EXE:
-      computeZS.    91                                    if      (index<3) refresh=REFRESH_PART,++index;
-      computeZS.    92                                    else{
-      computeZS.    93                                            refresh=REFRESH_ALL;
-      computeZS.    94                                            yscs.k=value[0];
-      computeZS.    95                                            yscs.d=value[1];
-      computeZS.    96                                            v=value[2];
-      computeZS.    97                                            ht=value[3];
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   16
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      computeZS.    98                                            yscs.xn=sd_to_xyaSrd(yscs.k,yscs.d,v,0);
-      computeZS.    99                                            yscs.ye=sd_to_xyaSrd(yscs.k,yscs.d,v,1);
-      computeZS.   100                                            yscs.fn=sd_to_xyaSrd(yscs.k,yscs.d,0,3);//½Ç¶ÈVÄ¬ÈÏÎª0 ·ñÔò»á³ö´í¼
-                         +ÇµÃÕâÀï~£¡
-      computeZS.   101                                            yscs.gch=zdm_to_gc(yscs.k);
-      computeZS.   102                                            
-      computeZS.   103                                            //ZS();
-      computeZS.   104                                            //GC();
-      computeZS.   105                                            //HP();
-      computeZS.   106                                            //yscs.xn=yscs.xn+yscs.d*cos((yscs.fn+v)*PI/180);   //½Ç¶È×ª»»»¡¶È
-      computeZS.   107                                            //yscs.ye=yscs.ye+yscs.d*sin((yscs.fn+v)*PI/180);   //½Ç¶È×ª»»»¡¶È
-      computeZS.   108                                            //if    (yscs.d<0)      hcs=-1; 
-      computeZS.   109                                            //if    (yscs.d>=0)     hcs=1;
-      computeZS.   110                                            //if    (yscs.d*hcs<=zfset.zsp) hd=0;
-      computeZS.   111                                            //if    (zfset.zsh==0)  hd=0;
-      computeZS.   112                                            //if    (yscs.d*hcs>zfset.zsp && yscs.d*hcs-zfset.zsp<zfset.zsh) h
-                         +d=(yscs.d*hcs-zfset.zsp)*hcs;
-      computeZS.   113                                            //if    (yscs.d*hcs-zfset.zsp>=zfset.zsh)       hd=zfset.zsh*hcs;
-      computeZS.   114                                            //bh=yscs.gch+(yscs.hpd*hd)-ht;
-      computeZS.   115                                            Bdisp_AllClr_VRAM();
-      computeZS.   116                                            SetMyFont(&stHz12x12,&stAsc6x12);  //¶¨Òå×ÖÌå´óÐ¡
-      computeZS.   117                                    DispStr(2,0, "¼Æ ");
-      computeZS.   118                                    DispStr(2,12,"Ëã ");
-      computeZS.   119                                    DispStr(2,26,"½á ");
-      computeZS.   120                                    DispStr(2,39,"¹û ");
-      computeZS.   121                                            ShowTitle(TITLE);
-      computeZS.   122                                            //DispStr(31,0, "×®ºÅ ");
-      computeZS.   123                                    DispStr(17,0,"×ø±êX "); 
-      computeZS.   124                                    DispStr(17,13,"×ø±êY ");
-      computeZS.   125                                    DispStr(17,26,"·½Î»: ");
-      computeZS.   126                                            DispStr(17,39,"»ù¸ß: ");
-      computeZS.   127                                            //PrintfXY (48,1,0,"%.4f",yscs.k);
-      computeZS.   128                                            PrintfXY (48,2.5,0,"%.4f",yscs.xn);
-      computeZS.   129                                            PrintfXY (48,16,0,"%.4f",yscs.ye);
-      computeZS.   130                                            PrintDeg (46,27,yscs.fn,0); 
-      computeZS.   131                                            PrintfXY (49,42,0,"%.4f",yscs.gch);      
-      computeZS.   132                                            
-      computeZS.   133                                            //PrintfXY (6,47,0," P=%.5f",yscs.hpd);
-      computeZS.   134                                            //PrintfXY (6,56,0," H=%.3f",bh);
-      computeZS.   135                                            WaitKey();
-      computeZS.   136                                            ++index;
-      computeZS.   137                                    }       break;
-      computeZS.   138                            case KEY_CTRL_EXIT:
-      computeZS.   139                                    return 0;
-      computeZS.   140                            default:
-      computeZS.   141                                    if ((ch=GetPressNumChar(key))!=0){
-      computeZS.   142                                            char buf[14];
-      computeZS.   143                                            int        r;
-      computeZS.   144                                            refresh = REFRESH_PART;
-      computeZS.   145                                            buf[0] = ch;   buf[1] = '\0';
-      computeZS.   146                                            r = InputString (48,0+index*13,buf,0,12); //×¢ÒâÎ»ÒÆÊäÈë¿òµÄÎ»ÖÃ
-      computeZS.   147                                            if (r != KEY_CTRL_EXIT){
-      computeZS.   148                                                    
-      computeZS.   149                                                    value[index] = atof(buf);
-      computeZS.   150                                                    if (index == 2){
-      computeZS.   151                                                            double  dd,ff,mm;
-      computeZS.   152                                                            dd = (int)value[2];
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   17
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      computeZS.   153                                                            ff = (int)((value[2]-dd)*100.0)/60.0;
-      computeZS.   154                                                            mm = (value[2]-dd)*100.0;
-      computeZS.   155                                                            mm = (mm - (int)mm)*100.0/3600.0;
-      computeZS.   156                                                            value[2]=dd+ff+mm;
-      computeZS.   157                                                    } 
-      computeZS.   158                                                    WriteFileLine(IniSet2,index,buf);
-      computeZS.   159                                                    if      (r==KEY_CTRL_DOWN)              ++index;
-      computeZS.   160                                                    if      (r==KEY_CTRL_UP)        --index;
-      computeZS.   161                                                    if (r==KEY_CTRL_EXE && index<3) ++index;
-      computeZS.   162                                            }
-      computeZS.   163                                            break;
-      computeZS.   164                                    }
-      computeZS.   165                    }
-      computeZS.   166                    if (index >=4) index = 0;
-      computeZS.   167                    if (index < 0) index = 3;
-      computeZS.   168            }
-      computeZS.   169    }
 D   00000000              __$TITLE:                        ; static: TITLE
     00000000 00                     .DATA.B     H'00
     00000001 00000001               .RES.B      1
@@ -1136,7 +1136,7 @@ C   00000000              L534:
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   18
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE   18
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -1202,7 +1202,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   19
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE   19
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -1268,7 +1268,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:44  PAGE    1
 
 
 ******** STATISTICS INFORMATION ********
@@ -1277,7 +1277,7 @@ SH SERIES C/C++ Compiler (Ver. 6.0C)                                            
 ********** ERROR INFORMATION ***********
 
 NUMBER OF ERRORS:           0
-NUMBER OF WARNINGS:        16
+NUMBER OF WARNINGS:         0
 
 
 
@@ -1337,5 +1337,5 @@ NUMBER OF INTERNAL/EXTERNAL SYMBOLS:            88
 *** COMMAND PARAMETER ***
 
 
-  -subcommand=C:\Users\ADMINI~1\AppData\Local\Temp\hmk436D.tmp 
+  -subcommand=C:\Users\¿­Åô\AppData\Local\Temp\hmkF40B.tmp 
 

@@ -1,24 +1,40 @@
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:15  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    1
 
 ************ OBJECT LISTING ************
 
-FILE NAME: C:\Users\Administrator\Desktop\2015-06-6½»µã·¨×ªÏßÔªÍÆÁ´±í\2015-06-4½»µã·¨×ªÏßÔªÍÆÁ´±í\OutPut.c
+FILE NAME: F:\ProgramOfUniversity\C-KXO\C-KXO\OutPut.c
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
         OutPut.c     1    #include "headfile.h"
-P   00000000              _FloatToDegStr:                  ; function: FloatToDegStr
-                                                           ; frame size=80
-                                                           ; used runtime library name:
-                                                           ; __addd, __subdr, __muld, __dtoi, __itod
-    00000000 4F22                   STS.L       PR,@-R15
-    00000002 7FD0                   ADD         #-48,R15
 
 
 
 
 
 
+
+
+
+
+
+
+        OutPut.c     2    
+        OutPut.c     3    const int box_width = 12;
+        OutPut.c     4    
+        OutPut.c     5    //2015å¹´1æœˆ5æ—¥åŠ å…¥
+        OutPut.c     6    void FloatToDegStr (double xx,char *str)
+P   00000000              _FloatToDegStr:                  ; function: FloatToDegStr
+                                                           ; frame size=80
+                                                           ; used runtime library name:
+                                                           ; __addd, __subdr, __muld, __dtoi, __itod
+    00000000 4F22                   STS.L       PR,@-R15
+    00000002 7FD0                   ADD         #-48,R15
+        OutPut.c     7    {
+        OutPut.c     8            int f1;
+        OutPut.c     9            double f2,f,x;
+        OutPut.c    10            char format[20];
+        OutPut.c    11            x=xx+0.000001;
     00000004 D2AE                   MOV.L       L564,R2    ; H'A0B5ED8D
     00000006 2F42                   MOV.L       R4,@R15
     00000008 53FE                   MOV.L       @(56,R15),R3
@@ -33,12 +49,14 @@ P   00000000              _FloatToDegStr:                  ; function: FloatToDe
     0000001A 7128                   ADD         #40,R1
     0000001C 430B                   JSR         @R3
     0000001E 2F16                   MOV.L       R1,@-R15
+        OutPut.c    12            f1=(int)x;
     00000020 52F7                   MOV.L       @(28,R15),R2
     00000022 2F26                   MOV.L       R2,@-R15
     00000024 52F7                   MOV.L       @(28,R15),R2
     00000026 D3A9                   MOV.L       L564+12,R3 ; __dtoi
     00000028 430B                   JSR         @R3
     0000002A 2F26                   MOV.L       R2,@-R15
+        OutPut.c    13            f2=((double)x-(double)f1)*60.0;
     0000002C D3A8                   MOV.L       L564+16,R3 ; __itod
     0000002E 6403                   MOV         R0,R4
     00000030 7FF8                   ADD         #-8,R15
@@ -54,6 +72,15 @@ P   00000000              _FloatToDegStr:                  ; function: FloatToDe
     00000044 D1A3                   MOV.L       L564+20,R1 ; __subdr
     00000046 7210                   ADD         #16,R2
     00000048 410B                   JSR         @R1
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    2
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000004A 2F26                   MOV.L       R2,@-R15
     0000004C D2A3                   MOV.L       L564+28,R2 ; __muld
     0000004E E300                   MOV         #0,R3
@@ -64,17 +91,9 @@ P   00000000              _FloatToDegStr:                  ; function: FloatToDe
     00000058 7138                   ADD         #56,R1
     0000005A 420B                   JSR         @R2
     0000005C 2F16                   MOV.L       R1,@-R15
+        OutPut.c    14            f=(f2-(double)((int)f2))*60.0;
     0000005E 7FF8                   ADD         #-8,R15
     00000060 53FD                   MOV.L       @(52,R15),R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:15  PAGE    2
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000062 2F36                   MOV.L       R3,@-R15
     00000064 53FD                   MOV.L       @(52,R15),R3
     00000066 2F36                   MOV.L       R3,@-R15
@@ -103,6 +122,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000094 7130                   ADD         #48,R1
     00000096 430B                   JSR         @R3
     00000098 2F16                   MOV.L       R1,@-R15
+        OutPut.c    15            sprintf(format,"%d\x9C%d'%.2f''",f1,(int)f2,f);
     0000009A 52F9                   MOV.L       @(36,R15),R2
     0000009C D390                   MOV.L       L564+32,R3 ; L505
     0000009E 2F26                   MOV.L       R2,@-R15
@@ -115,32 +135,42 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000AC D28D                   MOV.L       L564+36,R2 ; _sprintf
     000000AE 420B                   JSR         @R2
     000000B0 7418                   ADD         #24,R4
+        OutPut.c    16            sprintf(str,"%12s",format);
     000000B2 63F3                   MOV         R15,R3
     000000B4 D28C                   MOV.L       L564+40,R2 ; L506
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    3
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000000B6 7318                   ADD         #24,R3
     000000B8 2F36                   MOV.L       R3,@-R15
     000000BA 2F26                   MOV.L       R2,@-R15
     000000BC D389                   MOV.L       L564+36,R3 ; _sprintf
     000000BE 430B                   JSR         @R3
     000000C0 54F7                   MOV.L       @(28,R15),R4
+        OutPut.c    17    }
     000000C2 7F4C                   ADD         #76,R15
     000000C4 4F26                   LDS.L       @R15+,PR
     000000C6 000B                   RTS
     000000C8 0009                   NOP
+        OutPut.c    18    
+        OutPut.c    19    
+        OutPut.c    20    int value_to_deg (double xx,char str[])
     000000CA              _value_to_deg:                   ; function: value_to_deg
                                                            ; frame size=88
                                                            ; used runtime library name:
                                                            ; __subdr, __muld, __negd, __dtoi, __itod, __ltd
+        OutPut.c    21    {
+        OutPut.c    22            int f1,negtive = 0;
+        OutPut.c    23            char format[20];
+        OutPut.c    24            double f2,f,x;
+        OutPut.c    25            if (xx<0.0) negtive = 1,xx = -xx;
     000000CA E040                   MOV         #64,R0
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:15  PAGE    3
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000000CC 2FE6                   MOV.L       R14,@-R15
     000000CE 2FD6                   MOV.L       R13,@-R15
     000000D0 2FC6                   MOV.L       R12,@-R15
@@ -173,6 +203,16 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000106 430B                   JSR         @R3
     00000108 2F16                   MOV.L       R1,@-R15
     0000010A              L553:                             
+        OutPut.c    26            x = xx;
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    4
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000010A 62F3                   MOV         R15,R2
     0000010C 723C                   ADD         #60,R2
     0000010E 60F3                   MOV         R15,R0
@@ -180,13 +220,14 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000112 2032                   MOV.L       R3,@R0
     00000114 5321                   MOV.L       @(4,R2),R3
     00000116 1031                   MOV.L       R3,@(4,R0)
+        OutPut.c    27            f1=(int)x;
     00000118 51F1                   MOV.L       @(4,R15),R1
     0000011A 2F16                   MOV.L       R1,@-R15
     0000011C 51F1                   MOV.L       @(4,R15),R1
     0000011E D36B                   MOV.L       L564+12,R3 ; __dtoi
     00000120 430B                   JSR         @R3
     00000122 2F16                   MOV.L       R1,@-R15
-
+        OutPut.c    28            f2=((double)x-(double)f1)*60.0;
     00000124 D36A                   MOV.L       L564+16,R3 ; __itod
     00000126 6E03                   MOV         R0,R14
     00000128 7FF8                   ADD         #-8,R15
@@ -199,15 +240,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000136 430B                   JSR         @R3
     00000138 2FF6                   MOV.L       R15,@-R15
     0000013A 62F3                   MOV         R15,R2
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:15  PAGE    4
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000013C D165                   MOV.L       L564+20,R1 ; __subdr
     0000013E 7210                   ADD         #16,R2
     00000140 410B                   JSR         @R1
@@ -221,6 +253,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000150 7120                   ADD         #32,R1
     00000152 420B                   JSR         @R2
     00000154 2F16                   MOV.L       R1,@-R15
+        OutPut.c    29            f=(f2-(double)((int)f2))*60.0;
     00000156 7FF8                   ADD         #-8,R15
     00000158 53F7                   MOV.L       @(28,R15),R3
     0000015A 2F36                   MOV.L       R3,@-R15
@@ -237,6 +270,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000170 7FF8                   ADD         #-8,R15
     00000172 420B                   JSR         @R2
     00000174 2FF6                   MOV.L       R15,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    5
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000176 63F3                   MOV         R15,R3
     00000178 D156                   MOV.L       L564+20,R1 ; __subdr
     0000017A 7310                   ADD         #16,R3
@@ -251,6 +293,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000018C 7118                   ADD         #24,R1
     0000018E 430B                   JSR         @R3
     00000190 2F16                   MOV.L       R1,@-R15
+        OutPut.c    30            sprintf(format,"%d\x9C%d'%.2f\"",negtive ? -f1:f1,(int)f2,f);
     00000192 2CC8                   TST         R12,R12
     00000194 52F3                   MOV.L       @(12,R15),R2
     00000196 2F26                   MOV.L       R2,@-R15
@@ -265,20 +308,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001A6 2FE6                   MOV.L       R14,@-R15
     000001A8              L555:                             
     000001A8 D252                   MOV.L       L564+52,R2 ; L517
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:15  PAGE    5
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000001AA 2F26                   MOV.L       R2,@-R15
     000001AC D34D                   MOV.L       L564+36,R3 ; _sprintf
     000001AE 64F3                   MOV         R15,R4
     000001B0 430B                   JSR         @R3
     000001B2 742C                   ADD         #44,R4
+        OutPut.c    31            sprintf(str,"%s",format);
     000001B4 D350                   MOV.L       L564+56,R3 ; L518
     000001B6 62F3                   MOV         R15,R2
     000001B8 722C                   ADD         #44,R2
@@ -287,19 +322,33 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001BE D249                   MOV.L       L564+36,R2 ; _sprintf
     000001C0 420B                   JSR         @R2
     000001C2 64D3                   MOV         R13,R4
+        OutPut.c    32            str[box_width] = '\0';
     000001C4 D34D                   MOV.L       L564+60,R3 ; _box_width
     000001C6 E200                   MOV         #0,R2
+        OutPut.c    33            return strlen(str);
     000001C8 D14D                   MOV.L       L564+64,R1 ; _strlen
     000001CA 6032                   MOV.L       @R3,R0
     000001CC 0D24                   MOV.B       R2,@(R0,R13)
     000001CE 410B                   JSR         @R1
     000001D0 64D3                   MOV         R13,R4
+        OutPut.c    34    }
     000001D2 7F48                   ADD         #72,R15
     000001D4 4F26                   LDS.L       @R15+,PR
     000001D6 6CF6                   MOV.L       @R15+,R12
     000001D8 6DF6                   MOV.L       @R15+,R13
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    6
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000001DA 000B                   RTS
     000001DC 6EF6                   MOV.L       @R15+,R14
+        OutPut.c    35    
+        OutPut.c    36    void PrintDeg(int px,int py,double xx,int sel)
     000001DE              _PrintDeg:                       ; function: PrintDeg
                                                            ; frame size=60
     000001DE 2FE6                   MOV.L       R14,@-R15
@@ -310,6 +359,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001E8 4F22                   STS.L       PR,@-R15
     000001EA 7FE0                   ADD         #-32,R15
     000001EC 2F62                   MOV.L       R6,@R15
+        OutPut.c    37    {
+        OutPut.c    38            char str[20];int i;
+        OutPut.c    39            i = value_to_deg(xx,str);
     000001EE 53FD                   MOV.L       @(52,R15),R3
     000001F0 2F36                   MOV.L       R3,@-R15
     000001F2 53FD                   MOV.L       @(52,R15),R3
@@ -318,6 +370,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001F8 BF67                   BSR         _value_to_deg
     000001FA 7414                   ADD         #20,R4
     000001FC 1F03                   MOV.L       R0,@(12,R15)
+        OutPut.c    40            DrawClearBox (px,py,px+box_width*6+3,py+8+3,sel);
     000001FE 67D3                   MOV         R13,R7
     00000200 D240                   MOV.L       L564+68,R2 ; _DrawClearBox
     00000202 65D3                   MOV         R13,R5
@@ -331,19 +384,11 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000212 4308                   SHLL2       R3
     00000214 363C                   ADD         R3,R6
     00000216 36EC                   ADD         R14,R6
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:15  PAGE    6
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000218 7603                   ADD         #3,R6
     0000021A 420B                   JSR         @R2
     0000021C 64E3                   MOV         R14,R4
     0000021E 7F0C                   ADD         #12,R15
+        OutPut.c    41            PrintXY(px+2+(box_width-i)*6,py+2,(uchar*)str,0);
     00000220 D139                   MOV.L       L564+72,R1 ; _PrintXY
     00000222 E700                   MOV         #0,R7
     00000224 66F3                   MOV         R15,R6
@@ -357,10 +402,20 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000234 6243                   MOV         R4,R2
     00000236 4400                   SHLL        R4
     00000238 4208                   SHLL2       R2
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    7
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000023A 342C                   ADD         R2,R4
     0000023C 34EC                   ADD         R14,R4
     0000023E 410B                   JSR         @R1
     00000240 7402                   ADD         #2,R4
+        OutPut.c    42            if(sel)Bdisp_AreaReverseVRAM(px+2,py+2,px+box_width*6+1,py+8+1);
     00000242 63F2                   MOV.L       @R15,R3
     00000244 2338                   TST         R3,R3
     00000246 890D                   BT          L557
@@ -379,17 +434,24 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000260 430B                   JSR         @R3
     00000262 7402                   ADD         #2,R4
     00000264              L557:                             
+        OutPut.c    43            
+        OutPut.c    44    }
     00000264 7F20                   ADD         #32,R15
     00000266 4F26                   LDS.L       @R15+,PR
     00000268 6CF6                   MOV.L       @R15+,R12
     0000026A 6DF6                   MOV.L       @R15+,R13
     0000026C 000B                   RTS
     0000026E 6EF6                   MOV.L       @R15+,R14
+        OutPut.c    45    
+        OutPut.c    46    int ftoa (char *str,double n,int digit)
     00000270              _ftoa:                           ; function: ftoa
                                                            ; frame size=44
                                                            ; used runtime library name:
                                                            ; __ltd
     00000270 4F22                   STS.L       PR,@-R15
+        OutPut.c    47    {
+        OutPut.c    48            char format[10];
+        OutPut.c    49            sprintf (format,"%%%d.%dlf",box_width-(n<0.0 ? 1:0),digit);
     00000272 E300                   MOV         #0,R3
     00000274 7FF0                   ADD         #-16,R15
     00000276 2F42                   MOV.L       R4,@R15
@@ -397,15 +459,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000027A 52F7                   MOV.L       @(28,R15),R2
     0000027C 2F26                   MOV.L       R2,@-R15
     0000027E 52F7                   MOV.L       @(28,R15),R2
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:15  PAGE    7
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000280 2F26                   MOV.L       R2,@-R15
     00000282 2F36                   MOV.L       R3,@-R15
     00000284 D219                   MOV.L       L564+44,R2 ; __ltd
@@ -415,6 +468,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000028C 8900                   BT          L559
     0000028E E301                   MOV         #1,R3
     00000290              L559:                             
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    8
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000290 D11A                   MOV.L       L564+60,R1 ; _box_width
     00000292 6212                   MOV.L       @R1,R2
     00000294 3238                   SUB         R3,R2
@@ -425,6 +487,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000029E 64F3                   MOV         R15,R4
     000002A0 420B                   JSR         @R2
     000002A2 7410                   ADD         #16,R4
+        OutPut.c    50            sprintf(str,format,n);
     000002A4 53F9                   MOV.L       @(36,R15),R3
     000002A6 2F36                   MOV.L       R3,@-R15
     000002A8 53F9                   MOV.L       @(36,R15),R3
@@ -435,6 +498,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002B2 2F26                   MOV.L       R2,@-R15
     000002B4 430B                   JSR         @R3
     000002B6 54F6                   MOV.L       @(24,R15),R4
+        OutPut.c    51    }
     000002B8 7F28                   ADD         #40,R15
     000002BA 4F26                   LDS.L       @R15+,PR
     000002BC 000B                   RTS
@@ -461,26 +525,31 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000308 <00000000>             .DATA.L     _PrintXY
     0000030C <00000000>             .DATA.L     _Bdisp_AreaReverseVRAM
     00000310 <00000000>             .DATA.L     L532
+        OutPut.c    52    
+        OutPut.c    53    void PrintFloat(double n,int x,int y,int sel,int digit)
     00000314              _PrintFloat:                     ; function: PrintFloat
                                                            ; frame size=64
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:15  PAGE    8
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000314 2FE6                   MOV.L       R14,@-R15
     00000316 6E53                   MOV         R5,R14
     00000318 2FD6                   MOV.L       R13,@-R15
     0000031A 6D43                   MOV         R4,R13
     0000031C 2FC6                   MOV.L       R12,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    9
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000031E 2FB6                   MOV.L       R11,@-R15
     00000320 4F22                   STS.L       PR,@-R15
     00000322 7FE0                   ADD         #-32,R15
     00000324 1F61                   MOV.L       R6,@(4,R15)
+        OutPut.c    54    {
+        OutPut.c    55            char c[20];
+        OutPut.c    56            ftoa(c,n,digit);
     00000326 6BF3                   MOV         R15,R11
     00000328 2F72                   MOV.L       R7,@R15
     0000032A 7B0C                   ADD         #12,R11
@@ -491,6 +560,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000334 55F2                   MOV.L       @(8,R15),R5
     00000336 BF9B                   BSR         _ftoa
     00000338 64B3                   MOV         R11,R4
+        OutPut.c    57            DrawClearBox (x,y,x+box_width*6+3,y+8+3,sel);
     0000033A 67E3                   MOV         R14,R7
     0000033C DC2F                   MOV.L       L565+8,R12 ; _box_width
     0000033E 65E3                   MOV         R14,R5
@@ -508,9 +578,11 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000356 420B                   JSR         @R2
     00000358 64D3                   MOV         R13,R4
     0000035A 7F0C                   ADD         #12,R15
+        OutPut.c    58            c[box_width] = 0;
     0000035C 60C2                   MOV.L       @R12,R0
     0000035E E300                   MOV         #0,R3
     00000360 0B34                   MOV.B       R3,@(R0,R11)
+        OutPut.c    59            PrintXY(x+2,y+2,(uchar*)c,0);
     00000362 6733                   MOV         R3,R7
     00000364 D327                   MOV.L       L565+16,R3 ; _PrintXY
     00000366 66B3                   MOV         R11,R6
@@ -521,23 +593,24 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000370 7402                   ADD         #2,R4
     00000372 430B                   JSR         @R3
     00000374 2F42                   MOV.L       R4,@R15
+        OutPut.c    60            if(sel)Bdisp_AreaReverseVRAM(x+2,y+2,x+box_width*6+1,y+8+1);
     00000376 52F1                   MOV.L       @(4,R15),R2
     00000378 2228                   TST         R2,R2
     0000037A 890C                   BT          L560
     0000037C 66C2                   MOV.L       @R12,R6
     0000037E 67E3                   MOV         R14,R7
     00000380 55F2                   MOV.L       @(8,R15),R5
-    00000382 6363                   MOV         R6,R3
-    00000384 7709                   ADD         #9,R7
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:15  PAGE    9
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE   10
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    00000382 6363                   MOV         R6,R3
+    00000384 7709                   ADD         #9,R7
     00000386 4600                   SHLL        R6
     00000388 4308                   SHLL2       R3
     0000038A 363C                   ADD         R3,R6
@@ -547,6 +620,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000392 430B                   JSR         @R3
     00000394 64F2                   MOV.L       @R15,R4
     00000396              L560:                             
+        OutPut.c    61    }
     00000396 7F20                   ADD         #32,R15
     00000398 4F26                   LDS.L       @R15+,PR
     0000039A 6BF6                   MOV.L       @R15+,R11
@@ -554,6 +628,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000039E 6DF6                   MOV.L       @R15+,R13
     000003A0 000B                   RTS
     000003A2 6EF6                   MOV.L       @R15+,R14
+        OutPut.c    62    
+        OutPut.c    63    int PrintfXY(int x,int y,int sel,const char *cpFormat, ...)
     000003A4              _PrintfXY:                       ; function: PrintfXY
                                                            ; frame size=148
     000003A4 4F22                   STS.L       PR,@-R15
@@ -561,6 +637,11 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003A8 3F0C                   ADD         R0,R15
     000003AA 1F41                   MOV.L       R4,@(4,R15)
     000003AC 2F52                   MOV.L       R5,@R15
+        OutPut.c    64    {
+        OutPut.c    65            char cpBuffer[128];
+        OutPut.c    66            int len;
+        OutPut.c    67            va_list pArgList;
+        OutPut.c    68            va_start(pArgList, cpFormat);
     000003AE E503                   MOV         #3,R5
     000003B0 1F62                   MOV.L       R6,@(8,R15)
     000003B2 9020                   MOV.W       L565+2,R0  ; H'0094
@@ -577,6 +658,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003C6 35FC                   ADD         R15,R5
     000003C8 7504                   ADD         #4,R5
     000003CA              L562:                             
+        OutPut.c    69            len = vsprintf(cpBuffer, cpFormat, pArgList);
     000003CA 6653                   MOV         R5,R6
     000003CC 9013                   MOV.W       L565+2,R0  ; H'0094
     000003CE 64F3                   MOV         R15,R4
@@ -584,7 +666,18 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003D2 05FE                   MOV.L       @(R0,R15),R5
     000003D4 430B                   JSR         @R3
     000003D6 7410                   ADD         #16,R4
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE   11
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000003D8 1F03                   MOV.L       R0,@(12,R15)
+        OutPut.c    70            va_end(pArgList);
+        OutPut.c    71            PrintXY(x,y,(uchar*)cpBuffer,sel);
     000003DA 66F3                   MOV         R15,R6
     000003DC D309                   MOV.L       L565+16,R3 ; _PrintXY
     000003DE 7610                   ADD         #16,R6
@@ -592,18 +685,11 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003E2 57F2                   MOV.L       @(8,R15),R7
     000003E4 430B                   JSR         @R3
     000003E6 54F1                   MOV.L       @(4,R15),R4
+        OutPut.c    72            return len;
     000003E8 50F3                   MOV.L       @(12,R15),R0
+        OutPut.c    73    }
     000003EA 9105                   MOV.W       L565+4,R1  ; H'0090
     000003EC 3F1C                   ADD         R1,R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:15  PAGE   10
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000003EE 4F26                   LDS.L       @R15+,PR
     000003F0 000B                   RTS
     000003F2 0009                   NOP
@@ -617,92 +703,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000404 <00000000>             .DATA.L     _PrintXY
     00000408 <00000000>             .DATA.L     _Bdisp_AreaReverseVRAM
     0000040C <00000000>             .DATA.L     _vsprintf
-
-
-
-
-
-        OutPut.c     2    
-        OutPut.c     3    const int box_width = 12;
-        OutPut.c     4    
-        OutPut.c     5    //2015å¹´1æœˆ5æ—¥åŠ å…¥
-        OutPut.c     6    void FloatToDegStr (double xx,char *str)
-        OutPut.c     7    {
-        OutPut.c     8            int f1;
-        OutPut.c     9            double f2,f,x;
-        OutPut.c    10            char format[20];
-        OutPut.c    11            x=xx+0.000001;
-        OutPut.c    12            f1=(int)x;
-        OutPut.c    13            f2=((double)x-(double)f1)*60.0;
-        OutPut.c    14            f=(f2-(double)((int)f2))*60.0;
-        OutPut.c    15            sprintf(format,"%d\x9C%d'%.2f''",f1,(int)f2,f);
-        OutPut.c    16            sprintf(str,"%12s",format);
-        OutPut.c    17    }
-        OutPut.c    18    
-        OutPut.c    19    
-        OutPut.c    20    int value_to_deg (double xx,char str[])
-        OutPut.c    21    {
-        OutPut.c    22            int f1,negtive = 0;
-        OutPut.c    23            char format[20];
-        OutPut.c    24            double f2,f,x;
-        OutPut.c    25            if (xx<0.0) negtive = 1,xx = -xx;
-        OutPut.c    26            x = xx;
-        OutPut.c    27            f1=(int)x;
-        OutPut.c    28            f2=((double)x-(double)f1)*60.0;
-        OutPut.c    29            f=(f2-(double)((int)f2))*60.0;
-        OutPut.c    30            sprintf(format,"%d\x9C%d'%.2f\"",negtive ? -f1:f1,(int)f2,f);
-        OutPut.c    31            sprintf(str,"%s",format);
-        OutPut.c    32            str[box_width] = '\0';
-        OutPut.c    33            return strlen(str);
-        OutPut.c    34    }
-        OutPut.c    35    
-        OutPut.c    36    void PrintDeg(int px,int py,double xx,int sel)
-        OutPut.c    37    {
-        OutPut.c    38            char str[20];int i;
-        OutPut.c    39            i = value_to_deg(xx,str);
-        OutPut.c    40            DrawClearBox (px,py,px+box_width*6+3,py+8+3,sel);
-        OutPut.c    41            PrintXY(px+2+(box_width-i)*6,py+2,(uchar*)str,0);
-        OutPut.c    42            if(sel)Bdisp_AreaReverseVRAM(px+2,py+2,px+box_width*6+1,py+8+1);
-        OutPut.c    43            
-        OutPut.c    44    }
-        OutPut.c    45    
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:15  PAGE   11
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-        OutPut.c    46    int ftoa (char *str,double n,int digit)
-        OutPut.c    47    {
-        OutPut.c    48            char format[10];
-        OutPut.c    49            sprintf (format,"%%%d.%dlf",box_width-(n<0.0 ? 1:0),digit);
-        OutPut.c    50            sprintf(str,format,n);
-        OutPut.c    51    }
-        OutPut.c    52    
-        OutPut.c    53    void PrintFloat(double n,int x,int y,int sel,int digit)
-        OutPut.c    54    {
-        OutPut.c    55            char c[20];
-        OutPut.c    56            ftoa(c,n,digit);
-        OutPut.c    57            DrawClearBox (x,y,x+box_width*6+3,y+8+3,sel);
-        OutPut.c    58            c[box_width] = 0;
-        OutPut.c    59            PrintXY(x+2,y+2,(uchar*)c,0);
-        OutPut.c    60            if(sel)Bdisp_AreaReverseVRAM(x+2,y+2,x+box_width*6+1,y+8+1);
-        OutPut.c    61    }
-        OutPut.c    62    
-        OutPut.c    63    int PrintfXY(int x,int y,int sel,const char *cpFormat, ...)
-        OutPut.c    64    {
-        OutPut.c    65            char cpBuffer[128];
-        OutPut.c    66            int len;
-        OutPut.c    67            va_list pArgList;
-        OutPut.c    68            va_start(pArgList, cpFormat);
-        OutPut.c    69            len = vsprintf(cpBuffer, cpFormat, pArgList);
-        OutPut.c    70            va_end(pArgList);
-        OutPut.c    71            PrintXY(x,y,(uchar*)cpBuffer,sel);
-        OutPut.c    72            return len;
-        OutPut.c    73    }
 C   00000000              _box_width:                      ; static: box_width
     00000000 0000000C               .DATA.L     H'0000000C
     00000004              L505:
@@ -736,7 +736,7 @@ C   00000000              _box_width:                      ; static: box_width
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:15  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    1
 
 
 ******** STATISTICS INFORMATION ********
@@ -745,7 +745,7 @@ SH SERIES C/C++ Compiler (Ver. 6.0C)                                            
 ********** ERROR INFORMATION ***********
 
 NUMBER OF ERRORS:           0
-NUMBER OF WARNINGS:        11
+NUMBER OF WARNINGS:         0
 
 
 
@@ -805,5 +805,5 @@ NUMBER OF INTERNAL/EXTERNAL SYMBOLS:            35
 *** COMMAND PARAMETER ***
 
 
-  -subcommand=C:\Users\ADMINI~1\AppData\Local\Temp\hmk71AF.tmp 
+  -subcommand=C:\Users\¿­Åô\AppData\Local\Temp\hmk9A9.tmp 
 

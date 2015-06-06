@@ -302,9 +302,7 @@ int PM_parameter()
 			x++;refresh = REDRAW_ALL;break;
 		case KEY_CTRL_EXIT:
 			pmroute_initial(&pmroute);
-	        pmroute_push_back(&pmroute);
 		    InitList(&l_pqx);
-			push_backList(&l_pqx);
 			return 0 ;
 			
 		case KEY_CTRL_F1:					/* Set */

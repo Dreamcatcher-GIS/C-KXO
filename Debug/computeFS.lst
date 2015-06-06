@@ -1,12 +1,32 @@
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE    1
 
 ************ OBJECT LISTING ************
 
-FILE NAME: C:\Users\Administrator\Desktop\2015-06-6½»µã·¨×ªÏßÔªÍÆÁ´±í\2015-06-4½»µã·¨×ªÏßÔªÍÆÁ´±í\computeFS.c
+FILE NAME: F:\ProgramOfUniversity\C-KXO\C-KXO\computeFS.c
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
       computeFS.     1    #include "headfile.h"
+
+
+
+
+
+
+
+
+
+
+
+
+      computeFS.     2    #include "xy.h"
+
+
+
+      computeFS.     4    
+      computeFS.     5    static char TITLE[] = "";
+      computeFS.     6    
+      computeFS.     7    int computeFS ()
 P   00000000              _computeFS:                      ; function: computeFS
                                                            ; frame size=220
                                                            ; used runtime library name:
@@ -20,12 +40,12 @@ P   00000000              _computeFS:                      ; function: computeFS
     0000000A 2F96                   MOV.L       R9,@-R15
     0000000C 2F86                   MOV.L       R8,@-R15
     0000000E E902                   MOV         #2,R9
-
-
-
-
-
-
+      computeFS.     8    {
+      computeFS.     9            uint refresh = 2,key;
+      computeFS.    10            int  index = 0,i,hcs;
+      computeFS.    11            char ch;
+      computeFS.    12            double ht,hz,v,bh,hd;
+      computeFS.    13            double value[4] = {0.0,0.0,0.0,0.0};
     00000010 D23F                   MOV.L       L652+2,R2  ; L522
     00000012 E800                   MOV         #0,R8
     00000014 D33F                   MOV.L       L652+6,R3  ; __quick_evn_mvn
@@ -38,6 +58,7 @@ P   00000000              _computeFS:                      ; function: computeFS
     00000022 7144                   ADD         #68,R1
     00000024 430B                   JSR         @R3
     00000026 E020                   MOV         #32,R0
+      computeFS.    14            const char * context[] = {"","","",""};
     00000028 D23B                   MOV.L       L652+10,R2 ; L524
     0000002A 64F3                   MOV         R15,R4
     0000002C D339                   MOV.L       L652+6,R3  ; __quick_evn_mvn
@@ -54,6 +75,15 @@ P   00000000              _computeFS:                      ; function: computeFS
     00000042 7344                   ADD         #68,R3
     00000044 1F36                   MOV.L       R3,@(24,R15)
     00000046 63F3                   MOV         R15,R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE    2
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000048 734C                   ADD         #76,R3
     0000004A 1F34                   MOV.L       R3,@(16,R15)
     0000004C 63F3                   MOV         R15,R3
@@ -62,67 +92,83 @@ P   00000000              _computeFS:                      ; function: computeFS
     00000052 63F3                   MOV         R15,R3
     00000054 7325                   ADD         #37,R3
     00000056 1F37                   MOV.L       R3,@(28,R15)
+      computeFS.    15            while(1){
     00000058              L626:                             
+      computeFS.    16                            if (refresh == REFRESH_ALL){
     00000058 DD30                   MOV.L       L652+14,R13; _DispStr
     0000005A 60B3                   MOV         R11,R0
     0000005C 8802                   CMP/EQ      #2,R0
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    2
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000005E 8F51                   BF/S        L627
     00000060 EA01                   MOV         #1,R10
+      computeFS.    17                            refresh = REFRESH_PART;
+      computeFS.    18                            Bdisp_AllClr_VRAM();
     00000062 D32F                   MOV.L       L652+18,R3 ; _Bdisp_AllClr_VRAM
     00000064 430B                   JSR         @R3
     00000066 6BA3                   MOV         R10,R11
+      computeFS.    19                            SetMyFont(&stHz12x12,&stAsc6x12);  //¶¨Òå×ÖÌå´óÐ¡
     00000068 DE2E                   MOV.L       L652+22,R14; _SetMyFont
     0000006A D52F                   MOV.L       L652+26,R5 ; _stAsc6x12
     0000006C D42F                   MOV.L       L652+30,R4 ; _stHz12x12
     0000006E 4E0B                   JSR         @R14
     00000070 0009                   NOP
+      computeFS.    20                            DispStr(2,1, "Ïß ");
     00000072 E501                   MOV         #1,R5
     00000074 D62E                   MOV.L       L652+34,R6 ; L528
     00000076 4D0B                   JSR         @R13
     00000078 E402                   MOV         #2,R4
+      computeFS.    21                            DispStr(2,12,"Â· ");
     0000007A E50C                   MOV         #12,R5
     0000007C D62D                   MOV.L       L652+38,R6 ; L529
     0000007E 4D0B                   JSR         @R13
     00000080 E402                   MOV         #2,R4
+      computeFS.    22                            DispStr(2,25,"·´ ");
     00000082 E519                   MOV         #25,R5
     00000084 D62C                   MOV.L       L652+42,R6 ; L530
     00000086 4D0B                   JSR         @R13
     00000088 E402                   MOV         #2,R4
+      computeFS.    23                            DispStr(2,38,"Ëã ");
     0000008A E526                   MOV         #38,R5
     0000008C D62B                   MOV.L       L652+46,R6 ; L531
     0000008E 4D0B                   JSR         @R13
     00000090 E402                   MOV         #2,R4
+      computeFS.    24                            ShowTitle(TITLE);
     00000092 D42B                   MOV.L       L652+50,R4 ; __$TITLE
     00000094 D22B                   MOV.L       L652+54,R2 ; _ShowTitle
     00000096 420B                   JSR         @R2
     00000098 0009                   NOP
+      computeFS.    25                            DispStr(17,0, "×ø±êX: ");
     0000009A E500                   MOV         #0,R5
     0000009C D62A                   MOV.L       L652+58,R6 ; L532
     0000009E 4D0B                   JSR         @R13
     000000A0 E411                   MOV         #17,R4
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE    3
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      computeFS.    26                        DispStr(17,13,"×ø±êY: ");
     000000A2 E50D                   MOV         #13,R5
     000000A4 D629                   MOV.L       L652+62,R6 ; L533
     000000A6 4D0B                   JSR         @R13
     000000A8 E411                   MOV         #17,R4
+      computeFS.    27                            DispStr(17,26,"×ø±êZ: ");
     000000AA E51A                   MOV         #26,R5
     000000AC DE28                   MOV.L       L652+66,R14; L534
     000000AE 66E3                   MOV         R14,R6
     000000B0 4D0B                   JSR         @R13
     000000B2 E411                   MOV         #17,R4
     000000B4 1F92                   MOV.L       R9,@(8,R15)
-
+      computeFS.    28                            //DispStr(17,39,"×ø±êZ: ");
+      computeFS.    29    
+      computeFS.    30                            for (i=0;i<4;++i){
     000000B6 A009                   BRA         L628
     000000B8 5EF3                   MOV.L       @(12,R15),R14
     000000BA              L629:                             
+      computeFS.    31                                    PrintXY(50,2+i*12,(uchar*)context[i],0);
     000000BA E700                   MOV         #0,R7
     000000BC 66E6                   MOV.L       @R14+,R6
     000000BE 55F2                   MOV.L       @(8,R15),R5
@@ -133,47 +179,57 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000C8 720C                   ADD         #12,R2
     000000CA 1F22                   MOV.L       R2,@(8,R15)
     000000CC              L628:                             
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    3
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000000CC 53F8                   MOV.L       @(32,R15),R3
     000000CE 3E32                   CMP/HS      R3,R14
     000000D0 8BF3                   BF          L629
+      computeFS.    32                            }
+      computeFS.    33                            PrintIcon (0,"Rou",0);
     000000D2 E600                   MOV         #0,R6
     000000D4 D521                   MOV.L       L652+78,R5 ; L536
     000000D6 DE20                   MOV.L       L652+74,R14; _PrintIcon
     000000D8 4E0B                   JSR         @R14
     000000DA 6463                   MOV         R6,R4
+      computeFS.    34                            PrintIcon (1,"Set",0);
     000000DC D520                   MOV.L       L652+82,R5 ; L537
     000000DE E600                   MOV         #0,R6
     000000E0 4E0B                   JSR         @R14
     000000E2 E401                   MOV         #1,R4
+      computeFS.    35                            PrintIcon (2,"Disp",0);
     000000E4 D51F                   MOV.L       L652+86,R5 ; L538
     000000E6 E600                   MOV         #0,R6
     000000E8 4E0B                   JSR         @R14
     000000EA E402                   MOV         #2,R4
+      computeFS.    36                            PrintIcon (3,"=0=",1);
     000000EC D51E                   MOV.L       L652+90,R5 ; L539
     000000EE E601                   MOV         #1,R6
     000000F0 4E0B                   JSR         @R14
     000000F2 E403                   MOV         #3,R4
+      computeFS.    37                            PrintIcon (4,"Save",1);
     000000F4 D51D                   MOV.L       L652+94,R5 ; L540
     000000F6 E601                   MOV         #1,R6
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE    4
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000000F8 4E0B                   JSR         @R14
     000000FA E404                   MOV         #4,R4
+      computeFS.    38                            PrintIcon (5,"?",0);
     000000FC D51C                   MOV.L       L652+98,R5 ; L541
     000000FE E600                   MOV         #0,R6
     00000100 4E0B                   JSR         @R14
     00000102 E405                   MOV         #5,R4
     00000104              L627:                             
+      computeFS.    39                    }
+      computeFS.    40                    if (refresh == REFRESH_PART){
     00000104 60B3                   MOV         R11,R0
     00000106 8801                   CMP/EQ      #1,R0
     00000108 8B4F                   BF          L630
+      computeFS.    41                            for (i=0;i<4;++i){
     0000010A A04A                   BRA         L631
     0000010C 6E83                   MOV         R8,R14
     0000010E              L652:                             
@@ -199,20 +255,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000158 <00000000>             .DATA.L     _PrintIcon
     0000015C <00000000>             .DATA.L     L536
     00000160 <00000000>             .DATA.L     L537
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    4
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000164 <00000000>             .DATA.L     L538
     00000168 <00000000>             .DATA.L     L539
     0000016C <00000000>             .DATA.L     L540
     00000170 <00000000>             .DATA.L     L541
     00000174              L632:                             
+      computeFS.    42                         PrintFloat(value[i],48,0+i*12,index==i,4); //ÊäÈë¿òÎ»ÖÃ
     00000174 DB37                   MOV.L       L653+20,R11; _PrintFloat
     00000176 63E3                   MOV         R14,R3
     00000178 4308                   SHLL2       R3
@@ -225,6 +273,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000186 3CE0                   CMP/EQ      R14,R12
     00000188 2F16                   MOV.L       R1,@-R15
     0000018A 65E3                   MOV         R14,R5
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE    5
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000018C 6132                   MOV.L       @R3,R1
     0000018E 0629                   MOVT        R6
     00000190 2F16                   MOV.L       R1,@-R15
@@ -240,12 +297,17 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001A2 E204                   MOV         #4,R2
     000001A4 3E23                   CMP/GE      R2,R14
     000001A6 8BE5                   BF          L632
+      computeFS.    43                            }
+      computeFS.    44                            refresh = 0;
     000001A8 6B83                   MOV         R8,R11
     000001AA              L630:                             
+      computeFS.    45                    }
+      computeFS.    46                    GetKey(&key);
     000001AA 64F3                   MOV         R15,R4
     000001AC DE2A                   MOV.L       L653+24,R14; _GetKey
     000001AE 4E0B                   JSR         @R14
     000001B0 7404                   ADD         #4,R4
+      computeFS.    47                    switch(key){
     000001B2 50F1                   MOV.L       @(4,R15),R0
     000001B4 9144                   MOV.W       L653,R1    ; H'7539
     000001B6 3010                   CMP/EQ      R1,R0
@@ -265,15 +327,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001D2 913A                   MOV.W       L653+10,R1 ; H'753E
     000001D4 3010                   CMP/EQ      R1,R0
     000001D6 8924                   BT          L599
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    5
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000001D8 9138                   MOV.W       L653+12,R1 ; H'7542
     000001DA 3010                   CMP/EQ      R1,R0
     000001DC 8926                   BT          L600
@@ -286,16 +339,29 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001EA 9132                   MOV.W       L653+18,R1 ; H'7532
     000001EC 3010                   CMP/EQ      R1,R0
     000001EE 8B01                   BF          L654
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE    6
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000001F0 A156                   BRA         L611
     000001F2 0009                   NOP
     000001F4              L654:                             
     000001F4 A18E                   BRA         L612
     000001F6 0009                   NOP
     000001F8              L594:                            ; case label 
+      computeFS.    48                            case KEY_CTRL_F1        :
+      computeFS.    49                                    SET();  refresh=REFRESH_ALL;    break;
     000001F8 DE18                   MOV.L       L653+28,R14; _SET
     000001FA A001                   BRA         L650
     000001FC 0009                   NOP
     000001FE              L595:                            ; case label 
+      computeFS.    50                            case KEY_CTRL_F2        :
+      computeFS.    51                                    ZSSET();        refresh=REFRESH_ALL;    break;
     000001FE DE18                   MOV.L       L653+32,R14; _ZSSET
     00000200              L650:                             
     00000200 4E0B                   JSR         @R14
@@ -303,6 +369,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000204 A010                   BRA         L573
     00000206 0009                   NOP
     00000208              L596:                            ; case label 
+      computeFS.    52                            case KEY_CTRL_F3        :
+      computeFS.    53                                    RestoreDisp(SAVEDISP_PAGE1);refresh=REFRESH_ALL;WaitKey();break;
     00000208 DE16                   MOV.L       L653+36,R14; _RestoreDisp
     0000020A 4E0B                   JSR         @R14
     0000020C E401                   MOV         #1,R4
@@ -312,13 +380,18 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000214 A1B7                   BRA         L633
     00000216 0009                   NOP
     00000218              L597:                            ; case label 
+      computeFS.    54                            case KEY_CTRL_F4        :
+      computeFS.    55                            case KEY_CTRL_F5        :
     00000218              L598:                            ; case label 
+      computeFS.    56                                    Nodata();       refresh=REFRESH_ALL;    break;
     00000218 DE14                   MOV.L       L653+44,R14; _Nodata
     0000021A 4E0B                   JSR         @R14
     0000021C 0009                   NOP
     0000021E A003                   BRA         L573
     00000220 0009                   NOP
     00000222              L599:                            ; case label 
+      computeFS.    57                            case KEY_CTRL_F6        :
+      computeFS.    58                                    About();        refresh=REFRESH_ALL;    break;
     00000222 DE13                   MOV.L       L653+48,R14; _About
     00000224 4E0B                   JSR         @R14
     00000226 0009                   NOP
@@ -326,27 +399,34 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000228 A1AD                   BRA         L633
     0000022A 6B93                   MOV         R9,R11
     0000022C              L600:                            ; case label 
+      computeFS.    59                            case KEY_CTRL_UP        :
+      computeFS.    60                                    refresh=REFRESH_PART;   --index;        break;
     0000022C 6BA3                   MOV         R10,R11
     0000022E A1AA                   BRA         L633
     00000230 7CFF                   ADD         #-1,R12
     00000232              L601:                            ; case label 
-    00000232 A003                   BRA         L651
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    6
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE    7
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    00000232 A003                   BRA         L651
     00000234 0009                   NOP
     00000236              L602:                            ; case label 
+      computeFS.    61                            case KEY_CTRL_DOWN      :
+      computeFS.    62                                    refresh=REFRESH_PART;   ++index;        break;
+      computeFS.    63                            case KEY_CTRL_EXE:
+      computeFS.    64                            if (index<3){
     00000236 E203                   MOV         #3,R2
     00000238 3C23                   CMP/GE      R2,R12
     0000023A 891B                   BT          L634
     0000023C              L651:                             
     0000023C A1A2                   BRA         L567
+      computeFS.    65                                    refresh = REFRESH_PART; index++;
     0000023E 6BA3                   MOV         R10,R11
     00000240              L653:                             
     00000240 7539                   .DATA.W     H'7539
@@ -368,9 +448,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000026C <00000000>             .DATA.L     _Nodata
     00000270 <00000000>             .DATA.L     _About
     00000274              L634:                             
+      computeFS.    66                            }else{
+      computeFS.    67                                    yscs.x1 = value[0];     yscs.y1 = value[1];
     00000274 DE8B                   MOV.L       L655,R14   ; _yscs
+      computeFS.    68                                    hz = value[2];  ht = value[3];
+      computeFS.    69                                    refresh=REFRESH_ALL;
     00000276 6B93                   MOV         R9,R11
     00000278 51F6                   MOV.L       @(24,R15),R1
+      computeFS.    70                                    //yscs.k=0.0;
+      computeFS.    71                                    yscs.k=xy_to_sdSrd( yscs.x1, yscs.y1, 0);
     0000027A E400                   MOV         #0,R4
     0000027C 6212                   MOV.L       @R1,R2
     0000027E 60E3                   MOV         R14,R0
@@ -385,6 +471,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000290 2202                   MOV.L       R0,@R2
     00000292 5031                   MOV.L       @(4,R3),R0
     00000294 1201                   MOV.L       R0,@(4,R2)
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE    8
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000296 53ED                   MOV.L       @(52,R14),R3
     00000298 2F36                   MOV.L       R3,@-R15
     0000029A 53EC                   MOV.L       @(48,R14),R3
@@ -396,16 +491,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002A6 D280                   MOV.L       L655+4,R2  ; _xy_to_sdSrd
     000002A8 420B                   JSR         @R2
     000002AA 2FE6                   MOV.L       R14,@-R15
+      computeFS.    72                                    yscs.d=xy_to_sdSrd( yscs.x1, yscs.y1, 1);
     000002AC 53ED                   MOV.L       @(52,R14),R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    7
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000002AE E401                   MOV         #1,R4
     000002B0 2F36                   MOV.L       R3,@-R15
     000002B2 53EC                   MOV.L       @(48,R14),R3
@@ -419,12 +506,19 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002C2 D279                   MOV.L       L655+4,R2  ; _xy_to_sdSrd
     000002C4 420B                   JSR         @R2
     000002C6 2F36                   MOV.L       R3,@-R15
+      computeFS.    73                                    //yscs.k=xy_to_sd( yscs.x1, yscs.y1, 0);
+      computeFS.    74                                    //yscs.d=xy_to_sd( yscs.x1, yscs.y1, 1);
+      computeFS.    75                                    
+      computeFS.    76                                    //FS();
+      computeFS.    77                                    GC();
     000002C8 D378                   MOV.L       L655+8,R3  ; _GC
     000002CA 430B                   JSR         @R3
     000002CC 7F28                   ADD         #40,R15
+      computeFS.    78                                    HP();
     000002CE D278                   MOV.L       L655+12,R2 ; _HP
     000002D0 420B                   JSR         @R2
     000002D2 0009                   NOP
+      computeFS.    79                                    if      (yscs.d<0)      hcs=-1; //Æ«¾à×ó²à
     000002D4 53E9                   MOV.L       @(36,R14),R3
     000002D6 E200                   MOV         #0,R2
     000002D8 2F36                   MOV.L       R3,@-R15
@@ -439,10 +533,20 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002EA E4FF                   MOV         #-1,R4
     000002EC 2F42                   MOV.L       R4,@R15
     000002EE              L636:                             
+
     000002EE E200                   MOV         #0,R2
     000002F0 53E9                   MOV.L       @(36,R14),R3
     000002F2 2F36                   MOV.L       R3,@-R15
     000002F4 53E8                   MOV.L       @(32,R14),R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE    9
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000002F6 2F36                   MOV.L       R3,@-R15
     000002F8 2F26                   MOV.L       R2,@-R15
     000002FA D36F                   MOV.L       L655+20,R3 ; __ged
@@ -452,6 +556,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000302 8900                   BT          L637
     00000304 2FA2                   MOV.L       R10,@R15
     00000306              L637:                             
+      computeFS.    81                                    if      (yscs.d*hcs<=zfset.zsp) hd=0;  //
     00000306 7FF8                   ADD         #-8,R15
     00000308 D26D                   MOV.L       L655+28,R2 ; __itod
     0000030A D46C                   MOV.L       L655+24,R4 ; _zfset
@@ -463,15 +568,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000316 7FF8                   ADD         #-8,R15
     00000318 420B                   JSR         @R2
     0000031A 2FF6                   MOV.L       R15,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    8
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000031C D169                   MOV.L       L655+32,R1 ; __muld
     0000031E 63F3                   MOV         R15,R3
     00000320 7310                   ADD         #16,R3
@@ -484,6 +580,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000032E 430B                   JSR         @R3
     00000330 2F26                   MOV.L       R2,@-R15
     00000332 8800                   CMP/EQ      #0,R0
+      computeFS.    82                                    if      (zfset.zsh==0)  hd=0;
     00000334 5247                   MOV.L       @(28,R4),R2
     00000336 E300                   MOV         #0,R3
     00000338 2F26                   MOV.L       R2,@-R15
@@ -494,6 +591,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000342 420B                   JSR         @R2
     00000344 2F36                   MOV.L       R3,@-R15
     00000346 8800                   CMP/EQ      #0,R0
+      computeFS.    83                                    if      (yscs.d*hcs>zfset.zsp && yscs.d*hcs-zfset.zsp<zfset.zsh) hd=(yscs.
+                         +d*hcs-zfset.zsp)*hcs;
     00000348 D25D                   MOV.L       L655+28,R2 ; __itod
     0000034A 7FF8                   ADD         #-8,R15
     0000034C 53E9                   MOV.L       @(36,R14),R3
@@ -505,6 +604,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000358 420B                   JSR         @R2
     0000035A 2FF6                   MOV.L       R15,@-R15
     0000035C D159                   MOV.L       L655+32,R1 ; __muld
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE   10
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000035E 63F3                   MOV         R15,R3
     00000360 7310                   ADD         #16,R3
     00000362 410B                   JSR         @R1
@@ -529,15 +637,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000388 2FF6                   MOV.L       R15,@-R15
     0000038A 62F3                   MOV         R15,R2
     0000038C D14D                   MOV.L       L655+32,R1 ; __muld
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    9
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000038E 7210                   ADD         #16,R2
     00000390 410B                   JSR         @R1
     00000392 2F26                   MOV.L       R2,@-R15
@@ -558,7 +657,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003B0 2F36                   MOV.L       R3,@-R15
     000003B2 8800                   CMP/EQ      #0,R0
     000003B4              L640:                             
-
+      computeFS.    84                                    if      (yscs.d*hcs-zfset.zsp>=zfset.zsh)       hd=zfset.zsh*hcs;
     000003B4 D242                   MOV.L       L655+28,R2 ; __itod
     000003B6 7FF0                   ADD         #-16,R15
     000003B8 53E9                   MOV.L       @(36,R14),R3
@@ -571,6 +670,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003C6 2FF6                   MOV.L       R15,@-R15
     000003C8 D13E                   MOV.L       L655+32,R1 ; __muld
     000003CA 63F3                   MOV         R15,R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE   11
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000003CC 7310                   ADD         #16,R3
     000003CE 410B                   JSR         @R1
     000003D0 2F36                   MOV.L       R3,@-R15
@@ -589,56 +697,66 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003EA D333                   MOV.L       L655+20,R3 ; __ged
     000003EC 430B                   JSR         @R3
     000003EE 2F26                   MOV.L       R2,@-R15
+      computeFS.    85                                    bh=yscs.gch+(yscs.hpd*hd)-ht;
+      computeFS.    86                                    Bdisp_AllClr_VRAM();
     000003F0 D239                   MOV.L       L655+52,R2 ; _Bdisp_AllClr_VRAM
     000003F2 420B                   JSR         @R2
     000003F4 8800                   CMP/EQ      #0,R0
+      computeFS.    87                                    DispStr(2,0, "¼Æ ");
     000003F6 E500                   MOV         #0,R5
     000003F8 D638                   MOV.L       L655+56,R6 ; L553
     000003FA 4D0B                   JSR         @R13
     000003FC E402                   MOV         #2,R4
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   10
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
+      computeFS.    88                                DispStr(2,12,"Ëã ");
     000003FE E50C                   MOV         #12,R5
     00000400 D637                   MOV.L       L655+60,R6 ; L531
     00000402 4D0B                   JSR         @R13
     00000404 E402                   MOV         #2,R4
-
+      computeFS.    89                                DispStr(2,26,"½á ");
     00000406 E51A                   MOV         #26,R5
     00000408 D636                   MOV.L       L655+64,R6 ; L554
     0000040A 4D0B                   JSR         @R13
     0000040C E402                   MOV         #2,R4
+      computeFS.    90                                DispStr(2,39,"¹û ");
     0000040E E527                   MOV         #39,R5
     00000410 D635                   MOV.L       L655+68,R6 ; L555
     00000412 4D0B                   JSR         @R13
     00000414 E402                   MOV         #2,R4
+      computeFS.    91                                    ShowTitle(TITLE);
     00000416 D435                   MOV.L       L655+72,R4 ; __$TITLE
     00000418 D335                   MOV.L       L655+76,R3 ; _ShowTitle
     0000041A 430B                   JSR         @R3
     0000041C 0009                   NOP
-
+      computeFS.    92                                    DispStr(17,0,"×®ºÅ "); 
     0000041E E500                   MOV         #0,R5
     00000420 D634                   MOV.L       L655+80,R6 ; L556
     00000422 4D0B                   JSR         @R13
     00000424 E411                   MOV         #17,R4
+      computeFS.    93                                DispStr(17,13,"Æ«¾à ");
     00000426 E50D                   MOV         #13,R5
     00000428 D633                   MOV.L       L655+84,R6 ; L557
     0000042A 4D0B                   JSR         @R13
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE   12
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000042C E411                   MOV         #17,R4
+      computeFS.    94                                DispStr(17,26,"ÌîÍÚ: ");
     0000042E E51A                   MOV         #26,R5
     00000430 D632                   MOV.L       L655+88,R6 ; L558
     00000432 4D0B                   JSR         @R13
     00000434 E411                   MOV         #17,R4
+      computeFS.    95                                    DispStr(17,39,"»ù¸ß: ");
     00000436 E527                   MOV         #39,R5
     00000438 D631                   MOV.L       L655+92,R6 ; L559
     0000043A 4D0B                   JSR         @R13
     0000043C E411                   MOV         #17,R4
+      computeFS.    96                                    PrintfXY (48,2.5,0,"%.4f",yscs.k); 
     0000043E E600                   MOV         #0,R6
     00000440 DA30                   MOV.L       L655+96,R10; L560
     00000442 E502                   MOV         #2,R5
@@ -650,6 +768,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000044E 2FA6                   MOV.L       R10,@-R15
     00000450 4D0B                   JSR         @R13
     00000452 E430                   MOV         #48,R4
+      computeFS.    97                                    PrintfXY (48,15,0,"%.4f",yscs.d);
     00000454 53E9                   MOV.L       @(36,R14),R3
     00000456 E600                   MOV         #0,R6
     00000458 2F36                   MOV.L       R3,@-R15
@@ -659,24 +778,17 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000460 2FA6                   MOV.L       R10,@-R15
     00000462 4D0B                   JSR         @R13
     00000464 E430                   MOV         #48,R4
+      computeFS.    98                                    PrintfXY (48,28,0,"%.4f",yscs.gch);
     00000466 E600                   MOV         #0,R6
     00000468 52EF                   MOV.L       @(60,R14),R2
     0000046A E51C                   MOV         #28,R5
     0000046C 2F26                   MOV.L       R2,@-R15
     0000046E 52EE                   MOV.L       @(56,R14),R2
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   11
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000470 2F26                   MOV.L       R2,@-R15
     00000472 2FA6                   MOV.L       R10,@-R15
     00000474 4D0B                   JSR         @R13
     00000476 E430                   MOV         #48,R4
+      computeFS.    99                                    PrintfXY (48,42,0,"%.4f",yscs.hpd);
     00000478 63E3                   MOV         R14,R3
     0000047A 7340                   ADD         #64,R3
     0000047C 5231                   MOV.L       @(4,R3),R2
@@ -689,15 +801,32 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000048A 4D0B                   JSR         @R13
     0000048C E430                   MOV         #48,R4
     0000048E 7F30                   ADD         #48,R15
+      computeFS.   100                                    //PrintfXY (22,40,0," H= %.3f",bh);
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE   13
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      computeFS.   101                                    //PrintfXY (22,48,0," H-Z= %.3f",hz-bh);
+      computeFS.   102                                    SaveDisp(SAVEDISP_PAGE1);
     00000490 DE1E                   MOV.L       L655+104,R14; _SaveDisp
     00000492 4E0B                   JSR         @R14
     00000494 E401                   MOV         #1,R4
+      computeFS.   103                                    WaitKey();
     00000496 D31E                   MOV.L       L655+108,R3; _WaitKey
     00000498 430B                   JSR         @R3
     0000049A 0009                   NOP
     0000049C A072                   BRA         L567
     0000049E 0009                   NOP
     000004A0              L611:                            ; case label 
+      computeFS.   104                                    ++index;
+      computeFS.   105                            }break;
+      computeFS.   106                            case KEY_CTRL_EXIT:
+      computeFS.   107                                    return 0;
     000004A0 A07B                   BRA         L642
     000004A2 E000                   MOV         #0,R0
     000004A4              L655:                             
@@ -730,15 +859,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000050C <00000000>             .DATA.L     _SaveDisp
     00000510 <00000000>             .DATA.L     _WaitKey
     00000514              L612:                            ; default label 
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   12
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
+      computeFS.   108                            default:
+      computeFS.   109                                    if ((ch=GetPressNumChar(key))!=0){
     00000514 DE29                   MOV.L       L656+12,R14; _GetPressNumChar
     00000516 4E0B                   JSR         @R14
     00000518 54F1                   MOV.L       @(4,R15),R4
@@ -746,8 +868,22 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000051C 600E                   EXTS.B      R0,R0
     0000051E 2008                   TST         R0,R0
     00000520 8931                   BT          L633
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE   14
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      computeFS.   110                                            char buf[14];
+      computeFS.   111                                            int        r;
+      computeFS.   112                                            refresh = REFRESH_PART;
     00000522 6BA3                   MOV         R10,R11
+      computeFS.   113                                            buf[0] = ch;   buf[1] = '\0';
     00000524 52F5                   MOV.L       @(20,R15),R2
+      computeFS.   114                                            r = InputString (48,0+index*12,buf,0,12);  //ÊäÈë¿òÎ»ÖÃ
     00000526 E700                   MOV         #0,R7
     00000528 DE25                   MOV.L       L656+16,R14; _InputString
     0000052A 65C3                   MOV         R12,R5
@@ -765,10 +901,13 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000542 4E0B                   JSR         @R14
     00000544 E430                   MOV         #48,R4
     00000546 6E03                   MOV         R0,R14
+      computeFS.   115                                            if (r != KEY_CTRL_EXIT){
     00000548 9432                   MOV.W       L656,R4    ; H'7532
     0000054A 3E40                   CMP/EQ      R4,R14
     0000054C 8D1B                   BT/S        L633
     0000054E 7F04                   ADD         #4,R15
+      computeFS.   116    
+      computeFS.   117                                                    value[index] = atof(buf);
     00000550 DD1C                   MOV.L       L656+20,R13; _atof
     00000552 62C3                   MOV         R12,R2
     00000554 4208                   SHLL2       R2
@@ -780,40 +919,49 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000560 7424                   ADD         #36,R4
     00000562 4D0B                   JSR         @R13
     00000564 2F26                   MOV.L       R2,@-R15
+      computeFS.   118                                                    if      (r==KEY_CTRL_DOWN)      ++index;
     00000566 9424                   MOV.W       L656+2,R4  ; H'7547
     00000568 3E40                   CMP/EQ      R4,R14
     0000056A 8F01                   BF/S        L645
     0000056C 7F04                   ADD         #4,R15
     0000056E 7C01                   ADD         #1,R12
     00000570              L645:                             
+      computeFS.   119                                                    if      (r==KEY_CTRL_UP)        --index;
     00000570 9420                   MOV.W       L656+4,R4  ; H'7542
     00000572 3E40                   CMP/EQ      R4,R14
     00000574 8B00                   BF          L646
     00000576 7CFF                   ADD         #-1,R12
     00000578              L646:                             
+      computeFS.   120                                                    if (r==KEY_CTRL_EXE && index<3) ++index;
     00000578 941D                   MOV.W       L656+6,R4  ; H'7534
-    0000057A 3E40                   CMP/EQ      R4,R14
-    0000057C 8B03                   BF          L633
-    0000057E E203                   MOV         #3,R2
-    00000580 3C23                   CMP/GE      R2,R12
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   13
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE   15
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    0000057A 3E40                   CMP/EQ      R4,R14
+    0000057C 8B03                   BF          L633
+    0000057E E203                   MOV         #3,R2
+    00000580 3C23                   CMP/GE      R2,R12
     00000582 8900                   BT          L633
     00000584              L567:
     00000584 7C01                   ADD         #1,R12
+      computeFS.   121                                            }
+      computeFS.   122                                            break;
     00000586              L633:                             
+      computeFS.   123                                    }
+      computeFS.   124                    }
+      computeFS.   125                    if (index >=4) index = 2;
     00000586 E304                   MOV         #4,R3
     00000588 3C33                   CMP/GE      R3,R12
     0000058A 8B00                   BF          L648
     0000058C 6C93                   MOV         R9,R12
     0000058E              L648:                             
+      computeFS.   126                    if (index < 0) index = 3;
     0000058E 4C11                   CMP/PZ      R12
     00000590 8B01                   BF          L657
     00000592 AD61                   BRA         L626
@@ -822,6 +970,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000596 AD5F                   BRA         L626
     00000598 EC03                   MOV         #3,R12
     0000059A              L642:                             
+      computeFS.   127            }
+      computeFS.   128    }
     0000059A 910D                   MOV.W       L656+8,R1  ; H'008C
     0000059C 3F1C                   ADD         R1,R15
     0000059E 4F26                   LDS.L       @R15+,PR
@@ -843,156 +993,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000005BC <00000000>             .DATA.L     _GetPressNumChar
     000005C0 <00000000>             .DATA.L     _InputString
     000005C4 <00000000>             .DATA.L     _atof
-
-
-      computeFS.     2    #include "xy.h"
-
-
-
-      computeFS.     4    
-      computeFS.     5    static char TITLE[] = "";
-      computeFS.     6    
-      computeFS.     7    int computeFS ()
-      computeFS.     8    {
-      computeFS.     9            uint refresh = 2,key;
-      computeFS.    10            int  index = 0,i,hcs;
-      computeFS.    11            char ch;
-      computeFS.    12            double ht,hz,v,bh,hd;
-      computeFS.    13            double value[4] = {0.0,0.0,0.0,0.0};
-      computeFS.    14            const char * context[] = {"","","",""};
-      computeFS.    15            while(1){
-      computeFS.    16                            if (refresh == REFRESH_ALL){
-      computeFS.    17                            refresh = REFRESH_PART;
-      computeFS.    18                            Bdisp_AllClr_VRAM();
-      computeFS.    19                            SetMyFont(&stHz12x12,&stAsc6x12);  //¶¨Òå×ÖÌå´óÐ¡
-      computeFS.    20                            DispStr(2,1, "Ïß ");
-      computeFS.    21                            DispStr(2,12,"Â· ");
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   14
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      computeFS.    22                            DispStr(2,25,"·´ ");
-      computeFS.    23                            DispStr(2,38,"Ëã ");
-      computeFS.    24                            ShowTitle(TITLE);
-      computeFS.    25                            DispStr(17,0, "×ø±êX: ");
-      computeFS.    26                        DispStr(17,13,"×ø±êY: ");
-      computeFS.    27                            DispStr(17,26,"×ø±êZ: ");
-      computeFS.    28                            //DispStr(17,39,"×ø±êZ: ");
-      computeFS.    29    
-      computeFS.    30                            for (i=0;i<4;++i){
-      computeFS.    31                                    PrintXY(50,2+i*12,(uchar*)context[i],0);
-      computeFS.    32                            }
-      computeFS.    33                            PrintIcon (0,"Rou",0);
-      computeFS.    34                            PrintIcon (1,"Set",0);
-      computeFS.    35                            PrintIcon (2,"Disp",0);
-      computeFS.    36                            PrintIcon (3,"=0=",1);
-      computeFS.    37                            PrintIcon (4,"Save",1);
-      computeFS.    38                            PrintIcon (5,"?",0);
-      computeFS.    39                    }
-      computeFS.    40                    if (refresh == REFRESH_PART){
-      computeFS.    41                            for (i=0;i<4;++i){
-      computeFS.    42                         PrintFloat(value[i],48,0+i*12,index==i,4); //ÊäÈë¿òÎ»ÖÃ
-      computeFS.    43                            }
-      computeFS.    44                            refresh = 0;
-      computeFS.    45                    }
-      computeFS.    46                    GetKey(&key);
-      computeFS.    47                    switch(key){
-      computeFS.    48                            case KEY_CTRL_F1        :
-      computeFS.    49                                    SET();  refresh=REFRESH_ALL;    break;
-      computeFS.    50                            case KEY_CTRL_F2        :
-      computeFS.    51                                    ZSSET();        refresh=REFRESH_ALL;    break;
-      computeFS.    52                            case KEY_CTRL_F3        :
-      computeFS.    53                                    RestoreDisp(SAVEDISP_PAGE1);refresh=REFRESH_ALL;WaitKey();break;
-      computeFS.    54                            case KEY_CTRL_F4        :
-      computeFS.    55                            case KEY_CTRL_F5        :
-      computeFS.    56                                    Nodata();       refresh=REFRESH_ALL;    break;
-      computeFS.    57                            case KEY_CTRL_F6        :
-      computeFS.    58                                    About();        refresh=REFRESH_ALL;    break;
-      computeFS.    59                            case KEY_CTRL_UP        :
-      computeFS.    60                                    refresh=REFRESH_PART;   --index;        break;
-      computeFS.    61                            case KEY_CTRL_DOWN      :
-      computeFS.    62                                    refresh=REFRESH_PART;   ++index;        break;
-      computeFS.    63                            case KEY_CTRL_EXE:
-      computeFS.    64                            if (index<3){
-      computeFS.    65                                    refresh = REFRESH_PART; index++;
-      computeFS.    66                            }else{
-      computeFS.    67                                    yscs.x1 = value[0];     yscs.y1 = value[1];
-      computeFS.    68                                    hz = value[2];  ht = value[3];
-      computeFS.    69                                    refresh=REFRESH_ALL;
-      computeFS.    70                                    //yscs.k=0.0;
-      computeFS.    71                                    yscs.k=xy_to_sdSrd( yscs.x1, yscs.y1, 0);
-      computeFS.    72                                    yscs.d=xy_to_sdSrd( yscs.x1, yscs.y1, 1);
-      computeFS.    73                                    //yscs.k=xy_to_sd( yscs.x1, yscs.y1, 0);
-      computeFS.    74                                    //yscs.d=xy_to_sd( yscs.x1, yscs.y1, 1);
-      computeFS.    75                                    
-      computeFS.    76                                    //FS();
-      computeFS.    77                                    GC();
-      computeFS.    78                                    HP();
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   15
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      computeFS.    79                                    if      (yscs.d<0)      hcs=-1; //Æ«¾à×ó²à
-
-      computeFS.    81                                    if      (yscs.d*hcs<=zfset.zsp) hd=0;  //
-      computeFS.    82                                    if      (zfset.zsh==0)  hd=0;
-      computeFS.    83                                    if      (yscs.d*hcs>zfset.zsp && yscs.d*hcs-zfset.zsp<zfset.zsh) hd=(yscs.
-                         +d*hcs-zfset.zsp)*hcs;
-      computeFS.    84                                    if      (yscs.d*hcs-zfset.zsp>=zfset.zsh)       hd=zfset.zsh*hcs;
-      computeFS.    85                                    bh=yscs.gch+(yscs.hpd*hd)-ht;
-      computeFS.    86                                    Bdisp_AllClr_VRAM();
-      computeFS.    87                                    DispStr(2,0, "¼Æ ");
-      computeFS.    88                                DispStr(2,12,"Ëã ");
-      computeFS.    89                                DispStr(2,26,"½á ");
-      computeFS.    90                                DispStr(2,39,"¹û ");
-      computeFS.    91                                    ShowTitle(TITLE);
-      computeFS.    92                                    DispStr(17,0,"×®ºÅ "); 
-      computeFS.    93                                DispStr(17,13,"Æ«¾à ");
-      computeFS.    94                                DispStr(17,26,"ÌîÍÚ: ");
-      computeFS.    95                                    DispStr(17,39,"»ù¸ß: ");
-      computeFS.    96                                    PrintfXY (48,2.5,0,"%.4f",yscs.k); 
-      computeFS.    97                                    PrintfXY (48,15,0,"%.4f",yscs.d);
-      computeFS.    98                                    PrintfXY (48,28,0,"%.4f",yscs.gch);
-      computeFS.    99                                    PrintfXY (48,42,0,"%.4f",yscs.hpd);
-      computeFS.   100                                    //PrintfXY (22,40,0," H= %.3f",bh);
-      computeFS.   101                                    //PrintfXY (22,48,0," H-Z= %.3f",hz-bh);
-      computeFS.   102                                    SaveDisp(SAVEDISP_PAGE1);
-      computeFS.   103                                    WaitKey();
-      computeFS.   104                                    ++index;
-      computeFS.   105                            }break;
-      computeFS.   106                            case KEY_CTRL_EXIT:
-      computeFS.   107                                    return 0;
-      computeFS.   108                            default:
-      computeFS.   109                                    if ((ch=GetPressNumChar(key))!=0){
-      computeFS.   110                                            char buf[14];
-      computeFS.   111                                            int        r;
-      computeFS.   112                                            refresh = REFRESH_PART;
-      computeFS.   113                                            buf[0] = ch;   buf[1] = '\0';
-      computeFS.   114                                            r = InputString (48,0+index*12,buf,0,12);  //ÊäÈë¿òÎ»ÖÃ
-      computeFS.   115                                            if (r != KEY_CTRL_EXIT){
-      computeFS.   116    
-      computeFS.   117                                                    value[index] = atof(buf);
-      computeFS.   118                                                    if      (r==KEY_CTRL_DOWN)      ++index;
-      computeFS.   119                                                    if      (r==KEY_CTRL_UP)        --index;
-      computeFS.   120                                                    if (r==KEY_CTRL_EXE && index<3) ++index;
-      computeFS.   121                                            }
-      computeFS.   122                                            break;
-      computeFS.   123                                    }
-      computeFS.   124                    }
-      computeFS.   125                    if (index >=4) index = 2;
-      computeFS.   126                    if (index < 0) index = 3;
-      computeFS.   127            }
-      computeFS.   128    }
 D   00000000              __$TITLE:                        ; static: TITLE
     00000000 00                     .DATA.B     H'00
 C   00000000              L522:
@@ -1004,7 +1004,7 @@ C   00000000              L522:
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   16
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE   16
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -1070,7 +1070,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE   17
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE   17
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -1136,7 +1136,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:03  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:43  PAGE    1
 
 
 ******** STATISTICS INFORMATION ********
@@ -1145,7 +1145,7 @@ SH SERIES C/C++ Compiler (Ver. 6.0C)                                            
 ********** ERROR INFORMATION ***********
 
 NUMBER OF ERRORS:           0
-NUMBER OF WARNINGS:        15
+NUMBER OF WARNINGS:         0
 
 
 
@@ -1205,5 +1205,5 @@ NUMBER OF INTERNAL/EXTERNAL SYMBOLS:            97
 *** COMMAND PARAMETER ***
 
 
-  -subcommand=C:\Users\ADMINI~1\AppData\Local\Temp\hmk4188.tmp 
+  -subcommand=C:\Users\¿­Åô\AppData\Local\Temp\hmkF33F.tmp 
 

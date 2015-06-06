@@ -6,11 +6,11 @@ if exist SDCLSQ.G1A  del SDCLSQ.G1A
 
 cd debug
 if exist FXADDINror.bin  del FXADDINror.bin
-"C:\Program Files\CASIO\fx-9860G SDK\OS\SH\Bin\Hmake.exe" Addin.mak
+"D:\SoftWare\fx-9860G SDK\OS\SH\Bin\Hmake.exe" Addin.mak
 cd ..
 if not exist debug\FXADDINror.bin  goto error
 
-"C:\Program Files\CASIO\fx-9860G SDK\Tools\MakeAddinHeader363.exe" "C:\Users\Administrator\Desktop\2015-06-6交点法转线元推链表\2015-06-4交点法转线元推链表"
+"D:\SoftWare\fx-9860G SDK\Tools\MakeAddinHeader363.exe" "F:\ProgramOfUniversity\C-KXO\C-KXO"
 if not exist SDCLSQ.G1A  goto error
 echo Build has completed.
 goto end

@@ -1,8 +1,8 @@
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE    1
 
 ************ OBJECT LISTING ************
 
-FILE NAME: C:\Users\Administrator\Desktop\2015-06-6½»µã·¨×ªÏßÔªÍÆÁ´±í\2015-06-4½»µã·¨×ªÏßÔªÍÆÁ´±í\ArcCalculation.c
+FILE NAME: F:\ProgramOfUniversity\C-KXO\C-KXO\ArcCalculation.c
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
@@ -13,19 +13,48 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
+
+
+
+
+
+
+      ArcCalcula     2    #include "runmain.h"
+      ArcCalcula     3    #include "MyFont.h"
+
+
+      ArcCalcula     4    
+      ArcCalcula     5    static char TITLE[] = "³£ÓÃ";
+      ArcCalcula     6    
+      ArcCalcula     7    #define MODE_INPUT_2_POINT 1
+      ArcCalcula     8    #define MODE_INPUT_JJQZ 2
+      ArcCalcula     9    #define MODE_INPUT_ZH 3
+      ArcCalcula    10    #define MODE_INPUT_REAL 4
+      ArcCalcula    11    #define MODE_INPUT_P_AND_D 5
+      ArcCalcula    12    #define MODE_DISP_P 6
+      ArcCalcula    13    
+      ArcCalcula    14    ///////////////////////////////////////////
+      ArcCalcula    15    //      F1 Commonly used
+      ArcCalcula    16    ///////////////////////////////////////////
+      ArcCalcula    17    int Menu_Draw2()
 P   00000000              _Menu_Draw2:                     ; function: Menu_Draw2
                                                            ; frame size=4
     00000000 4F22                   STS.L       PR,@-R15
+      ArcCalcula    18    {   
+      ArcCalcula    19        int i=0;
+      ArcCalcula    20            SetMyFont(&stHz8x8,&stAsc6x12); //ÉèÖÃÖÐÎÄ´óÐ¡8*8 
     00000002 D527                   MOV.L       L671+10,R5 ; _stAsc6x12
     00000004 D427                   MOV.L       L671+14,R4 ; _stHz8x8
     00000006 D328                   MOV.L       L671+18,R3 ; _SetMyFont
     00000008 430B                   JSR         @R3
     0000000A 0009                   NOP
+      ArcCalcula    21            DispStr(4,56,"·´Ëã "); 
     0000000C D627                   MOV.L       L671+22,R6 ; L517
     0000000E E538                   MOV         #56,R5
     00000010 D227                   MOV.L       L671+26,R2 ; _DispStr
     00000012 420B                   JSR         @R2
     00000014 E404                   MOV         #4,R4
+      ArcCalcula    22            PrintIcon(i++,"",mode<=MODE_INPUT_REAL);
     00000016 E304                   MOV         #4,R3
     00000018 D126                   MOV.L       L671+30,R1 ; _mode
     0000001A E400                   MOV         #0,R4
@@ -38,9 +67,26 @@ P   00000000              _Menu_Draw2:                     ; function: Menu_Draw
     00000028 666B                   NEG         R6,R6
     0000002A 422B                   JMP         @R2
     0000002C 4F26                   LDS.L       @R15+,PR
-
+      ArcCalcula    23            //PrintIcon(i++,"",mode>MODE_INPUT_REAL && mode<=MODE_DISP_P);
+      ArcCalcula    24            //PrintIcon(i++,"",0);
+      ArcCalcula    25            //PrintIcon(i++,"",0);
+      ArcCalcula    26            //PrintIcon(5,"?",0);
+      ArcCalcula    27    }
+      ArcCalcula    28    
+      ArcCalcula    29    void Menu_Proc2()
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE    2
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000002E              _Menu_Proc2:                     ; function: Menu_Proc2
                                                            ; frame size=0
+      ArcCalcula    30    {
+      ArcCalcula    31            switch (key)
     0000002E D324                   MOV.L       L671+42,R3 ; _key
     00000030 9131                   MOV.W       L671,R1    ; H'7539
     00000032 6032                   MOV.L       @R3,R0
@@ -58,24 +104,24 @@ P   00000000              _Menu_Draw2:                     ; function: Menu_Draw
     0000004A A003                   BRA         L626
     0000004C 0009                   NOP
     0000004E              L594:                            ; case label 
+      ArcCalcula    32            {
+      ArcCalcula    33                    case KEY_CTRL_F1:mode=MODE_INPUT_2_POINT;break;
     0000004E E201                   MOV         #1,R2
     00000050 D118                   MOV.L       L671+30,R1 ; _mode
     00000052 2122                   MOV.L       R2,@R1
+      ArcCalcula    34                    //case KEY_CTRL_F2:mode=MODE_INPUT_P_AND_D;break;
+      ArcCalcula    35                    case KEY_CTRL_F3:break;
+      ArcCalcula    36                    case KEY_CTRL_F4:break;
+      ArcCalcula    37                    case KEY_CTRL_F6:break;
     00000054              L626:                             
+      ArcCalcula    38            }
+      ArcCalcula    39    }
     00000054 000B                   RTS
     00000056 0009                   NOP
+      ArcCalcula    40    void Run_Circular()
     00000058              _Run_Circular:                   ; function: Run_Circular
                                                            ; frame size=192
                                                            ; used runtime library name:
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE    2
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
                                                            ; __addd, __subdr, __muld, __divdr, __stod, __dtos, __dtoi, __itod, __ned
                         +                                  , __quick_evn_mvn
     00000058 2FE6                   MOV.L       R14,@-R15
@@ -86,10 +132,23 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000062 2F96                   MOV.L       R9,@-R15
     00000064 2F86                   MOV.L       R8,@-R15
     00000066 4F22                   STS.L       PR,@-R15
+      ArcCalcula    41    {
+      ArcCalcula    42            double x,y;
+      ArcCalcula    43            int i;
+      ArcCalcula    44            if (mode == MODE_INPUT_2_POINT)
     00000068 D812                   MOV.L       L671+30,R8 ; _mode
     0000006A 7FAC                   ADD         #-84,R15
     0000006C D915                   MOV.L       L671+46,R9 ; _PrintFloat
     0000006E DA16                   MOV.L       L671+50,R10; _setup_data
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE    3
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000070 DC16                   MOV.L       L671+54,R12; _need_redraw
     00000072 DD0F                   MOV.L       L671+26,R13; _DispStr
     00000074 6082                   MOV.L       @R8,R0
@@ -99,15 +158,21 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000007C A09F                   BRA         L627
     0000007E 0009                   NOP
     00000080              L672:                             
+      ArcCalcula    45            {
+      ArcCalcula    46                char *context[] = 
+      ArcCalcula    47               {"Æð»¡X ","Æð»¡Y ","ÖÕ»¡X ","ÖÕ»¡Y "};
     00000080 D213                   MOV.L       L671+58,R2 ; L529
     00000082 61F3                   MOV         R15,R1
     00000084 D313                   MOV.L       L671+62,R3 ; __quick_evn_mvn
     00000086 7134                   ADD         #52,R1
     00000088 430B                   JSR         @R3
     0000008A E010                   MOV         #16,R0
+      ArcCalcula    48                    index = 0;
     0000008C D112                   MOV.L       L671+66,R1 ; _index
+      ArcCalcula    49                    need_redraw = REFRESH_ALL;
     0000008E E302                   MOV         #2,R3
     00000090 21B2                   MOV.L       R11,@R1
+      ArcCalcula    50                    while(mode == MODE_INPUT_2_POINT)
     00000092 A091                   BRA         L628
     00000094 2C32                   MOV.L       R3,@R12
     00000096              L671:                             
@@ -132,48 +197,62 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000D4 <00000000>             .DATA.L     __quick_evn_mvn
     000000D8 <00000000>             .DATA.L     _index
     000000DC              L629:                             
+      ArcCalcula    51                    {
+      ArcCalcula    52                            //// REDRAW
+      ArcCalcula    53                            if (need_redraw==REFRESH_ALL)
     000000DC 60C2                   MOV.L       @R12,R0
+    000000DE 8802                   CMP/EQ      #2,R0
+    000000E0 8B31                   BF          L630
+      ArcCalcula    54                            {
+      ArcCalcula    55                                    Bdisp_AllClr_DDVRAM();
+    000000E2 D24A                   MOV.L       L673+2,R2  ; _Bdisp_AllClr_DDVRAM
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE    3
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE    4
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    000000DE 8802                   CMP/EQ      #2,R0
-    000000E0 8B31                   BF          L630
-    000000E2 D24A                   MOV.L       L673+2,R2  ; _Bdisp_AllClr_DDVRAM
     000000E4 420B                   JSR         @R2
     000000E6 0009                   NOP
+      ArcCalcula    56                                    i = 0;
+      ArcCalcula    57                                    SetMyFont(&stHz12x12,&stAsc6x12);  //¶¨Òå×ÖÌå´óÐ¡
     000000E8 D549                   MOV.L       L673+6,R5  ; _stAsc6x12
     000000EA D44A                   MOV.L       L673+10,R4 ; _stHz12x12
     000000EC D34A                   MOV.L       L673+14,R3 ; _SetMyFont
     000000EE 430B                   JSR         @R3
     000000F0 0009                   NOP
+      ArcCalcula    58                                DispStr(2,1, "Ô² ");
     000000F2 E501                   MOV         #1,R5
     000000F4 D649                   MOV.L       L673+18,R6 ; L536
     000000F6 4D0B                   JSR         @R13
     000000F8 E402                   MOV         #2,R4
+      ArcCalcula    59                                DispStr(2,15,"»¡ ");
     000000FA E50F                   MOV         #15,R5
     000000FC D648                   MOV.L       L673+22,R6 ; L537
     000000FE 4D0B                   JSR         @R13
     00000100 E402                   MOV         #2,R4
+      ArcCalcula    60                                DispStr(2,28,"×ø ");
     00000102 E51C                   MOV         #28,R5
     00000104 D647                   MOV.L       L673+26,R6 ; L538
     00000106 4D0B                   JSR         @R13
     00000108 E402                   MOV         #2,R4
+      ArcCalcula    61                                DispStr(2,41,"±ê ");
     0000010A E529                   MOV         #41,R5
     0000010C D646                   MOV.L       L673+30,R6 ; L539
     0000010E 4D0B                   JSR         @R13
     00000110 E402                   MOV         #2,R4
+      ArcCalcula    62                                    ShowTitle(TITLE);
     00000112 D446                   MOV.L       L673+34,R4 ; __$TITLE
     00000114 D246                   MOV.L       L673+38,R2 ; _ShowTitle
     00000116 420B                   JSR         @R2
     00000118 0009                   NOP
+      ArcCalcula    63                                    for (i=0;i<4;++i)
     0000011A 6EB3                   MOV         R11,R14
     0000011C              L631:                             
+      ArcCalcula    64                                    DispStr(16,4+i*12,context[i]);
     0000011C 66E3                   MOV         R14,R6
     0000011E 4608                   SHLL2       R6
     00000120 63F3                   MOV         R15,R3
@@ -192,24 +271,31 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000013A E304                   MOV         #4,R3
     0000013C 3E33                   CMP/GE      R3,R14
     0000013E 8BED                   BF          L631
-    00000140 E101                   MOV         #1,R1
-    00000142 BF5D                   BSR         _Menu_Draw2
-    00000144 2C12                   MOV.L       R1,@R12
-    00000146              L630:                             
-    00000146 60C2                   MOV.L       @R12,R0
-    00000148 8801                   CMP/EQ      #1,R0
-    0000014A 8B1D                   BF          L632
+      ArcCalcula    65                                    need_redraw = REFRESH_PART;
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE    4
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE    5
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    00000140 E101                   MOV         #1,R1
+      ArcCalcula    66                                    Menu_Draw2();
+    00000142 BF5D                   BSR         _Menu_Draw2
+    00000144 2C12                   MOV.L       R1,@R12
+    00000146              L630:                             
+      ArcCalcula    67                            }
+      ArcCalcula    68                            if (need_redraw==REFRESH_PART)
+    00000146 60C2                   MOV.L       @R12,R0
+    00000148 8801                   CMP/EQ      #1,R0
+    0000014A 8B1D                   BF          L632
+      ArcCalcula    69                            {
+      ArcCalcula    70                                    for(i=0;i<4;++i)
     0000014C 6EB3                   MOV         R11,R14
     0000014E              L633:                             
+      ArcCalcula    71                                    PrintFloat(value[i],50,4+i*12,index==i,setup_data.point);
     0000014E 63E3                   MOV         R14,R3
     00000150 D138                   MOV.L       L673+42,R1 ; _value
     00000152 65E3                   MOV         R14,R5
@@ -238,22 +324,40 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000180 3E23                   CMP/GE      R2,R14
     00000182 8FE4                   BF/S        L633
     00000184 7F08                   ADD         #8,R15
+      ArcCalcula    72                                    need_redraw = 0;
     00000186 2CB2                   MOV.L       R11,@R12
     00000188              L632:                             
+      ArcCalcula    73                            }
+      ArcCalcula    74                            GetKey(&key);
     00000188 D42C                   MOV.L       L673+50,R4 ; _key
     0000018A D22D                   MOV.L       L673+54,R2 ; _GetKey
     0000018C 420B                   JSR         @R2
     0000018E 0009                   NOP
+      ArcCalcula    75                            Menu_Proc2();
     00000190 BF4D                   BSR         _Menu_Proc2
     00000192 0009                   NOP
+      ArcCalcula    76                            if (key==KEY_CTRL_EXE)
     00000194 9239                   MOV.W       L673,R2    ; H'7534
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE    6
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000196 D129                   MOV.L       L673+50,R1 ; _key
     00000198 6312                   MOV.L       @R1,R3
     0000019A 3320                   CMP/EQ      R2,R3
     0000019C 8B01                   BF          L634
+      ArcCalcula    77                            {
+      ArcCalcula    78                                    mode = MODE_INPUT_JJQZ;
     0000019E E302                   MOV         #2,R3
     000001A0 2832                   MOV.L       R3,@R8
     000001A2              L634:                             
+      ArcCalcula    79                            }
+      ArcCalcula    80                            InputDefProc(value,4,50,4,MODE_INPUT_JJQZ,MODE_EXIT);
     000001A2 E202                   MOV         #2,R2
     000001A4 D323                   MOV.L       L673+42,R3 ; _value
     000001A6 E704                   MOV         #4,R7
@@ -265,21 +369,16 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001B2 410B                   JSR         @R1
     000001B4 6432                   MOV.L       @R3,R4
     000001B6 7F08                   ADD         #8,R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE    5
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000001B8              L628:                             
     000001B8 6082                   MOV.L       @R8,R0
     000001BA 8801                   CMP/EQ      #1,R0
     000001BC 898E                   BT          L629
     000001BE              L627:                             
-
+      ArcCalcula    81                    }
+      ArcCalcula    82    
+      ArcCalcula    83            }
+      ArcCalcula    84            ///// Calculate and input Jian ju
+      ArcCalcula    85            if (mode == MODE_INPUT_JJQZ)
     000001BE DE22                   MOV.L       L673+62,R14; _common_data
     000001C0 6082                   MOV.L       @R8,R0
     000001C2 8802                   CMP/EQ      #2,R0
@@ -287,19 +386,33 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001C6 A124                   BRA         L635
     000001C8 0009                   NOP
     000001CA              L674:                             
+      ArcCalcula    86            {
+      ArcCalcula    87                    char *context[] = 
+      ArcCalcula    88                    {"¾àÀë:","·½Î»: ","°ë¾¶ ","¼ä¾à "};
     000001CA 61F3                   MOV         R15,R1
     000001CC D21F                   MOV.L       L673+66,R2 ; L544
     000001CE 7134                   ADD         #52,R1
     000001D0 D31F                   MOV.L       L673+70,R3 ; __quick_evn_mvn
     000001D2 430B                   JSR         @R3
     000001D4 E010                   MOV         #16,R0
-
+      ArcCalcula    89                    index = 0;
+      ArcCalcula    90                    need_redraw = REFRESH_ALL;
     000001D6 E302                   MOV         #2,R3
     000001D8 D117                   MOV.L       L673+46,R1 ; _index
     000001DA 21B2                   MOV.L       R11,@R1
     000001DC 2C32                   MOV.L       R3,@R12
+      ArcCalcula    91                    Pol(value[0],value[1],value[2],value[3],&common_data.distance,&common_data.position);
     000001DE D315                   MOV.L       L673+42,R3 ; _value
     000001E0 6032                   MOV.L       @R3,R0
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE    7
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000001E2 7018                   ADD         #24,R0
     000001E4 5201                   MOV.L       @(4,R0),R2
     000001E6 2F26                   MOV.L       R2,@-R15
@@ -333,15 +446,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000022C <00000000>             .DATA.L     __$TITLE
     00000230 <00000000>             .DATA.L     _ShowTitle
     00000234 <00000000>             .DATA.L     _value
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE    6
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000238 <00000000>             .DATA.L     _index
     0000023C <00000000>             .DATA.L     _key
     00000240 <00000000>             .DATA.L     _GetKey
@@ -360,55 +464,69 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000262 D202                   MOV.L       L675,R2    ; _Pol
     00000264 420B                   JSR         @R2
     00000266 7440                   ADD         #64,R4
-
+      ArcCalcula    92                    while(mode==MODE_INPUT_JJQZ)
     00000268 A0A8                   BRA         L636
     0000026A 7F20                   ADD         #32,R15
     0000026C              L675:                             
     0000026C <00000000>             .DATA.L     _Pol
     00000270              L637:                             
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE    8
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      ArcCalcula    93                    {
+      ArcCalcula    94                                    
+      ArcCalcula    95                            if (need_redraw == REFRESH_ALL)
     00000270 60C2                   MOV.L       @R12,R0
     00000272 8802                   CMP/EQ      #2,R0
     00000274 8B5E                   BF          L638
+      ArcCalcula    96                            {
+      ArcCalcula    97                                    char strpos[20];
+      ArcCalcula    98                                    Bdisp_AllClr_DDVRAM();
     00000276 D354                   MOV.L       L676+4,R3  ; _Bdisp_AllClr_DDVRAM
     00000278 430B                   JSR         @R3
     0000027A 0009                   NOP
+      ArcCalcula    99                                    SetMyFont(&stHz12x12,&stAsc6x12); 
     0000027C D553                   MOV.L       L676+8,R5  ; _stAsc6x12
     0000027E D454                   MOV.L       L676+12,R4 ; _stHz12x12
     00000280 D254                   MOV.L       L676+16,R2 ; _SetMyFont
     00000282 420B                   JSR         @R2
     00000284 0009                   NOP
+      ArcCalcula   100                                DispStr(2,1, "Ô² ");
     00000286 E501                   MOV         #1,R5
     00000288 D653                   MOV.L       L676+20,R6 ; L536
     0000028A 4D0B                   JSR         @R13
     0000028C E402                   MOV         #2,R4
+      ArcCalcula   101                                DispStr(2,15,"»¡ ");
     0000028E E50F                   MOV         #15,R5
     00000290 D652                   MOV.L       L676+24,R6 ; L537
     00000292 4D0B                   JSR         @R13
     00000294 E402                   MOV         #2,R4
+      ArcCalcula   102                                DispStr(2,28,"×ø ");
     00000296 E51C                   MOV         #28,R5
     00000298 D651                   MOV.L       L676+28,R6 ; L538
     0000029A 4D0B                   JSR         @R13
     0000029C E402                   MOV         #2,R4
+      ArcCalcula   103                                DispStr(2,41,"±ê ");
     0000029E E529                   MOV         #41,R5
     000002A0 D650                   MOV.L       L676+32,R6 ; L539
     000002A2 4D0B                   JSR         @R13
     000002A4 E402                   MOV         #2,R4
+      ArcCalcula   104                                    ShowTitle(TITLE);
     000002A6 D450                   MOV.L       L676+36,R4 ; __$TITLE
     000002A8 D350                   MOV.L       L676+40,R3 ; _ShowTitle
     000002AA 430B                   JSR         @R3
     000002AC 0009                   NOP
+      ArcCalcula   105                                    for (i=0;i<4;++i)
     000002AE 2FB2                   MOV.L       R11,@R15
     000002B0              L639:                             
+      ArcCalcula   106                                    DispStr(16,4+i*12,context[i]);
     000002B0 66F2                   MOV.L       @R15,R6
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE    7
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000002B2 63F3                   MOV         R15,R3
     000002B4 65F2                   MOV.L       @R15,R5
     000002B6 4608                   SHLL2       R6
@@ -418,6 +536,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002BE 6253                   MOV         R5,R2
     000002C0 4500                   SHLL        R5
     000002C2 352C                   ADD         R2,R5
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE    9
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000002C4 4508                   SHLL2       R5
     000002C6 7504                   ADD         #4,R5
     000002C8 4D0B                   JSR         @R13
@@ -428,7 +555,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002D2 3323                   CMP/GE      R2,R3
     000002D4 8FEC                   BF/S        L639
     000002D6 2F32                   MOV.L       R3,@R15
+      ArcCalcula   107                                    i=0;
     000002D8 2FB2                   MOV.L       R11,@R15
+      ArcCalcula   108                                    FloatToDegStr(common_data.position,strpos); //½«½Ç¶È·Ö½â¶È·ÖÃë¸ñÊ½
     000002DA 63E3                   MOV         R14,R3
     000002DC 7348                   ADD         #72,R3
     000002DE 5231                   MOV.L       @(4,R3),R2
@@ -439,6 +568,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002E8 64F3                   MOV         R15,R4
     000002EA 430B                   JSR         @R3
     000002EC 7428                   ADD         #40,R4
+      ArcCalcula   109                                    PrintFloat(common_data.distance,50,4+i++*12,0,setup_data.point); //¾àÀë
     000002EE 62E3                   MOV         R14,R2
     000002F0 7240                   ADD         #64,R2
     000002F2 E600                   MOV         #0,R6
@@ -459,6 +589,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000310 490B                   JSR         @R9
     00000312 E432                   MOV         #50,R4
     00000314 7F10                   ADD         #16,R15
+;    
     00000316 E700                   MOV         #0,R7
     00000318 65F2                   MOV.L       @R15,R5
     0000031A 66F3                   MOV         R15,R6
@@ -466,21 +597,21 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000031E 6353                   MOV         R5,R3
     00000320 4500                   SHLL        R5
     00000322 353C                   ADD         R3,R5
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE    8
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000324 D333                   MOV.L       L676+48,R3 ; _PrintXY
     00000326 4508                   SHLL2       R5
     00000328 7506                   ADD         #6,R5
     0000032A 430B                   JSR         @R3
     0000032C E434                   MOV         #52,R4
     0000032E E201                   MOV         #1,R2
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   10
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000330 BE66                   BSR         _Menu_Draw2
     00000332 2C22                   MOV.L       R2,@R12
     00000334              L638:                             
@@ -489,6 +620,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000338 8B28                   BF          L640
     0000033A E302                   MOV         #2,R3
     0000033C 2F32                   MOV.L       R3,@R15
+                         + //°ë¾¶
     0000033E 52E1                   MOV.L       @(4,R14),R2
     00000340 D32D                   MOV.L       L676+52,R3 ; _index
     00000342 2F26                   MOV.L       R2,@-R15
@@ -509,6 +641,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000360 7504                   ADD         #4,R5
     00000362 490B                   JSR         @R9
     00000364 E432                   MOV         #50,R4
+      ArcCalcula   118                                    PrintFloat(common_data.BeginStake,50,4+i++*12,index==1,setup_data.point); 
+                         + //¼ä¾à
     00000366 53E3                   MOV.L       @(12,R14),R3
     00000368 D223                   MOV.L       L676+52,R2 ; _index
     0000036A 2F36                   MOV.L       R3,@-R15
@@ -527,23 +661,24 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000384 490B                   JSR         @R9
     00000386 E432                   MOV         #50,R4
     00000388 7F10                   ADD         #16,R15
+T);
     0000038A 2CB2                   MOV.L       R11,@R12
     0000038C              L640:                             
     0000038C D41B                   MOV.L       L676+56,R4 ; _key
     0000038E D31C                   MOV.L       L676+60,R3 ; _GetKey
     00000390 430B                   JSR         @R3
+    00000392 0009                   NOP
+    00000394 BE4B                   BSR         _Menu_Proc2
+    00000396 0009                   NOP
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE    9
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   11
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
-    00000392 0009                   NOP
-    00000394 BE4B                   BSR         _Menu_Proc2
-    00000396 0009                   NOP
     00000398 9314                   MOV.W       L676,R3    ; H'7534
     0000039A D118                   MOV.L       L676+56,R1 ; _key
     0000039C 6212                   MOV.L       @R1,R2
@@ -594,6 +729,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000410 0009                   NOP
     00000412              L677:                             
     00000412              L635:                             
+      ArcCalcula   128                    }
+      ArcCalcula   129            }//if
+      ArcCalcula   130            if (mode == MODE_INPUT_ZH)
     00000412 6082                   MOV.L       @R8,R0
     00000414 8803                   CMP/EQ      #3,R0
     00000416 8901                   BT          L678
@@ -602,23 +740,30 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   10
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   12
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
     0000041A 0009                   NOP
     0000041C              L678:                             
+      ArcCalcula   131            {
+      ArcCalcula   132                    char *context[] = 
+      ArcCalcula   133                    {"×®ºÅ ","Æ«¾à ","×ø±êX:","×ø±êY:"};
     0000041C D205                   MOV.L       L679,R2    ; L556
     0000041E 61F3                   MOV         R15,R1
     00000420 D305                   MOV.L       L679+4,R3  ; __quick_evn_mvn
     00000422 7134                   ADD         #52,R1
     00000424 430B                   JSR         @R3
     00000426 E010                   MOV         #16,R0
+      ArcCalcula   134                    int prekey = 0;
     00000428 1FB1                   MOV.L       R11,@(4,R15)
+      ArcCalcula   135                    index = 0;
+      ArcCalcula   136                    need_redraw = REFRESH_ALL;
     0000042A E102                   MOV         #2,R1
     0000042C D303                   MOV.L       L679+8,R3  ; _index
     0000042E 23B2                   MOV.L       R11,@R3
+      ArcCalcula   137                    while(mode==MODE_INPUT_ZH)
     00000430 A33A                   BRA         L644
     00000432 2C12                   MOV.L       R1,@R12
     00000434              L679:                             
@@ -626,53 +771,65 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000438 <00000000>             .DATA.L     __quick_evn_mvn
     0000043C <00000000>             .DATA.L     _index
     00000440              L645:                             
+      ArcCalcula   138                    {
+      ArcCalcula   139                            if (need_redraw == REFRESH_ALL)
     00000440 60C2                   MOV.L       @R12,R0
     00000442 8802                   CMP/EQ      #2,R0
     00000444 8B34                   BF          L646
+      ArcCalcula   140                            {
+      ArcCalcula   141                                SetMyFont(&stHz12x12,&stAsc6x12); 
     00000446 D5CB                   MOV.L       L680,R5    ; _stAsc6x12
     00000448 D4CB                   MOV.L       L680+4,R4  ; _stHz12x12
     0000044A D2CC                   MOV.L       L680+8,R2  ; _SetMyFont
     0000044C 420B                   JSR         @R2
     0000044E 0009                   NOP
+      ArcCalcula   142                                    Bdisp_AllClr_DDVRAM();
     00000450 D3CB                   MOV.L       L680+12,R3 ; _Bdisp_AllClr_DDVRAM
     00000452 430B                   JSR         @R3
     00000454 0009                   NOP
+      ArcCalcula   143                                DispStr(2,1, "Ô² ");
     00000456 E501                   MOV         #1,R5
     00000458 D6CA                   MOV.L       L680+16,R6 ; L536
     0000045A 4D0B                   JSR         @R13
     0000045C E402                   MOV         #2,R4
+      ArcCalcula   144                                DispStr(2,15,"»¡ ");
     0000045E E50F                   MOV         #15,R5
     00000460 D6C9                   MOV.L       L680+20,R6 ; L537
     00000462 4D0B                   JSR         @R13
     00000464 E402                   MOV         #2,R4
+      ArcCalcula   145                                DispStr(2,28,"×ø ");
     00000466 E51C                   MOV         #28,R5
     00000468 D6C8                   MOV.L       L680+24,R6 ; L538
     0000046A 4D0B                   JSR         @R13
     0000046C E402                   MOV         #2,R4
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   13
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      ArcCalcula   146                                DispStr(2,41,"±ê ");
     0000046E E529                   MOV         #41,R5
     00000470 D6C7                   MOV.L       L680+28,R6 ; L539
     00000472 4D0B                   JSR         @R13
     00000474 E402                   MOV         #2,R4
+      ArcCalcula   147                                    ShowTitle(TITLE);
     00000476 D4C7                   MOV.L       L680+32,R4 ; __$TITLE
     00000478 D2C7                   MOV.L       L680+36,R2 ; _ShowTitle
     0000047A 420B                   JSR         @R2
     0000047C 0009                   NOP
+      ArcCalcula   148                                    for (i=0;i<4;++i)
     0000047E 2FB2                   MOV.L       R11,@R15
     00000480              L647:                             
+      ArcCalcula   149                                    DispStr(16,4+i*12,context[i]);
     00000480 66F2                   MOV.L       @R15,R6
     00000482 63F3                   MOV         R15,R3
     00000484 65F2                   MOV.L       @R15,R5
     00000486 4608                   SHLL2       R6
     00000488 7334                   ADD         #52,R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   11
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000048A 363C                   ADD         R3,R6
     0000048C 6662                   MOV.L       @R6,R6
     0000048E 6253                   MOV         R5,R2
@@ -688,21 +845,38 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000004A2 3323                   CMP/GE      R2,R3
     000004A4 8FEC                   BF/S        L647
     000004A6 2F32                   MOV.L       R3,@R15
+      ArcCalcula   150                                    Menu_Draw2();
     000004A8 BDAA                   BSR         _Menu_Draw2
     000004AA 0009                   NOP
+      ArcCalcula   151                                    //ShowArrow(1);//////////////////////////////////////////////////////////
+      ArcCalcula   152                                    need_redraw = REFRESH_PART;
     000004AC E101                   MOV         #1,R1
     000004AE 2C12                   MOV.L       R1,@R12
     000004B0              L646:                             
+      ArcCalcula   153                            }
+      ArcCalcula   154                            if (need_redraw==REFRESH_PART)  //
     000004B0 60C2                   MOV.L       @R12,R0
     000004B2 8801                   CMP/EQ      #1,R0
     000004B4 8901                   BT          L681
     000004B6 A28E                   BRA         L648
     000004B8 0009                   NOP
     000004BA              L681:                             
-
+      ArcCalcula   155                            {
+      ArcCalcula   156                                double A,B,C,Q,T;
+      ArcCalcula   157                                    A = common_data.position - asin(common_data.distance/2.0/common_data.Spaci
+                         +ng)/PI*180; //49.54652942
     000004BA 62E3                   MOV         R14,R2
     000004BC 7248                   ADD         #72,R2
     000004BE 61E3                   MOV         R14,R1
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   14
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000004C0 5321                   MOV.L       @(4,R2),R3
     000004C2 7140                   ADD         #64,R1
     000004C4 2F36                   MOV.L       R3,@-R15
@@ -731,15 +905,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000004F2 7210                   ADD         #16,R2
     000004F4 410B                   JSR         @R1
     000004F6 2F26                   MOV.L       R2,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   12
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000004F8 E308                   MOV         #8,R3
     000004FA 33FC                   ADD         R15,R3
     000004FC 2F36                   MOV.L       R3,@-R15
@@ -769,7 +934,17 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000052C D1A2                   MOV.L       L680+68,R1 ; __subdr
     0000052E 703C                   ADD         #60,R0
     00000530 410B                   JSR         @R1
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   15
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000532 2F06                   MOV.L       R0,@-R15
+      ArcCalcula   158                                    if (common_data.Offset == 0 ) common_data.Offset==0.0000001;
     00000534 53E7                   MOV.L       @(28,R14),R3
     00000536 E200                   MOV         #0,R2
     00000538 2F36                   MOV.L       R3,@-R15
@@ -780,6 +955,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000542 430B                   JSR         @R3
     00000544 2F26                   MOV.L       R2,@-R15
     00000546 8800                   CMP/EQ      #0,R0
+      ArcCalcula   159                                    Q = abs(common_data.Offset)/(common_data.Offset+0.0000001); //0
     00000548 52E7                   MOV.L       @(28,R14),R2
     0000054A 2F26                   MOV.L       R2,@-R15
     0000054C 52E6                   MOV.L       @(24,R14),R2
@@ -797,15 +973,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000564 D399                   MOV.L       L680+88,R3 ; H'9ABCAF48
     00000566 52E7                   MOV.L       @(28,R14),R2
     00000568 D19A                   MOV.L       L680+96,R1 ; __addd
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   13
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000056A 2F26                   MOV.L       R2,@-R15
     0000056C 52E6                   MOV.L       @(24,R14),R2
     0000056E 2F26                   MOV.L       R2,@-R15
@@ -821,6 +988,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000582 7024                   ADD         #36,R0
     00000584 430B                   JSR         @R3
     00000586 2F06                   MOV.L       R0,@-R15
+      ArcCalcula   160                                    B = value[0]+cos((A*PI/180+PI/2))*common_data.Spacing; //451.672049
     00000588 D193                   MOV.L       L680+100,R1; _value
     0000058A E060                   MOV         #96,R0
     0000058C 6212                   MOV.L       @R1,R2
@@ -832,6 +1000,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000598 D383                   MOV.L       L680+52,R3 ; H'53C8D4F1
     0000059A 00FE                   MOV.L       @(R0,R15),R0
     0000059C 2F06                   MOV.L       R0,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   16
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000059E E060                   MOV         #96,R0
     000005A0 00FE                   MOV.L       @(R0,R15),R0
     000005A2 2F06                   MOV.L       R0,@-R15
@@ -863,15 +1040,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000005D6 2F26                   MOV.L       R2,@-R15
     000005D8 E308                   MOV         #8,R3
     000005DA 33FC                   ADD         R15,R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   14
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000005DC 2F36                   MOV.L       R3,@-R15
     000005DE D380                   MOV.L       L680+108,R3; _cos
     000005E0 430B                   JSR         @R3
@@ -891,12 +1059,22 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000005FC 7034                   ADD         #52,R0
     000005FE 410B                   JSR         @R1
     00000600 2F06                   MOV.L       R0,@-R15
+      ArcCalcula   161                                    C = value[1]+sin((A*PI/180+PI/2))*common_data.Spacing; //354.2852252
     00000602 E060                   MOV         #96,R0
     00000604 D274                   MOV.L       L680+100,R2; _value
     00000606 6322                   MOV.L       @R2,R3
     00000608 7308                   ADD         #8,R3
     0000060A 5131                   MOV.L       @(4,R3),R1
     0000060C 2F16                   MOV.L       R1,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   17
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000060E 6132                   MOV.L       @R3,R1
     00000610 D365                   MOV.L       L680+52,R3 ; H'53C8D4F1
     00000612 2F16                   MOV.L       R1,@-R15
@@ -929,15 +1107,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000648 D364                   MOV.L       L680+104,R3; H'3FF921FB
     0000064A 2F36                   MOV.L       R3,@-R15
     0000064C 61F3                   MOV         R15,R1
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   15
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000064E 7110                   ADD         #16,R1
     00000650 400B                   JSR         @R0
     00000652 2F16                   MOV.L       R1,@-R15
@@ -962,6 +1131,17 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000678 702C                   ADD         #44,R0
     0000067A 420B                   JSR         @R2
     0000067C 2F06                   MOV.L       R0,@-R15
+      ArcCalcula   162                                    T = A-90+(180*common_data.PegNo/common_data.Spacing/PI); //-40.45347058   
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   18
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+                         +    
     0000067E 7FF8                   ADD         #-8,R15
     00000680 D14C                   MOV.L       L680+64,R1 ; __muld
     00000682 53FE                   MOV.L       @(56,R15),R3
@@ -995,15 +1175,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000006BA 2F36                   MOV.L       R3,@-R15
     000006BC D33B                   MOV.L       L680+56,R3 ; H'400921FB
     000006BE 2F36                   MOV.L       R3,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   16
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000006C0 62F3                   MOV         R15,R2
     000006C2 7210                   ADD         #16,R2
     000006C4 410B                   JSR         @R1
@@ -1022,9 +1193,20 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000006DE 711C                   ADD         #28,R1
     000006E0 430B                   JSR         @R3
     000006E2 2F16                   MOV.L       R1,@-R15
+      ArcCalcula   163                                    x = B+common_data.Spacing * cos(T*PI/180)+(common_data.Offset * cos(T*PI/1
+                         +80+PI * Q)); 
     000006E4 D133                   MOV.L       L680+64,R1 ; __muld
     000006E6 7FF8                   ADD         #-8,R15
     000006E8 52FC                   MOV.L       @(48,R15),R2
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   19
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000006EA E048                   MOV         #72,R0
     000006EC 2F26                   MOV.L       R2,@-R15
     000006EE 52FC                   MOV.L       @(48,R15),R2
@@ -1061,15 +1243,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000072C 33FC                   ADD         R15,R3
     0000072E 2F36                   MOV.L       R3,@-R15
     00000730 D32B                   MOV.L       L680+108,R3; _cos
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   17
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000732 430B                   JSR         @R3
     00000734 0009                   NOP
     00000736 7F0C                   ADD         #12,R15
@@ -1091,6 +1264,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000756 2F36                   MOV.L       R3,@-R15
     00000758 D313                   MOV.L       L680+52,R3 ; H'53C8D4F1
     0000075A 7FE0                   ADD         #-32,R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   20
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000075C 02FE                   MOV.L       @(R0,R15),R2
     0000075E E048                   MOV         #72,R0
     00000760 2F26                   MOV.L       R2,@-R15
@@ -1127,15 +1309,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000007C4 <00000000>             .DATA.L     _abs
     000007C8 <00000000>             .DATA.L     __itod
     000007CC 9ABCAF48               .DATA.L     H'9ABCAF48
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   18
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000007D0 3E7AD7F2               .DATA.L     H'3E7AD7F2
     000007D4 <00000000>             .DATA.L     __addd
     000007D8 <00000000>             .DATA.L     _value
@@ -1157,6 +1330,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000800 410B                   JSR         @R1
     00000802 2F26                   MOV.L       R2,@-R15
     00000804 D27B                   MOV.L       L682+14,R2 ; H'53C8D4F1
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   21
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000806 7FF8                   ADD         #-8,R15
     00000808 D177                   MOV.L       L682+2,R1  ; __muld
     0000080A E050                   MOV         #80,R0
@@ -1193,15 +1375,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000848 705C                   ADD         #92,R0
     0000084A 420B                   JSR         @R2
     0000084C 2F06                   MOV.L       R0,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   19
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
+      ArcCalcula   164                                    y = C+common_data.Spacing * sin(T*PI/180)+(common_data.Offset * sin(T*PI/1
+                         +80+PI * Q)); 
     0000084E 7FF8                   ADD         #-8,R15
     00000850 D165                   MOV.L       L682+2,R1  ; __muld
     00000852 E048                   MOV         #72,R0
@@ -1221,6 +1396,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000086E E048                   MOV         #72,R0
     00000870 03FE                   MOV.L       @(R0,R15),R3
     00000872 2F36                   MOV.L       R3,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   22
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000874 2F26                   MOV.L       R2,@-R15
     00000876 D260                   MOV.L       L682+18,R2 ; H'400921FB
     00000878 2F26                   MOV.L       R2,@-R15
@@ -1259,15 +1443,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000008BA E048                   MOV         #72,R0
     000008BC 2F26                   MOV.L       R2,@-R15
     000008BE 52E6                   MOV.L       @(24,R14),R2
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   20
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000008C0 2F26                   MOV.L       R2,@-R15
     000008C2 7FE0                   ADD         #-32,R15
     000008C4 D24B                   MOV.L       L682+14,R2 ; H'53C8D4F1
@@ -1287,6 +1462,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000008E0 D143                   MOV.L       L682+10,R1 ; __divdr
     000008E2 2F26                   MOV.L       R2,@-R15
     000008E4 D241                   MOV.L       L682+6,R2  ; H'40668000
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   23
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000008E6 2F26                   MOV.L       R2,@-R15
     000008E8 63F3                   MOV         R15,R3
     000008EA 7310                   ADD         #16,R3
@@ -1325,20 +1509,14 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000092C 410B                   JSR         @R1
     0000092E 2F26                   MOV.L       R2,@-R15
     00000930 D332                   MOV.L       L682+22,R3 ; __addd
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   21
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000932 60F3                   MOV         R15,R0
     00000934 7054                   ADD         #84,R0
     00000936 430B                   JSR         @R3
     00000938 2F06                   MOV.L       R0,@-R15
+      ArcCalcula   165                                    i = 0;
     0000093A 2FB2                   MOV.L       R11,@R15
+      ArcCalcula   166                                    PrintFloat(common_data.PegNo,50,4+i++*12,index==0,setup_data.point);  //¼Æ
+                         +Ëã×®ºÅÏÔÊ¾
     0000093C 53E5                   MOV.L       @(20,R14),R3
     0000093E 2F36                   MOV.L       R3,@-R15
     00000940 53E4                   MOV.L       @(16,R14),R3
@@ -1350,6 +1528,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000094C 2668                   TST         R6,R6
     0000094E 0629                   MOVT        R6
     00000950 7501                   ADD         #1,R5
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   24
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000952 1F52                   MOV.L       R5,@(8,R15)
     00000954 75FF                   ADD         #-1,R5
     00000956 6353                   MOV         R5,R3
@@ -1359,6 +1546,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000095E 7504                   ADD         #4,R5
     00000960 490B                   JSR         @R9
     00000962 E432                   MOV         #50,R4
+      ArcCalcula   167                                    PrintFloat(common_data.Offset,50,4+i++*12,index==1,setup_data.point); //Æ«
+                         +¾àÏÔÊ¾
     00000964 52E7                   MOV.L       @(28,R14),R2
     00000966 2F26                   MOV.L       R2,@-R15
     00000968 52E6                   MOV.L       @(24,R14),R2
@@ -1379,6 +1568,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000986 7504                   ADD         #4,R5
     00000988 490B                   JSR         @R9
     0000098A E432                   MOV         #50,R4
+      ArcCalcula   168                                    PrintFloat(x,50,4+i++*12,0,setup_data.point);  //¼ÆËã½á¹ûXÏÔÊ¾
     0000098C E060                   MOV         #96,R0
     0000098E E600                   MOV         #0,R6
     00000990 03FE                   MOV.L       @(R0,R15),R3
@@ -1391,15 +1581,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000099E 7501                   ADD         #1,R5
     000009A0 1F56                   MOV.L       R5,@(24,R15)
     000009A2 75FF                   ADD         #-1,R5
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   22
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000009A4 6353                   MOV         R5,R3
     000009A6 4500                   SHLL        R5
     000009A8 353C                   ADD         R3,R5
@@ -1407,11 +1588,21 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000009AC 7504                   ADD         #4,R5
     000009AE 490B                   JSR         @R9
     000009B0 E432                   MOV         #50,R4
+      ArcCalcula   169                                    PrintFloat(y,50,4+i++*12,0,setup_data.point);  //¼ÆËã½á¹ûYÏÔÊ¾
     000009B2 E060                   MOV         #96,R0
     000009B4 02FE                   MOV.L       @(R0,R15),R2
     000009B6 E600                   MOV         #0,R6
     000009B8 2F26                   MOV.L       R2,@-R15
     000009BA E060                   MOV         #96,R0
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   25
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000009BC 02FE                   MOV.L       @(R0,R15),R2
     000009BE 2F26                   MOV.L       R2,@-R15
     000009C0 67A2                   MOV.L       @R10,R7
@@ -1424,14 +1615,20 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000009CE 490B                   JSR         @R9
     000009D0 E432                   MOV         #50,R4
     000009D2 7F20                   ADD         #32,R15
+      ArcCalcula   170                                    need_redraw = 0;
     000009D4 2CB2                   MOV.L       R11,@R12
     000009D6              L648:                             
+      ArcCalcula   171                            }
+      ArcCalcula   172                            //
+      ArcCalcula   173                            GetKey(&key);
     000009D6 D40D                   MOV.L       L682+38,R4 ; _key
     000009D8 D30D                   MOV.L       L682+42,R3 ; _GetKey
     000009DA 430B                   JSR         @R3
     000009DC 0009                   NOP
+      ArcCalcula   174                            Menu_Proc2();
     000009DE BB26                   BSR         _Menu_Proc2
     000009E0 0009                   NOP
+      ArcCalcula   175                            if (key==KEY_CTRL_DOWN)
     000009E2 A017                   BRA         L670
     000009E4 0009                   NOP
     000009E6              L682:                             
@@ -1453,23 +1650,25 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A18 6212                   MOV.L       @R1,R2
     00000A1A 3230                   CMP/EQ      R3,R2
     00000A1C 8B06                   BF          L651
+      ArcCalcula   176                                    if(prekey==key) mode = MODE_INPUT_REAL;
     00000A1E D13A                   MOV.L       L683+8,R1  ; _key
     00000A20 50F1                   MOV.L       @(4,R15),R0
     00000A22 6212                   MOV.L       @R1,R2
     00000A24 3020                   CMP/EQ      R2,R0
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   23
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000A26 8B01                   BF          L651
     00000A28 E304                   MOV         #4,R3
     00000A2A 2832                   MOV.L       R3,@R8
     00000A2C              L651:                             
+      ArcCalcula   177                            if (!index)
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   26
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000A2C D137                   MOV.L       L683+12,R1 ; _index
     00000A2E 6212                   MOV.L       @R1,R2
     00000A30 2228                   TST         R2,R2
@@ -1483,7 +1682,10 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A40 3400                   CMP/EQ      R0,R4
     00000A42 8B10                   BF          L654
     00000A44              L655:                             
-
+      ArcCalcula   178                            {
+      ArcCalcula   179                                    if (key==KEY_CTRL_EXE || key == KEY_CTRL_RIGHT)
+      ArcCalcula   180                                            common_data.PegNo += common_data.BeginStake,need_redraw = REFRESH_
+                         +PART;
     00000A44 52E5                   MOV.L       @(20,R14),R2
     00000A46 2F26                   MOV.L       R2,@-R15
     00000A48 52E4                   MOV.L       @(16,R14),R2
@@ -1502,9 +1704,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A62 A013                   BRA         L653
     00000A64 2C32                   MOV.L       R3,@R12
     00000A66              L654:                             
+      ArcCalcula   181                                    else if (key==KEY_CTRL_LEFT)
     00000A66 914E                   MOV.W       L683+6,R1  ; H'7544
     00000A68 3410                   CMP/EQ      R1,R4
     00000A6A 8B0F                   BF          L653
+      ArcCalcula   182                                            common_data.PegNo -= common_data.BeginStake,need_redraw = REFRESH_
+                         +PART;
     00000A6C 52E5                   MOV.L       @(20,R14),R2
     00000A6E 2F26                   MOV.L       R2,@-R15
     00000A70 52E4                   MOV.L       @(16,R14),R2
@@ -1521,18 +1726,20 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A86 0009                   NOP
     00000A88 E301                   MOV         #1,R3
     00000A8A 2C32                   MOV.L       R3,@R12
-    00000A8C              L653:                             
-    00000A8C D422                   MOV.L       L683+24,R4 ; H'00000010+_common_data
-    00000A8E E202                   MOV         #2,R2
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   24
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   27
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    00000A8C              L653:                             
+      ArcCalcula   183                            }
+      ArcCalcula   184                            InputDefProc(((double*)(&common_data)+2),2,50,4,mode,MODE_INPUT_JJQZ);
+    00000A8C D422                   MOV.L       L683+24,R4 ; H'00000010+_common_data
+    00000A8E E202                   MOV         #2,R2
     00000A90 D122                   MOV.L       L683+28,R1 ; _InputDefProc
     00000A92 E704                   MOV         #4,R7
     00000A94 2F26                   MOV.L       R2,@-R15
@@ -1541,6 +1748,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000A9A 2F36                   MOV.L       R3,@-R15
     00000A9C 410B                   JSR         @R1
     00000A9E 6523                   MOV         R2,R5
+      ArcCalcula   185                            prekey = key;
     00000AA0 D219                   MOV.L       L683+8,R2  ; _key
     00000AA2 7F08                   ADD         #8,R15
     00000AA4 6322                   MOV.L       @R2,R3
@@ -1553,18 +1761,27 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000AB0 0009                   NOP
     00000AB2              L684:                             
     00000AB2              L643:                             
+      ArcCalcula   186                    }
+      ArcCalcula   187            }//if mode
+      ArcCalcula   188            if (mode == MODE_INPUT_REAL)
     00000AB2 6082                   MOV.L       @R8,R0
     00000AB4 8804                   CMP/EQ      #4,R0
     00000AB6 8901                   BT          L685
     00000AB8 A0F1                   BRA         L658
     00000ABA 0009                   NOP
     00000ABC              L685:                             
+      ArcCalcula   189            {
+      ArcCalcula   190                    double shice[2];
+      ArcCalcula   191                    double zh,pj;
+      ArcCalcula   192                    char *context[] = 
+      ArcCalcula   193                    {"ÒÑÖªX","\ÒÑÖªY","×®ºÅ:","\xc6\xab\xbe\xe0:"};
     00000ABC D218                   MOV.L       L683+32,R2 ; L576
     00000ABE 61F3                   MOV         R15,R1
     00000AC0 D318                   MOV.L       L683+36,R3 ; __quick_evn_mvn
     00000AC2 7114                   ADD         #20,R1
     00000AC4 430B                   JSR         @R3
     00000AC6 E010                   MOV         #16,R0
+      ArcCalcula   194                    shice[0] = x;shice[1] = y;
     00000AC8 61F3                   MOV         R15,R1
     00000ACA 714C                   ADD         #76,R1
     00000ACC 6312                   MOV.L       @R1,R3
@@ -1575,13 +1792,24 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000AD6 61F3                   MOV         R15,R1
     00000AD8 1031                   MOV.L       R3,@(4,R0)
     00000ADA 713C                   ADD         #60,R1
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   28
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000ADC 63F3                   MOV         R15,R3
     00000ADE 7344                   ADD         #68,R3
     00000AE0 6032                   MOV.L       @R3,R0
     00000AE2 2102                   MOV.L       R0,@R1
     00000AE4 5031                   MOV.L       @(4,R3),R0
     00000AE6 1101                   MOV.L       R0,@(4,R1)
+      ArcCalcula   195                    index = 0;
     00000AE8 D308                   MOV.L       L683+12,R3 ; _index
+      ArcCalcula   196                    need_redraw = REFRESH_ALL;
     00000AEA E102                   MOV         #2,R1
     00000AEC 23B2                   MOV.L       R11,@R3
     00000AEE 60F3                   MOV         R15,R0
@@ -1590,291 +1818,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000AF4 1F01                   MOV.L       R0,@(4,R15)
     00000AF6 61F3                   MOV         R15,R1
     00000AF8 7134                   ADD         #52,R1
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   25
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000AFA 1F12                   MOV.L       R1,@(8,R15)
-      ArcCalcula     2    #include "runmain.h"
-      ArcCalcula     3    #include "MyFont.h"
-
-
-      ArcCalcula     4    
-      ArcCalcula     5    static char TITLE[] = "³£ÓÃ";
-      ArcCalcula     6    
-      ArcCalcula     7    #define MODE_INPUT_2_POINT 1
-      ArcCalcula     8    #define MODE_INPUT_JJQZ 2
-      ArcCalcula     9    #define MODE_INPUT_ZH 3
-      ArcCalcula    10    #define MODE_INPUT_REAL 4
-      ArcCalcula    11    #define MODE_INPUT_P_AND_D 5
-      ArcCalcula    12    #define MODE_DISP_P 6
-      ArcCalcula    13    
-      ArcCalcula    14    ///////////////////////////////////////////
-      ArcCalcula    15    //      F1 Commonly used
-      ArcCalcula    16    ///////////////////////////////////////////
-      ArcCalcula    17    int Menu_Draw2()
-      ArcCalcula    18    {   
-      ArcCalcula    19        int i=0;
-      ArcCalcula    20            SetMyFont(&stHz8x8,&stAsc6x12); //ÉèÖÃÖÐÎÄ´óÐ¡8*8 
-      ArcCalcula    21            DispStr(4,56,"·´Ëã "); 
-      ArcCalcula    22            PrintIcon(i++,"",mode<=MODE_INPUT_REAL);
-      ArcCalcula    23            //PrintIcon(i++,"",mode>MODE_INPUT_REAL && mode<=MODE_DISP_P);
-      ArcCalcula    24            //PrintIcon(i++,"",0);
-      ArcCalcula    25            //PrintIcon(i++,"",0);
-      ArcCalcula    26            //PrintIcon(5,"?",0);
-      ArcCalcula    27    }
-      ArcCalcula    28    
-      ArcCalcula    29    void Menu_Proc2()
-      ArcCalcula    30    {
-      ArcCalcula    31            switch (key)
-      ArcCalcula    32            {
-      ArcCalcula    33                    case KEY_CTRL_F1:mode=MODE_INPUT_2_POINT;break;
-      ArcCalcula    34                    //case KEY_CTRL_F2:mode=MODE_INPUT_P_AND_D;break;
-      ArcCalcula    35                    case KEY_CTRL_F3:break;
-      ArcCalcula    36                    case KEY_CTRL_F4:break;
-      ArcCalcula    37                    case KEY_CTRL_F6:break;
-      ArcCalcula    38            }
-      ArcCalcula    39    }
-      ArcCalcula    40    void Run_Circular()
-      ArcCalcula    41    {
-      ArcCalcula    42            double x,y;
-      ArcCalcula    43            int i;
-      ArcCalcula    44            if (mode == MODE_INPUT_2_POINT)
-      ArcCalcula    45            {
-      ArcCalcula    46                char *context[] = 
-      ArcCalcula    47               {"Æð»¡X ","Æð»¡Y ","ÖÕ»¡X ","ÖÕ»¡Y "};
-      ArcCalcula    48                    index = 0;
-      ArcCalcula    49                    need_redraw = REFRESH_ALL;
-      ArcCalcula    50                    while(mode == MODE_INPUT_2_POINT)
-      ArcCalcula    51                    {
-      ArcCalcula    52                            //// REDRAW
-      ArcCalcula    53                            if (need_redraw==REFRESH_ALL)
-      ArcCalcula    54                            {
-      ArcCalcula    55                                    Bdisp_AllClr_DDVRAM();
-      ArcCalcula    56                                    i = 0;
-      ArcCalcula    57                                    SetMyFont(&stHz12x12,&stAsc6x12);  //¶¨Òå×ÖÌå´óÐ¡
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   26
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      ArcCalcula    58                                DispStr(2,1, "Ô² ");
-      ArcCalcula    59                                DispStr(2,15,"»¡ ");
-      ArcCalcula    60                                DispStr(2,28,"×ø ");
-      ArcCalcula    61                                DispStr(2,41,"±ê ");
-      ArcCalcula    62                                    ShowTitle(TITLE);
-      ArcCalcula    63                                    for (i=0;i<4;++i)
-      ArcCalcula    64                                    DispStr(16,4+i*12,context[i]);
-      ArcCalcula    65                                    need_redraw = REFRESH_PART;
-      ArcCalcula    66                                    Menu_Draw2();
-      ArcCalcula    67                            }
-      ArcCalcula    68                            if (need_redraw==REFRESH_PART)
-      ArcCalcula    69                            {
-      ArcCalcula    70                                    for(i=0;i<4;++i)
-      ArcCalcula    71                                    PrintFloat(value[i],50,4+i*12,index==i,setup_data.point);
-      ArcCalcula    72                                    need_redraw = 0;
-      ArcCalcula    73                            }
-      ArcCalcula    74                            GetKey(&key);
-      ArcCalcula    75                            Menu_Proc2();
-      ArcCalcula    76                            if (key==KEY_CTRL_EXE)
-      ArcCalcula    77                            {
-      ArcCalcula    78                                    mode = MODE_INPUT_JJQZ;
-      ArcCalcula    79                            }
-      ArcCalcula    80                            InputDefProc(value,4,50,4,MODE_INPUT_JJQZ,MODE_EXIT);
-      ArcCalcula    81                    }
-      ArcCalcula    82    
-      ArcCalcula    83            }
-      ArcCalcula    84            ///// Calculate and input Jian ju
-      ArcCalcula    85            if (mode == MODE_INPUT_JJQZ)
-      ArcCalcula    86            {
-      ArcCalcula    87                    char *context[] = 
-      ArcCalcula    88                    {"¾àÀë:","·½Î»: ","°ë¾¶ ","¼ä¾à "};
-      ArcCalcula    89                    index = 0;
-      ArcCalcula    90                    need_redraw = REFRESH_ALL;
-      ArcCalcula    91                    Pol(value[0],value[1],value[2],value[3],&common_data.distance,&common_data.position);
-      ArcCalcula    92                    while(mode==MODE_INPUT_JJQZ)
-      ArcCalcula    93                    {
-      ArcCalcula    94                                    
-      ArcCalcula    95                            if (need_redraw == REFRESH_ALL)
-      ArcCalcula    96                            {
-      ArcCalcula    97                                    char strpos[20];
-      ArcCalcula    98                                    Bdisp_AllClr_DDVRAM();
-      ArcCalcula    99                                    SetMyFont(&stHz12x12,&stAsc6x12); 
-      ArcCalcula   100                                DispStr(2,1, "Ô² ");
-      ArcCalcula   101                                DispStr(2,15,"»¡ ");
-      ArcCalcula   102                                DispStr(2,28,"×ø ");
-      ArcCalcula   103                                DispStr(2,41,"±ê ");
-      ArcCalcula   104                                    ShowTitle(TITLE);
-      ArcCalcula   105                                    for (i=0;i<4;++i)
-      ArcCalcula   106                                    DispStr(16,4+i*12,context[i]);
-      ArcCalcula   107                                    i=0;
-      ArcCalcula   108                                    FloatToDegStr(common_data.position,strpos); //½«½Ç¶È·Ö½â¶È·ÖÃë¸ñÊ½
-      ArcCalcula   109                                    PrintFloat(common_data.distance,50,4+i++*12,0,setup_data.point); //¾àÀë
-;    
-                         + //°ë¾¶
-      ArcCalcula   118                                    PrintFloat(common_data.BeginStake,50,4+i++*12,index==1,setup_data.point); 
-                         + //¼ä¾à
-T);
-      ArcCalcula   128                    }
-      ArcCalcula   129            }//if
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   27
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      ArcCalcula   130            if (mode == MODE_INPUT_ZH)
-      ArcCalcula   131            {
-      ArcCalcula   132                    char *context[] = 
-      ArcCalcula   133                    {"×®ºÅ ","Æ«¾à ","×ø±êX:","×ø±êY:"};
-      ArcCalcula   134                    int prekey = 0;
-      ArcCalcula   135                    index = 0;
-      ArcCalcula   136                    need_redraw = REFRESH_ALL;
-      ArcCalcula   137                    while(mode==MODE_INPUT_ZH)
-      ArcCalcula   138                    {
-      ArcCalcula   139                            if (need_redraw == REFRESH_ALL)
-      ArcCalcula   140                            {
-      ArcCalcula   141                                SetMyFont(&stHz12x12,&stAsc6x12); 
-      ArcCalcula   142                                    Bdisp_AllClr_DDVRAM();
-      ArcCalcula   143                                DispStr(2,1, "Ô² ");
-      ArcCalcula   144                                DispStr(2,15,"»¡ ");
-      ArcCalcula   145                                DispStr(2,28,"×ø ");
-      ArcCalcula   146                                DispStr(2,41,"±ê ");
-      ArcCalcula   147                                    ShowTitle(TITLE);
-      ArcCalcula   148                                    for (i=0;i<4;++i)
-      ArcCalcula   149                                    DispStr(16,4+i*12,context[i]);
-      ArcCalcula   150                                    Menu_Draw2();
-      ArcCalcula   151                                    //ShowArrow(1);//////////////////////////////////////////////////////////
-      ArcCalcula   152                                    need_redraw = REFRESH_PART;
-      ArcCalcula   153                            }
-      ArcCalcula   154                            if (need_redraw==REFRESH_PART)  //
-      ArcCalcula   155                            {
-      ArcCalcula   156                                double A,B,C,Q,T;
-      ArcCalcula   157                                    A = common_data.position - asin(common_data.distance/2.0/common_data.Spaci
-                         +ng)/PI*180; //49.54652942
-      ArcCalcula   158                                    if (common_data.Offset == 0 ) common_data.Offset==0.0000001;
-      ArcCalcula   159                                    Q = abs(common_data.Offset)/(common_data.Offset+0.0000001); //0
-      ArcCalcula   160                                    B = value[0]+cos((A*PI/180+PI/2))*common_data.Spacing; //451.672049
-      ArcCalcula   161                                    C = value[1]+sin((A*PI/180+PI/2))*common_data.Spacing; //354.2852252
-      ArcCalcula   162                                    T = A-90+(180*common_data.PegNo/common_data.Spacing/PI); //-40.45347058   
-                         +    
-      ArcCalcula   163                                    x = B+common_data.Spacing * cos(T*PI/180)+(common_data.Offset * cos(T*PI/1
-                         +80+PI * Q)); 
-      ArcCalcula   164                                    y = C+common_data.Spacing * sin(T*PI/180)+(common_data.Offset * sin(T*PI/1
-                         +80+PI * Q)); 
-      ArcCalcula   165                                    i = 0;
-      ArcCalcula   166                                    PrintFloat(common_data.PegNo,50,4+i++*12,index==0,setup_data.point);  //¼Æ
-                         +Ëã×®ºÅÏÔÊ¾
-      ArcCalcula   167                                    PrintFloat(common_data.Offset,50,4+i++*12,index==1,setup_data.point); //Æ«
-                         +¾àÏÔÊ¾
-      ArcCalcula   168                                    PrintFloat(x,50,4+i++*12,0,setup_data.point);  //¼ÆËã½á¹ûXÏÔÊ¾
-      ArcCalcula   169                                    PrintFloat(y,50,4+i++*12,0,setup_data.point);  //¼ÆËã½á¹ûYÏÔÊ¾
-      ArcCalcula   170                                    need_redraw = 0;
-      ArcCalcula   171                            }
-      ArcCalcula   172                            //
-      ArcCalcula   173                            GetKey(&key);
-      ArcCalcula   174                            Menu_Proc2();
-      ArcCalcula   175                            if (key==KEY_CTRL_DOWN)
-      ArcCalcula   176                                    if(prekey==key) mode = MODE_INPUT_REAL;
-      ArcCalcula   177                            if (!index)
-      ArcCalcula   178                            {
-      ArcCalcula   179                                    if (key==KEY_CTRL_EXE || key == KEY_CTRL_RIGHT)
-      ArcCalcula   180                                            common_data.PegNo += common_data.BeginStake,need_redraw = REFRESH_
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   28
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-                         +PART;
-      ArcCalcula   181                                    else if (key==KEY_CTRL_LEFT)
-      ArcCalcula   182                                            common_data.PegNo -= common_data.BeginStake,need_redraw = REFRESH_
-                         +PART;
-      ArcCalcula   183                            }
-      ArcCalcula   184                            InputDefProc(((double*)(&common_data)+2),2,50,4,mode,MODE_INPUT_JJQZ);
-      ArcCalcula   185                            prekey = key;
-      ArcCalcula   186                    }
-      ArcCalcula   187            }//if mode
-      ArcCalcula   188            if (mode == MODE_INPUT_REAL)
-      ArcCalcula   189            {
-      ArcCalcula   190                    double shice[2];
-      ArcCalcula   191                    double zh,pj;
-      ArcCalcula   192                    char *context[] = 
-      ArcCalcula   193                    {"ÒÑÖªX","\ÒÑÖªY","×®ºÅ:","\xc6\xab\xbe\xe0:"};
-      ArcCalcula   194                    shice[0] = x;shice[1] = y;
-      ArcCalcula   195                    index = 0;
-      ArcCalcula   196                    need_redraw = REFRESH_ALL;
       ArcCalcula   197                    while(mode==MODE_INPUT_REAL)
-      ArcCalcula   198                    {
-      ArcCalcula   199                            if (need_redraw == REFRESH_ALL)
-      ArcCalcula   200                            {
-      ArcCalcula   201                                    Bdisp_AllClr_DDVRAM();
-      ArcCalcula   202                                    SetMyFont(&stHz12x12,&stAsc6x12); 
-      ArcCalcula   203                                    DispStr(2,1, "Ö± ");
-      ArcCalcula   204                                DispStr(2,15,"Ïß ");
-      ArcCalcula   205                                DispStr(2,28,"Á½ ");
-      ArcCalcula   206                                DispStr(2,41,"µã ");
-      ArcCalcula   207                                    ShowTitle(TITLE);
-      ArcCalcula   208                                    for (i=0;i<4;++i)
-      ArcCalcula   209                                    DispStr(18,4+i*12,context[i]);
-      ArcCalcula   210                                    Menu_Draw2();
-      ArcCalcula   211                                    need_redraw = REFRESH_PART;
-      ArcCalcula   212                            }
-      ArcCalcula   213                            if (need_redraw==REFRESH_PART)
-      ArcCalcula   214                            {
-      ArcCalcula   215                                    CalcPosAndDistance(     shice[0],shice[1],
-      ArcCalcula   216                                                                            value[0],value[1],
-      ArcCalcula   217                                                                            common_data.position,
-      ArcCalcula   218                                                                            &zh,&pj);
-      ArcCalcula   219                                    for (i=0;i<2;++i)
-      ArcCalcula   220                                    PrintFloat(shice[i],50,4+i*12,index==i,setup_data.point);
-      ArcCalcula   221                                    PrintFloat((float)zh,50,4+i++*12,0,setup_data.point);
-      ArcCalcula   222                                    PrintFloat(pj,50,4+i++*12,0,setup_data.point);
-      ArcCalcula   223    
-      ArcCalcula   224                            }
-      ArcCalcula   225                            GetKey(&key);
-      ArcCalcula   226                            Menu_Proc2();
-      ArcCalcula   227                            InputDefProc(shice,2,50,4,mode,MODE_INPUT_ZH);
-      ArcCalcula   228                    }
-      ArcCalcula   229            }//if mode
-      ArcCalcula   230    }
-      ArcCalcula   231    
-      ArcCalcula   232    
-      ArcCalcula   233    int BinMain_2()
-      ArcCalcula   234    {
-      ArcCalcula   235            need_redraw = REFRESH_ALL;
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   29
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      ArcCalcula   236            mode = MODE_INPUT_2_POINT;
-      ArcCalcula   237            while (mode!=MODE_EXIT)
-      ArcCalcula   238            {
-      ArcCalcula   239                      Run_Circular();
-      ArcCalcula   240                      MenuInit();
-      ArcCalcula   241                    //Run_F1_ZhenSuan();
-      ArcCalcula   242            }
-      ArcCalcula   243    }
     00000AFC A0CA                   BRA         L659
     00000AFE 0009                   NOP
     00000B00              L683:                             
@@ -1891,48 +1836,60 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000B20 <00000000>             .DATA.L     L576
     00000B24 <00000000>             .DATA.L     __quick_evn_mvn
     00000B28              L660:                             
+      ArcCalcula   198                    {
+      ArcCalcula   199                            if (need_redraw == REFRESH_ALL)
     00000B28 60C2                   MOV.L       @R12,R0
     00000B2A 8802                   CMP/EQ      #2,R0
     00000B2C 8B34                   BF          L661
+      ArcCalcula   200                            {
+      ArcCalcula   201                                    Bdisp_AllClr_DDVRAM();
     00000B2E D26C                   MOV.L       L686+2,R2  ; _Bdisp_AllClr_DDVRAM
     00000B30 420B                   JSR         @R2
     00000B32 0009                   NOP
+      ArcCalcula   202                                    SetMyFont(&stHz12x12,&stAsc6x12); 
     00000B34 D56B                   MOV.L       L686+6,R5  ; _stAsc6x12
     00000B36 D46C                   MOV.L       L686+10,R4 ; _stHz12x12
     00000B38 D36C                   MOV.L       L686+14,R3 ; _SetMyFont
     00000B3A 430B                   JSR         @R3
     00000B3C 0009                   NOP
+      ArcCalcula   203                                    DispStr(2,1, "Ö± ");
     00000B3E E501                   MOV         #1,R5
     00000B40 D66B                   MOV.L       L686+18,R6 ; L583
     00000B42 4D0B                   JSR         @R13
     00000B44 E402                   MOV         #2,R4
-    00000B46 E50F                   MOV         #15,R5
-    00000B48 D66A                   MOV.L       L686+22,R6 ; L584
-    00000B4A 4D0B                   JSR         @R13
-    00000B4C E402                   MOV         #2,R4
-    00000B4E E51C                   MOV         #28,R5
-    00000B50 D669                   MOV.L       L686+26,R6 ; L585
-    00000B52 4D0B                   JSR         @R13
-    00000B54 E402                   MOV         #2,R4
-    00000B56 E529                   MOV         #41,R5
-    00000B58 D668                   MOV.L       L686+30,R6 ; L586
-    00000B5A 4D0B                   JSR         @R13
-    00000B5C E402                   MOV         #2,R4
-    00000B5E D468                   MOV.L       L686+34,R4 ; __$TITLE
-    00000B60 D268                   MOV.L       L686+38,R2 ; _ShowTitle
-    00000B62 420B                   JSR         @R2
-    00000B64 0009                   NOP
-    00000B66 2FB2                   MOV.L       R11,@R15
-    00000B68              L662:                             
+      ArcCalcula   204                                DispStr(2,15,"Ïß ");
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   30
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   29
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    00000B46 E50F                   MOV         #15,R5
+    00000B48 D66A                   MOV.L       L686+22,R6 ; L584
+    00000B4A 4D0B                   JSR         @R13
+    00000B4C E402                   MOV         #2,R4
+      ArcCalcula   205                                DispStr(2,28,"Á½ ");
+    00000B4E E51C                   MOV         #28,R5
+    00000B50 D669                   MOV.L       L686+26,R6 ; L585
+    00000B52 4D0B                   JSR         @R13
+    00000B54 E402                   MOV         #2,R4
+      ArcCalcula   206                                DispStr(2,41,"µã ");
+    00000B56 E529                   MOV         #41,R5
+    00000B58 D668                   MOV.L       L686+30,R6 ; L586
+    00000B5A 4D0B                   JSR         @R13
+    00000B5C E402                   MOV         #2,R4
+      ArcCalcula   207                                    ShowTitle(TITLE);
+    00000B5E D468                   MOV.L       L686+34,R4 ; __$TITLE
+    00000B60 D268                   MOV.L       L686+38,R2 ; _ShowTitle
+    00000B62 420B                   JSR         @R2
+    00000B64 0009                   NOP
+      ArcCalcula   208                                    for (i=0;i<4;++i)
+    00000B66 2FB2                   MOV.L       R11,@R15
+    00000B68              L662:                             
+      ArcCalcula   209                                    DispStr(18,4+i*12,context[i]);
     00000B68 66F2                   MOV.L       @R15,R6
     00000B6A 63F3                   MOV         R15,R3
     00000B6C 65F2                   MOV.L       @R15,R5
@@ -1953,14 +1910,32 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000B8A 3323                   CMP/GE      R2,R3
     00000B8C 8FEC                   BF/S        L662
     00000B8E 2F32                   MOV.L       R3,@R15
+      ArcCalcula   210                                    Menu_Draw2();
     00000B90 BA36                   BSR         _Menu_Draw2
     00000B92 0009                   NOP
+      ArcCalcula   211                                    need_redraw = REFRESH_PART;
     00000B94 E101                   MOV         #1,R1
     00000B96 2C12                   MOV.L       R1,@R12
     00000B98              L661:                             
+      ArcCalcula   212                            }
+      ArcCalcula   213                            if (need_redraw==REFRESH_PART)
     00000B98 60C2                   MOV.L       @R12,R0
     00000B9A 8801                   CMP/EQ      #1,R0
     00000B9C 8B68                   BF          L663
+      ArcCalcula   214                            {
+      ArcCalcula   215                                    CalcPosAndDistance(     shice[0],shice[1],
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   30
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      ArcCalcula   216                                                                            value[0],value[1],
+      ArcCalcula   217                                                                            common_data.position,
+      ArcCalcula   218                                                                            &zh,&pj);
     00000B9E 62E3                   MOV         R14,R2
     00000BA0 D059                   MOV.L       L686+42,R0 ; _value
     00000BA2 7248                   ADD         #72,R2
@@ -1990,23 +1965,16 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000BD2 6322                   MOV.L       @R2,R3
     00000BD4 D24D                   MOV.L       L686+46,R2 ; _CalcPosAndDistance
     00000BD6 2F36                   MOV.L       R3,@-R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   31
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000BD8 65F3                   MOV         R15,R5
     00000BDA 754C                   ADD         #76,R5
     00000BDC 64F3                   MOV         R15,R4
     00000BDE 420B                   JSR         @R2
     00000BE0 7454                   ADD         #84,R4
     00000BE2 7F28                   ADD         #40,R15
+      ArcCalcula   219                                    for (i=0;i<2;++i)
     00000BE4 2FB2                   MOV.L       R11,@R15
     00000BE6              L664:                             
+      ArcCalcula   220                                    PrintFloat(shice[i],50,4+i*12,index==i,setup_data.point);
     00000BE6 62F3                   MOV         R15,R2
     00000BE8 D049                   MOV.L       L686+50,R0 ; _index
     00000BEA 7234                   ADD         #52,R2
@@ -2022,6 +1990,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000BFE 53F2                   MOV.L       @(8,R15),R3
     00000C00 6102                   MOV.L       @R0,R1
     00000C02 6533                   MOV         R3,R5
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   31
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000C04 3130                   CMP/EQ      R3,R1
     00000C06 0629                   MOVT        R6
     00000C08 6133                   MOV         R3,R1
@@ -2038,6 +2015,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C1E 3323                   CMP/GE      R2,R3
     00000C20 8FE1                   BF/S        L664
     00000C22 2F32                   MOV.L       R3,@R15
+      ArcCalcula   221                                    PrintFloat((float)zh,50,4+i++*12,0,setup_data.point);
     00000C24 53FC                   MOV.L       @(48,R15),R3
     00000C26 2F36                   MOV.L       R3,@-R15
     00000C28 53FC                   MOV.L       @(48,R15),R3
@@ -2056,20 +2034,12 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C42 75FF                   ADD         #-1,R5
     00000C44 6353                   MOV         R5,R3
     00000C46 4500                   SHLL        R5
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   32
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000C48 353C                   ADD         R3,R5
     00000C4A 4508                   SHLL2       R5
     00000C4C 7504                   ADD         #4,R5
     00000C4E 490B                   JSR         @R9
     00000C50 E432                   MOV         #50,R4
+      ArcCalcula   222                                    PrintFloat(pj,50,4+i++*12,0,setup_data.point);
     00000C52 E600                   MOV         #0,R6
     00000C54 52FC                   MOV.L       @(48,R15),R2
     00000C56 2F26                   MOV.L       R2,@-R15
@@ -2086,12 +2056,26 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C6C E432                   MOV         #50,R4
     00000C6E 7F10                   ADD         #16,R15
     00000C70              L663:                             
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   32
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      ArcCalcula   223    
+      ArcCalcula   224                            }
+      ArcCalcula   225                            GetKey(&key);
     00000C70 D42A                   MOV.L       L686+62,R4 ; _key
     00000C72 D32B                   MOV.L       L686+66,R3 ; _GetKey
     00000C74 430B                   JSR         @R3
     00000C76 0009                   NOP
+      ArcCalcula   226                            Menu_Proc2();
     00000C78 B9D9                   BSR         _Menu_Proc2
     00000C7A 0009                   NOP
+      ArcCalcula   227                            InputDefProc(shice,2,50,4,mode,MODE_INPUT_ZH);
     00000C7C D129                   MOV.L       L686+70,R1 ; _InputDefProc
     00000C7E E303                   MOV         #3,R3
     00000C80 2F36                   MOV.L       R3,@-R15
@@ -2112,6 +2096,9 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000C9C 0009                   NOP
     00000C9E              L687:                             
     00000C9E              L658:                             
+      ArcCalcula   228                    }
+      ArcCalcula   229            }//if mode
+      ArcCalcula   230    }
     00000C9E 7F54                   ADD         #84,R15
     00000CA0 4F26                   LDS.L       @R15+,PR
     00000CA2 68F6                   MOV.L       @R15+,R8
@@ -2122,37 +2109,50 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000CAC 6DF6                   MOV.L       @R15+,R13
     00000CAE 000B                   RTS
     00000CB0 6EF6                   MOV.L       @R15+,R14
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   33
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
+      ArcCalcula   231    
+      ArcCalcula   232    
+      ArcCalcula   233    int BinMain_2()
     00000CB2              _BinMain_2:                      ; function: BinMain_2
                                                            ; frame size=12
+      ArcCalcula   234    {
+      ArcCalcula   235            need_redraw = REFRESH_ALL;
     00000CB2 E302                   MOV         #2,R3
     00000CB4 D21C                   MOV.L       L686+74,R2 ; _need_redraw
     00000CB6 2FE6                   MOV.L       R14,@-R15
     00000CB8 2FD6                   MOV.L       R13,@-R15
     00000CBA 4F22                   STS.L       PR,@-R15
     00000CBC 2232                   MOV.L       R3,@R2
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   33
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      ArcCalcula   236            mode = MODE_INPUT_2_POINT;
     00000CBE E301                   MOV         #1,R3
     00000CC0 DD1B                   MOV.L       L686+82,R13; _MenuInit
     00000CC2 DE1A                   MOV.L       L686+78,R14; _mode
+      ArcCalcula   237            while (mode!=MODE_EXIT)
     00000CC4 A004                   BRA         L665
     00000CC6 2E32                   MOV.L       R3,@R14
     00000CC8              L666:                             
+      ArcCalcula   238            {
+      ArcCalcula   239                      Run_Circular();
     00000CC8 B9C6                   BSR         _Run_Circular
     00000CCA 0009                   NOP
+      ArcCalcula   240                      MenuInit();
     00000CCC 4D0B                   JSR         @R13
     00000CCE 0009                   NOP
     00000CD0              L665:                             
     00000CD0 62E2                   MOV.L       @R14,R2
     00000CD2 2228                   TST         R2,R2
     00000CD4 8BF8                   BF          L666
+      ArcCalcula   241                    //Run_F1_ZhenSuan();
+      ArcCalcula   242            }
+      ArcCalcula   243    }
     00000CD6 4F26                   LDS.L       @R15+,PR
     00000CD8 6DF6                   MOV.L       @R15+,R13
     00000CDA 000B                   RTS
@@ -2192,7 +2192,7 @@ C   00000000              L517:
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   34
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   34
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -2258,7 +2258,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   35
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   35
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -2324,7 +2324,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE   36
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE   36
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -2390,7 +2390,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:01  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:42  PAGE    1
 
 
 ******** STATISTICS INFORMATION ********
@@ -2399,7 +2399,7 @@ SH SERIES C/C++ Compiler (Ver. 6.0C)                                            
 ********** ERROR INFORMATION ***********
 
 NUMBER OF ERRORS:           0
-NUMBER OF WARNINGS:        17
+NUMBER OF WARNINGS:         2
 
 
 
@@ -2459,5 +2459,5 @@ NUMBER OF INTERNAL/EXTERNAL SYMBOLS:           128
 *** COMMAND PARAMETER ***
 
 
-  -subcommand=C:\Users\ADMINI~1\AppData\Local\Temp\hmk391B.tmp 
+  -subcommand=C:\Users\¿­Åô\AppData\Local\Temp\hmkEF34.tmp 
 

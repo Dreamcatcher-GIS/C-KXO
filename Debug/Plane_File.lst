@@ -1,8 +1,8 @@
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    1
 
 ************ OBJECT LISTING ************
 
-FILE NAME: C:\Users\Administrator\Desktop\2015-06-6½»µã·¨×ªÏßÔªÍÆÁ´±í\2015-06-4½»µã·¨×ªÏßÔªÍÆÁ´±í\Plane_File.c
+FILE NAME: F:\ProgramOfUniversity\C-KXO\C-KXO\Plane_File.c
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
@@ -13,21 +13,45 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
+
+
+
+
+
+
+      Plane_File     2    #include "MyFont.h"
+
+
+      Plane_File     3    #include "runmain.h"
+      Plane_File     4    
+      Plane_File     5    
+      Plane_File     6    
+      Plane_File     7    FONTCHARACTER * PMCharToFont(const char *cFileName,FONTCHARACTER *fFileName); //*PMCharToFont*
+      Plane_File     8    char * PMFontToChar(const FONTCHARACTER *fFileName,char *cFileName); //*PMFontToChar*
+      Plane_File     9    
+      Plane_File    10    //////////////////////////////////////////////////////////////
+      Plane_File    11    //                                        Char <=> Font
+      Plane_File    12    ///////////////////////////////////////////////////////////////
+      Plane_File    13    FONTCHARACTER * PMCharToFont(const char *cFileName,FONTCHARACTER *fFileName)
 P   00000000              _PMCharToFont:                   ; function: PMCharToFont
                                                            ; frame size=12
     00000000 2FE6                   MOV.L       R14,@-R15
     00000002 2FD6                   MOV.L       R13,@-R15
     00000004 4F22                   STS.L       PR,@-R15
     00000006 6D43                   MOV         R4,R13
+      Plane_File    14    {
+      Plane_File    15            int i,len = strlen(cFileName);
     00000008 D347                   MOV.L       L670+10,R3 ; _strlen
     0000000A 430B                   JSR         @R3
     0000000C 6E53                   MOV         R5,R14
     0000000E 6503                   MOV         R0,R5
+      Plane_File    16            for(i=0; i<len ;++i)
     00000010 E600                   MOV         #0,R6
     00000012 4515                   CMP/PL      R5
     00000014 8F09                   BF/S        L615
     00000016 6463                   MOV         R6,R4
     00000018              L616:                             
+      Plane_File    17                    fFileName[i] = cFileName[i];
     00000018 6343                   MOV         R4,R3
     0000001A 4300                   SHLL        R3
     0000001C 33EC                   ADD         R14,R3
@@ -38,16 +62,32 @@ P   00000000              _PMCharToFont:                   ; function: PMCharToF
     00000026 3453                   CMP/GE      R5,R4
     00000028 8BF6                   BF          L616
     0000002A              L615:                             
+      Plane_File    18            fFileName[i]=0;
     0000002A 6043                   MOV         R4,R0
     0000002C 4000                   SHLL        R0
     0000002E 0E65                   MOV.W       R6,@(R0,R14)
+      Plane_File    19            return fFileName;
+      Plane_File    20    }
     00000030 4F26                   LDS.L       @R15+,PR
     00000032 60E3                   MOV         R14,R0
     00000034 6DF6                   MOV.L       @R15+,R13
     00000036 000B                   RTS
     00000038 6EF6                   MOV.L       @R15+,R14
+      Plane_File    21    char * PMFontToChar(const FONTCHARACTER *fFileName,char *cFileName)
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    2
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000003A              _PMFontToChar:                   ; function: PMFontToChar
                                                            ; frame size=0
+      Plane_File    22    {
+      Plane_File    23            int i = 0;
+      Plane_File    24            while((cFileName[i]=fFileName[i])!=0)++i;
     0000003A A001                   BRA         L618
     0000003C E000                   MOV         #0,R0
     0000003E              L619:                             
@@ -64,21 +104,21 @@ P   00000000              _PMCharToFont:                   ; function: PMCharToF
     00000050 2230                   MOV.B       R3,@R2
     00000052 2338                   TST         R3,R3
     00000054 8BF3                   BF          L619
+      Plane_File    25            return cFileName;
+      Plane_File    26    }
     00000056 000B                   RTS
     00000058 6053                   MOV         R5,R0
-
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE    2
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
+      Plane_File    27    
+      Plane_File    28    ///////////////////////////////////////////////////////////////
+      Plane_File    29    //                                              File Directory
+      Plane_File    30    ///////////////////////////////////////////////////////////////
+      Plane_File    31    int PMCreateDirectory()   //*PMCreateDirectory*
     0000005A              _PMCreateDirectory:              ; function: PMCreateDirectory
                                                            ; frame size=44
     0000005A 4F22                   STS.L       PR,@-R15
+      Plane_File    32    {
+      Plane_File    33            FONTCHARACTER f_path_name[20];
+      Plane_File    34            Bfile_CreateDirectory(PMCharToFont("\\\\crd0\\PM",f_path_name));
     0000005C D433                   MOV.L       L670+14,R4 ; L527
     0000005E 7FD8                   ADD         #-40,R15
     00000060 BFCE                   BSR         _PMCharToFont
@@ -86,11 +126,29 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000064 D232                   MOV.L       L670+18,R2 ; _Bfile_CreateDirectory
     00000066 420B                   JSR         @R2
     00000068 6403                   MOV         R0,R4
+      Plane_File    35    }
     0000006A 7F28                   ADD         #40,R15
     0000006C 4F26                   LDS.L       @R15+,PR
     0000006E 000B                   RTS
     00000070 0009                   NOP
+      Plane_File    36    
+      Plane_File    37    char szPMDir[]="\\\\crd0\\PM";  //*szPMDir[]*
+      Plane_File    38    //char szPMDir[]="\\\\fls0\\PM";
+      Plane_File    39    
+      Plane_File    40    ///////////////////////////////////////////////////////////////
+      Plane_File    41    //                                                      File List
+      Plane_File    42    ///////////////////////////////////////////////////////////////
+      Plane_File    43    int SelectPMFile (char * file_name)  //*SelectPMFile*
     00000072              _SelectPMFile:                   ; function: SelectPMFile
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    3
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
                                                            ; frame size=336
                                                            ; used runtime library name:
                                                            ; __slow_strcpy, __slow_strcmp1
@@ -100,7 +158,22 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000078 2FB6                   MOV.L       R11,@-R15
     0000007A 2FA6                   MOV.L       R10,@-R15
     0000007C 2F96                   MOV.L       R9,@-R15
+      Plane_File    44    // -1 no file , 1 complate ,0 cancel
+      Plane_File    45    {
+      Plane_File    46            int key;
+      Plane_File    47            char str[50]; //×Ö·ûÊý×é³¤¶ÈÏÂ±ê´Ó0¿ªÊ¼£¬¹²50¸öÔªËØ
+      Plane_File    48            FONTCHARACTER find_path[50];   //»ñµÃÂ·¾¶
+      Plane_File    49            FONTCHARACTER find_name[50];   //»ñµÃÃû×Ö
+      Plane_File    50            int find_h;
+      Plane_File    51            int size = 0;
     0000007E EA00                   MOV         #0,R10
+      Plane_File    52            int top = 0;
+      Plane_File    53            int buttom = 0;
+      Plane_File    54            int index,r,y;
+      Plane_File    55            char *files;
+      Plane_File    56            FILE_INFO file_info;
+      Plane_File    57    //      CharToFont("\\\\fls0\\JDF\\*.pm",find_path); //*pm*
+      Plane_File    58            sprintf(str,"%s\\*.pm",szPMDir); //*pm*
     00000080 D32C                   MOV.L       L670+22,R3 ; _szPMDir
     00000082 2F86                   MOV.L       R8,@-R15
     00000084 4F22                   STS.L       PR,@-R15
@@ -117,11 +190,14 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000009A 410B                   JSR         @R1
     0000009C 34FC                   ADD         R15,R4
     0000009E 7F08                   ADD         #8,R15
+      Plane_File    59            PMCharToFont(str,find_path);
     000000A0 953F                   MOV.W       L670+4,R5  ; H'008C
     000000A2 35FC                   ADD         R15,R5
     000000A4 943E                   MOV.W       L670+6,R4  ; H'00F0
     000000A6 BFAB                   BSR         _PMCharToFont
     000000A8 34FC                   ADD         R15,R4
+      Plane_File    60            if(Bfile_FindFirst (find_path,&find_h,find_name,&file_info)==0)  //º¯ÊýËÑË÷Ä¿Â¼ÖÐÎÄ¼þµÄÃû³Æ·ûºÏÖ¸¶
+                         +¨µÄÎÄ¼þÃû
     000000AA 6DF3                   MOV         R15,R13
     000000AC 9439                   MOV.W       L670+4,R4  ; H'008C
     000000AE 67F3                   MOV         R15,R7
@@ -130,32 +206,38 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000B4 7D28                   ADD         #40,R13
     000000B6 7714                   ADD         #20,R7
     000000B8 66D3                   MOV         R13,R6
-    000000BA 7508                   ADD         #8,R5
-    000000BC 420B                   JSR         @R2
-    000000BE 34FC                   ADD         R15,R4
 
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE    3
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    4
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
+    000000BA 7508                   ADD         #8,R5
+    000000BC 420B                   JSR         @R2
+    000000BE 34FC                   ADD         R15,R4
     000000C0 2008                   TST         R0,R0
     000000C2 8901                   BT          L671
     000000C4 A10F                   BRA         L621
     000000C6 0009                   NOP
     000000C8              L671:                             
     000000C8 DB1E                   MOV.L       L670+38,R11; _Bfile_FindNext
+ÍÊÇÎª
     000000CA 6CA3                   MOV         R10,R12
+                         +Õæ£¬¼´true£»µ±ÖµÎª0Ê±Îª¼Ù£¬¼´false£»
     000000CC E801                   MOV         #1,R8
     000000CE 2F80                   MOV.B       R8,@R15
+      Plane_File    64                    size ++;  //Ê¹ÓÃsizeÖ®ºóÔÙ¼ÓÒ»£¨ÏÈ¼ÆËãÔÙ²Ù×÷£©
     000000D0 53F3                   MOV.L       @(12,R15),R3
     000000D2 7301                   ADD         #1,R3
+      Plane_File    65                    while(Bfile_FindNext(find_h,find_name,&file_info)==0) //Bfile_FindNext º¯ÊýÊ¹ÓÃËÑË÷´¦Àí¶¨Î
+                         +»Æ¥ÅäÒ»¸ö¸ø¶¨Ãû³ÆµÄÎÄ¼þÃû³Æ¡£
     000000D4 A003                   BRA         L622
     000000D6 1F33                   MOV.L       R3,@(12,R15)
     000000D8              L623:                             
+      Plane_File    66                    size++;
     000000D8 53F3                   MOV.L       @(12,R15),R3
     000000DA 7301                   ADD         #1,R3
     000000DC 1F33                   MOV.L       R3,@(12,R15)
@@ -167,9 +249,11 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000000E6 54F2                   MOV.L       @(8,R15),R4
     000000E8 2008                   TST         R0,R0
     000000EA 89F5                   BT          L623
+      Plane_File    67                    Bfile_FindClose(find_h);  //Bfile_FindClose ¹Ø±ÕËÑË÷Ö¸¶¨´¦Àíº¯Êý
     000000EC D316                   MOV.L       L670+42,R3 ; _Bfile_FindClose
     000000EE 430B                   JSR         @R3
     000000F0 54F2                   MOV.L       @(8,R15),R4
+
     000000F2 E30D                   MOV         #13,R3
     000000F4 52F3                   MOV.L       @(12,R15),R2
     000000F6 0237                   MUL.L       R3,R2
@@ -182,6 +266,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000102 62F0                   MOV.B       @R15,R2
     00000104 2228                   TST         R2,R2
     00000106 8923                   BT          L626
+      Plane_File    73                                    ret=Bfile_FindFirst (find_path,&find_h,find_name,&file_info);
     00000108 940B                   MOV.W       L670+4,R4  ; H'008C
     0000010A 67F3                   MOV         R15,R7
     0000010C D30C                   MOV.L       L670+34,R3 ; _Bfile_FindFirst
@@ -189,6 +274,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000110 7714                   ADD         #20,R7
     00000112 65F3                   MOV         R15,R5
     00000114 7508                   ADD         #8,R5
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    5
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000116 430B                   JSR         @R3
     00000118 34FC                   ADD         R15,R4
     0000011A A01E                   BRA         L669
@@ -199,15 +293,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000122 008C                   .DATA.W     H'008C
     00000124 00F0                   .DATA.W     H'00F0
     00000126 0000                   .DATA.W     0
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE    4
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000128 <00000000>             .DATA.L     _strlen
     0000012C <00000000>             .DATA.L     L527
     00000130 <00000000>             .DATA.L     _Bfile_CreateDirectory
@@ -219,6 +304,8 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000148 <00000000>             .DATA.L     _Bfile_FindClose
     0000014C <00000000>             .DATA.L     _malloc
     00000150              L626:                             
+      Plane_File    74                            else 
+      Plane_File    75                                    ret=Bfile_FindNext(find_h,find_name,&file_info);
     00000150 66F3                   MOV         R15,R6
     00000152 7614                   ADD         #20,R6
     00000154 65D3                   MOV         R13,R5
@@ -226,8 +313,11 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000158 54F2                   MOV.L       @(8,R15),R4
     0000015A              L669:                             
     0000015A 6403                   MOV         R0,R4
+      Plane_File    76                            if(ret!=0)  //if 
     0000015C 2448                   TST         R4,R4
     0000015E 8B18                   BF          L629
+      Plane_File    77                                    break;
+      Plane_File    78                            strncpy((files+13*i),PMFontToChar(find_name,str),13);
     00000160 956D                   MOV.W       L672,R5    ; H'00F0
     00000162 35FC                   ADD         R15,R5
     00000164 BF69                   BSR         _PMFontToChar
@@ -240,6 +330,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000172 349C                   ADD         R9,R4
     00000174 430B                   JSR         @R3
     00000176 E60D                   MOV         #13,R6
+      Plane_File    79                            if(strcmp((files+13*i),setup_data.pmroute_name)==0) //ÎÄ¼þÑ¡ÖÐºó£¬ÏÖÔÚ¼ÇÒäÎ»ÖÃ
     00000178 D532                   MOV.L       L672+6,R5  ; H'0000002B+_setup_data
     0000017A E40D                   MOV         #13,R4
     0000017C D332                   MOV.L       L672+10,R3 ; __slow_strcmp1
@@ -249,37 +340,40 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000184 349C                   ADD         R9,R4
     00000186 2008                   TST         R0,R0
     00000188 8B00                   BF          L630
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    6
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
+      Plane_File    80                            index=i; 
     0000018A 6EC3                   MOV         R12,R14
     0000018C              L630:                             
+      Plane_File    81                            i++;
     0000018C 7C01                   ADD         #1,R12
+      Plane_File    82                            bFindFirst=FALSE;  //ÁîÖµÎª¼Ù ¼´=0
     0000018E AFB8                   BRA         L625
     00000190 2FA0                   MOV.B       R10,@R15
     00000192              L629:                             
-
+      Plane_File    83                    }
+      Plane_File    84                    Bfile_FindClose(find_h);  //Bfile_FindClose ¹Ø±ÕËÑË÷Ö¸¶¨´¦Àíº¯Êý
     00000192 D32E                   MOV.L       L672+14,R3 ; _Bfile_FindClose
     00000194 430B                   JSR         @R3
     00000196 54F2                   MOV.L       @(8,R15),R4
     00000198 52F3                   MOV.L       @(12,R15),R2
+} ;
     0000019A 6B83                   MOV         R8,R11
     0000019C 6CA3                   MOV         R10,R12
     0000019E ED04                   MOV         #4,R13
     000001A0 72FF                   ADD         #-1,R2
     000001A2 6423                   MOV         R2,R4
     000001A4 2F42                   MOV.L       R4,@R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE    5
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000001A6              L632:                             
-
     000001A6 2BB8                   TST         R11,R11
     000001A8 896A                   BT          L633
-
     000001AA D329                   MOV.L       L672+18,R3 ; _Bdisp_AllClr_VRAM
     000001AC 430B                   JSR         @R3
     000001AE 0009                   NOP
@@ -313,6 +407,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000001E0 8B00                   BF          L637
     000001E2 6DF2                   MOV.L       @R15,R13
     000001E4              L637:                             
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    7
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000001E4 4C11                   CMP/PZ      R12
     000001E6 8900                   BT          L638
     000001E8 6CA3                   MOV         R10,R12
@@ -334,15 +437,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000204 2F26                   MOV.L       R2,@-R15
     00000206 4508                   SHLL2       R5
     00000208 D315                   MOV.L       L672+34,R3 ; _PrintfXY
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE    6
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     0000020A 4500                   SHLL        R5
     0000020C 7516                   ADD         #22,R5
     0000020E 430B                   JSR         @R3
@@ -379,6 +473,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000248 <00000000>             .DATA.L     __slow_strcmp1
     0000024C <00000000>             .DATA.L     _Bfile_FindClose
     00000250 <00000000>             .DATA.L     _Bdisp_AllClr_VRAM
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    8
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000254 <00000000>             .DATA.L     L553
     00000258 <00000000>             .DATA.L     _DispStr
     0000025C <00000000>             .DATA.L     L557
@@ -400,15 +503,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000282 64F3                   MOV         R15,R4
     00000284 430B                   JSR         @R3
     00000286 7404                   ADD         #4,R4
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE    7
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000288 9272                   MOV.W       L673,R2    ; H'7542
     0000028A 53F1                   MOV.L       @(4,R15),R3
     0000028C 3320                   CMP/EQ      R2,R3
@@ -445,6 +539,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002C2 420B                   JSR         @R2
     000002C4 50F4                   MOV.L       @(16,R15),R0
     000002C6 D231                   MOV.L       L673+28,R2 ; _free
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    9
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000002C8 420B                   JSR         @R2
     000002CA 6493                   MOV         R9,R4
     000002CC A00C                   BRA         L650
@@ -466,15 +569,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000002E6 E0FF                   MOV         #-1,R0
     000002E8              L650:                             
     000002E8 9146                   MOV.W       L673+8,R1  ; H'0124
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE    8
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000002EA 3F1C                   ADD         R1,R15
     000002EC 4F16                   LDS.L       @R15+,MACL
     000002EE 4F26                   LDS.L       @R15+,PR
@@ -510,8 +604,16 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000326 6403                   MOV         R0,R4
     00000328 4411                   CMP/PZ      R4
     0000032A 8903                   BT          L653
-
     0000032C 7F5C                   ADD         #92,R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE   10
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000032E 4F26                   LDS.L       @R15+,PR
     00000330 000B                   RTS
     00000332 E000                   MOV         #0,R0
@@ -533,15 +635,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000034A 2F46                   MOV.L       R4,@-R15
     0000034C 2F36                   MOV.L       R3,@-R15
     0000034E 64F3                   MOV         R15,R4
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE    9
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000350 D210                   MOV.L       L673+36,R2 ; _sprintf
     00000352 420B                   JSR         @R2
     00000354 7408                   ADD         #8,R4
@@ -575,10 +668,18 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000398 <00000000>             .DATA.L     _Bfile_OpenFile
     0000039C <00000000>             .DATA.L     _Bfile_CloseFile
     000003A0 <00000000>             .DATA.L     _Bfile_DeleteFile
-
     000003A4              _SavePMFile:                     ; function: SavePMFile
                                                            ; frame size=116
     000003A4 2FE6                   MOV.L       R14,@-R15
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE   11
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000003A6 2FD6                   MOV.L       R13,@-R15
     000003A8 4F22                   STS.L       PR,@-R15
     000003AA 4F12                   STS.L       MACL,@-R15
@@ -600,15 +701,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003CA 420B                   JSR         @R2
     000003CC 64E3                   MOV         R14,R4
     000003CE E34C                   MOV         #76,R3
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE   10
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000003D0 DD66                   MOV.L       L675+14,R13; _pmroute
     000003D2 52D1                   MOV.L       @(4,R13),R2
     000003D4 0237                   MUL.L       R3,R2
@@ -631,156 +723,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000003F6 65D3                   MOV         R13,R5
     000003F8 430B                   JSR         @R3
     000003FA 64E3                   MOV         R14,R4
-      Plane_File     2    #include "MyFont.h"
-
-
-      Plane_File     3    #include "runmain.h"
-      Plane_File     4    
-      Plane_File     5    
-      Plane_File     6    
-      Plane_File     7    FONTCHARACTER * PMCharToFont(const char *cFileName,FONTCHARACTER *fFileName); //*PMCharToFont*
-      Plane_File     8    char * PMFontToChar(const FONTCHARACTER *fFileName,char *cFileName); //*PMFontToChar*
-      Plane_File     9    
-      Plane_File    10    //////////////////////////////////////////////////////////////
-      Plane_File    11    //                                        Char <=> Font
-      Plane_File    12    ///////////////////////////////////////////////////////////////
-      Plane_File    13    FONTCHARACTER * PMCharToFont(const char *cFileName,FONTCHARACTER *fFileName)
-      Plane_File    14    {
-      Plane_File    15            int i,len = strlen(cFileName);
-      Plane_File    16            for(i=0; i<len ;++i)
-      Plane_File    17                    fFileName[i] = cFileName[i];
-      Plane_File    18            fFileName[i]=0;
-      Plane_File    19            return fFileName;
-      Plane_File    20    }
-      Plane_File    21    char * PMFontToChar(const FONTCHARACTER *fFileName,char *cFileName)
-      Plane_File    22    {
-      Plane_File    23            int i = 0;
-      Plane_File    24            while((cFileName[i]=fFileName[i])!=0)++i;
-      Plane_File    25            return cFileName;
-      Plane_File    26    }
-      Plane_File    27    
-      Plane_File    28    ///////////////////////////////////////////////////////////////
-      Plane_File    29    //                                              File Directory
-      Plane_File    30    ///////////////////////////////////////////////////////////////
-      Plane_File    31    int PMCreateDirectory()   //*PMCreateDirectory*
-      Plane_File    32    {
-      Plane_File    33            FONTCHARACTER f_path_name[20];
-      Plane_File    34            Bfile_CreateDirectory(PMCharToFont("\\\\crd0\\PM",f_path_name));
-      Plane_File    35    }
-      Plane_File    36    
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE   11
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      Plane_File    37    char szPMDir[]="\\\\crd0\\PM";  //*szPMDir[]*
-      Plane_File    38    //char szPMDir[]="\\\\fls0\\PM";
-      Plane_File    39    
-      Plane_File    40    ///////////////////////////////////////////////////////////////
-      Plane_File    41    //                                                      File List
-      Plane_File    42    ///////////////////////////////////////////////////////////////
-      Plane_File    43    int SelectPMFile (char * file_name)  //*SelectPMFile*
-      Plane_File    44    // -1 no file , 1 complate ,0 cancel
-      Plane_File    45    {
-      Plane_File    46            int key;
-      Plane_File    47            char str[50]; //×Ö·ûÊý×é³¤¶ÈÏÂ±ê´Ó0¿ªÊ¼£¬¹²50¸öÔªËØ
-      Plane_File    48            FONTCHARACTER find_path[50];   //»ñµÃÂ·¾¶
-      Plane_File    49            FONTCHARACTER find_name[50];   //»ñµÃÃû×Ö
-      Plane_File    50            int find_h;
-      Plane_File    51            int size = 0;
-      Plane_File    52            int top = 0;
-      Plane_File    53            int buttom = 0;
-      Plane_File    54            int index,r,y;
-      Plane_File    55            char *files;
-      Plane_File    56            FILE_INFO file_info;
-      Plane_File    57    //      CharToFont("\\\\fls0\\JDF\\*.pm",find_path); //*pm*
-      Plane_File    58            sprintf(str,"%s\\*.pm",szPMDir); //*pm*
-      Plane_File    59            PMCharToFont(str,find_path);
-      Plane_File    60            if(Bfile_FindFirst (find_path,&find_h,find_name,&file_info)==0)  //º¯ÊýËÑË÷Ä¿Â¼ÖÐÎÄ¼þµÄÃû³Æ·ûºÏÖ¸¶
-                         +¨µÄÎÄ¼þÃû
-ÍÊÇÎª
-                         +Õæ£¬¼´true£»µ±ÖµÎª0Ê±Îª¼Ù£¬¼´false£»
-      Plane_File    64                    size ++;  //Ê¹ÓÃsizeÖ®ºóÔÙ¼ÓÒ»£¨ÏÈ¼ÆËãÔÙ²Ù×÷£©
-      Plane_File    65                    while(Bfile_FindNext(find_h,find_name,&file_info)==0) //Bfile_FindNext º¯ÊýÊ¹ÓÃËÑË÷´¦Àí¶¨Î
-                         +»Æ¥ÅäÒ»¸ö¸ø¶¨Ãû³ÆµÄÎÄ¼þÃû³Æ¡£
-      Plane_File    66                    size++;
-      Plane_File    67                    Bfile_FindClose(find_h);  //Bfile_FindClose ¹Ø±ÕËÑË÷Ö¸¶¨´¦Àíº¯Êý
-
-      Plane_File    73                                    ret=Bfile_FindFirst (find_path,&find_h,find_name,&file_info);
-      Plane_File    74                            else 
-      Plane_File    75                                    ret=Bfile_FindNext(find_h,find_name,&file_info);
-      Plane_File    76                            if(ret!=0)  //if 
-      Plane_File    77                                    break;
-      Plane_File    78                            strncpy((files+13*i),PMFontToChar(find_name,str),13);
-      Plane_File    79                            if(strcmp((files+13*i),setup_data.pmroute_name)==0) //ÎÄ¼þÑ¡ÖÐºó£¬ÏÖÔÚ¼ÇÒäÎ»ÖÃ
-      Plane_File    80                            index=i; 
-      Plane_File    81                            i++;
-      Plane_File    82                            bFindFirst=FALSE;  //ÁîÖµÎª¼Ù ¼´=0
-      Plane_File    83                    }
-      Plane_File    84                    Bfile_FindClose(find_h);  //Bfile_FindClose ¹Ø±ÕËÑË÷Ö¸¶¨´¦Àíº¯Êý
-} ;
-      Plane_File   232    static FONTCHARACTER IniPMFile[] = { '\\','\\','c','r','d','0','\\','j','d','f','.','i','n','i' ,'\0'} ;
-      Plane_File   233    
-      Plane_File   234    
-      Plane_File   235    void SaveIniPMFile()
-      Plane_File   236    {
-      Plane_File   237            int ptr = -1;
-      Plane_File   238            int ln;
-      Plane_File   239            Bfile_DeleteFile(IniPMFile);
-      Plane_File   240            ln=strlen(setup_data.jdfroute_name);
-      Plane_File   241            if(ln==0)
-      Plane_File   242                    return;
-      Plane_File   243            if (Bfile_CreateFile(IniPMFile, ln) < 0) //Error("´´½¨ÎÄ¼þÊ§°Ü") ;
-      Plane_File   244                    return;
-      Plane_File   245            //      else Error("´´½¨ÎÄ¼þOK") ;
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE   12
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
-      Plane_File   246            ptr = Bfile_OpenFile(IniPMFile, _OPENMODE_WRITE) ;  // Bfile_OpenFile : ´ò¿ªÒ»¸öÏÖÓÐµÄÎÄ¼þ¡£
-      Plane_File   247            if (ptr >= 0) {
-      Plane_File   248                    Bfile_WriteFile(ptr, setup_data.pmroute_name, ln) ;
-      Plane_File   249                    Bfile_CloseFile(ptr) ;
-      Plane_File   250            }
-      Plane_File   251    }
-      Plane_File   252    
-      Plane_File   253    int LoadLastDataPMFile()
-      Plane_File   254    {
-      Plane_File   255            char strFileName[50]; 
-      Plane_File   256            int reg_ptr = -1;
-      Plane_File   257            int ln;
-      Plane_File   258            if(setup_data.pmroute_name[0]==0)
-      Plane_File   259            {
-      Plane_File   260                    reg_ptr = Bfile_OpenFile(IniPMFile, _OPENMODE_READ) ;
-      Plane_File   261                    if (reg_ptr >= 0) {
-      Plane_File   262                            ln=Bfile_GetFileSize(reg_ptr);
-      Plane_File   263                            if(ln>0)
-      Plane_File   264                            {   
-      Plane_File   265                                    if(ln>=sizeof(setup_data.pmroute_name)-1)
-      Plane_File   266                                       ln=sizeof(setup_data.pmroute_name)-1;
-      Plane_File   267                                    Bfile_ReadFile(reg_ptr, setup_data.pmroute_name,ln,0) ;
-      Plane_File   268                                    setup_data.pmroute_name[ln]=0;
-      Plane_File   269                            }
-      Plane_File   270                            Bfile_CloseFile(reg_ptr) ;
-      Plane_File   271                            //PopUpWin(1);
-      Plane_File   272                    //locate(7,4);Print(setup_data.JDFroute_name);
-      Plane_File   273                    //GetKey(&key);
-      Plane_File   274                            //sprintf(strFileName,"\\\\crd0\\SRD\\%s",setup_data.JDFroute_name);
-      Plane_File   275                            LoadPMFile(setup_data.pmroute_name);
-      Plane_File   276                            return 1;
-      Plane_File   277                    }               
-      Plane_File   278            }
-      Plane_File   279            return 0;
-      Plane_File   280    }
     000003FC D25E                   MOV.L       L675+26,R2 ; _Bfile_SeekFile
     000003FE E508                   MOV         #8,R5
     00000400 420B                   JSR         @R2
@@ -795,6 +737,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000412 64E3                   MOV         R14,R4
     00000414 D35A                   MOV.L       L675+34,R3 ; _Bfile_CloseFile
     00000416 430B                   JSR         @R3
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE   12
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000418 64E3                   MOV         R14,R4
     0000041A E000                   MOV         #0,R0
     0000041C 7F64                   ADD         #100,R15
@@ -803,15 +754,6 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000422 6DF6                   MOV.L       @R15+,R13
     00000424 000B                   RTS
     00000426 6EF6                   MOV.L       @R15+,R14
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE   13
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000428              _LoadPMFile:                     ; function: LoadPMFile
                                                            ; frame size=116
     00000428 2FE6                   MOV.L       R14,@-R15
@@ -861,6 +803,15 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000480 410B                   JSR         @R1
     00000482 64E3                   MOV         R14,R4
     00000484 D33E                   MOV.L       L675+34,R3 ; _Bfile_CloseFile
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE   13
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     00000486 430B                   JSR         @R3
     00000488 64E3                   MOV         R14,R4
     0000048A A001                   BRA         L659
@@ -869,54 +820,72 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     0000048E E000                   MOV         #0,R0
     00000490              L659:                             
     00000490 7F5C                   ADD         #92,R15
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE   14
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     00000492 4F16                   LDS.L       @R15+,MACL
     00000494 4F26                   LDS.L       @R15+,PR
     00000496 6DF6                   MOV.L       @R15+,R13
     00000498 000B                   RTS
     0000049A 6EF6                   MOV.L       @R15+,R14
+      Plane_File   232    static FONTCHARACTER IniPMFile[] = { '\\','\\','c','r','d','0','\\','j','d','f','.','i','n','i' ,'\0'} ;
+      Plane_File   233    
+      Plane_File   234    
+      Plane_File   235    void SaveIniPMFile()
     0000049C              _SaveIniPMFile:                  ; function: SaveIniPMFile
                                                            ; frame size=12
     0000049C 2FE6                   MOV.L       R14,@-R15
     0000049E 2FD6                   MOV.L       R13,@-R15
     000004A0 4F22                   STS.L       PR,@-R15
+      Plane_File   236    {
+      Plane_File   237            int ptr = -1;
+      Plane_File   238            int ln;
+      Plane_File   239            Bfile_DeleteFile(IniPMFile);
     000004A2 DD3A                   MOV.L       L675+46,R13; __$IniPMFile
     000004A4 D330                   MOV.L       L675+10,R3 ; _Bfile_DeleteFile
     000004A6 430B                   JSR         @R3
     000004A8 64D3                   MOV         R13,R4
+      Plane_File   240            ln=strlen(setup_data.jdfroute_name);
     000004AA D439                   MOV.L       L675+50,R4 ; H'00000004+_setup_data
     000004AC D239                   MOV.L       L675+54,R2 ; _strlen
     000004AE 420B                   JSR         @R2
     000004B0 0009                   NOP
     000004B2 6E03                   MOV         R0,R14
+      Plane_File   241            if(ln==0)
     000004B4 2EE8                   TST         R14,R14
     000004B6 8917                   BT          L661
+      Plane_File   242                    return;
+      Plane_File   243            if (Bfile_CreateFile(IniPMFile, ln) < 0) //Error("´´½¨ÎÄ¼þÊ§°Ü") ;
     000004B8 D22D                   MOV.L       L675+18,R2 ; _Bfile_CreateFile
     000004BA 65E3                   MOV         R14,R5
     000004BC 420B                   JSR         @R2
     000004BE 64D3                   MOV         R13,R4
     000004C0 4011                   CMP/PZ      R0
     000004C2 8B11                   BF          L661
+      Plane_File   244                    return;
+      Plane_File   245            //      else Error("´´½¨ÎÄ¼þOK") ;
+      Plane_File   246            ptr = Bfile_OpenFile(IniPMFile, _OPENMODE_WRITE) ;  // Bfile_OpenFile : ´ò¿ªÒ»¸öÏÖÓÐµÄÎÄ¼þ¡£
     000004C4 D22B                   MOV.L       L675+22,R2 ; _Bfile_OpenFile
     000004C6 E502                   MOV         #2,R5
     000004C8 420B                   JSR         @R2
     000004CA 64D3                   MOV         R13,R4
     000004CC 6D03                   MOV         R0,R13
+      Plane_File   247            if (ptr >= 0) {
     000004CE 4D11                   CMP/PZ      R13
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE   14
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     000004D0 8B0A                   BF          L661
+      Plane_File   248                    Bfile_WriteFile(ptr, setup_data.pmroute_name, ln) ;
     000004D2 66E3                   MOV         R14,R6
     000004D4 D530                   MOV.L       L675+58,R5 ; H'0000002B+_setup_data
     000004D6 D229                   MOV.L       L675+30,R2 ; _Bfile_WriteFile
     000004D8 420B                   JSR         @R2
     000004DA 64D3                   MOV         R13,R4
+      Plane_File   249                    Bfile_CloseFile(ptr) ;
     000004DC 4F26                   LDS.L       @R15+,PR
     000004DE 64D3                   MOV         R13,R4
     000004E0 D327                   MOV.L       L675+34,R3 ; _Bfile_CloseFile
@@ -924,48 +893,66 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     000004E4 432B                   JMP         @R3
     000004E6 6EF6                   MOV.L       @R15+,R14
     000004E8              L661:                             
+      Plane_File   250            }
+      Plane_File   251    }
     000004E8 4F26                   LDS.L       @R15+,PR
     000004EA 6DF6                   MOV.L       @R15+,R13
     000004EC 000B                   RTS
     000004EE 6EF6                   MOV.L       @R15+,R14
+      Plane_File   252    
+      Plane_File   253    int LoadLastDataPMFile()
     000004F0              _LoadLastDataPMFile:             ; function: LoadLastDataPMFile
                                                            ; frame size=68
     000004F0 2FE6                   MOV.L       R14,@-R15
     000004F2 2FD6                   MOV.L       R13,@-R15
     000004F4 2FC6                   MOV.L       R12,@-R15
     000004F6 4F22                   STS.L       PR,@-R15
+      Plane_File   254    {
+      Plane_File   255            char strFileName[50]; 
+      Plane_File   256            int reg_ptr = -1;
+      Plane_File   257            int ln;
+      Plane_File   258            if(setup_data.pmroute_name[0]==0)
     000004F8 DC28                   MOV.L       L675+62,R12; _setup_data
-
-
-
-
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE   15
-
-
-SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
-
     000004FA 7FCC                   ADD         #-52,R15
     000004FC 63C3                   MOV         R12,R3
     000004FE 732B                   ADD         #43,R3
     00000500 6230                   MOV.B       @R3,R2
     00000502 2228                   TST         R2,R2
     00000504 8B24                   BF          L664
+      Plane_File   259            {
+      Plane_File   260                    reg_ptr = Bfile_OpenFile(IniPMFile, _OPENMODE_READ) ;
     00000506 D421                   MOV.L       L675+46,R4 ; __$IniPMFile
     00000508 D21A                   MOV.L       L675+22,R2 ; _Bfile_OpenFile
     0000050A 420B                   JSR         @R2
     0000050C E501                   MOV         #1,R5
     0000050E 6D03                   MOV         R0,R13
+      Plane_File   261                    if (reg_ptr >= 0) {
     00000510 4D11                   CMP/PZ      R13
     00000512 8B1D                   BF          L664
+      Plane_File   262                            ln=Bfile_GetFileSize(reg_ptr);
     00000514 D222                   MOV.L       L675+66,R2 ; _Bfile_GetFileSize
     00000516 420B                   JSR         @R2
     00000518 64D3                   MOV         R13,R4
     0000051A 6E03                   MOV         R0,R14
+      Plane_File   263                            if(ln>0)
+
+
+
+
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE   15
+
+
+SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
+
     0000051C 4E15                   CMP/PL      R14
     0000051E 8B0F                   BF          L666
+      Plane_File   264                            {   
+      Plane_File   265                                    if(ln>=sizeof(setup_data.pmroute_name)-1)
     00000520 E40C                   MOV         #12,R4
     00000522 3E42                   CMP/HS      R4,R14
     00000524 8F01                   BF/S        L667
+      Plane_File   266                                       ln=sizeof(setup_data.pmroute_name)-1;
+      Plane_File   267                                    Bfile_ReadFile(reg_ptr, setup_data.pmroute_name,ln,0) ;
     00000526 E700                   MOV         #0,R7
     00000528 6E43                   MOV         R4,R14
     0000052A              L667:                             
@@ -975,22 +962,35 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
     00000530 752B                   ADD         #43,R5
     00000532 430B                   JSR         @R3
     00000534 64D3                   MOV         R13,R4
+      Plane_File   268                                    setup_data.pmroute_name[ln]=0;
     00000536 62C3                   MOV         R12,R2
     00000538 722B                   ADD         #43,R2
     0000053A 3E2C                   ADD         R2,R14
     0000053C E300                   MOV         #0,R3
     0000053E 2E30                   MOV.B       R3,@R14
     00000540              L666:                             
+      Plane_File   269                            }
+      Plane_File   270                            Bfile_CloseFile(reg_ptr) ;
     00000540 D20F                   MOV.L       L675+34,R2 ; _Bfile_CloseFile
     00000542 420B                   JSR         @R2
     00000544 64D3                   MOV         R13,R4
+      Plane_File   271                            //PopUpWin(1);
+      Plane_File   272                    //locate(7,4);Print(setup_data.JDFroute_name);
+      Plane_File   273                    //GetKey(&key);
+      Plane_File   274                            //sprintf(strFileName,"\\\\crd0\\SRD\\%s",setup_data.JDFroute_name);
+      Plane_File   275                            LoadPMFile(setup_data.pmroute_name);
     00000546 64C3                   MOV         R12,R4
     00000548 BF6E                   BSR         _LoadPMFile
     0000054A 742B                   ADD         #43,R4
+      Plane_File   276                            return 1;
     0000054C A001                   BRA         L668
     0000054E E001                   MOV         #1,R0
     00000550              L664:                             
+      Plane_File   277                    }               
+      Plane_File   278            }
+      Plane_File   279            return 0;
     00000550 E000                   MOV         #0,R0
+      Plane_File   280    }
     00000552              L668:                             
     00000552 7F34                   ADD         #52,R15
     00000554 4F26                   LDS.L       @R15+,PR
@@ -1005,7 +1005,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE   16
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE   16
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -1071,7 +1071,7 @@ D   00000000              _szPMDir:                        ; static: szPMDir
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE   17
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE   17
 
 
 SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
@@ -1137,7 +1137,7 @@ SCT OFFSET   CODE       C LABEL     INSTRUCTION OPERAND    COMMENT
 
 
 
-SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 06-Jun-2015 22:51:17  PAGE    1
+SH SERIES C/C++ Compiler (Ver. 6.0C)                                                                 07-Jun-2015 00:11:49  PAGE    1
 
 
 ******** STATISTICS INFORMATION ********
@@ -1146,7 +1146,7 @@ SH SERIES C/C++ Compiler (Ver. 6.0C)                                            
 ********** ERROR INFORMATION ***********
 
 NUMBER OF ERRORS:           0
-NUMBER OF WARNINGS:        17
+NUMBER OF WARNINGS:         3
 
 
 
@@ -1206,5 +1206,5 @@ NUMBER OF INTERNAL/EXTERNAL SYMBOLS:            92
 *** COMMAND PARAMETER ***
 
 
-  -subcommand=C:\Users\ADMINI~1\AppData\Local\Temp\hmk7817.tmp 
+  -subcommand=C:\Users\¿­Åô\AppData\Local\Temp\hmkAA5.tmp 
 
